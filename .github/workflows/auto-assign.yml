@@ -1,0 +1,17 @@
+name: Auto Assign PRs
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  assign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign PR
+        uses: kentaro-m/auto-assign-action@v2.0.0
+        with:
+          reviewers: 'danielcdz'
+          assignees: 'danielcdz'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
