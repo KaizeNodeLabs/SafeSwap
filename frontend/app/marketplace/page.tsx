@@ -18,7 +18,7 @@ import {
 	SidebarTrigger,
 } from "@/app/components/ui/sidebar";
 import { Slider } from "@/app/components/ui/slider";
-import { Menu as HamIcon, Search, ShoppingCart } from "lucide-react";
+import { Menu as HamIcon, Search, ShoppingCart, Wallet } from "lucide-react";
 import { Dispatch, SetStateAction, useState } from "react";
 import ImageCarousel from "../components/ui/image-carrousel";
 
@@ -64,9 +64,18 @@ const products: Product[] = [
 		price: 699,
 		category: "Electronics",
 		images: [
-			{ src: "/images/samsung-galaxy-s24-fe.webp", alt: "Samsung Galaxy S24 FE" },
-			{ src: "/images/samsung-galaxy-s24-fe.webp", alt: "Samsung Galaxy S24 FE" },
-			{ src: "/images/samsung-galaxy-s24-fe.webp", alt: "Samsung Galaxy S24 FE" },
+			{
+				src: "/images/samsung-galaxy-s24-fe.webp",
+				alt: "Samsung Galaxy S24 FE",
+			},
+			{
+				src: "/images/samsung-galaxy-s24-fe.webp",
+				alt: "Samsung Galaxy S24 FE",
+			},
+			{
+				src: "/images/samsung-galaxy-s24-fe.webp",
+				alt: "Samsung Galaxy S24 FE",
+			},
 		],
 	},
 	{
@@ -179,7 +188,9 @@ function SidebarComponent({
 							max={1500}
 							step={10}
 							value={priceRange}
-							onValueChange={(value) => setPriceRange(value as [number, number])}
+							onValueChange={(value) =>
+								setPriceRange(value as [number, number])
+							}
 							className="mb-3"
 						/>
 						<div className="flex justify-between text-lg">
@@ -229,9 +240,15 @@ function HeaderComponent({ searchTerm, setSearchTerm }: HeaderComponentProps) {
 					onChange={(e) => setSearchTerm(e.target.value)}
 					className="w-[16rem] h-[3rem]"
 				/>
+
 				<Button size="icon" variant="ghost">
 					<Search className="h-5 w-5" />
 					<span className="sr-only">Search</span>
+				</Button>
+
+				<Button size="lg" className="group">
+					<Wallet className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
+					Connect Wallet
 				</Button>
 			</div>
 		</header>
