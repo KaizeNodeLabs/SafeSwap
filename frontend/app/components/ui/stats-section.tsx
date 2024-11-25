@@ -4,7 +4,7 @@ export function StatsSection() {
 	return (
 		<div className="relative py-20 overflow-hidden">
 			{/* Decorative elements */}
-			<div className="absolute inset-0 bg-primary/5 -skew-y-6 transform origin-top-left" />
+			<div className="absolute inset-0 bg-primary/5 transform origin-top-left" />
 
 			<div className="relative max-w-6xl mx-auto px-4">
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
