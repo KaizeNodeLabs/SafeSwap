@@ -1,12 +1,18 @@
 'use client';
-import { useState, Dispatch, SetStateAction } from 'react';
+import { type Dispatch, type SetStateAction, useState } from "react";
 import { Slider } from "@/app/components/ui/slider";
 import { Checkbox } from "@/app/components/ui/checkbox";
 import { Button } from "@/app/components/ui/button";
 import { Input } from "@/app/components/ui/input";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/app/components/ui/card";
 import { Sidebar, SidebarContent, SidebarHeader, SidebarProvider, SidebarTrigger } from "@/app/components/ui/sidebar";
-import { Search, Menu as HamIcon } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import {
+  Menu as HamIcon,
+  Search,
+  Home,
+} from "lucide-react";
+import { PersonIcon } from '@radix-ui/react-icons';
 
 interface Product {
   id: number;
@@ -69,7 +75,10 @@ export default function Marketplace() {
           handleCategoryChange={handleCategoryChange} 
         />
         <div className="flex-1 overflow-auto">
-          <HeaderComponent searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          <NavbarComponent
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+          />
           <ProductList products={filteredProducts} />
         </div>
       </div>
@@ -81,12 +90,23 @@ function SidebarComponent({ priceRange, setPriceRange, selectedCategories, handl
   return (
     <Sidebar>
       <SidebarHeader className="p-6 border-b">
-        <h2 className="text-xl font-semibold">Filters</h2>
+        <div className="flex items-center gap-2">
+          <PersonIcon className="h-6 w-6 text-gray-600" />
+          <h2 className="text-xl font-semibold">Hello, User</h2>
+        </div>
       </SidebarHeader>
-      <SidebarContent className="p-6">
+      <SidebarContent>
         <div className="space-y-8">
-          <div>
-            <h3 className="mb-2 text-lg font-medium">Price range</h3>
+          {/* Shop by Price */}
+          <div className="p-6">
+            <h3 className="mb-2 text-lg font-medium">Shop by Price</h3>
+            <div className="flex justify-between text-lg">
+            <div className="mb-4 flex justify-center text-lg">
+              <span>
+                ${priceRange[0].toFixed(2)} - ${priceRange[1].toFixed(2)}+
+              </span>
+            </div>
+            </div>
             <Slider
               min={0}
               max={1500}
@@ -95,13 +115,12 @@ function SidebarComponent({ priceRange, setPriceRange, selectedCategories, handl
               onValueChange={setPriceRange}
               className="mb-3"
             />
-            <div className="flex justify-between text-lg">
-              <span>${priceRange[0]}</span>
-              <span>${priceRange[1]}</span>
-            </div>
           </div>
-          <div>
-            <h3 className="mb-2 text-lg font-medium">Categories</h3>
+          {/* Divider */}
+          <div className="border-t"></div>
+          {/* Shop by Department */}
+          <div className="p-6">
+            <h3 className="mb-2 text-lg font-medium">Shop by Department</h3>
             <div className="space-y-3">
               {["Electronics", "Furniture", "Appliances", "Sports"].map((category) => (
                 <div key={category} className="flex items-center">
@@ -121,29 +140,69 @@ function SidebarComponent({ priceRange, setPriceRange, selectedCategories, handl
   );
 }
 
-function HeaderComponent({ searchTerm, setSearchTerm }: HeaderComponentProps) {
+function NavbarComponent({ searchTerm, setSearchTerm }: HeaderComponentProps) {
+  const pathname = usePathname();
+  const router = useRouter();
+  const showHomeButton = pathname?.includes("/marketplace");
+
   return (
-    <header className="flex items-center justify-between p-6 border-b">
-      <SidebarTrigger>
-        <Button variant="outline" size="icon">
-          <HamIcon className="h-6 w-6" />
-          <span className="sr-only">Toggle Sidebar</span>
-        </Button>
-      </SidebarTrigger>
-      <div className="flex items-center text-2xl space-x-3">
-        <Input
-          type="search"
-          placeholder="Search products..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-[16rem] h-[3rem]"
-        />
-        <Button size="icon" variant="ghost">
-          <Search className="h-5 w-5" />
-          <span className="sr-only">Search</span>
-        </Button>
+    <nav className="relative flex items-center justify-between flex-col md:flex-row p-4 md:p-6 border-b bg-white shadow-sm">
+      <div className="flex flex-col w-full">
+        <div>
+          {/* Left Section: Home Button */}
+          <div className="flex flex-col items-center gap-4 md:flex-row md:items-center md:gap-4 w-full md:w-auto">
+            {/* Home Button */}
+            {showHomeButton && (
+              <div className="flex justify-center mb-4 md:mb-0 md:absolute md:left-4 md:top-[26%] md:-translate-y-[26%] z-0 w-full md:w-auto">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="flex items-center gap-2 px-2 !h-12 w-full md:w-auto"
+                  onClick={() => router.push("/")}
+                >
+                  <Home className="h-5 w-5" />
+                  Home
+                </Button>
+              </div>
+            )}
+          </div>
+
+          {/* Center Section: Search Input */}
+          <div className="flex-grow flex justify-center w-full">
+            <div className="relative w-full max-w-[36rem] flex justify-center">
+              <div className="flex items-center w-full md:ml-3">
+                <Input
+                  type="search"
+                  placeholder="Search for products, brands, and more..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full h-12 px-4 pr-12 text-lg border rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-blue-300"
+                />
+                <Button
+                  size="icon"
+                  variant="ghost"
+                  className="absolute right-2 top-1/2 -translate-y-1/2"
+                >
+                  <Search className="h-6 w-6" />
+                  <span className="sr-only">Search</span>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="flex">
+          {/* Hamburger Menu */}
+          <SidebarTrigger>
+            <Button variant="outline" size="icon">
+              <HamIcon className="h-6 w-6" />
+            </Button>
+          </SidebarTrigger>
+          <div className="flex items-center gap-2 mt-2 p-1 bg-white hover:border hover:border-[#ccc] ml-4 text-sm cursor-pointer">
+            Today's Deals
+          </div>
+        </div>
       </div>
-    </header>
+    </nav>
   );
 }
 
