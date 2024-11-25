@@ -18,8 +18,16 @@ import {
 	SidebarTrigger,
 } from "@/app/components/ui/sidebar";
 import { Slider } from "@/app/components/ui/slider";
-import { Menu as HamIcon, Search, ShoppingCart, Wallet } from "lucide-react";
-import { Dispatch, SetStateAction, useState } from "react";
+import {
+	Menu as HamIcon,
+	Home,
+	MessageSquareMore,
+	Search,
+	ShoppingCart,
+	Wallet,
+} from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { type Dispatch, type SetStateAction, useState } from "react";
 import ImageCarousel from "../components/ui/image-carrousel";
 
 interface Product {
@@ -224,24 +232,44 @@ function SidebarComponent({
 }
 
 function HeaderComponent({ searchTerm, setSearchTerm }: HeaderComponentProps) {
+	const pathname = usePathname();
+	const router = useRouter();
+	const showHomeButton = pathname?.includes("/marketplace");
+
 	return (
 		<header className="flex items-center justify-between p-6 border-b">
-			<SidebarTrigger>
-				<Button variant="outline" size="icon">
-					<HamIcon className="h-6 w-6" />
-					<span className="sr-only">Toggle Sidebar</span>
-				</Button>
-			</SidebarTrigger>
-			<div className="flex items-center text-2xl space-x-3">
+			<div className="flex items-center gap-4 min-w-max">
+				<SidebarTrigger>
+					<Button variant="outline" size="icon">
+						<HamIcon className="h-6 w-6" />
+						<span className="sr-only">Toggle Sidebar</span>
+					</Button>
+				</SidebarTrigger>
+				{showHomeButton && (
+					<Button
+						variant="outline"
+						size="sm"
+						className="flex items-center gap-2 px-2"
+						onClick={() => router.push("/")}
+					>
+						<Home className="h-5 w-5" />
+						Home
+					</Button>
+				)}
+			</div>
+			<div className="relative w-full pl-2 max-w-[18.75rem] md:w-[18.75rem]">
 				<Input
 					type="search"
 					placeholder="Search products..."
 					value={searchTerm}
 					onChange={(e) => setSearchTerm(e.target.value)}
-					className="w-[16rem] h-[3rem]"
+					className="w-full h-8 pr-10"
 				/>
-
-				<Button size="icon" variant="ghost">
+				<Button
+					size="icon"
+					variant="ghost"
+					className="absolute right-0 top-0 h-full"
+				>
 					<Search className="h-5 w-5" />
 					<span className="sr-only">Search</span>
 				</Button>
@@ -271,12 +299,17 @@ function ProductList({ products }: ProductListProps) {
 						<CardContent>
 							<p className="text-lg text-gray-500">{product.category}</p>
 						</CardContent>
-						<CardFooter className="flex justify-between gap-2 items-center">
+						<CardFooter className="flex justify-between gap-2 items-center flex-wrap">
 							<span className="text-3xl font-bold">${product.price}</span>
-							<Button>
-								<ShoppingCart className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-								Add to Cart
-							</Button>
+							<div className="flex flex-col m-auto">
+								<Button className="mb-4">
+									<ShoppingCart className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+									Add to Cart
+								</Button>
+								<Button className="text-[16px] !bg-[#F5F5F5] !text-black border border-[#D1D1D1] px-4 py-2 flex items-center gap-2 hover:bg-[#E0E0E0] hover:border-[#B3B3B3]">
+									<MessageSquareMore /> Chat with Seller
+								</Button>
+							</div>
 						</CardFooter>
 					</Card>
 				))}
