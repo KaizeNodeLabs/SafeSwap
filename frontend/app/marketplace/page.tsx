@@ -29,6 +29,7 @@ import {
 import { usePathname, useRouter } from "next/navigation";
 import { type Dispatch, type SetStateAction, useState } from "react";
 import ImageCarousel from "../components/ui/image-carrousel";
+import ProductUploadModal from "../components/ui/product-upload-modal";
 
 interface Product {
 	id: number;
@@ -136,6 +137,7 @@ export default function Marketplace() {
 	const [priceRange, setPriceRange] = useState<[number, number]>([0, 1500]);
 	const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 	const [searchTerm, setSearchTerm] = useState<string>("");
+	const [showModal, setShowModal] = useState(false);
 
 	const handleCategoryChange = (category: string) => {
 		setSelectedCategories((prev) =>
@@ -169,7 +171,15 @@ export default function Marketplace() {
 						searchTerm={searchTerm}
 						setSearchTerm={setSearchTerm}
 					/>
+					<div className="flex justify-end px-6 mt-4">
+						<Button onClick={() => setShowModal(true)}>Add Product</Button>
+					</div>
+
 					<ProductList products={filteredProducts} />
+					<ProductUploadModal
+						isOpen={showModal}
+						onClose={() => setShowModal(false)}
+					/>
 				</div>
 			</div>
 		</SidebarProvider>
@@ -273,12 +283,11 @@ function HeaderComponent({ searchTerm, setSearchTerm }: HeaderComponentProps) {
 					<Search className="h-5 w-5" />
 					<span className="sr-only">Search</span>
 				</Button>
-
-				<Button size="lg" className="group">
-					<Wallet className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
-					Connect Wallet
-				</Button>
 			</div>
+			<Button size="lg" className="group">
+				<Wallet className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
+				Connect Wallet
+			</Button>
 		</header>
 	);
 }
