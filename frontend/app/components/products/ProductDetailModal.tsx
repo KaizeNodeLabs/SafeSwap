@@ -10,7 +10,7 @@ interface Product {
 	price: number;
 	category: string;
 }
-import { Star } from "lucide-react"; // Importamos el ícono de la estrella
+import { Star } from "lucide-react";
 
 function ProductDetailModal({
 	isOpen,
@@ -22,14 +22,11 @@ function ProductDetailModal({
 	product: Product | null;
 }) {
 	if (!product) return null;
-
-	// Función para generar las estrellas de acuerdo a la calificación
 	const renderStars = (rating: number) => {
-		const filledStars = Math.floor(rating); // Número de estrellas llenas
-		const halfStars = rating % 1 >= 0.5 ? 1 : 0; // Media estrella si la calificación es 0.5 o más
-		const emptyStars = 5 - (filledStars + halfStars); // Estrellas vacías
+		const filledStars = Math.floor(rating);
+		const halfStars = rating % 1 >= 0.5 ? 1 : 0;
+		const emptyStars = 5 - (filledStars + halfStars);
 
-		// Generamos el array de estrellas
 		return [
 			...Array(filledStars).fill("filled"),
 			...Array(halfStars).fill("half"),
@@ -37,7 +34,7 @@ function ProductDetailModal({
 		];
 	};
 
-	const rating = 4.3; // Ejemplo de calificación del producto, puedes cambiarlo a la calificación del producto real.
+	const rating = 4.3;
 
 	return (
 		<div
@@ -71,7 +68,6 @@ function ProductDetailModal({
 					<p className="mt-2 text-sm text-gray-500">{product.description}</p>
 				</div>
 
-				{/* Estrellas de calificación */}
 				<div className="mt-4 flex items-center">
 					{renderStars(rating).map((star, index) => {
 						if (star === "filled") {
@@ -92,7 +88,6 @@ function ProductDetailModal({
 					</span>
 				</div>
 
-				{/* Botón "Add to Cart" dentro del modal */}
 				<div className="mt-6 gap-4">
 					<Button className="bg-black text-white">
 						<ShoppingCart className="mr-2 h-4 w-4" />
