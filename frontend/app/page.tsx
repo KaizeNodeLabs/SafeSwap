@@ -7,21 +7,21 @@ import { useEffect, useState } from "react";
 import { IoMoon, IoSunny } from "react-icons/io5";
 
 export default function Home() {
-  const [dark, setDark] = useState(false);
+	const [dark, setDark] = useState(false);
 
-  useEffect(() => {
-    const darkMode = localStorage.getItem("darkMode");
-    if (darkMode) {
-      setDark(JSON.parse(darkMode));
-    }
-  }, []); 
+	useEffect(() => {
+		const darkMode = localStorage.getItem("darkMode");
+		if (darkMode) {
+			setDark(JSON.parse(darkMode));
+		}
+	}, []);
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      document.documentElement.classList.toggle("dark", dark);
-      localStorage.setItem("darkMode", JSON.stringify(dark));
-    }
-  }, [dark]);
+	useEffect(() => {
+		if (typeof window !== "undefined") {
+			document.documentElement.classList.toggle("dark", dark);
+			localStorage.setItem("darkMode", JSON.stringify(dark));
+		}
+	}, [dark]);
 
 	return (
 		<main className="flex min-h-screen flex-col">
