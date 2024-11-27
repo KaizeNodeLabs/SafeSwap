@@ -6,7 +6,7 @@ export function FeatureSection() {
 		{
 			icon: <Shield className="h-8 w-8" />,
 			title: "Smart Contract Escrow",
-			description: "Automated protection with Stellar smart contracts",
+			description: "Automated protection with Stellar smart contracts. Trustless work abstracts the complexities of smart contract configuration. It leverages the blockchain to ensure transactions are secure and transparent, providing fairness without bias in the marketplace.",
 			gradient: "from-blue-500 to-cyan-500",
 		},
 		{
