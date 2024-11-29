@@ -3,7 +3,6 @@
 import { FeatureSection } from "@/app/components/ui/feature-section";
 import { HeroSection } from "@/app/components/ui/hero-section";
 import { StatsSection } from "@/app/components/ui/stats-section";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { IoMoon, IoSunny } from "react-icons/io5";
 import { SafeSwapLogo } from "./components/ui/SafeSwapLogo";
