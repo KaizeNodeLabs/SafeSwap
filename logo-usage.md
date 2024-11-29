@@ -91,14 +91,3 @@ function MyComponent() {
   );
 }
 ```
-
-## 3. Branding Demo Page
-
-A /branding-demo page is available to showcase the SafeSwap logo in different contexts, including:
-
-Logo sizes
-Light and dark modes
-Placement within UI components
-View the Demo
-Start your development server.
-Navigate to http://localhost:3000/branding-demo in your browser.

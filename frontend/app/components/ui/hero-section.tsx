@@ -2,6 +2,7 @@ import { Button } from "@/app/components/ui/button";
 import { ArrowRight, Wallet } from "lucide-react";
 import Link from "next/link";
 import * as React from "react";
+import { SafeSwapLogo } from "./SafeSwapLogo";
 
 export function HeroSection() {
 	return (
@@ -13,6 +14,12 @@ export function HeroSection() {
 			<div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] dark:bg-[linear-gradient(to_right,#444_1px,transparent_1px),linear-gradient(to_bottom,#444_1px,transparent_1px)]" />
 
 			<div className="relative z-10">
+				<SafeSwapLogo
+					width={200}
+					height={50}
+					className="mx-auto mb-8 transition-opacity duration-300"
+				/>
+
 				<div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-8 dark:bg-primary/20 dark:text-primary/80">
 					<span className="relative flex h-2 w-2">
 						<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75 dark:opacity-50" />
