@@ -295,6 +295,7 @@ function HeaderComponent({ searchTerm, setSearchTerm }: HeaderComponentProps) {
 					</Button>
 				)}
 			</div>
+
 			<div className="relative w-full pl-2 max-w-[18.75rem] md:w-[18.75rem]">
 				<Input
 					type="search"
@@ -312,10 +313,17 @@ function HeaderComponent({ searchTerm, setSearchTerm }: HeaderComponentProps) {
 					<span className="sr-only">Search</span>
 				</Button>
 			</div>
-			<Button size="lg" className="group">
-				<Wallet className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
-				Connect Wallet
-			</Button>
+
+			<div className="flex items-center gap-2">
+				<Button size="lg" className="group">
+					<Wallet className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
+					Connect Wallet
+				</Button>
+
+				<Button size="lg" className="group" onClick={() => router.push("/cart")}> 
+					<ShoppingCart className="mr-2 h-5 w-5 transition-transform group-hover:scale-110" />
+				</Button>
+			</div>
 		</header>
 	);
 }
