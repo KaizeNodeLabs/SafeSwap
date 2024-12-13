@@ -2,8 +2,6 @@ import Link from "next/link";
 import * as React from "react";
 import { SafeSwapLogo } from "./SafeSwapLogo";
 
-console.log(SafeSwapLogo);
-
 export default function Footer() {
 	return (
 		<footer className="w-full border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 py-4">
