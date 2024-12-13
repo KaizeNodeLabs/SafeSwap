@@ -315,13 +315,13 @@ function HeaderComponent({ searchTerm, setSearchTerm }: HeaderComponentProps) {
 			</div>
 
 			<div className="flex items-center gap-2">
-				<Button size="lg" className="group">
+				<Button className="group">
 					<Wallet className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
 					Connect Wallet
 				</Button>
 
-				<Button size="lg" className="group" onClick={() => router.push("/cart")}> 
-					<ShoppingCart className="mr-2 h-5 w-5 transition-transform group-hover:scale-110" />
+				<Button className="group"> 
+					<ShoppingCart className="h-5 w-5 transition-transform group-hover:scale-110" />
 				</Button>
 			</div>
 		</header>
