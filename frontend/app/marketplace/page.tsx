@@ -2,6 +2,14 @@
 
 import ProductDetailModal from "@/app/components/products/ProductDetailModal";
 import { Button } from "@/app/components/ui/button";
+import { 
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuLabel,
+	DropdownMenuSeparator,
+	DropdownMenuTrigger,
+} from "@/app/components/ui/dropdown-menu";
 import {
 	Card,
 	CardContent,
@@ -27,6 +35,10 @@ import {
 	Search,
 	ShoppingCart,
 	Wallet,
+	User,
+	Settings,
+	List, 
+	History,
 } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { type Dispatch, type SetStateAction, useState } from "react";
@@ -312,10 +324,43 @@ function HeaderComponent({ searchTerm, setSearchTerm }: HeaderComponentProps) {
 					<span className="sr-only">Search</span>
 				</Button>
 			</div>
-			<Button size="lg" className="group">
-				<Wallet className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
-				Connect Wallet
-			</Button>
+
+			<div className="flex items-center gap-2">
+
+				<Button className="group">
+					<Wallet className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
+					Connect Wallet
+				</Button>
+				
+				<DropdownMenu>
+					<DropdownMenuTrigger asChild>
+						<Button className="group">
+							<User className="h-5 w-5 transition-transform group-hover:scale-110" />
+						</Button>
+					</DropdownMenuTrigger>
+					<DropdownMenuContent className="w-48">
+						<DropdownMenuLabel>User Menu</DropdownMenuLabel>
+						<DropdownMenuSeparator/>
+						<DropdownMenuItem>
+							<User className="mr-2 h-4 w-4" />
+							Profile
+						</DropdownMenuItem>
+						<DropdownMenuItem>
+							<List className="mr-2 h-4 w-4" />
+							My Listings
+						</DropdownMenuItem>
+						<DropdownMenuItem>
+							<History className="mr-2 h-4 w-4" />
+							Transaction History
+						</DropdownMenuItem>
+						<DropdownMenuItem>
+							<Settings className="mr-2 h-4 w-4" />
+							Settings
+						</DropdownMenuItem>
+					</DropdownMenuContent>
+				</DropdownMenu>
+			</div>
+
 		</header>
 	);
 }
