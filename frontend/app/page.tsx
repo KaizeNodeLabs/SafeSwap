@@ -1,12 +1,10 @@
 "use client";
-
 import { FeatureSection } from "@/app/components/ui/feature-section";
 import { HeroSection } from "@/app/components/ui/hero-section";
 import { StatsSection } from "@/app/components/ui/stats-section";
 import { useEffect, useState } from "react";
 import { IoMoon, IoSunny } from "react-icons/io5";
 import { SafeSwapLogo } from "./components/ui/SafeSwapLogo";
-import { Footer } from "./components/ui/footer";
 
 export default function Home() {
 	const [dark, setDark] = useState(false);
@@ -45,7 +43,6 @@ export default function Home() {
 			<HeroSection />
 			<StatsSection />
 			<FeatureSection />
-			<Footer />
 		</main>
 	);
 }
