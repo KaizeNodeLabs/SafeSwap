@@ -7,7 +7,7 @@ import { SafeSwapLogo } from "@/app/components/ui/SafeSwapLogo";
 import { Button } from "@/app/components/ui/button";
 import { Input } from "@/app/components/ui/input";
 
-import { Search, Wallet } from "lucide-react";
+import { Search, ShoppingCart, Wallet } from "lucide-react";
 import { IoMoon, IoSunny } from "react-icons/io5";
 
 interface HeaderProps {
@@ -64,6 +64,9 @@ export default function Header({ searchTerm, setSearchTerm }: HeaderProps) {
 				<Button size="lg" className="group">
 					<Wallet className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
 					Connect Wallet
+				</Button>
+				<Button className="group h-auto">
+					<ShoppingCart className="h-5 w-5 transition-transform group-hover:scale-110" />
 				</Button>
 				<button
 					onClick={() => setDark(!dark)}
