@@ -40,9 +40,9 @@ export function HeroSection() {
 
 				<div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
 					<Link href="/marketplace">
-						<Button variant="outline" size="lg" className="group">
+						<Button size="lg" className="group">
 							Explore Marketplace
-							<ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 dark:text-white" />
+							<ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
 						</Button>
 					</Link>
 				</div>
