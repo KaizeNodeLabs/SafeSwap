@@ -1,1 +1,1 @@
-export { ProductsPagination } from "./productos-pagination";
+export { ProductsPagination } from "./products-pagination";
