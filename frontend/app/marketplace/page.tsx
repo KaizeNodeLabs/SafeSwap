@@ -6,8 +6,6 @@ import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
-	DropdownMenuLabel,
-	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/app/components/ui/dropdown-menu";
 import {
@@ -339,8 +337,6 @@ function HeaderComponent({ searchTerm, setSearchTerm }: HeaderComponentProps) {
 						</Button>
 					</DropdownMenuTrigger>
 					<DropdownMenuContent className="w-48">
-						<DropdownMenuLabel>User Menu</DropdownMenuLabel>
-						<DropdownMenuSeparator/>
 						<DropdownMenuItem>
 							<User className="mr-2 h-4 w-4" />
 							Profile
