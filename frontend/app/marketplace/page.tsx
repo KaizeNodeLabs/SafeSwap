@@ -20,9 +20,9 @@ import {
 import { Slider } from "@/app/components/ui/slider";
 import { Eye, MessageSquareMore, ShoppingCart } from "lucide-react";
 import { type Dispatch, type SetStateAction, useState } from "react";
+import { ProductsPagination } from "../components/marketplace";
 import ImageCarousel from "../components/ui/image-carrousel";
 import ProductUploadModal from "../components/ui/product-upload-modal";
-import { ProductsPagination } from "../components/marketplace";
 
 interface Product {
 	id: number;
@@ -257,7 +257,7 @@ function ProductList({
 	onViewDetails,
 }: ProductListProps & { onViewDetails: (product: Product) => void }) {
 	return (
-		<main className="p-8 h-screen">
+		<main className="p-8">
 			<h1 className="text-3xl font-bold mb-8">Products</h1>
 			<div className="flex flex-wrap justify-center gap-8">
 				{products?.map((product) => (
