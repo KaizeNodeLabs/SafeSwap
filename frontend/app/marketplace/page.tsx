@@ -10,28 +10,19 @@ import {
 	CardTitle,
 } from "@/app/components/ui/card";
 import { Checkbox } from "@/app/components/ui/checkbox";
-import { Input } from "@/app/components/ui/input";
+import Header from "@/app/components/ui/header";
 import {
 	Sidebar,
 	SidebarContent,
 	SidebarHeader,
 	SidebarProvider,
-	SidebarTrigger,
 } from "@/app/components/ui/sidebar";
 import { Slider } from "@/app/components/ui/slider";
-import {
-	Eye,
-	Menu as HamIcon,
-	Home,
-	MessageSquareMore,
-	Search,
-	ShoppingCart,
-	Wallet,
-} from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
+import { Eye, MessageSquareMore, ShoppingCart } from "lucide-react";
 import { type Dispatch, type SetStateAction, useState } from "react";
 import ImageCarousel from "../components/ui/image-carrousel";
 import ProductUploadModal from "../components/ui/product-upload-modal";
+import { ProductsPagination } from "../components/marketplace";
 
 interface Product {
 	id: number;
@@ -47,11 +38,6 @@ interface SidebarComponentProps {
 	setPriceRange: Dispatch<SetStateAction<[number, number]>>;
 	selectedCategories: string[];
 	handleCategoryChange: (category: string) => void;
-}
-
-interface HeaderComponentProps {
-	searchTerm: string;
-	setSearchTerm: Dispatch<SetStateAction<string>>;
 }
 
 interface ProductListProps {
@@ -180,7 +166,7 @@ export default function Marketplace() {
 
 	return (
 		<SidebarProvider>
-			<div className="flex h-screen overflow-hidden">
+			<div className="flex min-h-screen">
 				<SidebarComponent
 					priceRange={priceRange}
 					setPriceRange={setPriceRange}
@@ -188,10 +174,7 @@ export default function Marketplace() {
 					handleCategoryChange={handleCategoryChange}
 				/>
 				<div className="flex-1 overflow-auto">
-					<HeaderComponent
-						searchTerm={searchTerm}
-						setSearchTerm={setSearchTerm}
-					/>
+					<Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
 					<div className="flex justify-end px-6 mt-4">
 						<Button onClick={() => setShowModal(true)}>Add Product</Button>
@@ -269,63 +252,12 @@ function SidebarComponent({
 	);
 }
 
-function HeaderComponent({ searchTerm, setSearchTerm }: HeaderComponentProps) {
-	const pathname = usePathname();
-	const router = useRouter();
-	const showHomeButton = pathname?.includes("/marketplace");
-
-	return (
-		<header className="flex items-center justify-between p-6 border-b">
-			<div className="flex items-center gap-4 min-w-max">
-				<SidebarTrigger>
-					<Button variant="outline" size="icon">
-						<HamIcon className="h-6 w-6" />
-						<span className="sr-only">Toggle Sidebar</span>
-					</Button>
-				</SidebarTrigger>
-				{showHomeButton && (
-					<Button
-						variant="outline"
-						size="sm"
-						className="flex items-center gap-2 px-2"
-						onClick={() => router.push("/")}
-					>
-						<Home className="h-5 w-5" />
-						Home
-					</Button>
-				)}
-			</div>
-			<div className="relative w-full pl-2 max-w-[18.75rem] md:w-[18.75rem]">
-				<Input
-					type="search"
-					placeholder="Search products..."
-					value={searchTerm}
-					onChange={(e) => setSearchTerm(e.target.value)}
-					className="w-full h-8 pr-10"
-				/>
-				<Button
-					size="icon"
-					variant="ghost"
-					className="absolute right-0 top-0 h-full"
-				>
-					<Search className="h-5 w-5" />
-					<span className="sr-only">Search</span>
-				</Button>
-			</div>
-			<Button size="lg" className="group">
-				<Wallet className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
-				Connect Wallet
-			</Button>
-		</header>
-	);
-}
-
 function ProductList({
 	products,
 	onViewDetails,
 }: ProductListProps & { onViewDetails: (product: Product) => void }) {
 	return (
-		<main className="p-8">
+		<main className="p-8 h-screen">
 			<h1 className="text-3xl font-bold mb-8">Products</h1>
 			<div className="flex flex-wrap justify-center gap-8">
 				{products?.map((product) => (
@@ -363,6 +295,7 @@ function ProductList({
 						</CardFooter>
 					</Card>
 				))}
+				<ProductsPagination />
 			</div>
 		</main>
 	);
