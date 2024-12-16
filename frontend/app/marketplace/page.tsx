@@ -10,27 +10,18 @@ import {
   CardTitle,
 } from "@/app/components/ui/card";
 import { Checkbox } from "@/app/components/ui/checkbox";
-import { Input } from "@/app/components/ui/input";
+import Header from "@/app/components/ui/header";
 import {
-  Sidebar,
-  SidebarContent,
-  SidebarHeader,
-  SidebarProvider,
-  SidebarTrigger,
+	Sidebar,
+	SidebarContent,
+	SidebarHeader,
+	SidebarProvider,
 } from "@/app/components/ui/sidebar";
 import { Slider } from "@/app/components/ui/slider";
-import {
-  Eye,
-  Menu as HamIcon,
-  Home,
-  MessageSquareMore,
-  Search,
-  ShoppingCart,
-  Wallet,
-} from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
+import { Eye, MessageSquareMore, ShoppingCart } from "lucide-react";
 import { type Dispatch, type SetStateAction, useState } from "react";
-import Image from "next/image";
+import { ProductsPagination } from "../components/marketplace";
+import ImageCarousel from "../components/ui/image-carrousel";
 import ProductUploadModal from "../components/ui/product-upload-modal";
 
 interface Product {
@@ -47,11 +38,6 @@ interface SidebarComponentProps {
   setPriceRange: Dispatch<SetStateAction<[number, number]>>;
   selectedCategories: string[];
   handleCategoryChange: (category: string) => void;
-}
-
-interface HeaderComponentProps {
-  searchTerm: string;
-  setSearchTerm: Dispatch<SetStateAction<string>>;
 }
 
 interface ProductListProps {
@@ -178,20 +164,17 @@ export default function Marketplace() {
     setIsModalOpen(false);
   };
 
-  return (
-    <SidebarProvider>
-      <div className="flex h-screen overflow-hidden">
-        <SidebarComponent
-          priceRange={priceRange}
-          setPriceRange={setPriceRange}
-          selectedCategories={selectedCategories}
-          handleCategoryChange={handleCategoryChange}
-        />
-        <div className="flex-1 overflow-auto">
-          <HeaderComponent
-            searchTerm={searchTerm}
-            setSearchTerm={setSearchTerm}
-          />
+	return (
+		<SidebarProvider>
+			<div className="flex min-h-screen">
+				<SidebarComponent
+					priceRange={priceRange}
+					setPriceRange={setPriceRange}
+					selectedCategories={selectedCategories}
+					handleCategoryChange={handleCategoryChange}
+				/>
+				<div className="flex-1 overflow-auto">
+					<Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
           <div className="flex justify-end px-6 mt-4">
             <Button onClick={() => setShowModal(true)}>Add Product</Button>
@@ -269,107 +252,51 @@ function SidebarComponent({
   );
 }
 
-function HeaderComponent({ searchTerm, setSearchTerm }: HeaderComponentProps) {
-  const pathname = usePathname();
-  const router = useRouter();
-  const showHomeButton = pathname?.includes("/marketplace");
-
-  return (
-    <header className="flex items-center justify-between p-6 border-b">
-      <div className="flex items-center gap-4 min-w-max">
-        <SidebarTrigger>
-          <Button variant="outline" size="icon">
-            <HamIcon className="h-6 w-6" />
-            <span className="sr-only">Toggle Sidebar</span>
-          </Button>
-        </SidebarTrigger>
-        {showHomeButton && (
-          <Button
-            variant="outline"
-            size="sm"
-            className="flex items-center gap-2 px-2"
-            onClick={() => router.push("/")}
-          >
-            <Home className="h-5 w-5" />
-            Home
-          </Button>
-        )}
-      </div>
-      <div className="relative w-full pl-2 max-w-[18.75rem] md:w-[18.75rem]">
-        <Input
-          type="search"
-          placeholder="Search products..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full h-8 pr-10"
-        />
-        <Button
-          size="icon"
-          variant="ghost"
-          className="absolute right-0 top-0 h-full"
-        >
-          <Search className="h-5 w-5" />
-          <span className="sr-only">Search</span>
-        </Button>
-      </div>
-      <Button size="lg" className="group">
-        <Wallet className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
-        Connect Wallet
-      </Button>
-    </header>
-  );
-}
-
 function ProductList({
   products,
   onViewDetails,
 }: ProductListProps & { onViewDetails: (product: Product) => void }) {
-  return (
-    <main className="p-8">
-      <h1 className="text-3xl font-bold mb-8">Products</h1>
-      <div className="flex flex-wrap justify-center gap-8">
-        {products?.map((product) => (
-          <Card key={product.id} className="hover:shadow-lg">
-            <CardHeader>
-              <Image
-                src={product.images[0].src}
-                alt={product.images[0].alt}
-                width={320}
-                height={320}
-                className="rounded-t-lg h-[320px]"
-              />
-              <CardTitle className="text-xl font-medium">
-                {product.name}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-lg text-gray-500">{product.category}</p>
-              <span className="text-3xl font-bold">${product.price}</span>
-            </CardContent>
-            <CardFooter className="flex justify-between gap-2 items-center flex-wrap">
-              <div className="flex flex-col m-auto">
-                <Button className="mb-4 bg-black">
-                  <ShoppingCart className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  Add to Cart
-                </Button>
-                <div className="flex flex-row justify-around gap-2">
-                  <Button
-                    onClick={() => onViewDetails(product)}
-                    className="px-4 py-2 flex hover:bg-[#E0E0E0] hover:border-[#B3B3B3] text-[16px] !bg-[#F5F5F5] !text-black border border-[#D1D1D1]"
-                  >
-                    <Eye className="mr-2 h-4 w-4" />
-                    More Details
-                  </Button>
-                  <Button className="text-[16px] !bg-[#F5F5F5] !text-black border border-[#D1D1D1] px-4 py-2 hover:bg-[#E0E0E0] hover:border-[#B3B3B3]">
-                    <MessageSquareMore className="mr-2 h-4 w-4" /> Chat with
-                    Seller
-                  </Button>
-                </div>
-              </div>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
-    </main>
-  );
+	return (
+		<main className="p-8">
+			<h1 className="text-3xl font-bold mb-8">Products</h1>
+			<div className="flex flex-wrap justify-center gap-8">
+				{products?.map((product) => (
+					<Card key={product.id} className="hover:shadow-lg">
+						<CardHeader>
+							<ImageCarousel images={product.images} />
+							<CardTitle className="text-xl font-medium">
+								{product.name}
+							</CardTitle>
+						</CardHeader>
+						<CardContent>
+							<p className="text-lg text-gray-500">{product.category}</p>
+							<span className="text-3xl font-bold">${product.price}</span>
+						</CardContent>
+						<CardFooter className="flex justify-between gap-2 items-center flex-wrap">
+							<div className="flex flex-col m-auto">
+								<Button className="mb-4 bg-black">
+									<ShoppingCart className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+									Add to Cart
+								</Button>
+								<div className="flex flex-row justify-around gap-2">
+									<Button
+										onClick={() => onViewDetails(product)}
+										className="px-4 py-2 flex hover:bg-[#E0E0E0] hover:border-[#B3B3B3] text-[16px] !bg-[#F5F5F5] !text-black border border-[#D1D1D1]"
+									>
+										<Eye className="mr-2 h-4 w-4" />
+										More Details
+									</Button>
+									<Button className="text-[16px] !bg-[#F5F5F5] !text-black border border-[#D1D1D1] px-4 py-2 hover:bg-[#E0E0E0] hover:border-[#B3B3B3]">
+										<MessageSquareMore className="mr-2 h-4 w-4" /> Chat with
+										Seller
+									</Button>
+								</div>
+							</div>
+						</CardFooter>
+					</Card>
+				))}
+				<ProductsPagination />
+			</div>
+		</main>
+	);
 }

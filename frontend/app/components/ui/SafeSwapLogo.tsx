@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -15,11 +16,14 @@ export function SafeSwapLogo({
 	const [dark, setDark] = useState(false);
 
 	useEffect(() => {
-		const darkMode = localStorage.getItem("darkMode");
-		if (darkMode) {
-			setDark(JSON.parse(darkMode));
+		if (typeof window !== "undefined") {
+			const darkMode = localStorage.getItem("darkMode");
+			if (darkMode) {
+				setDark(JSON.parse(darkMode));
+			}
 		}
 	}, []);
+
 	const logoSrc =
 		dark === true
 			? "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-dark-PafBbOMlMn7QXOSIAXWmCntdVeMf6c.svg"
@@ -29,8 +33,8 @@ export function SafeSwapLogo({
 		<Image
 			src={logoSrc}
 			alt="SafeSwap Logo"
-			width={width}
-			height={height}
+			width={width ?? 200}
+			height={height ?? 25}
 			className={`transition-opacity duration-300 ${className}`}
 			priority
 		/>
