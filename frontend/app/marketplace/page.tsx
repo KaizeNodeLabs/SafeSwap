@@ -12,17 +12,17 @@ import {
 import { Checkbox } from "@/app/components/ui/checkbox";
 import Header from "@/app/components/ui/header";
 import {
-	Sidebar,
-	SidebarContent,
-	SidebarHeader,
-	SidebarProvider,
+  Sidebar,
+  SidebarContent,
+  SidebarHeader,
+  SidebarProvider,
 } from "@/app/components/ui/sidebar";
 import { Slider } from "@/app/components/ui/slider";
 import { Eye, MessageSquareMore, ShoppingCart } from "lucide-react";
 import { type Dispatch, type SetStateAction, useState } from "react";
 import { ProductsPagination } from "../components/marketplace";
-import ImageCarousel from "../components/ui/image-carrousel";
 import ProductUploadModal from "../components/ui/product-upload-modal";
+import Image from "next/image";
 
 interface Product {
   id: number;
@@ -164,17 +164,17 @@ export default function Marketplace() {
     setIsModalOpen(false);
   };
 
-	return (
-		<SidebarProvider>
-			<div className="flex min-h-screen">
-				<SidebarComponent
-					priceRange={priceRange}
-					setPriceRange={setPriceRange}
-					selectedCategories={selectedCategories}
-					handleCategoryChange={handleCategoryChange}
-				/>
-				<div className="flex-1 overflow-auto">
-					<Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+  return (
+    <SidebarProvider>
+      <div className="flex min-h-screen">
+        <SidebarComponent
+          priceRange={priceRange}
+          setPriceRange={setPriceRange}
+          selectedCategories={selectedCategories}
+          handleCategoryChange={handleCategoryChange}
+        />
+        <div className="flex-1 overflow-auto">
+          <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
           <div className="flex justify-end px-6 mt-4">
             <Button onClick={() => setShowModal(true)}>Add Product</Button>
@@ -256,47 +256,56 @@ function ProductList({
   products,
   onViewDetails,
 }: ProductListProps & { onViewDetails: (product: Product) => void }) {
-	return (
-		<main className="p-8">
-			<h1 className="text-3xl font-bold mb-8">Products</h1>
-			<div className="flex flex-wrap justify-center gap-8">
-				{products?.map((product) => (
-					<Card key={product.id} className="hover:shadow-lg">
-						<CardHeader>
-							<ImageCarousel images={product.images} />
-							<CardTitle className="text-xl font-medium">
-								{product.name}
-							</CardTitle>
-						</CardHeader>
-						<CardContent>
-							<p className="text-lg text-gray-500">{product.category}</p>
-							<span className="text-3xl font-bold">${product.price}</span>
-						</CardContent>
-						<CardFooter className="flex justify-between gap-2 items-center flex-wrap">
-							<div className="flex flex-col m-auto">
-								<Button className="mb-4 bg-black">
-									<ShoppingCart className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-									Add to Cart
-								</Button>
-								<div className="flex flex-row justify-around gap-2">
-									<Button
-										onClick={() => onViewDetails(product)}
-										className="px-4 py-2 flex hover:bg-[#E0E0E0] hover:border-[#B3B3B3] text-[16px] !bg-[#F5F5F5] !text-black border border-[#D1D1D1]"
-									>
-										<Eye className="mr-2 h-4 w-4" />
-										More Details
-									</Button>
-									<Button className="text-[16px] !bg-[#F5F5F5] !text-black border border-[#D1D1D1] px-4 py-2 hover:bg-[#E0E0E0] hover:border-[#B3B3B3]">
-										<MessageSquareMore className="mr-2 h-4 w-4" /> Chat with
-										Seller
-									</Button>
-								</div>
-							</div>
-						</CardFooter>
-					</Card>
-				))}
-				<ProductsPagination />
-			</div>
-		</main>
-	);
+  return (
+    <main className="p-8">
+      <h1 className="text-3xl font-bold mb-8">Products</h1>
+      <div className="flex flex-wrap justify-center gap-8">
+        {products?.map((product) => (
+          <Card key={product.id} className="hover:shadow-lg">
+            <CardHeader>
+              <div className="relative aspect-square w-full max-w-cl">
+                <Image
+                  src={product.images[0].src}
+                  alt={product.images[0].alt}
+                  width={320}
+                  height={320}
+                  priority
+                  className="rounded-t-lg h-[320px]"
+                />
+              </div>
+              <CardTitle className="text-xl font-medium">
+                {product.name}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-lg text-gray-500">{product.category}</p>
+              <span className="text-3xl font-bold">${product.price}</span>
+            </CardContent>
+            <CardFooter className="flex justify-between gap-2 items-center flex-wrap">
+              <div className="flex flex-col m-auto">
+                <Button className="mb-4 bg-black">
+                  <ShoppingCart className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  Add to Cart
+                </Button>
+                <div className="flex flex-row justify-around gap-2">
+                  <Button
+                    onClick={() => onViewDetails(product)}
+                    className="px-4 py-2 flex hover:bg-[#E0E0E0] hover:border-[#B3B3B3] text-[16px] !bg-[#F5F5F5] !text-black border border-[#D1D1D1]"
+                  >
+                    <Eye className="mr-2 h-4 w-4" />
+                    More Details
+                  </Button>
+                  <Button className="text-[16px] !bg-[#F5F5F5] !text-black border border-[#D1D1D1] px-4 py-2 hover:bg-[#E0E0E0] hover:border-[#B3B3B3]">
+                    <MessageSquareMore className="mr-2 h-4 w-4" /> Chat with
+                    Seller
+                  </Button>
+                </div>
+              </div>
+            </CardFooter>
+          </Card>
+        ))}
+        <ProductsPagination />
+      </div>
+    </main>
+  );
 }

@@ -2,7 +2,13 @@ import Image from "next/image";
 import * as React from "react";
 
 import { Card, CardContent } from "./card";
-import { Carousel, CarouselContent, CarouselItem } from "./carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "./carousel";
 
 interface ImageCarouselProps {
   images: { src: string; alt: string }[];
@@ -32,6 +38,10 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
             </CarouselItem>
           ))}
         </CarouselContent>
+        <div className="absolute inset-0 flex items-center justify-between p-4">
+          <CarouselPrevious className="h-8 w-8 left-1 translate-x-0" />
+          <CarouselNext className="h-8 w-8 right-1 translate-x-0" />
+        </div>
       </div>
     </Carousel>
   );
