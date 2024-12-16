@@ -2,7 +2,7 @@ import Link from "next/link";
 import * as React from "react";
 import { SafeSwapLogo } from "./SafeSwapLogo";
 
-export function Footer() {
+export default function Footer() {
 	return (
 		<footer className="w-full border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 py-4">
 			<div className="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 px-6">

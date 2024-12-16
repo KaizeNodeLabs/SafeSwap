@@ -1,5 +1,5 @@
 import { Button } from "@/app/components/ui/button";
-import { ArrowRight, Wallet } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import * as React from "react";
 import { SafeSwapLogo } from "./SafeSwapLogo";
@@ -39,14 +39,10 @@ export function HeroSection() {
 				</p>
 
 				<div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-					<Button size="lg" className="group">
-						<Wallet className="mr-2 h-4 w-4 transition-transform group-hover:scale-110 dark:text-white" />
-						Connect Wallet
-					</Button>
 					<Link href="/marketplace">
-						<Button variant="outline" size="lg" className="group">
+						<Button size="lg" className="group">
 							Explore Marketplace
-							<ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 dark:text-white" />
+							<ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
 						</Button>
 					</Link>
 				</div>
