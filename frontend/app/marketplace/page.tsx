@@ -263,7 +263,7 @@ function ProductList({
         {products?.map((product) => (
           <Card key={product.id} className="hover:shadow-lg">
             <CardHeader>
-              <div className="relative aspect-square w-full max-w-cl">
+              <div className="relative aspect-square max-w-cl">
                 <Image
                   src={product.images[0].src}
                   alt={product.images[0].alt}
