@@ -1,5 +1,8 @@
 "use client";
 
+import { CirclePlus } from "lucide-react";
+import BreadcrumbNavigation from "../components/ui/breadcrumb-navigation";
+
 import ProductDetailModal from "@/app/components/products/ProductDetailModal";
 import { Button } from "@/app/components/ui/button";
 import {
@@ -176,8 +179,18 @@ export default function Marketplace() {
 				<div className="flex-1 overflow-auto">
 					<Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
-					<div className="flex justify-end px-6 mt-4">
-						<Button onClick={() => setShowModal(true)}>Add Product</Button>
+					<div className="flex justify-between items-center px-6 mt-4">
+						{/* Breadcrumb Navigation */}
+						<BreadcrumbNavigation />
+
+						{/* Add Product Button */}
+						<Button
+							onClick={() => setShowModal(true)}
+							className="flex items-center gap-2"
+						>
+							<CirclePlus className="w-5 h-5" />
+							Add Product
+						</Button>
 					</div>
 
 					<ProductList products={filteredProducts} onViewDetails={openModal} />
