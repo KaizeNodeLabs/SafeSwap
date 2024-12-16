@@ -2,12 +2,7 @@
 
 import ProductDetailModal from "@/app/components/products/ProductDetailModal";
 import { Button } from "@/app/components/ui/button";
-import { 
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuTrigger,
-} from "@/app/components/ui/dropdown-menu";
+
 import {
 	Card,
 	CardContent,
@@ -24,15 +19,7 @@ import {
 	SidebarProvider,
 } from "@/app/components/ui/sidebar";
 import { Slider } from "@/app/components/ui/slider";
-import { 
-	Eye, 
-	MessageSquareMore, 
-	ShoppingCart,
-	User,
-	Settings,
-	List, 
-	History
-} from "lucide-react";
+import { Eye, MessageSquareMore, ShoppingCart } from "lucide-react";
 import { type Dispatch, type SetStateAction, useState } from "react";
 import { ProductsPagination } from "../components/marketplace";
 import ImageCarousel from "../components/ui/image-carrousel";
@@ -281,31 +268,6 @@ function ProductList({
 							<CardTitle className="text-xl font-medium">
 								{product.name}
 							</CardTitle>
-							<DropdownMenu>
-								<DropdownMenuTrigger asChild>
-									<Button className="group">
-										<User className="h-5 w-5 transition-transform group-hover:scale-110" />
-									</Button>
-								</DropdownMenuTrigger>
-								<DropdownMenuContent className="w-48">
-									<DropdownMenuItem>
-										<User className="mr-2 h-4 w-4" />
-										Profile
-									</DropdownMenuItem>
-									<DropdownMenuItem>
-										<List className="mr-2 h-4 w-4" />
-										My Listings
-									</DropdownMenuItem>
-									<DropdownMenuItem>
-										<History className="mr-2 h-4 w-4" />
-										Transaction History
-									</DropdownMenuItem>
-									<DropdownMenuItem>
-										<Settings className="mr-2 h-4 w-4" />
-										Settings
-									</DropdownMenuItem>
-								</DropdownMenuContent>
-							</DropdownMenu>
 						</CardHeader>
 						<CardContent>
 							<p className="text-lg text-gray-500">{product.category}</p>

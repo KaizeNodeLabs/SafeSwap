@@ -6,8 +6,21 @@ import { type Dispatch, type SetStateAction, useEffect, useState } from "react";
 import { SafeSwapLogo } from "@/app/components/ui/SafeSwapLogo";
 import { Button } from "@/app/components/ui/button";
 import { Input } from "@/app/components/ui/input";
-
-import { Search, ShoppingCart, Wallet } from "lucide-react";
+import { 
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger,
+} from "@/app/components/ui/dropdown-menu";
+import { 
+	Search, 
+	ShoppingCart, 
+	Wallet,
+	User,
+	Settings,
+	List, 
+	History 
+} from "lucide-react";
 import { IoMoon, IoSunny } from "react-icons/io5";
 
 interface HeaderProps {
@@ -68,6 +81,31 @@ export default function Header({ searchTerm, setSearchTerm }: HeaderProps) {
 				<Button className="group h-auto">
 					<ShoppingCart className="h-5 w-5 transition-transform group-hover:scale-110" />
 				</Button>
+				<DropdownMenu>
+					<DropdownMenuTrigger asChild>
+						<Button className="group h-auto">
+							<User className="h-5 w-5 transition-transform group-hover:scale-110" />
+						</Button>
+					</DropdownMenuTrigger>
+					<DropdownMenuContent className="w-48">
+						<DropdownMenuItem>
+							<User className="mr-2 h-4 w-4" />
+							Profile
+						</DropdownMenuItem>
+						<DropdownMenuItem>
+							<List className="mr-2 h-4 w-4" />
+							My Listings
+						</DropdownMenuItem>
+						<DropdownMenuItem>
+							<History className="mr-2 h-4 w-4" />
+							Transaction History
+						</DropdownMenuItem>
+						<DropdownMenuItem>
+							<Settings className="mr-2 h-4 w-4" />
+							Settings
+						</DropdownMenuItem>
+					</DropdownMenuContent>
+				</DropdownMenu>
 				<button
 					onClick={() => setDark(!dark)}
 					className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
