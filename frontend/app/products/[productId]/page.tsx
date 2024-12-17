@@ -1,3 +1,4 @@
+import Bounded from "@/app/components/Bounded";
 import { products } from "@/constants/testDataProduct";
 import { Product } from "@/entities/Product";
 
@@ -16,7 +17,12 @@ const ProductDetails = ({ params }: ProductDetailsProps) => {
 
   return (
     <>
-      <h1>{product?.name}</h1>
+      <Bounded title="Product Details">
+        <h1>{product?.name}</h1>
+        <p>{product?.category}</p>
+        <p>{product?.description}</p>
+        <p>{product?.price}</p>
+      </Bounded>
     </>
   );
 };
