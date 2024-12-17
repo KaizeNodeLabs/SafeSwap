@@ -5,7 +5,11 @@ import Footer from "./components/ui/footer";
 import "./globals.css";
 import { Sidebar, SidebarProvider } from "./components/ui/sidebar";
 import SidebarComponent from "./components/sidebar/Sidebar";
-import Header from "./components/ui/header";
+import BreadcrumbNavigation from "./components/ui/breadcrumb-navigation";
+import { Button } from "./components/ui/button";
+import { CirclePlus } from "lucide-react";
+import Header from "./components/header/header";
+import SubHeader from "./components/header/subheader/SubHeader";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -41,6 +45,7 @@ export default function RootLayout({
               </Sidebar>
               <div className="flex-1 overflow-auto">
                 <Header />
+                <SubHeader name="Product" />
                 {children}
               </div>
             </div>
