@@ -5,6 +5,7 @@ import BreadcrumbNavigation from "../components/ui/breadcrumb-navigation";
 
 import ProductDetailModal from "@/app/components/products/ProductDetailModal";
 import { Button } from "@/app/components/ui/button";
+import Link from "next/link";
 
 import {
   Card,
@@ -180,19 +181,19 @@ export default function Marketplace() {
         <div className="flex-1 overflow-auto">
           <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
-					<div className="flex justify-between items-center px-6 mt-4">
-						{/* Breadcrumb Navigation */}
-						<BreadcrumbNavigation />
+          <div className="flex justify-between items-center px-6 mt-4">
+            {/* Breadcrumb Navigation */}
+            <BreadcrumbNavigation />
 
-						{/* Add Product Button */}
-						<Button
-							onClick={() => setShowModal(true)}
-							className="flex items-center gap-2"
-						>
-							<CirclePlus className="w-5 h-5" />
-							Add Product
-						</Button>
-					</div>
+            {/* Add Product Button */}
+            <Button
+              onClick={() => setShowModal(true)}
+              className="flex items-center gap-2"
+            >
+              <CirclePlus className="w-5 h-5" />
+              Add Product
+            </Button>
+          </div>
 
           <ProductList products={filteredProducts} onViewDetails={openModal} />
         </div>
@@ -273,23 +274,28 @@ function ProductList({
   return (
     <main className="p-8">
       <h1 className="text-3xl font-bold mb-8">Products</h1>
-      <div className="flex flex-wrap justify-center gap-8">
+      <div className="flex flex-wrap justify-center gap-14">
         {products?.map((product) => (
           <Card key={product.id} className="hover:shadow-lg">
             <CardHeader>
-              <div className="relative aspect-square max-w-cl">
-                <Image
-                  src={product.images[0].src}
-                  alt={product.images[0].alt}
-                  width={320}
-                  height={320}
-                  priority
-                  className="rounded-t-lg h-[320px]"
-                />
-              </div>
-              <CardTitle className="text-xl font-medium">
-                {product.name}
-              </CardTitle>
+              <Link
+                href={`/product?id=${product.id}`}
+                className="cursor-pointer"
+              >
+                <div className="relative aspect-square max-w-cl">
+                  <Image
+                    src={product.images[0].src}
+                    alt={product.images[0].alt}
+                    width={320}
+                    height={320}
+                    priority
+                    className="rounded-t-lg h-[320px]"
+                  />
+                </div>
+                <CardTitle className="text-xl font-medium mt-4">
+                  {product.name}
+                </CardTitle>
+              </Link>
             </CardHeader>
             <CardContent>
               <p className="text-lg text-gray-500">{product.category}</p>
@@ -302,13 +308,6 @@ function ProductList({
                   Add to Cart
                 </Button>
                 <div className="flex flex-row justify-around gap-2">
-                  <Button
-                    onClick={() => onViewDetails(product)}
-                    className="px-4 py-2 flex hover:bg-[#E0E0E0] hover:border-[#B3B3B3] text-[16px] !bg-[#F5F5F5] !text-black border border-[#D1D1D1]"
-                  >
-                    <Eye className="mr-2 h-4 w-4" />
-                    More Details
-                  </Button>
                   <Button className="text-[16px] !bg-[#F5F5F5] !text-black border border-[#D1D1D1] px-4 py-2 hover:bg-[#E0E0E0] hover:border-[#B3B3B3]">
                     <MessageSquareMore className="mr-2 h-4 w-4" /> Chat with
                     Seller
