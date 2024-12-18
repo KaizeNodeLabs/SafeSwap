@@ -12,6 +12,7 @@ export const products: Product[] = [
       { src: "/images/macbook-pro-14.webp", alt: "MacBook Pro 14" },
       { src: "/images/macbook-pro-14.webp", alt: "MacBook Pro 14" },
     ],
+    starts: 4.5,
   },
   {
     id: 2,
@@ -33,6 +34,7 @@ export const products: Product[] = [
         alt: "Samsung Galaxy S24 FE",
       },
     ],
+    starts: 4,
   },
   {
     id: 3,
@@ -45,6 +47,7 @@ export const products: Product[] = [
       { src: "/images/ergonomic-chair.jpg", alt: "Ergonomic Chair" },
       { src: "/images/ergonomic-chair.jpg", alt: "Ergonomic Chair" },
     ],
+    starts: 2,
   },
   {
     id: 4,
@@ -57,6 +60,7 @@ export const products: Product[] = [
       { src: "/images/coffee-maker.webp", alt: "Coffee Maker" },
       { src: "/images/coffee-maker.webp", alt: "Coffee Maker" },
     ],
+    starts: 1,
   },
   {
     id: 5,
@@ -69,6 +73,7 @@ export const products: Product[] = [
       { src: "/images/running-shoes.jpg", alt: "Running Shoes" },
       { src: "/images/running-shoes.jpg", alt: "Running Shoes" },
     ],
+    starts: 5,
   },
   {
     id: 6,
@@ -81,5 +86,6 @@ export const products: Product[] = [
       { src: "/images/wireless-earbuds.jpg", alt: "Wireless Earbuds" },
       { src: "/images/wireless-earbuds.jpg", alt: "Wireless Earbuds" },
     ],
+    starts: 3,
   },
 ];

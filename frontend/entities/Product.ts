@@ -5,6 +5,7 @@ export interface Product {
   price: number;
   description: string;
   category: string;
+  starts: number;
 }
 
 export interface ProductListProps {
