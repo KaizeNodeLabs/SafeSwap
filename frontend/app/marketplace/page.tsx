@@ -1,5 +1,6 @@
 "use client";
 
+import { ProductList } from "../products/page";
 import { CirclePlus } from "lucide-react";
 import BreadcrumbNavigation from "../components/ui/breadcrumb-navigation";
 
@@ -134,6 +135,7 @@ const products: Product[] = [
 ];
 
 export default function Marketplace() {
+  return <ProductList />;
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 1500]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
