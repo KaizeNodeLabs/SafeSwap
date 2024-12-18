@@ -3,8 +3,9 @@ import SubHeader from "@/app/components/header/subheader/SubHeader";
 import Images from "@/app/components/products/Images";
 import { products } from "@/constants/testDataProduct";
 import { Product } from "@/entities/Product";
+import { useUtils } from "@/utils/utils.hook";
 import { Button } from "@radix-ui/themes";
-import { Share2, ShoppingCart } from "lucide-react";
+import { Share2, ShoppingCart, Star } from "lucide-react";
 
 interface ProductDetailsProps {
   params: {
@@ -17,6 +18,7 @@ const ProductDetails = ({ params }: ProductDetailsProps) => {
     return products.find((product) => product.id === id);
   };
 
+  const { renderStars } = useUtils();
   const product = getProductById(parseInt(params.productId));
 
   return (
@@ -54,6 +56,31 @@ const ProductDetails = ({ params }: ProductDetailsProps) => {
                   +
                 </button>
               </div>
+            </div>
+
+            <div className="mt-4 flex items-center">
+              {product &&
+                renderStars(product.starts).map((star, index) => {
+                  if (star === "filled") {
+                    return (
+                      <Star key={index} className="h-5 w-5 text-yellow-400" />
+                    );
+                  } else if (star === "half") {
+                    return (
+                      <Star
+                        key={index}
+                        className="h-5 w-5 text-yellow-400 opacity-50"
+                      />
+                    );
+                  } else {
+                    return (
+                      <Star key={index} className="h-5 w-5 text-gray-300" />
+                    );
+                  }
+                })}
+              <span className="ml-2 text-sm text-gray-600">
+                {product?.starts.toFixed(1)} / 5
+              </span>
             </div>
 
             <div>
