@@ -33,18 +33,23 @@ export const ProductList = () => {
           <Card key={product.id} className="hover:shadow-lg">
             <CardHeader>
               <div className="relative aspect-square max-w-cl">
-                <Image
+              <Link 
+               href={`/products/${product.id}`}>
+              <Image
                   src={product.images[0].src}
                   alt={product.images[0].alt}
                   width={320}
                   height={320}
                   priority
-                  className="rounded-t-lg h-[320px]"
+                  className="rounded-t-lg h-[320px] cursor-pointer"
                 />
+              </Link>
               </div>
-              <CardTitle className="text-xl font-medium">
+              <Link href={`/products/${product.id}`} >
+              <CardTitle className="text-xl font-medium cursor-pointer">
                 {product.name}
               </CardTitle>
+              </Link>
             </CardHeader>
             <CardContent>
               <p className="text-lg text-gray-500">{product.category}</p>
@@ -57,13 +62,6 @@ export const ProductList = () => {
                   Add to Cart
                 </Button>
                 <div className="flex flex-row justify-around gap-2">
-                  <Link
-                    href={`/products/${product.id}`}
-                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground shadow h-9 text-[16px] !bg-[#F5F5F5] !text-black border border-[#D1D1D1] px-4 py-2 hover:bg-[#E0E0E0] hover:border-[#B3B3B3]"
-                  >
-                    <Eye className="mr-2 h-4 w-4" />
-                    More Details
-                  </Link>
                   <Button className="text-[16px] !bg-[#F5F5F5] !text-black border border-[#D1D1D1] px-4 py-2 hover:bg-[#E0E0E0] hover:border-[#B3B3B3]">
                     <MessageSquareMore className="mr-2 h-4 w-4" /> Chat with
                     Seller
