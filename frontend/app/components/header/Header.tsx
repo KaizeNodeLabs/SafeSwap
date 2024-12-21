@@ -11,6 +11,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/app/components/ui/dropdown-menu";
+
+import DeliveryLocationButton from "@/app/components/ui/delivery-location-button";
+import { MapPin } from 'lucide-react';
+
 import {
   Search,
   ShoppingCart,
@@ -22,6 +26,7 @@ import {
 } from "lucide-react";
 import { IoMoon, IoSunny } from "react-icons/io5";
 import SubHeader from "./subheader/SubHeader";
+
 
 export default function Header() {
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -51,26 +56,35 @@ export default function Header() {
             <SafeSwapLogo width={150} height={40} />
           </Link>
         </div>
-        {showSearchBar ? (
-          <div className="relative w-full pl-2 max-w-[18.75rem] md:w-[18.75rem]">
-            <Input
-              type="search"
-              placeholder="Search products..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full h-8 pr-10"
-            />
-            <Button
-              size="icon"
-              variant="ghost"
-              className="absolute right-0 top-0 h-full"
-            >
-              <Search className="h-5 w-5" />
-              <span className="sr-only">Search</span>
-            </Button>
-          </div>
-        ) : null}
+        <div className="flex items-center gap-4">
+          {showSearchBar ? (
+            <div className="relative w-full pl-2 max-w-[18.75rem] md:w-[18.75rem]">
+              <Input
+                type="search"
+                placeholder="Search products..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full h-8 pr-10"
+              />
+              <Button
+                size="icon"
+                variant="ghost"
+                className="absolute right-0 top-0 h-full"
+              >
+                <Search className="h-5 w-5" />
+                <span className="sr-only">Search</span>
+              </Button>
+            </div>
+          ) : null}
+          
+          
+        </div>
         <div className="flex gap-4">
+          <Button size="lg" className="group">            
+          <DeliveryLocationButton />
+          <MapPin />
+              Country                
+          </Button>
           <Button size="lg" className="group">
             <Wallet className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
             Connect Wallet
