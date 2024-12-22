@@ -1,12 +1,12 @@
 import React from "react";
 import { Button } from "./button";
 
-interface ProductUploadModalProps {
+interface AddProdcutModalProps {
 	isOpen: boolean;
 	onClose: () => void;
 }
 
-const ProductUploadModal: React.FC<ProductUploadModalProps> = ({
+const AddProdcutModal: React.FC<AddProdcutModalProps> = ({
 	isOpen,
 	onClose,
 }) => {
@@ -104,4 +104,4 @@ const ProductUploadModal: React.FC<ProductUploadModalProps> = ({
 	);
 };
 
-export default ProductUploadModal;
+export default AddProdcutModal;

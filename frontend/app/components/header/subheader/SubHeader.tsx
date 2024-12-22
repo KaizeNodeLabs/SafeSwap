@@ -4,7 +4,7 @@ import { Button } from "@radix-ui/themes";
 import BreadcrumbNavigation from "../../ui/breadcrumb-navigation";
 import { CirclePlus } from "lucide-react";
 import { useState } from "react";
-import ProductUploadModal from "../../ui/product-upload-modal";
+import AddProdcutModal from "../../ui/add-product-modal";
 
 interface SubHeaderProps {
   name: string;
@@ -28,7 +28,7 @@ const SubHeader = ({ name }: SubHeaderProps) => {
         </Button>
       </div>
 
-      <ProductUploadModal
+      <AddProdcutModal
         isOpen={showModal}
         onClose={() => setShowModal(false)}
       />
