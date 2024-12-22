@@ -5,12 +5,12 @@ import { Label } from "./label";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "./select";
 import { Textarea } from "./textarea";
 
-interface ProductUploadModalProps {
+interface AddProductModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const ProductUploadModal: React.FC<ProductUploadModalProps> = ({
+const AddProductModal: React.FC<AddProductModalProps> = ({
   isOpen,
   onClose,
 }) => {
@@ -97,4 +97,4 @@ const ProductUploadModal: React.FC<ProductUploadModalProps> = ({
   );
 };
 
-export default ProductUploadModal;
+export default AddProductModal;
