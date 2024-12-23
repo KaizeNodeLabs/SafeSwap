@@ -33,7 +33,7 @@ export default function RootLayout({
 			>
 				<Theme>
 					<Header />
-					{children}
+					<div className="min-h-[calc(100vh-160px)]">{children}</div>
 					<Footer />
 				</Theme>
 			</body>
