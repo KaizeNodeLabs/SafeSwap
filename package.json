@@ -15,9 +15,5 @@
   "license": "ISC",
   "devDependencies": {
     "lefthook": "^1.8.2"
-  },
-  "dependencies": {
-    "@shadcn/ui": "^0.0.4",
-    "lucide-react": "^0.468.0"
   }
 }

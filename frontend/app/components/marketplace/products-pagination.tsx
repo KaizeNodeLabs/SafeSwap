@@ -6,7 +6,7 @@ import {
 	PaginationLink,
 	PaginationNext,
 	PaginationPrevious,
-} from "../ui/pagination";
+} from "@/app/components/ui/pagination";
 import {
 	Select,
 	SelectContent,
@@ -14,15 +14,12 @@ import {
 	SelectItem,
 	SelectTrigger,
 	SelectValue,
-} from "../ui/select";
+} from "@/app/components/ui/select";
 
 export const ProductsPagination = () => {
 	return (
-		<section
-			className="w-full pb-10 mt-2 flex flex-col justify-center items-start gap-5 
-    md:flex-row md:items-center md:gap-0 md:max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl"
-		>
-			<div className="w-full gap-2 flex justify-center items-center md:w-[50%] md:justify-start">
+		<section className="w-full pt-5 mt-2 flex flex-col gap-5 md:flex-row md:gap-0">
+			<div className="w-full gap-2 flex items-center justify-center md:justify-start md:w-[50%]">
 				<label className="opacity-80">Show result:</label>
 				<Select>
 					<SelectTrigger className="w-[70px]">
@@ -41,7 +38,7 @@ export const ProductsPagination = () => {
 			</div>
 
 			<div className="w-full md:w-[50%]">
-				<Pagination>
+				<Pagination className="justify-center md:justify-end">
 					<PaginationContent>
 						<PaginationItem>
 							<PaginationPrevious href="#" />
