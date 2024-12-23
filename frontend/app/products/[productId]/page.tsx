@@ -1,10 +1,11 @@
+import { Share2, ShoppingCart, Star } from "lucide-react";
+
 import SubHeader from "@/app/components/header/subheader/sub-header";
 import Images from "@/app/components/products/Images";
 import { products } from "@/constants/testDataProduct";
 import { Product } from "@/entities/Product";
 import { useUtils } from "@/utils/utils.hook";
 import { Button } from "@radix-ui/themes";
-import { Share2, ShoppingCart, Star } from "lucide-react";
 
 interface ProductDetailsProps {
   params: {

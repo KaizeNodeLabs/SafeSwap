@@ -1,21 +1,22 @@
 "use client";
 
-import { products } from "@/constants/testDataProduct";
 import { CirclePlus, MessageSquareMore, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import AddProductModal from "../components/marketplace/add-product-modal";
-import BreadcrumbNavigation from "../components/marketplace/breadcrumb-navigation";
-import { ProductsPagination } from "../components/marketplace/products-pagination";
-import { Button } from "../components/ui/button";
+
+import AddProductModal from "@/app/components/marketplace/add-product-modal";
+import BreadcrumbNavigation from "@/app/components/marketplace/breadcrumb-navigation";
+import { ProductsPagination } from "@/app/components/marketplace/products-pagination";
+import { Button } from "@/app/components/ui/button";
 import {
 	Card,
 	CardContent,
 	CardFooter,
 	CardHeader,
 	CardTitle,
-} from "../components/ui/card";
+} from "@/app/components/ui/card";
+import { products } from "@/constants/testDataProduct";
 
 export const ProductList = () => {
 	const [showModal, setShowModal] = useState(false);

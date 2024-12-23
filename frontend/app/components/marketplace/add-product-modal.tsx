@@ -1,15 +1,16 @@
 import React from "react";
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
-import { Label } from "../ui/label";
+
+import { Button } from "@/app/components/ui/button";
+import { Input } from "@/app/components/ui/input";
+import { Label } from "@/app/components/ui/label";
 import {
 	Select,
 	SelectContent,
 	SelectItem,
 	SelectTrigger,
 	SelectValue,
-} from "../ui/select";
-import { Textarea } from "../ui/textarea";
+} from "@/app/components/ui/select";
+import { Textarea } from "@/app/components/ui/textarea";
 
 interface AddProductModalProps {
 	isOpen: boolean;

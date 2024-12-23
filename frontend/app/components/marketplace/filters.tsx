@@ -1,8 +1,9 @@
 "use client";
 
-import { SidebarContent, SidebarHeader } from "@/app/components/ui/sidebar";
 import { Checkbox, Slider } from "@radix-ui/themes";
 import { useState } from "react";
+
+import { SidebarContent, SidebarHeader } from "@/app/components/ui/sidebar";
 
 const Filters = () => {
 	const [priceRange, setPriceRange] = useState<[number, number]>([0, 1500]);

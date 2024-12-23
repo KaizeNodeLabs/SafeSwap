@@ -1,6 +1,7 @@
 import Link from "next/link";
 import * as React from "react";
-import { SafeSwapLogo } from "../logo/safe-swap-logo";
+
+import { SafeSwapLogo } from "@/app/components/logo/safe-swap-logo";
 
 export default function Footer() {
 	return (

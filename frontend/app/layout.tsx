@@ -1,8 +1,9 @@
 import { Theme } from "@radix-ui/themes";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import Footer from "./components/footer/footer";
+
 import "./globals.css";
+import Footer from "./components/footer/footer";
 import Header from "./components/header/header";
 
 const geistSans = localFont({

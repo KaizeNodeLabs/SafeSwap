@@ -1,14 +1,14 @@
 import Image from "next/image";
 import * as React from "react";
 
-import { Card, CardContent } from "../ui/card";
+import { Card, CardContent } from "@/app/components/ui/card";
 import {
 	Carousel,
 	CarouselContent,
 	CarouselItem,
 	CarouselNext,
 	CarouselPrevious,
-} from "../ui/carousel";
+} from "@/app/components/ui/carousel";
 
 interface ImageCarouselProps {
 	images: { src: string; alt: string }[];

@@ -2,9 +2,10 @@
 
 import { CirclePlus } from "lucide-react";
 import { useState } from "react";
-import AddProductModal from "../../marketplace/add-product-modal";
-import BreadcrumbNavigation from "../../marketplace/breadcrumb-navigation";
-import { Button } from "../../ui/button";
+
+import AddProductModal from "@/app/components/marketplace/add-product-modal";
+import BreadcrumbNavigation from "@/app/components/marketplace/breadcrumb-navigation";
+import { Button } from "@/app/components/ui/button";
 
 interface SubHeaderProps {
 	name: string;

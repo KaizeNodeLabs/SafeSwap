@@ -6,7 +6,7 @@ import {
 	PaginationLink,
 	PaginationNext,
 	PaginationPrevious,
-} from "../ui/pagination";
+} from "@/app/components/ui/pagination";
 import {
 	Select,
 	SelectContent,
@@ -14,7 +14,7 @@ import {
 	SelectItem,
 	SelectTrigger,
 	SelectValue,
-} from "../ui/select";
+} from "@/app/components/ui/select";
 
 export const ProductsPagination = () => {
 	return (
