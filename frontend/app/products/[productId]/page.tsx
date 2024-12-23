@@ -1,4 +1,3 @@
-import Bounded from "@/app/components/Bounded";
 import SubHeader from "@/app/components/header/subheader/SubHeader";
 import Images from "@/app/components/products/Images";
 import { products } from "@/constants/testDataProduct";
@@ -24,8 +23,7 @@ const ProductDetails = ({ params }: ProductDetailsProps) => {
   return (
     <>
       <SubHeader name="Product" />
-      <Bounded title="Product Details">
-        <div className="flex justify-center w-2/3 gap-10 mx-auto py-10">
+        <main className="flex justify-center w-2/3 gap-10 mx-auto py-10">
           {product && (
             <section className="w-1/2">
               <Images images={product.images} />
@@ -101,8 +99,7 @@ const ProductDetails = ({ params }: ProductDetailsProps) => {
               </Button>
             </div>
           </section>
-        </div>
-      </Bounded>
+        </main>
     </>
   );
 };
