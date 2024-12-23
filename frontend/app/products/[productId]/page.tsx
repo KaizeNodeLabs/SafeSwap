@@ -2,10 +2,10 @@ import { Share2, ShoppingCart, Star } from "lucide-react";
 
 import SubHeader from "@/app/components/header/subheader/sub-header";
 import Images from "@/app/components/products/Images";
+import { Button } from "@/app/components/ui/button";
 import { products } from "@/constants/testDataProduct";
 import { Product } from "@/entities/Product";
 import { useUtils } from "@/utils/utils.hook";
-import { Button } from "@radix-ui/themes";
 
 interface ProductDetailsProps {
   params: {
@@ -47,13 +47,13 @@ const ProductDetails = ({ params }: ProductDetailsProps) => {
             <div>
               <h3 className="font-medium mb-2">Quantity:</h3>
               <div className="flex items-center gap-2">
-                <button className="border px-3 py-1 rounded hover:bg-gray-100">
+                <Button size="icon" variant="secondary">
                   -
-                </button>
+                </Button>
                 <span>1</span>
-                <button className="border px-3 py-1 rounded hover:bg-gray-100">
+                <Button size="icon" variant="secondary">
                   +
-                </button>
+                </Button>
               </div>
             </div>
 
@@ -90,11 +90,11 @@ const ProductDetails = ({ params }: ProductDetailsProps) => {
             </div>
 
             <div className="flex justify-center items-center gap-3">
-              <Button className="bg-black text-white w-9/12 cursor-pointer">
+              <Button className="w-9/12">
                 <ShoppingCart className="mr-2 h-4 w-4" />
                 Add to Cart
               </Button>
-              <Button className="bg-black text-white cursor-pointer">
+              <Button>
                 <Share2 className="mr-2 h-4 w-4" />
                 Share
               </Button>
