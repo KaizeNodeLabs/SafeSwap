@@ -12,8 +12,7 @@ import { Input } from "@/app/components/ui/input";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import DeliveryLocationButton from "@/app/components/ui/delivery-location-button";
-import { MapPin } from "lucide-react";
+import DeliveryCountry from "@/app/components/ui/delivery-country";
 
 import {
 	History,
@@ -53,6 +52,7 @@ export default function Header() {
 					<Link href={"/"}>
 						<SafeSwapLogo width={150} height={40} />
 					</Link>
+					<DeliveryCountry />
 				</div>
 				<div className="flex items-center gap-4">
 					{showSearchBar ? (
@@ -76,11 +76,6 @@ export default function Header() {
 					) : null}
 				</div>
 				<div className="flex gap-4">
-					<Button size="lg" className="group">
-						<DeliveryLocationButton />
-						<MapPin />
-						Country
-					</Button>
 					<Button size="lg" className="group">
 						<Wallet className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
 						Connect Wallet
