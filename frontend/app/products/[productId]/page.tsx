@@ -1,4 +1,4 @@
-import SubHeader from "@/app/components/header/subheader/SubHeader";
+import SubHeader from "@/app/components/header/subheader/sub-header";
 import Images from "@/app/components/products/Images";
 import { products } from "@/constants/testDataProduct";
 import { Product } from "@/entities/Product";

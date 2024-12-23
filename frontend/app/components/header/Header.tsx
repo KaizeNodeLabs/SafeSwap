@@ -1,6 +1,6 @@
 "use client";
 
-import { SafeSwapLogo } from "@/app/components/ui/SafeSwapLogo";
+import { SafeSwapLogo } from "@/app/components/logo/safe-swap-logo";
 import { Button } from "@/app/components/ui/button";
 import {
 	DropdownMenu,
@@ -12,7 +12,7 @@ import { Input } from "@/app/components/ui/input";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import DeliveryCountry from "@/app/components/ui/delivery-country";
+import DeliveryCountry from "@/app/components/marketplace/delivery-country";
 
 import {
 	History,

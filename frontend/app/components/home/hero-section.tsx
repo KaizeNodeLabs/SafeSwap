@@ -2,7 +2,7 @@ import { Button } from "@/app/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import * as React from "react";
-import { SafeSwapLogo } from "./SafeSwapLogo";
+import { SafeSwapLogo } from "../logo/safe-swap-logo";
 
 export function HeroSection() {
 	return (
