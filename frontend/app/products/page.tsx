@@ -18,7 +18,7 @@ import {
 } from "@/app/components/ui/card";
 import { products } from "@/constants/testDataProduct";
 
-export const ProductList = () => {
+export default function ProductList() {
 	const [showModal, setShowModal] = useState(false);
 	// const filteredProducts = products.filter(
 	//   (product) =>
@@ -89,4 +89,4 @@ export const ProductList = () => {
 			<AddProductModal isOpen={showModal} onClose={() => setShowModal(false)} />
 		</main>
 	);
-};
+}
