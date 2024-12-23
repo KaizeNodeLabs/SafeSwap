@@ -1,10 +1,12 @@
+"use client";
+
 import { products } from "@/constants/testDataProduct";
 import { CirclePlus, MessageSquareMore, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import SubHeader from "../components/header/subheader/SubHeader";
 import { ProductsPagination } from "../components/marketplace";
+import AddProductModal from "../components/ui/add-product-modal";
 import BreadcrumbNavigation from "../components/ui/breadcrumb-navigation";
 import { Button } from "../components/ui/button";
 import {
@@ -83,6 +85,7 @@ export const ProductList = () => {
 				))}
 			</section>
 			<ProductsPagination />
+			<AddProductModal isOpen={showModal} onClose={() => setShowModal(false)} />
 		</main>
 	);
 };
