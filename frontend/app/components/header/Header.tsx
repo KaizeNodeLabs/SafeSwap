@@ -17,13 +17,14 @@ import DeliveryCountry from "@/app/components/ui/delivery-country";
 import {
 	History,
 	List,
+	Moon,
 	Search,
 	Settings,
 	ShoppingCart,
+	Sun,
 	User,
 	Wallet,
 } from "lucide-react";
-import { IoMoon, IoSunny } from "react-icons/io5";
 
 export default function Header() {
 	const [searchTerm, setSearchTerm] = useState<string>("");
@@ -59,34 +60,46 @@ export default function Header() {
 						<div className="relative w-full pl-2 max-w-[18.75rem] md:w-[18.75rem]">
 							<Input
 								type="search"
-								placeholder="Search products..."
+								placeholder="What are you looking for?"
 								value={searchTerm}
 								onChange={(e) => setSearchTerm(e.target.value)}
-								className="w-full h-8 pr-10"
+								className="w-full h-10 pr-10"
 							/>
 							<Button
 								size="icon"
 								variant="ghost"
 								className="absolute right-0 top-0 h-full"
 							>
-								<Search className="h-5 w-5" />
+								<Search className="!h-5 !w-5" />
 								<span className="sr-only">Search</span>
 							</Button>
 						</div>
 					) : null}
 				</div>
-				<div className="flex gap-4">
-					<Button size="lg" className="group">
-						<Wallet className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
-						Connect Wallet
+				<div className="flex gap-1">
+					<Button variant="ghost" size="icon" className="group">
+						<Wallet className="!h-6 !w-6 transition-transform group-hover:scale-110" />
 					</Button>
-					<Button className="group h-auto">
-						<ShoppingCart className="h-5 w-5 transition-transform group-hover:scale-110" />
+					<Button
+						onClick={() => setDark(!dark)}
+						variant="ghost"
+						size="icon"
+						className="h-auto"
+						aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+					>
+						{dark ? (
+							<Sun className="!w-6 !h-6" />
+						) : (
+							<Moon className="!w-6 !h-6" />
+						)}
+					</Button>
+					<Button variant="ghost" size="icon" className="group h-auto">
+						<ShoppingCart className="!h-6 !w-6 transition-transform group-hover:scale-110" />
 					</Button>
 					<DropdownMenu>
 						<DropdownMenuTrigger asChild>
-							<Button className="group h-auto">
-								<User className="h-5 w-5 transition-transform group-hover:scale-110" />
+							<Button variant="ghost" size="icon" className="group h-auto">
+								<User className="!h-6 !w-6 transition-transform group-hover:scale-110" />
 							</Button>
 						</DropdownMenuTrigger>
 						<DropdownMenuContent className="w-48">
@@ -108,17 +121,6 @@ export default function Header() {
 							</DropdownMenuItem>
 						</DropdownMenuContent>
 					</DropdownMenu>
-					<button
-						onClick={() => setDark(!dark)}
-						className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-						aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
-					>
-						{dark ? (
-							<IoSunny className="w-6 h-6" />
-						) : (
-							<IoMoon className="w-6 h-6" />
-						)}
-					</button>
 				</div>
 			</header>
 		</>
