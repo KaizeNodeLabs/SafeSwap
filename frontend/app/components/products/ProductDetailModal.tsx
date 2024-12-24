@@ -1,7 +1,7 @@
 import { Button } from "@/app/components/ui/button";
+import { ShoppingCart, Star } from "lucide-react";
 import ImageCarousel from "../ui/image-carrousel";
 
-import { ShoppingCart } from "lucide-react";
 interface Product {
 	id: number;
 	images: { src: string; alt: string }[];
@@ -10,7 +10,6 @@ interface Product {
 	price: number;
 	category: string;
 }
-import { Star } from "lucide-react";
 
 function ProductDetailModal({
 	isOpen,
@@ -38,34 +37,42 @@ function ProductDetailModal({
 
 	return (
 		<div
-			className={`fixed inset-0 z-50 flex items-center justify-center bg-gray-500 bg-opacity-50 transition-opacity ${
+			className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity ${
 				isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
 			}`}
 		>
+			<div className="fixed inset-0 bg-background/80 backdrop-blur-sm" />
 			<div
-				className="relative bg-white w-full max-w-md mx-auto p-6 rounded-lg shadow-lg"
+				className="relative w-full max-w-md mx-auto p-6 rounded-lg shadow-lg bg-background border"
 				role="dialog"
 				aria-labelledby="product-detail-modal"
 			>
 				<button
 					onClick={onClose}
-					className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+					className="absolute top-2 right-2 text-muted-foreground hover:text-foreground transition-colors"
 				>
 					<span className="sr-only">Close</span>✕
 				</button>
 
-				<h2 className="text-2xl font-bold" id="product-detail-modal">
+				<h2
+					className="text-2xl font-bold text-foreground"
+					id="product-detail-modal"
+				>
 					{product.name}
 				</h2>
 				<div className="mt-4">
 					<div className="flex flex-wrap justify-center gap-4">
 						<ImageCarousel images={product.images} />
 					</div>
-					<p className="mt-4 text-lg text-gray-600">{product.category}</p>
-					<p className="mt-2 text-lg">
+					<p className="mt-4 text-lg text-muted-foreground">
+						{product.category}
+					</p>
+					<p className="mt-2 text-lg text-foreground">
 						{product.price ? `$${product.price}` : "Price not available"}
 					</p>
-					<p className="mt-2 text-sm text-gray-500">{product.description}</p>
+					<p className="mt-2 text-sm text-muted-foreground">
+						{product.description}
+					</p>
 				</div>
 
 				<div className="mt-4 flex items-center">
@@ -80,26 +87,25 @@ function ProductDetailModal({
 								/>
 							);
 						} else {
-							return <Star key={index} className="h-5 w-5 text-gray-300" />;
+							return (
+								<Star key={index} className="h-5 w-5 text-muted-foreground" />
+							);
 						}
 					})}
-					<span className="ml-2 text-sm text-gray-600">
+					<span className="ml-2 text-sm text-muted-foreground">
 						{rating.toFixed(1)} / 5
 					</span>
 				</div>
 
 				<div className="mt-6 gap-4">
-					<Button className="bg-black text-white">
+					<Button>
 						<ShoppingCart className="mr-2 h-4 w-4" />
 						Add to Cart
 					</Button>
 				</div>
 
 				<div className="mt-6 flex justify-end">
-					<Button
-						onClick={onClose}
-						className="bg-gray-300 text-black px-4 py-2 rounded-md"
-					>
+					<Button variant="secondary" onClick={onClose}>
 						Close
 					</Button>
 				</div>

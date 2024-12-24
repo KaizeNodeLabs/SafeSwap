@@ -40,7 +40,7 @@ export default function BreadcrumbNavigation() {
 
 				{/* Marketplace */}
 				<BreadcrumbItem>
-					<span className="text-black font-medium">Marketplace</span>
+					<span className="text-foreground font-medium">Marketplace</span>
 				</BreadcrumbItem>
 			</ol>
 		</nav>
