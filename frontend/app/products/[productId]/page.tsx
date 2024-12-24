@@ -1,7 +1,7 @@
 import Bounded from "@/app/components/Bounded";
 import SubHeader from "@/app/components/header/subheader/SubHeader";
 import Images from "@/app/components/products/Images";
-import { Button } from "@/app/components/ui/button"; // Cambiado a shadcn/ui
+import { Button } from "@/app/components/ui/button";
 import { products } from "@/constants/testDataProduct";
 import { Product } from "@/entities/Product";
 import { useUtils } from "@/utils/utils.hook";

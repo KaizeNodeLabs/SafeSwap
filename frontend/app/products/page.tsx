@@ -14,7 +14,7 @@ import {
 	CardTitle,
 } from "../components/ui/card";
 
-export const ProductList = () => {
+export default function ProductList() {
 	return (
 		<>
 			<SubHeader name="Product" />
@@ -68,4 +68,4 @@ export const ProductList = () => {
 			</Bounded>
 		</>
 	);
-};
+}
