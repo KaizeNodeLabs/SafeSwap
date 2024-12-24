@@ -2,6 +2,7 @@
 
 import { SafeSwapLogo } from "@/app/components/ui/SafeSwapLogo";
 import { Button } from "@/app/components/ui/button";
+import DeliveryLocationButton from "@/app/components/ui/delivery-location-button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -54,6 +55,7 @@ export default function Header() {
 					</div>
 				) : null}
 				<div className="flex gap-4">
+					<DeliveryLocationButton />
 					<Button size="lg" className="group">
 						<Wallet className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
 						Connect Wallet
