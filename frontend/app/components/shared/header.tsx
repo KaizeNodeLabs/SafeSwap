@@ -1,9 +1,19 @@
 "use client";
 
+import {
+	History,
+	List,
+	Search,
+	Settings,
+	ShoppingCart,
+	User,
+	Wallet,
+} from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-import { SafeSwapLogo } from "@/app/components/logo/safe-swap-logo";
+import DeliveryCountry from "@/app/components/marketplace/delivery-country";
+import { SafeSwapLogo } from "@/app/components/shared/safe-swap-logo";
 import { Button } from "@/app/components/ui/button";
 import {
 	DropdownMenu,
@@ -12,39 +22,10 @@ import {
 	DropdownMenuTrigger,
 } from "@/app/components/ui/dropdown-menu";
 import { Input } from "@/app/components/ui/input";
-
-import DeliveryCountry from "@/app/components/marketplace/delivery-country";
-
-import {
-	History,
-	List,
-	Moon,
-	Search,
-	Settings,
-	ShoppingCart,
-	Sun,
-	User,
-	Wallet,
-} from "lucide-react";
+import { ThemeToggle } from "@/app/components/ui/theme-toggle";
 
 export default function Header() {
 	const [searchTerm, setSearchTerm] = useState<string>("");
-	const [dark, setDark] = useState(false);
-
-	useEffect(() => {
-		const darkMode = localStorage.getItem("darkMode");
-		if (darkMode) {
-			setDark(JSON.parse(darkMode));
-		}
-	}, []);
-
-	useEffect(() => {
-		if (typeof window !== "undefined") {
-			document.documentElement.classList.toggle("dark", dark);
-			localStorage.setItem("darkMode", JSON.stringify(dark));
-		}
-	}, [dark]);
-
 	const showSearchBar = searchTerm !== undefined && setSearchTerm !== undefined;
 
 	return (
@@ -81,19 +62,7 @@ export default function Header() {
 					<Button variant="ghost" size="icon" className="group">
 						<Wallet className="!h-6 !w-6 transition-transform group-hover:scale-110" />
 					</Button>
-					<Button
-						onClick={() => setDark(!dark)}
-						variant="ghost"
-						size="icon"
-						className="h-auto"
-						aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
-					>
-						{dark ? (
-							<Sun className="!w-6 !h-6" />
-						) : (
-							<Moon className="!w-6 !h-6" />
-						)}
-					</Button>
+					<ThemeToggle />
 					<Button variant="ghost" size="icon" className="group h-auto">
 						<ShoppingCart className="!h-6 !w-6 transition-transform group-hover:scale-110" />
 					</Button>

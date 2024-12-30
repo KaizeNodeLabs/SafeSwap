@@ -1,7 +1,7 @@
 import { Share2, ShoppingCart, Star } from "lucide-react";
 
-import SubHeader from "@/app/components/header/subheader/sub-header";
-import Images from "@/app/components/products/Images";
+import Images from "@/app/components/products/images";
+import SubHeader from "@/app/components/shared/sub-header";
 import { Button } from "@/app/components/ui/button";
 import { products } from "@/constants/testDataProduct";
 import { Product } from "@/entities/Product";

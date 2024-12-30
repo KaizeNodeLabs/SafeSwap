@@ -17,10 +17,10 @@ export function DeliveryCountry() {
 			<MapPin />
 			<p className="ml-2">Ship to</p>
 			<Select defaultValue="CRC">
-				<SelectTrigger className="w-[80px] border-none shadow-none px-1 focus:ring-0 text-base">
+				<SelectTrigger className="w-[85px] border-none shadow-none px-1 focus:ring-0 text-base">
 					<SelectValue placeholder="Select a country" />
 				</SelectTrigger>
-				<SelectContent className="min-w-[80px]">
+				<SelectContent className="min-w-[85px]">
 					<SelectGroup>
 						<SelectLabel>Countries</SelectLabel>
 						<SelectItem

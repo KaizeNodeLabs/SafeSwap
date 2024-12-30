@@ -25,7 +25,7 @@ const AddProductModal: React.FC<AddProductModalProps> = ({
 
 	return (
 		<div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-			<div className="bg-white rounded-lg shadow-lg w-[90%] max-w-xl p-6">
+			<div className="bg-white rounded-lg shadow-lg w-[90%] max-w-xl p-6 dark:bg-neutral-950">
 				<h2 className="text-2xl text-center font-bold mb-4">Add New Product</h2>
 				<form className="space-y-4">
 					{/* Product Name */}
@@ -92,12 +92,7 @@ const AddProductModal: React.FC<AddProductModalProps> = ({
 					<Button variant="secondary" onClick={onClose}>
 						Close
 					</Button>
-					<Button
-						variant="default"
-						className="bg-black text-white hover:bg-black/80"
-					>
-						Save
-					</Button>
+					<Button>Save</Button>
 				</div>
 			</div>
 		</div>

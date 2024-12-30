@@ -1,10 +1,10 @@
-import { Theme } from "@radix-ui/themes";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
 import "./globals.css";
-import Footer from "./components/footer/footer";
-import Header from "./components/header/header";
+import { ThemeProvider } from "./components/providers/theme-provider";
+import Footer from "./components/shared/footer";
+import Header from "./components/shared/header";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
@@ -32,11 +32,16 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
-				<Theme>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+				>
 					<Header />
 					<div className="min-h-[calc(100vh-160px)]">{children}</div>
 					<Footer />
-				</Theme>
+				</ThemeProvider>
 			</body>
 		</html>
 	);

@@ -1,3 +1,5 @@
+
+![SAFESWAP LOGO_ON RICH BLACK](https://github.com/user-attachments/assets/8260378d-07dd-4309-b7e0-da42247fa21c)
 # SafeSwap
 # Web Marketplace with Escrow Contracts on Stellar
 
