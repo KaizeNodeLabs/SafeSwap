@@ -1,28 +1,54 @@
-import { products } from "@/constants/testDataProduct";
-import { Card } from "@radix-ui/themes";
-import { MessageSquareMore, ShoppingCart } from "lucide-react";
+"use client";
+
+import { CirclePlus, MessageSquareMore, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import Bounded from "../components/Bounded";
-import SubHeader from "../components/header/subheader/SubHeader";
-import { ProductsPagination } from "../components/marketplace";
-import { Button } from "../components/ui/button";
+import { useState } from "react";
+
+import AddProductModal from "@/app/components/marketplace/add-product-modal";
+import BreadcrumbNavigation from "@/app/components/marketplace/breadcrumb-navigation";
+import { ProductsPagination } from "@/app/components/marketplace/products-pagination";
+import { Button } from "@/app/components/ui/button";
 import {
+	Card,
 	CardContent,
 	CardFooter,
 	CardHeader,
 	CardTitle,
-} from "../components/ui/card";
+} from "@/app/components/ui/card";
+import { products } from "@/constants/testDataProduct";
 
 export default function ProductList() {
+	const [showModal, setShowModal] = useState(false);
+	// const filteredProducts = products.filter(
+	//   (product) =>
+	//     (searchTerm === "" ||
+	//       product.name.toLowerCase().includes(searchTerm.toLowerCase())) &&
+	//     (selectedCategories.length === 0 ||
+	//       selectedCategories.includes(product.category)) &&
+	//     product.price >= priceRange[0] &&
+	//     product.price <= priceRange[1]
+	// );
+
 	return (
-		<>
-			<SubHeader name="Product" />
-			<Bounded title="Products">
+		<main className="container p-6 mx-auto">
+			<section className="flex items-end justify-between">
+				<BreadcrumbNavigation />
+				<div className="flex justify-end">
+					<Button onClick={() => setShowModal(true)}>
+						<CirclePlus className="mr-2 h-4 w-4" />
+						Add Product
+					</Button>
+				</div>
+			</section>
+			<section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
 				{products?.map((product) => (
-					<Card key={product.id} className="hover:shadow-lg transition-shadow">
+					<Card
+						key={product.id}
+						className="hover:shadow-lg mx-auto sm:mx-0 max-w-[24rem] sm:w-auto"
+					>
 						<CardHeader>
-							<div className="relative aspect-square max-w-cl">
+							<div className="aspect-square">
 								<Link href={`/products/${product.id}`}>
 									<Image
 										src={product.images[0].src}
@@ -30,42 +56,37 @@ export default function ProductList() {
 										width={320}
 										height={320}
 										priority
-										className="rounded-t-lg h-[320px] cursor-pointer"
+										className="w-full h-full rounded-t-lg cursor-pointer"
 									/>
 								</Link>
 							</div>
+							<p className="text-medium text-gray-500 px-4 pt-4">
+								{product.category}
+							</p>
 							<Link href={`/products/${product.id}`}>
-								<CardTitle className="text-xl font-medium cursor-pointer hover:text-primary">
+								<CardTitle className="text-xl font-medium cursor-pointer hover:underline pt-0">
 									{product.name}
 								</CardTitle>
 							</Link>
 						</CardHeader>
-						<CardContent>
-							<p className="text-lg text-muted-foreground">
-								{product.category}
-							</p>
-							<span className="text-3xl font-bold text-foreground">
-								${product.price}
-							</span>
+						<CardContent className="pt-4">
+							<span className="text-3xl font-bold">${product.price}</span>
 						</CardContent>
-						<CardFooter className="flex justify-between gap-2 items-center flex-wrap">
-							<div className="flex flex-col m-auto">
-								<Button className="mb-4">
-									<ShoppingCart className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-									Add to Cart
-								</Button>
-								<div className="flex flex-row justify-around gap-2">
-									<Button variant="secondary" className="text-[16px]">
-										<MessageSquareMore className="mr-2 h-4 w-4" />
-										Chat with Seller
-									</Button>
-								</div>
-							</div>
+						<CardFooter className="flex flex-col gap-3">
+							<Button className="w-full">
+								<ShoppingCart className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+								Add to Cart
+							</Button>
+							<Button variant="secondary" className="w-full">
+								<MessageSquareMore className="mr-2 h-4 w-4" />
+								Chat with Seller
+							</Button>
 						</CardFooter>
 					</Card>
 				))}
-				<ProductsPagination />
-			</Bounded>
-		</>
+			</section>
+			<ProductsPagination />
+			<AddProductModal isOpen={showModal} onClose={() => setShowModal(false)} />
+		</main>
 	);
 }

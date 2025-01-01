@@ -1,12 +1,10 @@
-import { Theme } from "@radix-ui/themes";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import Footer from "./components/ui/footer";
+
 import "./globals.css";
-import Header from "./components/header/Header";
 import { ThemeProvider } from "./components/providers/theme-provider";
-import SidebarComponent from "./components/sidebar/Sidebar";
-import { Sidebar, SidebarProvider } from "./components/ui/sidebar";
+import Footer from "./components/shared/footer";
+import Header from "./components/shared/header";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
@@ -40,20 +38,9 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					<Theme>
-						<SidebarProvider>
-							<div className="flex min-h-screen">
-								<Sidebar>
-									<SidebarComponent />
-								</Sidebar>
-								<div className="flex-1 overflow-auto">
-									<Header />
-									{children}
-								</div>
-							</div>
-						</SidebarProvider>
-						<Footer />
-					</Theme>
+					<Header />
+					<div className="min-h-[calc(100vh-160px)]">{children}</div>
+					<Footer />
 				</ThemeProvider>
 			</body>
 		</html>

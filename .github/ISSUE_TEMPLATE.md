@@ -1,9 +1,4 @@
-# 📘 Issue Description
--
-
----
-
-## 🔍 Steps to Reproduce
+## 📘 Description
 -
 
 ## ✅ Acceptance Criteria
@@ -15,3 +10,6 @@
 ## 📜 Additional Notes
 - 
 
+⚠ Do not apply until the ODHack begins.
+
+⚠ Read our guidelines before applying.
