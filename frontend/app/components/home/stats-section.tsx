@@ -1,5 +1,3 @@
-import * as React from "react";
-
 export function StatsSection() {
 	return (
 		<div className="relative py-20 overflow-hidden">

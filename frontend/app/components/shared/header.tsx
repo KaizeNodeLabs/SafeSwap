@@ -12,7 +12,7 @@ import {
 import Link from "next/link";
 import { useState } from "react";
 
-import DeliveryCountry from "@/app/components/marketplace/delivery-country";
+import DeliveryCountry from "@/app/components/shared/delivery-country";
 import { SafeSwapLogo } from "@/app/components/shared/safe-swap-logo";
 import { Button } from "@/app/components/ui/button";
 import {

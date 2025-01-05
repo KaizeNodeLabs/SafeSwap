@@ -1,5 +1,4 @@
 import Link from "next/link";
-import * as React from "react";
 
 import { SafeSwapLogo } from "@/app/components/shared/safe-swap-logo";
 

@@ -7,7 +7,3 @@ export interface Product {
 	category: string;
 	starts: number;
 }
-
-export interface ProductListProps {
-	products: Product[];
-}

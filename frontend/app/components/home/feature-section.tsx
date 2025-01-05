@@ -1,5 +1,4 @@
 import { BarChart3, Coins, Lock, Shield, Users, Zap } from "lucide-react";
-import * as React from "react";
 
 export function FeatureSection() {
 	const features = [

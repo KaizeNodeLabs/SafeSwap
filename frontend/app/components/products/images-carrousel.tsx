@@ -10,11 +10,11 @@ import {
 	CarouselPrevious,
 } from "@/app/components/ui/carousel";
 
-interface ImageCarouselProps {
+interface ImagesCarouselProps {
 	images: { src: string; alt: string }[];
 }
 
-const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
+const ImagesCarousel: React.FC<ImagesCarouselProps> = ({ images }) => {
 	return (
 		<Carousel className="w-full max-w-xs">
 			<div className="relative">
@@ -47,4 +47,4 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
 	);
 };
 
-export default ImageCarousel;
+export default ImagesCarousel;
