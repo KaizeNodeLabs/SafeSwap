@@ -1,14 +1,23 @@
 "use client";
 
-import { Checkbox, Slider } from "@radix-ui/themes";
-import { useState } from "react";
+import { Checkbox } from "../ui/checkbox";
+import { Slider } from "../ui/slider";
 
-import { SidebarContent, SidebarHeader } from "@/app/components/ui/sidebar";
+interface FiltersProps {
+	priceRange: [number, number];
+	setPriceRange: (value: [number, number]) => void;
+	selectedCategories: string[];
+	setSelectedCategories: (
+		value: string[] | ((prev: string[]) => string[]),
+	) => void;
+}
 
-const Filters = () => {
-	const [priceRange, setPriceRange] = useState<[number, number]>([0, 1500]);
-	const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-
+const Filters: React.FC<FiltersProps> = ({
+	priceRange,
+	setPriceRange,
+	selectedCategories,
+	setSelectedCategories,
+}) => {
 	const handleCategoryChange = (category: string) => {
 		setSelectedCategories((prev) =>
 			prev.includes(category)
@@ -19,49 +28,41 @@ const Filters = () => {
 
 	return (
 		<>
-			<SidebarHeader className="p-6 border-b">
-				<h2 className="text-xl font-semibold">Filters</h2>
-			</SidebarHeader>
-			<SidebarContent className="p-6">
-				<div className="space-y-8">
-					<div>
-						<h3 className="mb-2 text-lg font-medium">Price range</h3>
-						<Slider
-							min={0}
-							max={1500}
-							step={10}
-							value={priceRange}
-							onValueChange={(value) =>
-								setPriceRange(value as [number, number])
-							}
-							className="mb-3"
-						/>
-						<div className="flex justify-between text-lg">
-							<span>${priceRange[0]}</span>
-							<span>${priceRange[1]}</span>
-						</div>
-					</div>
-					<div>
-						<h3 className="mb-2 text-lg font-medium">Categories</h3>
-						<div className="space-y-3">
-							{["Electronics", "Furniture", "Appliances", "Sports"].map(
-								(category) => (
-									<div key={category} className="flex items-center">
-										<Checkbox
-											id={category}
-											checked={selectedCategories.includes(category)}
-											onCheckedChange={() => handleCategoryChange(category)}
-										/>
-										<label htmlFor={category} className="ml-3 text-lg">
-											{category}
-										</label>
-									</div>
-								),
-							)}
-						</div>
+			<h2 className="text-xl font-semibold mb-4">Filters</h2>
+			<div className="space-y-8">
+				<div>
+					<h3 className="text-lg font-medium">Price Range</h3>
+					<Slider
+						min={0}
+						max={1500}
+						step={10}
+						value={priceRange}
+						onValueChange={setPriceRange}
+					/>
+					<div className="flex justify-between mt-2">
+						<span>${priceRange[0]}</span>
+						<span>${priceRange[1]}</span>
 					</div>
 				</div>
-			</SidebarContent>
+
+				<div>
+					<h3 className="text-lg font-medium">Categories</h3>
+					{["Electronics", "Furniture", "Appliances", "Sports"].map(
+						(category) => (
+							<div key={category} className="flex items-center space-x-3">
+								<Checkbox
+									id={category}
+									checked={selectedCategories.includes(category)}
+									onCheckedChange={() => handleCategoryChange(category)}
+								/>
+								<label htmlFor={category} className="text-sm cursor-pointer">
+									{category}
+								</label>
+							</div>
+						),
+					)}
+				</div>
+			</div>
 		</>
 	);
 };
