@@ -7,7 +7,7 @@ import { useState } from "react";
 
 import AddProductModal from "@/app/components/marketplace/add-product-modal";
 import BreadcrumbNavigation from "@/app/components/marketplace/breadcrumb-navigation";
-import Filters from "@/app/components/marketplace/filters"; // ✅ Import Filters
+import Filters from "@/app/components/marketplace/filters";
 import { ProductsPagination } from "@/app/components/marketplace/products-pagination";
 import { Button } from "@/app/components/ui/button";
 import {

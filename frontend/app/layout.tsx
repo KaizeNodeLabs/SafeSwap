@@ -5,7 +5,6 @@ import "./globals.css";
 import { ThemeProvider } from "./components/providers/theme-provider";
 import Footer from "./components/shared/footer";
 import Header from "./components/shared/header";
-import { SidebarProvider } from "./components/ui/sidebar";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
@@ -33,18 +32,16 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
-				<SidebarProvider>
-					<ThemeProvider
-						attribute="class"
-						defaultTheme="system"
-						enableSystem
-						disableTransitionOnChange
-					>
-						<Header />
-						<div className="min-h-[calc(100vh-160px)]">{children}</div>
-						<Footer />
-					</ThemeProvider>
-				</SidebarProvider>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+				>
+					<Header />
+					<div className="min-h-[calc(100vh-160px)]">{children}</div>
+					<Footer />
+				</ThemeProvider>
 			</body>
 		</html>
 	);
