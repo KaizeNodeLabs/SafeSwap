@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: project_db
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-project_database}
+      POSTGRES_USER: ${POSTGRES_USER:-project_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-project_password}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-project_user} -d ${POSTGRES_DB:-project_database}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
