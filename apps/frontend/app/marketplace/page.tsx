@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import AddProductModal from "@/app/components/marketplace/add-product-modal";
-import BreadcrumbNavigation from "@/app/components/marketplace/breadcrumb-navigation";
+import BreadcrumbNavigation from "@/app/components/shared/breadcrumb-navigation";
 import Filters from "@/app/components/marketplace/filters";
 import { ProductsPagination } from "@/app/components/marketplace/products-pagination";
 import { Button } from "@/app/components/ui/button";
