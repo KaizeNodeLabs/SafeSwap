@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "../../ui/dialog"
+import { Button } from "../../ui/button"
 
 interface WalletOption {
     id: string
@@ -31,7 +32,6 @@ export function ConnectWalletModal({ isOpen, onOpenChange }: ConnectWalletModalP
     const handleWalletConnect = (wallet: WalletOption) => {
         console.log(`Connecting to ${wallet.name}...`)
         onOpenChange(false)
-        // Add wallet connection logic here
     }
 
     return (
@@ -43,21 +43,22 @@ export function ConnectWalletModal({ isOpen, onOpenChange }: ConnectWalletModalP
                 </DialogHeader>
                 <div className="flex flex-col gap-3 py-4">
                     {walletOptions.map((wallet) => (
-                        <button
-                            key={wallet.id}
-                            onClick={() => handleWalletConnect(wallet)}
-                            className="flex border-[.5px] border-gray-300 items-center gap-3 w-full p-4 rounded-lg hover:bg-muted transition-colors text-left"
-                        >
-                            <div className="w-10 h-10 relative rounded-lg overflow-hidden">
-                                <Image
-                                    src={wallet.icon || "/placeholder.svg"}
-                                    alt={`${wallet.name} logo`}
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                            <span className="font-bold">{wallet.name}</span>
-                        </button>
+                        <Button
+                        key={wallet.id}
+                        variant="outline"
+                        onClick={() => handleWalletConnect(wallet)}
+                        className="flex items-center justify-start gap-3 w-full p-4 h-auto hover:bg-muted transition-colors"
+                      >
+                        <div className="w-10 h-10 relative rounded-lg overflow-hidden">
+                          <Image
+                            src={wallet.icon || "/iamges/placeholder.png"}
+                            alt={`${wallet.name} logo`}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                        <span className="font-bold">{wallet.name}</span>
+                      </Button>
                     ))}
                 </div>
             </DialogContent>
