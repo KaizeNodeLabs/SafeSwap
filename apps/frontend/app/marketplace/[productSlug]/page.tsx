@@ -6,20 +6,21 @@ import { Button } from "@/app/components/ui/button";
 import { products } from "@/constants/testDataProduct";
 import { Product } from "@/entities/Product";
 import { useUtils } from "@/utils/utils.hook";
+import { generateProductSlug } from "@/utils/generateProductSlug";
 
 interface ProductDetailsProps {
 	params: {
-		productId: string;
+		productSlug: string;
 	};
 }
 
 const ProductDetails = ({ params }: ProductDetailsProps) => {
-	const getProductById = (id: number): Product | undefined => {
-		return products.find((product) => product.id === id);
+	const getProductByName = (slug: string): Product | undefined => {
+		return products.find((product) => generateProductSlug(product.name) === slug);
 	};
 
 	const { renderStars } = useUtils();
-	const product = getProductById(parseInt(params.productId));
+	const product = getProductByName(params.productSlug);
 
 	return (
 		<>

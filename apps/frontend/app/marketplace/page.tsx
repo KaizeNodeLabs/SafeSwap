@@ -18,6 +18,7 @@ import {
 	CardTitle,
 } from "@/app/components/ui/card";
 import { products } from "@/constants/testDataProduct";
+import { generateProductSlug } from "@/utils/generateProductSlug";
 
 export default function ProductList() {
 	const [showModal, setShowModal] = useState(false);
@@ -63,7 +64,7 @@ export default function ProductList() {
 						>
 							<CardHeader>
 								<div className="aspect-square">
-									<Link href={`/marketplace/${product.id}`}>
+									<Link href={`/marketplace/${generateProductSlug(product.name)}`}>
 										<Image
 											src={product.images[0].src}
 											alt={product.images[0].alt}
@@ -77,7 +78,7 @@ export default function ProductList() {
 								<p className="text-medium text-gray-500 px-4 pt-4">
 									{product.category}
 								</p>
-								<Link href={`/marketplace/${product.id}`}>
+								<Link href={`/marketplace/${generateProductSlug(product.name)}`}>
 									<CardTitle className="text-xl font-medium cursor-pointer hover:underline pt-0">
 										{product.name}
 									</CardTitle>
