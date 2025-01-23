@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: safeswap_db
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-safeswap_database}
+      POSTGRES_USER: ${POSTGRES_USER:-safeswap_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-safeswap_password}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-safeswap_user} -d ${POSTGRES_DB:-safeswap_database}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+

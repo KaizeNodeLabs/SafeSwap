@@ -1,43 +1,41 @@
 "use client";
 
 import Image from "next/image";
+import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 interface SafeSwapLogoProps {
-	width?: number;
-	height?: number;
-	className?: string;
+  width?: number;
+  height?: number;
+  className?: string;
 }
 
 export function SafeSwapLogo({
-	width = 200,
-	height = 25,
-	className = "",
+  width = 200,
+  height = 25,
+  className = "",
 }: SafeSwapLogoProps) {
-	const [dark, setDark] = useState(false);
+  const { resolvedTheme } = useTheme(); // Get the current theme
+  const [mounted, setMounted] = useState(false); // Check if the component is mounted
 
-	useEffect(() => {
-		if (typeof window !== "undefined") {
-			const darkMode = localStorage.getItem("darkMode");
-			if (darkMode) {
-				setDark(JSON.parse(darkMode));
-			}
-		}
-	}, []);
+  // Ensure the component has mounted before rendering (for SSR compatibility)
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+ // updating which logo should display 
+  const logoSrc =
+    mounted && resolvedTheme === "dark"
+      ? "/images/new-logo-dark.png"
+      : "/images/new-logo-light.png";
 
-	const logoSrc =
-		dark === true
-			? "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-dark-PafBbOMlMn7QXOSIAXWmCntdVeMf6c.svg"
-			: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-light-kflz9CbOrw3HdQY9IJs5nkti9C17jJ.svg";
-
-	return (
-		<Image
-			src={logoSrc}
-			alt="SafeSwap Logo"
-			width={width ?? 200}
-			height={height ?? 25}
-			className={`transition-opacity duration-300 ${className}`}
-			priority
-		/>
-	);
+  return (
+    <Image
+      src={logoSrc}
+      alt="SafeSwap Logo"
+      width={width ?? 200}
+      height={height ?? 25}
+      className={`transition-opacity duration-300 ${className}`}
+      priority
+    />
+  );
 }
