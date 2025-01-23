@@ -9,7 +9,7 @@ This document explains how to set up and run the PostgreSQL database using Docke
 
 ## Configuration
 
-The database configuration is managed through environment variables. Create a `.env` file in the project root with the following configuration:
+The database configuration is managed through environment variables. Create a `.env` file in the `apps/backend` root with the following configuration:
 
 ```
 POSTGRES_DB=testdb
