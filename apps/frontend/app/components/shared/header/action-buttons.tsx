@@ -9,7 +9,6 @@ export const ActionButtons = () => {
 	return (
 		<div className="flex gap-1">
 			<Tooltip.Provider>
-				{/* Wallet Button */}
 				<Tooltip.Root>
 					<Tooltip.Trigger asChild>
 						<Button variant="ghost" size="icon">
@@ -25,7 +24,7 @@ export const ActionButtons = () => {
 					</Tooltip.Content>
 				</Tooltip.Root>
 
-				{/* Bell Button */}
+
 				<Tooltip.Root>
 					<Tooltip.Trigger asChild>
 						<Button variant="ghost" size="icon">
@@ -41,10 +40,10 @@ export const ActionButtons = () => {
 					</Tooltip.Content>
 				</Tooltip.Root>
 
-				{/* Theme Toggle */}
+
 				<ThemeToggle />
 
-				{/* Shopping Cart Button */}
+
 				<Tooltip.Root>
 					<Tooltip.Trigger asChild>
 						<Button variant="ghost" size="icon">
@@ -60,7 +59,7 @@ export const ActionButtons = () => {
 					</Tooltip.Content>
 				</Tooltip.Root>
 
-				{/* User Menu */}
+
 				<Tooltip.Root>
 					<Tooltip.Trigger asChild>
 						<div>
