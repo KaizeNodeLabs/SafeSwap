@@ -16,16 +16,18 @@ import Image from "next/image";
 
 const CreateProduct = () => {
 	const [selectedImages, setSelectedImages] = useState<string[]>([]);
+	const [imageError, setImageError] = useState<string>("");
 
 	const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const files = e.target.files;
 		if (!files) return;
 
 		if (selectedImages.length + files.length > 4) {
-			alert("You can only upload up to 4 images");
+			setImageError("You can only upload up to 4 images");
 			return;
 		}
 
+		setImageError(""); 
 		const newImages = Array.from(files).map(file => URL.createObjectURL(file));
 		setSelectedImages(prev => [...prev, ...newImages]);
 	};
@@ -94,6 +96,9 @@ const CreateProduct = () => {
 						onChange={handleImageChange}
 						disabled={selectedImages.length >= 4}
 					/>
+					{imageError && (
+						<p className="text-sm text-destructive mt-2">{imageError}</p>
+					)}
 					
 					<div className="grid grid-cols-2 gap-4 mt-4">
 						{selectedImages.map((image, index) => (
