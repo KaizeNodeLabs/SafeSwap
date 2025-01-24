@@ -24,5 +24,8 @@
   "devDependencies": {
     "lefthook": "^1.8.2",
     "turbo": "^2.3.3"
+  },
+  "dependencies": {
+    "@radix-ui/react-tooltip": "^1.1.7"
   }
 }
