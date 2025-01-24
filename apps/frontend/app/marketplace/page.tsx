@@ -4,6 +4,7 @@ import { CirclePlus, MessageSquareMore, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 import AddProductModal from "@/app/components/marketplace/add-product-modal";
 import BreadcrumbNavigation from "@/app/components/marketplace/breadcrumb-navigation";
@@ -20,9 +21,14 @@ import {
 import { products } from "@/constants/testDataProduct";
 
 export default function ProductList() {
+	const router = useRouter();
 	const [showModal, setShowModal] = useState(false);
 	const [priceRange, setPriceRange] = useState<[number, number]>([0, 1500]);
 	const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+
+	const handleAddProduct = () => {
+		router.push("/marketplace/create-product");
+	};
 
 	const filteredProducts = products.filter(
 		(product) =>
@@ -37,7 +43,7 @@ export default function ProductList() {
 			<section className="flex items-end justify-between">
 				<BreadcrumbNavigation />
 				<div className="flex justify-end">
-					<Button onClick={() => setShowModal(true)}>
+					<Button onClick={handleAddProduct}>
 						<CirclePlus className="mr-2 h-4 w-4" />
 						Add Product
 					</Button>
