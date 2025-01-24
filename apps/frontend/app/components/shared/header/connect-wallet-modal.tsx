@@ -44,21 +44,21 @@ export function ConnectWalletModal({ isOpen, onOpenChange }: ConnectWalletModalP
                 <div className="flex flex-col gap-3 py-4">
                     {walletOptions.map((wallet) => (
                         <Button
-                        key={wallet.id}
-                        variant="outline"
-                        onClick={() => handleWalletConnect(wallet)}
-                        className="flex items-center justify-start gap-3 w-full p-4 h-auto hover:bg-muted transition-colors"
-                      >
-                        <div className="w-10 h-10 relative rounded-lg overflow-hidden">
-                          <Image
-                            src={wallet.icon || "/iamges/placeholder.png"}
-                            alt={`${wallet.name} logo`}
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                        <span className="font-bold">{wallet.name}</span>
-                      </Button>
+                            key={wallet.id}
+                            variant="outline"
+                            onClick={() => handleWalletConnect(wallet)}
+                            className="flex items-center justify-start gap-3 w-full p-4 h-auto hover:bg-muted transition-colors"
+                        >
+                            <div className="w-10 h-10 relative rounded-lg overflow-hidden">
+                                <Image
+                                    src={wallet.icon || "/images/placeholder.png"}
+                                    alt={`${wallet.name} logo`}
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
+                            <span className="font-bold">{wallet.name}</span>
+                        </Button>
                     ))}
                 </div>
             </DialogContent>
