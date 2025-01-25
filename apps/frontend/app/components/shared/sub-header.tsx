@@ -4,7 +4,7 @@ import { CirclePlus } from "lucide-react";
 import { useState } from "react";
 
 import AddProductModal from "@/app/components/marketplace/add-product-modal";
-import BreadcrumbNavigation from "@/app/components/marketplace/breadcrumb-navigation";
+import BreadcrumbNavigation from "@/app/components/shared/breadcrumb-navigation";
 import { Button } from "@/app/components/ui/button";
 
 interface SubHeaderProps {
