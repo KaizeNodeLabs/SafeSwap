@@ -1,8 +1,4 @@
-"use client";
-
-import { List, Settings, User, Moon, Sun, Globe, Receipt } from "lucide-react";
-import { useState } from "react";
-import { useTheme } from "next-themes";
+import { History, List, Settings, User } from "lucide-react";
 
 import { Button } from "@/app/components/ui/button";
 import {
@@ -10,17 +6,9 @@ import {
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuTrigger,
-	DropdownMenuSub,
-	DropdownMenuSubTrigger,
-	DropdownMenuSubContent,
 } from "@/app/components/ui/dropdown-menu";
-import { Switch } from "@/app/components/ui/switch"; // Ensure Switch component exists
 
 export const UserMenu = () => {
-	const { theme, setTheme } = useTheme(); // Handles the light/dark mode logic
-	const isDarkMode = theme === "dark"; // Check current theme
-	const [language, setLanguage] = useState("EN");
-
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
@@ -28,94 +16,23 @@ export const UserMenu = () => {
 					<User className="!h-6 !w-6 transition-transform group-hover:scale-110" />
 				</Button>
 			</DropdownMenuTrigger>
-			<DropdownMenuContent className="w-64">
-				{/* Profile Options */}
+			<DropdownMenuContent className="w-48">
 				<DropdownMenuItem>
 					<User className="mr-2 h-4 w-4" />
-					<span>Profile</span>
+					Profile
 				</DropdownMenuItem>
 				<DropdownMenuItem>
 					<List className="mr-2 h-4 w-4" />
-					<span>My Products</span>
+					My Listings
 				</DropdownMenuItem>
 				<DropdownMenuItem>
-					<Receipt className="mr-2 h-4 w-4" />
-					<span>Transactions</span>
+					<History className="mr-2 h-4 w-4" />
+					Transaction History
 				</DropdownMenuItem>
 				<DropdownMenuItem>
 					<Settings className="mr-2 h-4 w-4" />
-					<span>Settings</span>
+					Settings
 				</DropdownMenuItem>
-
-				{/* Divider Line */}
-				<div className="my-2 h-px bg-gray-200" />
-
-				{/* Dark Mode Toggle */}
-				<DropdownMenuItem asChild>
-					<div className="flex items-center justify-between w-full">
-						<div className="flex items-center">
-							{isDarkMode ? (
-								<Moon className="mr-2 h-4 w-4" />
-							) : (
-								<Sun className="mr-2 h-4 w-4" />
-							)}
-							<span>{isDarkMode ? "Dark Mode" : "Light Mode"}</span>
-						</div>
-						<Switch
-							checked={isDarkMode}
-							onCheckedChange={(checked) =>
-								setTheme(checked ? "dark" : "light")
-							}
-							className="ml-2"
-						/>
-					</div>
-				</DropdownMenuItem>
-
-				{/* Language Dropdown */}
-				<DropdownMenuSub>
-					<DropdownMenuSubTrigger>
-						<div className="flex items-center justify-between w-full cursor-pointer">
-							<div className="flex items-center">
-								<Globe className="mr-2 h-4 w-4" />
-								<span>Language</span>
-							</div>
-							<div className="flex items-center">
-								<img
-									src={
-										language === "EN"
-											? "/images/en-flag.svg"
-											: "/images/es-flag.svg"
-									}
-									alt={language}
-									className="mr-1 h-4 w-4"
-								/>
-								<span>{language}</span>
-							</div>
-						</div>
-					</DropdownMenuSubTrigger>
-					<DropdownMenuSubContent className="w-full mt-2 origin-top-left">
-						<DropdownMenuItem onClick={() => setLanguage("EN")}>
-							<div className="flex items-center">
-								<img
-									src="/images/en-flag.svg"
-									alt="English"
-									className="mr-2 h-4 w-4"
-								/>
-								<span>EN</span>
-							</div>
-						</DropdownMenuItem>
-						<DropdownMenuItem onClick={() => setLanguage("ES")}>
-							<div className="flex items-center">
-								<img
-									src="/images/es-flag.svg"
-									alt="Español"
-									className="mr-2 h-4 w-4"
-								/>
-								<span>ES</span>
-							</div>
-						</DropdownMenuItem>
-					</DropdownMenuSubContent>
-				</DropdownMenuSub>
 			</DropdownMenuContent>
 		</DropdownMenu>
 	);

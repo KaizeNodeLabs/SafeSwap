@@ -3,6 +3,7 @@
 import { Bell, ShoppingCart, Wallet } from "lucide-react";
 
 import { Button } from "@/app/components/ui/button";
+import { ThemeToggle } from "../../ui/theme-toggle";
 import { UserMenu } from "./user-menu";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { ConnectWalletModal } from "./connect-wallet-modal";
@@ -44,6 +45,9 @@ export const ActionButtons = () => {
 						<span>Notifications</span>
 					</Tooltip.Content>
 				</Tooltip.Root>
+
+
+				<ThemeToggle />
 
 
 				<Tooltip.Root>
