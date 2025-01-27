@@ -7,9 +7,12 @@ import { UserMenu } from "./user-menu";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { ConnectWalletModal } from "./connect-wallet-modal";
 import { useState } from "react";
+import { ShoppingCartModal } from "./shopping-cart-modal";
+
 
 export const ActionButtons = () => {
-  const [isWalletModalOpen, setIsWalletModalOpen] = useState(false)
+  const [isWalletModalOpen, setIsWalletModalOpen] = useState(false);
+  const [isCartModalOpen, setIsCartModalOpen] = useState(false);
 
 	return (
 		<div className="flex gap-1">
@@ -48,7 +51,7 @@ export const ActionButtons = () => {
 
 				<Tooltip.Root>
 					<Tooltip.Trigger asChild>
-						<Button variant="ghost" size="icon">
+						<Button variant="ghost" size="icon" onClick={() => setIsCartModalOpen(true)}>
 							<ShoppingCart className="!h-6 !w-6 transition-transform group-hover:scale-110" />
 						</Button>
 					</Tooltip.Trigger>
@@ -78,6 +81,7 @@ export const ActionButtons = () => {
 				</Tooltip.Root>
 			</Tooltip.Provider>
       <ConnectWalletModal isOpen={isWalletModalOpen} onOpenChange={setIsWalletModalOpen} />
+      <ShoppingCartModal isOpen={isCartModalOpen} onOpenChange={setIsCartModalOpen} />
 		</div>
 	);
 };
