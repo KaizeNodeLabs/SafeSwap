@@ -11,9 +11,9 @@ import {
 	SelectValue,
 } from "@/app/components/ui/select";
 import { Textarea } from "@/app/components/ui/textarea";
-import { useState } from "react";
-import Image from "next/image";
 import { X } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
 
 const CreateProduct = () => {
 	const [selectedImages, setSelectedImages] = useState<string[]>([]);
@@ -28,13 +28,15 @@ const CreateProduct = () => {
 			return;
 		}
 
-		setImageError(""); 
-		const newImages = Array.from(files).map(file => URL.createObjectURL(file));
-		setSelectedImages(prev => [...prev, ...newImages]);
+		setImageError("");
+		const newImages = Array.from(files).map((file) =>
+			URL.createObjectURL(file),
+		);
+		setSelectedImages((prev) => [...prev, ...newImages]);
 	};
 
 	const removeImage = (index: number) => {
-		setSelectedImages(prev => prev.filter((_, i) => i !== index));
+		setSelectedImages((prev) => prev.filter((_, i) => i !== index));
 	};
 
 	const handleSubmit = (e: React.FormEvent) => {
@@ -43,15 +45,14 @@ const CreateProduct = () => {
 
 	return (
 		<div className="max-w-3xl mx-auto p-6">
-			<h1 className="text-4xl font-bold mb-8 text-center">Create New Product</h1>
-			
+			<h1 className="text-4xl font-bold mb-8 text-center">
+				Create New Product
+			</h1>
+
 			<form className="space-y-8" onSubmit={handleSubmit}>
 				<div className="space-y-2">
 					<Label htmlFor="product-title">Title</Label>
-					<Input
-						id="product-title"
-						placeholder="Product title"
-					/>
+					<Input id="product-title" placeholder="Product title" />
 				</div>
 
 				<div className="space-y-2">
@@ -65,11 +66,7 @@ const CreateProduct = () => {
 
 				<div className="space-y-2">
 					<Label htmlFor="price">Price</Label>
-					<Input
-						id="price"
-						type="number"
-						placeholder="0"
-					/>
+					<Input id="price" type="number" placeholder="0" />
 				</div>
 
 				<div className="space-y-2">
@@ -100,7 +97,7 @@ const CreateProduct = () => {
 					{imageError && (
 						<p className="text-sm text-destructive mt-2">{imageError}</p>
 					)}
-					
+
 					<div className="grid grid-cols-2 gap-4 mt-4">
 						{selectedImages.map((image, index) => (
 							<div key={index} className="relative group">

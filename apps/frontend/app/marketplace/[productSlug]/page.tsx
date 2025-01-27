@@ -5,8 +5,8 @@ import SubHeader from "@/app/components/shared/sub-header";
 import { Button } from "@/app/components/ui/button";
 import { products } from "@/constants/testDataProduct";
 import { Product } from "@/entities/Product";
-import { useUtils } from "@/utils/utils.hook";
 import { generateProductSlug } from "@/utils/generateProductSlug";
+import { useUtils } from "@/utils/utils.hook";
 
 interface ProductDetailsProps {
 	params: {
@@ -16,7 +16,9 @@ interface ProductDetailsProps {
 
 const ProductDetails = ({ params }: ProductDetailsProps) => {
 	const getProductByName = (slug: string): Product | undefined => {
-		return products.find((product) => generateProductSlug(product.name) === slug);
+		return products.find(
+			(product) => generateProductSlug(product.name) === slug,
+		);
 	};
 
 	const { renderStars } = useUtils();
