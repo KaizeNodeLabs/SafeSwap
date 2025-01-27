@@ -14,7 +14,7 @@ import {
 	DropdownMenuSubTrigger,
 	DropdownMenuSubContent,
 } from "@/app/components/ui/dropdown-menu";
-import { Switch } from "@/app/components/ui/switch"; // Ensure Switch component exists
+import { Switch } from "@/app/components/ui/switch";
 
 export const UserMenu = () => {
 	const { theme, setTheme } = useTheme(); // Handles the light/dark mode logic
@@ -93,7 +93,16 @@ export const UserMenu = () => {
 							</div>
 						</div>
 					</DropdownMenuSubTrigger>
-					<DropdownMenuSubContent className="w-full mt-2 origin-top-left">
+					{/* <DropdownMenuSubContent className="w-full mt-6 origin-top"> */}
+					{/* <DropdownMenuSubContent className="absolute mt-2 left-100 top-full w-full origin-top"> */}
+
+					<DropdownMenuSubContent
+  						className="w-full mt-6 left-0 top-0 transform translate-x-[240px] translate-y-[5px] min-w-max z-50">
+					{/* <DropdownMenuSubContent className="mt-2 w-full origin-top"> */}
+					
+
+
+
 						<DropdownMenuItem onClick={() => setLanguage("EN")}>
 							<div className="flex items-center">
 								<img
