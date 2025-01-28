@@ -2,6 +2,7 @@ import { Share2, ShoppingCart, Star } from "lucide-react";
 
 import Images from "@/app/components/products/Images";
 import SubHeader from "@/app/components/shared/sub-header";
+import NotFound from "@/app/components/products/not-found";
 import { Button } from "@/app/components/ui/button";
 import { products } from "@/constants/testDataProduct";
 import { Product } from "@/entities/Product";
@@ -23,6 +24,10 @@ const ProductDetails = ({ params }: ProductDetailsProps) => {
 
 	const { renderStars } = useUtils();
 	const product = getProductByName(params.productSlug);
+
+	if (!product) {
+		return <NotFound />;
+	}
 
 	return (
 		<>
