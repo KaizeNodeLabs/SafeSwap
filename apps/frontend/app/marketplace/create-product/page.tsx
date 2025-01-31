@@ -27,6 +27,7 @@ import {
 import { Textarea } from "@/app/components/ui/textarea";
 import { ChevronsUpDown, X } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "@/app/hooks/useTranslations";
 
 const CreateProduct = () => {
   const {
@@ -44,11 +45,13 @@ const CreateProduct = () => {
     selectedImages,
   } = useCreateProductHook();
 
+  const { t } = useTranslations();
+
   return (
     <Form {...form}>
       <div className="max-w-3xl mx-auto p-6">
         <h1 className="text-4xl font-bold mb-8 text-center">
-          Create New Product
+          {t("common.createProduct.title")}
         </h1>
 
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -214,7 +217,7 @@ const CreateProduct = () => {
           />
 
           <Button type="submit" className="w-full">
-            Save
+            {t("common.createProduct.save")}
           </Button>
         </form>
       </div>
