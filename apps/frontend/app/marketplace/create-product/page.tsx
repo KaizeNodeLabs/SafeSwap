@@ -15,7 +15,6 @@ import {
 	FormControl,
 	FormField,
 	FormItem,
-	FormLabel,
 	FormMessage,
 } from "@/app/components/ui/form";
 import { Input } from "@/app/components/ui/input";
@@ -179,7 +178,7 @@ const CreateProduct = () => {
 					<FormField
 						control={form.control}
 						name="images"
-						render={({ field }) => (
+						render={() => (
 							<FormItem className="space-y-2">
 								<div className="font-medium">
 									{t("common.createProduct.formUpto")}
