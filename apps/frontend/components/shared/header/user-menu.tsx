@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Switch } from "@/components/ui/switch";
 import { useTranslations } from "@/hooks/useTranslations";
+import Link from "next/link";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../../ui/tooltip";
 import { LanguageSelector } from "./language-selector";
 
@@ -47,8 +48,10 @@ export const UserMenu = () => {
 								<span>{t("common.profile")}</span>
 							</DropdownMenuItem>
 							<DropdownMenuItem>
-								<List className="mr-2 h-4 w-4" />
-								<span>{t("common.myProducts")}</span>
+								<Link href="/my-products" className="flex items-center gap-2">
+									<List className="mr-2 h-4 w-4" />
+									<span>{t("common.myProducts")}</span>
+								</Link>
 							</DropdownMenuItem>
 							<DropdownMenuItem>
 								<Receipt className="mr-2 h-4 w-4" />
