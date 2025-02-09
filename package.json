@@ -12,7 +12,8 @@
 		"build:frontend": "turbo run build --filter=frontend",
 		"build:backend": "turbo run build --filter=backend",
 		"lint:frontend": "turbo run lint --filter=frontend",
-		"lint:backend": "turbo run lint --filter=backend"
+		"lint:backend": "turbo run lint --filter=backend",
+		"postinstall": "npm --prefix apps/backend run db:generate"
 	},
 	"keywords": [],
 	"author": "",
