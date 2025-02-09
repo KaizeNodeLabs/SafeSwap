@@ -57,6 +57,8 @@ backend/
     ```
     
 2. **Start the Database with Docker**:
+
+    Ensure Docker Desktop is running, then execute:
     
     ```bash
     docker-compose up -d
