@@ -16,16 +16,6 @@ const ProductNotFound = () => {
         title={t("common.notFound.title")}
         description={t("common.notFound.description")}
       />
-      <div className="flex gap-4">
-        <Button asChild>
-          <Link href="/marketplace">
-            {t("common.notFound.browseMarketplace")}
-          </Link>
-        </Button>
-        <Button variant="outline" asChild>
-          <Link href="/">{t("common.notFound.goHome")}</Link>
-        </Button>
-      </div>
     </>
   );
 };
