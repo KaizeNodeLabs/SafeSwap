@@ -15,3 +15,22 @@ model Category {
   updatedAt DateTime @updatedAt @map("updated_at")
   @@map("categories")
 }
+
+model ProductImage {
+  id         String   @id @default(uuid())
+  imageUrl   String   @map("image_url")
+  productId  String   @map("productId")
+  product    Product  @relation(fields: [productId], references: [id])
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  @@map("productImages")
+}
+
+model Product {
+  id            String         @id @default(uuid())
+  name          String
+  images        ProductImage[]
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  @@map("products")
+}
