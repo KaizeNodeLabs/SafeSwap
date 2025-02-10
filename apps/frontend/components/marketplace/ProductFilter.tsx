@@ -26,7 +26,7 @@ interface ProductFilterProps {
 	onApplyFilters: (filters: FilterCriteria) => void;
 }
 
-const mockCategories = [
+const productCategories = [
 	"Electronics",
 	"Furniture",
 	"Appliances",
@@ -37,7 +37,7 @@ const mockCategories = [
 	"Art",
 ];
 
-const mockPriceRanges = [
+const productPriceRanges = [
 	"$0 - $50",
 	"$50 - $100",
 	"$100 - $200",
@@ -66,7 +66,20 @@ const ProductFilter = ({ onApplyFilters }: ProductFilterProps) => {
 		);
 	};
 
-	const filteredCategories = mockCategories.filter((category) =>
+	const handleApplyFilters = () => {
+		onApplyFilters({
+			categories: selectedCategories,
+			priceRanges: selectedPriceRanges,
+		});
+	};
+
+	const handleResetFilters = () => {
+		setSelectedCategories([]);
+		setSelectedPriceRanges([]);
+		onApplyFilters({ categories: [], priceRanges: [] });
+	};
+
+	const filteredCategories = productCategories.filter((category) =>
 		category.toLowerCase().includes(searchQuery.toLowerCase()),
 	);
 
@@ -121,7 +134,7 @@ const ProductFilter = ({ onApplyFilters }: ProductFilterProps) => {
 			<div>
 				<h3 className="font-semibold mb-2">Price Range</h3>
 				<div className="space-y-2">
-					{mockPriceRanges.map((priceRange) => (
+					{productPriceRanges.map((priceRange) => (
 						<div key={priceRange} className="flex items-center space-x-2">
 							<Checkbox
 								id={priceRange}
@@ -132,6 +145,20 @@ const ProductFilter = ({ onApplyFilters }: ProductFilterProps) => {
 						</div>
 					))}
 				</div>
+			</div>
+
+			{/* Buttons */}
+			<div className="flex space-x-2 w-full justify-between">
+				<Button
+					variant="outline"
+					onClick={handleResetFilters}
+					className={`${buttonStyle}`}
+				>
+					Reset
+				</Button>
+				<Button onClick={handleApplyFilters} className={`${buttonStyle}`}>
+					Apply Filters
+				</Button>
 			</div>
 		</div>
 	);
