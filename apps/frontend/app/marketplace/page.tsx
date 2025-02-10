@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-import Filters from "@/components/marketplace/filters";
+import ProductFilter from "@/components/marketplace/ProductFilter";
 import ProductsNotFound from "@/components/marketplace/products-not-found";
 import { ProductsPagination } from "@/components/marketplace/products-pagination";
 import { Button } from "@/components/ui/button";
@@ -52,17 +52,14 @@ export default function ProductList() {
 				selectedCategories.includes(product.category)),
 	);
 
+	const handleApplyFilters = () => {};
+
 	return (
 		<>
 			<div className="flex flex-col md:flex-row gap-6">
-				{/* Filters */}
+				{/* ProductFilter */}
 				<aside className="w-full md:w-1/4">
-					<Filters
-						priceRange={priceRange}
-						setPriceRange={setPriceRange}
-						selectedCategories={selectedCategories}
-						setSelectedCategories={setSelectedCategories}
-					/>
+					<ProductFilter onApplyFilters={handleApplyFilters} />
 				</aside>
 
 				{/* Product List */}
