@@ -11,9 +11,23 @@ import {
 	TableRow,
 } from "@/components/ui/table";
 import { products as initialProducts } from "@/lib/mocks/products";
-import { ArrowDownUp, Eye, Plus, SquarePen, Trash2 } from "lucide-react";
+import {
+	ArrowDown,
+	ArrowDownUp,
+	ArrowUp,
+	Eye,
+	Plus,
+	SquarePen,
+	Trash2,
+} from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+
+const columnMappings: Record<string, keyof (typeof initialProducts)[0]> = {
+	Product: "name",
+	Category: "category",
+	Price: "price",
+};
 
 export default function MyProductsPage() {
 	const [sortColumn, setSortColumn] = useState<
@@ -21,12 +35,6 @@ export default function MyProductsPage() {
 	>(null);
 	const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
 	const [searchQuery, setSearchQuery] = useState("");
-
-	const columnMappings: Record<string, keyof (typeof initialProducts)[0]> = {
-		Product: "name",
-		Category: "category",
-		Price: "price",
-	};
 
 	const sortedProducts = [...initialProducts]
 		.filter(
@@ -91,11 +99,20 @@ export default function MyProductsPage() {
 							{Object.keys(columnMappings).map((col) => (
 								<TableHead key={col} className="cursor-pointer">
 									<button
+										type="button"
 										onClick={() => handleSort(col)}
 										className="flex items-center gap-3"
 									>
 										{col}
-										<ArrowDownUp className="w-5 h-5" />
+										{sortColumn === columnMappings[col] ? (
+											sortOrder === "asc" ? (
+												<ArrowUp size={16} />
+											) : (
+												<ArrowDown size={16} />
+											)
+										) : (
+											<ArrowDownUp size={16} />
+										)}
 									</button>
 								</TableHead>
 							))}
