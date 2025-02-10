@@ -11,7 +11,7 @@ export default function MarketplaceLayout({
 			<div className="container mx-5 md:mx-auto py-4">
 				<BreadcrumbNavigation />
 			</div>
-			<main className="flex-grow container pb-10 mx-auto">{children}</main>
+			<main className="container pb-10">{children}</main>
 			<Footer />
 		</div>
 	);
