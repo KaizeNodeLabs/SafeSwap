@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-import ProductFilter from "@/components/marketplace/ProductFilter";
+import ProductFilter from "@/components/marketplace/ProductFilter"; // Import the filter component
 import ProductsNotFound from "@/components/marketplace/products-not-found";
 import { ProductsPagination } from "@/components/marketplace/products-pagination";
 import { Button } from "@/components/ui/button";
@@ -41,18 +41,35 @@ const getProductKey = (id: number) => {
 
 export default function ProductList() {
 	const { t } = useTranslations();
-	const [priceRange, setPriceRange] = useState<[number, number]>([0, 1500]);
+	const [priceRange, setPriceRange] = useState<string[]>([]); // Updated to use checkbox-based price ranges
 	const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
-	const filteredProducts = products.filter(
-		(product) =>
-			product.price >= priceRange[0] &&
-			product.price <= priceRange[1] &&
-			(selectedCategories.length === 0 ||
-				selectedCategories.includes(product.category)),
-	);
+	const handleApplyFilters = (filters: {
+		categories: string[];
+		priceRanges: string[];
+	}) => {
+		setSelectedCategories(filters.categories);
+		setPriceRange(filters.priceRanges);
+	};
 
-	const handleApplyFilters = () => {};
+	const filteredProducts = products.filter((product) => {
+		// Filter by categories
+		const matchesCategory =
+			selectedCategories.length === 0 ||
+			selectedCategories.includes(product.category);
+
+		// Filter by price ranges
+		const matchesPriceRange =
+			priceRange.length === 0 ||
+			priceRange.some((range) => {
+				const [min, max] = range
+					.split(" - ")
+					.map((s) => Number.parseInt(s.replace("$", "")));
+				return product.price >= min && (max ? product.price <= max : true);
+			});
+
+		return matchesCategory && matchesPriceRange;
+	});
 
 	return (
 		<>
@@ -66,8 +83,8 @@ export default function ProductList() {
 				<section className="flex flex-col flex-1">
 					{filteredProducts.length <= 0 ? (
 						<ProductsNotFound
-							setPriceRange={setPriceRange}
-							setSelectedCategories={setSelectedCategories}
+							setPriceRange={() => setPriceRange([])} // Reset price range
+							setSelectedCategories={() => setSelectedCategories([])} // Reset categories
 						/>
 					) : (
 						<div className="grid flex-grow grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
