@@ -73,7 +73,7 @@ export default function ProductList() {
 
 	return (
 		<>
-			<div className="flex flex-col md:flex-row gap-6">
+			<div className="flex flex-col md:flex-row gap-6 relative">
 				{/* ProductFilter */}
 				<aside className="w-full md:w-1/4">
 					<ProductFilter onApplyFilters={handleApplyFilters} />
