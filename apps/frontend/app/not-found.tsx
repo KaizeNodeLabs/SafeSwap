@@ -1,4 +1,4 @@
-import NotFound from "@/components/common/not-found";
+import NotFound from "@/components/shared/not-found";
 
 const GlobalNotFound = () => {
   return (

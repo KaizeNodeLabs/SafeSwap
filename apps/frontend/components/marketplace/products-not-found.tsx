@@ -4,7 +4,7 @@ import { useTranslations } from "@/hooks/useTranslations";
 import { PackageSearch } from "lucide-react";
 import React, { type Dispatch, type SetStateAction } from "react";
 import { Button } from "../ui/button";
-import NotFound from "../common/not-found";
+import NotFound from "../shared/not-found";
 
 type ProductsNotFoundProps = {
   setPriceRange: Dispatch<SetStateAction<[number, number]>>;

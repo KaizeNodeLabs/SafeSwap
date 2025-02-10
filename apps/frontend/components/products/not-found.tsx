@@ -2,9 +2,7 @@
 
 import { PackageX } from "lucide-react";
 import { useTranslations } from "@/hooks/useTranslations";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import NotFound from "../common/not-found"; 
+import NotFound from "../shared/not-found"; 
 
 const ProductNotFound = () => {
   const { t } = useTranslations();
