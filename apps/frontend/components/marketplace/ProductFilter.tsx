@@ -13,9 +13,8 @@ import {
 	PopoverContent,
 	PopoverTrigger,
 } from "@/components/ui/popover";
-import { Check, ChevronsUpDown } from "lucide-react";
+import { Check, ChevronsUpDown, Filter } from "lucide-react";
 import { useState } from "react";
-import { CiFilter } from "react-icons/ci";
 
 interface FilterCriteria {
 	categories: string[];
@@ -172,7 +171,7 @@ const ProductFilter = ({ onApplyFilters }: ProductFilterProps) => {
 			>
 				Select filter
 				<span className="p-1 rounded-full bg-black text-white flex justify-center items-center">
-					<CiFilter />
+					<Filter />
 				</span>
 			</div>
 
