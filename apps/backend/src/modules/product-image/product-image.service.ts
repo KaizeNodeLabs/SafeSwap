@@ -10,5 +10,13 @@ export class ProductImageService {
     async createProductImage(data: ProductImageDTO) {
       return await this.prisma.productImage.create({ data });
     }
+  
+   async getAllProductImages() {
+      const productImages =  await this.prisma.productImage.findMany();
+      if(productImages.length === 0){
+        return []
+      }
+      return productImages
+    }
     
   }  

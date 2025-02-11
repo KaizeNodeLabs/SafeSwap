@@ -14,4 +14,9 @@ export class ProductImageResolver {
     return await this.productImageService.createProductImage(payload);
   }
 
+  @Query(() => [ProductImage])
+  async ProductImages() {
+    return await this.productImageService.getAllProductImages();
+  }
+
 }
