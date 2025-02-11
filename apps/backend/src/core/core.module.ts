@@ -4,6 +4,7 @@ import { ConfigModule, ConfigService } from "@nestjs/config";
 import { GraphQLModule } from "@nestjs/graphql";
 
 import { CategoryModule } from "src/modules/categories/category.module";
+import { ProductModule } from "src/modules/products/product.module";
 import { IS_DEV_ENV } from "src/shared/utils/is-dev.util";
 import { getGraphQLConfig } from "./config/graphql.config";
 import { PrismaModule } from "./prisma/prisma.module";
@@ -22,6 +23,7 @@ import { PrismaModule } from "./prisma/prisma.module";
 		}),
 		PrismaModule,
 		CategoryModule,
+		ProductModule,
 	],
 	controllers: [],
 	providers: [],
