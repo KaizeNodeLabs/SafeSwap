@@ -8,7 +8,7 @@ export default function MarketplaceLayout({
 	return (
 		<div className="flex flex-col min-h-screen">
 			<Header />
-			<div className="container mx-5 md:mx-auto py-4">
+			<div className="container mx-5 md:mx-4 py-4">
 				<BreadcrumbNavigation />
 			</div>
 			<main className="container pb-10">{children}</main>

@@ -89,7 +89,7 @@ const ProductFilter = ({ onApplyFilters }: ProductFilterProps) => {
 
 	return (
 		<main className="max-h-screen md:h-auto">
-			<div className="space-y-6 w-[300px] hidden md:flex md: flex-col">
+			<div className="space-y-6 w-[300px] hidden md:flex md:flex-col">
 				{/* Categories Filter */}
 				<div className="w-full">
 					<h3 className="font-semibold mb-2">Categories</h3>
@@ -176,15 +176,15 @@ const ProductFilter = ({ onApplyFilters }: ProductFilterProps) => {
 			</div>
 
 			{opened && (
-				<div className="gap-y-6 w-[95%] h-[60%] pb-10 p-5 rounded-t-3xl flex flex-col justify-between fixed bottom-0 left-0 bg-foreground text-background md:hidden">
+				<div className="gap-y-6 w-[97%] h-[60%] py-10 p-5 rounded-t-3xl flex flex-col justify-between fixed bottom-0 left-0 bg-[#e7e7e7b6] backdrop-blur-xl text-black z-50 md:hidden">
 					{/* Categories Filter */}
-					<div className="w-[95%]">
-						<h3 className="font-semibold mb-2">Categories</h3>
+					<div className="w-full">
+						<h3 className="font-semibold mb-2 text-xl pb-2">Categories</h3>
 						<Popover>
 							<PopoverTrigger asChild>
 								<Button
 									variant="outline"
-									className="w-full justify-between bg-foreground"
+									className="w-full justify-between bg-[#99999960]"
 								>
 									{selectedCategories.length > 0
 										? `${selectedCategories.length} selected`
@@ -192,7 +192,7 @@ const ProductFilter = ({ onApplyFilters }: ProductFilterProps) => {
 									<ChevronsUpDown className="h-4 w-4 opacity-50" />
 								</Button>
 							</PopoverTrigger>
-							<PopoverContent className="max-w-[400px] min-w-[300px] p-0">
+							<PopoverContent className="max-w-[400px] min-w-[330px] p-0">
 								<Command>
 									<CommandInput
 										placeholder="Search categories..."
@@ -209,7 +209,7 @@ const ProductFilter = ({ onApplyFilters }: ProductFilterProps) => {
 												{category}
 
 												<Check
-													className={`ml-2 h-4 w-4 bg-background ${
+													className={`ml-2 h-4 w-4 ${
 														selectedCategories.includes(category)
 															? "opacity-100"
 															: "opacity-0"
@@ -233,7 +233,6 @@ const ProductFilter = ({ onApplyFilters }: ProductFilterProps) => {
 										id={priceRange}
 										checked={selectedPriceRanges.includes(priceRange)}
 										onCheckedChange={() => handlePriceRangeToggle(priceRange)}
-										className="outline-foreground outline"
 									/>
 									<label htmlFor={priceRange} className="text-lg">
 										{priceRange}
@@ -244,7 +243,7 @@ const ProductFilter = ({ onApplyFilters }: ProductFilterProps) => {
 					</div>
 
 					{/* Buttons */}
-					<div className="flex flex-col items-center gap-2 w-[95%] justify-between">
+					<div className="flex flex-col items-center gap-2 w-full justify-between">
 						<Button
 							variant="outline"
 							onClick={handleResetFilters}
