@@ -165,7 +165,8 @@ const ProductFilter = ({ onApplyFilters }: ProductFilterProps) => {
 				</div>
 			</div>
 
-			<div
+			<button
+				type="button"
 				className="fixed right-10 bg-[#ffffff9d] hover:bg-[#fff] shadow-md justify-between rounded-full text-black pr-3 p-[6px] pl-4 flex gap-x-3 top-20 font-medium items-center text-lg md:hidden"
 				onClick={() => setOpened(!opened)}
 			>
@@ -173,7 +174,7 @@ const ProductFilter = ({ onApplyFilters }: ProductFilterProps) => {
 				<span className="p-1 rounded-full bg-black text-white flex justify-center items-center">
 					<Filter />
 				</span>
-			</div>
+			</button>
 
 			{opened && (
 				<div className="gap-y-6 w-[97%] h-[60%] py-10 p-5 rounded-t-3xl flex flex-col justify-between fixed bottom-0 left-0 bg-[#e7e7e7b6] backdrop-blur-xl text-black z-50 md:hidden">
