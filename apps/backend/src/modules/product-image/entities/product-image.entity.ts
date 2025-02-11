@@ -1,12 +1,16 @@
 import { Field, ID, ObjectType } from "@nestjs/graphql";
+import { Product } from "../../product/entities/product.entity";
 
 @ObjectType()
-export class Product {
+export class ProductImage {
 	@Field(() => ID)
 	id: string;
 
 	@Field(() => String)
-	name: string;
+	imageUrl: string;
+
+	@Field(() => String)
+	productId: string;
 
 	@Field(() => Date)
 	createdAt: Date;

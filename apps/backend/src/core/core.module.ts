@@ -4,11 +4,11 @@ import { ConfigModule, ConfigService } from "@nestjs/config";
 import { GraphQLModule } from "@nestjs/graphql";
 
 import { CategoryModule } from "src/modules/categories/category.module";
+import { ProductImageModule } from "src/modules/product-image/product-image.module";
+import { ProductModule } from "src/modules/product/product.module";
 import { IS_DEV_ENV } from "src/shared/utils/is-dev.util";
 import { getGraphQLConfig } from "./config/graphql.config";
 import { PrismaModule } from "./prisma/prisma.module";
-import { ProductModule } from "src/modules/product/product.module";
-import { ProductImageModule } from "src/modules/product-image/product-image.module";
 
 @Module({
 	imports: [
@@ -25,7 +25,7 @@ import { ProductImageModule } from "src/modules/product-image/product-image.modu
 		PrismaModule,
 		CategoryModule,
 		ProductModule,
-		ProductImageModule
+		ProductImageModule,
 	],
 	controllers: [],
 	providers: [],

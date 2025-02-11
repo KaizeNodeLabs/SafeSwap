@@ -1,24 +1,28 @@
 type ProductImage {
-  # Example field (placeholder)
-  exampleField: Int
+	# Example field (placeholder)
+	exampleField: Int
 }
 
 input CreateProductImageInput {
-  # Example field (placeholder)
-  exampleField: Int
+	# Example field (placeholder)
+	exampleField: Int
 }
 
 input UpdateProductImageInput {
-  id: Int!
+	id: Int!
 }
 
 type Query {
-  productImage: [ProductImage]!
-  productImage(id: Int!): ProductImage
+	productImage: [ProductImage]!
+	productImage(id: Int!): ProductImage
 }
 
 type Mutation {
-  createProductImage(createProductImageInput: CreateProductImageInput!): ProductImage!
-  updateProductImage(updateProductImageInput: UpdateProductImageInput!): ProductImage!
-  removeProductImage(id: Int!): ProductImage
+	createProductImage(
+		createProductImageInput: CreateProductImageInput!
+	): ProductImage!
+	updateProductImage(
+		updateProductImageInput: UpdateProductImageInput!
+	): ProductImage!
+	removeProductImage(id: Int!): ProductImage
 }

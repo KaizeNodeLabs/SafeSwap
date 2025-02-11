@@ -1,27 +1,26 @@
-import { Resolver, Query, Mutation, Args } from "@nestjs/graphql";
+import { Args, Mutation, Query, Resolver } from "@nestjs/graphql";
+import { ProductImageDTO } from "./dto/product-image.input";
+import { ProductImage } from "./entities/product-image.entity";
 import { ProductImageService } from "./product-image.service";
-import { ProductImageDTO } from "./dto/productimage.input";
-import { ProductImage } from "./entities/productimage.entity";
 
 @Resolver("ProductImage")
 export class ProductImageResolver {
-  constructor(private readonly productImageService: ProductImageService) {}
+	constructor(private readonly productImageService: ProductImageService) {}
 
-  @Mutation(() => ProductImage) 
-  async createProductImage(
-    @Args('createProductImage') payload: ProductImageDTO
-  ): Promise<ProductImage> {
-    return await this.productImageService.createProductImage(payload);
-  }
+	@Mutation(() => ProductImage)
+	async createProductImage(
+		@Args("createProductImage") payload: ProductImageDTO,
+	): Promise<ProductImage> {
+		return await this.productImageService.createProductImage(payload);
+	}
 
-  @Query(() => [ProductImage])
-  async ProductImages() {
-    return await this.productImageService.getAllProductImages();
-  }
+	@Query(() => [ProductImage])
+	async productImages() {
+		return await this.productImageService.getAllProductImages();
+	}
 
-  @Query(() => ProductImage, { nullable: true })
- async ProductImage(@Args("id") id: string) {
-    return  await this.productImageService.getAProductImage(id);
-  }
-
+	@Query(() => ProductImage, { nullable: true })
+	async productImage(@Args("id") id: string) {
+		return await this.productImageService.getAProductImage(id);
+	}
 }
