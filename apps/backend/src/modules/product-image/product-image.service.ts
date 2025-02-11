@@ -18,5 +18,16 @@ export class ProductImageService {
       }
       return productImages
     }
+  
+   async getAProductImage(id: string) {
+    const productImage = await this.prisma.productImage.findUnique({ where: { id } });
+
+    if (!productImage) {
+      throw new Error(`Product image not found.`);
+    }
+
+    return productImage;
     
+    }
+  
   }  

@@ -19,4 +19,9 @@ export class ProductImageResolver {
     return await this.productImageService.getAllProductImages();
   }
 
+  @Query(() => ProductImage, { nullable: true })
+ async ProductImage(@Args("id") id: string) {
+    return  await this.productImageService.getAProductImage(id);
+  }
+
 }

@@ -45,6 +45,7 @@ input ProductImageDTO {
 }
 
 type Query {
+  ProductImage(id: String!): ProductImage
   ProductImages: [ProductImage!]!
   categories: [Category!]!
   category(id: String!): Category
