@@ -17,6 +17,7 @@ scalar DateTime
 
 type Mutation {
   createProduct(createProduct: ProductDTO!): Product!
+  createProductImage(createProductImage: ProductImageDTO!): ProductImage!
 }
 
 type Product {
@@ -28,6 +29,19 @@ type Product {
 
 input ProductDTO {
   name: String!
+}
+
+type ProductImage {
+  createdAt: DateTime!
+  id: ID!
+  imageUrl: String!
+  productId: String!
+  updatedAt: DateTime!
+}
+
+input ProductImageDTO {
+  imageUrl: String!
+  productId: String!
 }
 
 type Query {
