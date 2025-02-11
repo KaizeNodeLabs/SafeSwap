@@ -7,6 +7,7 @@ import { CategoryModule } from "src/modules/categories/category.module";
 import { IS_DEV_ENV } from "src/shared/utils/is-dev.util";
 import { getGraphQLConfig } from "./config/graphql.config";
 import { PrismaModule } from "./prisma/prisma.module";
+import { ProductModule } from "src/modules/product/product.module";
 
 @Module({
 	imports: [
@@ -22,6 +23,7 @@ import { PrismaModule } from "./prisma/prisma.module";
 		}),
 		PrismaModule,
 		CategoryModule,
+		ProductModule
 	],
 	controllers: [],
 	providers: [],
