@@ -119,7 +119,15 @@ export default function ProductList() {
 												`common.products.categories.${product.category.toLowerCase()}`,
 											)}
 										</p>
-										<Link href={`/marketplace/${product.id}`}>
+										<Link
+											href={`/marketplace/${generateProductSlug(
+												t(
+													`common.products.items.${getProductKey(
+														product.id,
+													)}.name`,
+												),
+											)}`}
+										>
 											<CardTitle className="text-xl font-medium cursor-pointer hover:underline pt-0">
 												{t(
 													`common.products.items.${getProductKey(
