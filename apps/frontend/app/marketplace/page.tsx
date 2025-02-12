@@ -3,9 +3,9 @@
 import { MessageSquareMore, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import ProductFilter from "@/components/marketplace/ProductFilter";
+import { Filters } from "@/components/marketplace/filters";
 import ProductsNotFound from "@/components/marketplace/products-not-found";
 import { ProductsPagination } from "@/components/marketplace/products-pagination";
 import { Button } from "@/components/ui/button";
@@ -18,7 +18,13 @@ import {
 } from "@/components/ui/card";
 import { useTranslations } from "@/hooks/useTranslations";
 import { products } from "@/lib/mocks/products";
+import { FilterState } from "@/lib/types/filters";
 import { generateProductSlug } from "@/utils/generateProductSlug";
+
+const initialFilters: FilterState = {
+	categories: [],
+	priceRanges: [],
+};
 
 const getProductKey = (id: number) => {
 	switch (id) {
@@ -41,58 +47,42 @@ const getProductKey = (id: number) => {
 
 export default function ProductList() {
 	const { t } = useTranslations();
-	const [priceRange, setPriceRange] = useState<string[]>([]);
-	const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+	const [filters, setFilters] = useState<FilterState>(initialFilters);
+	const [filteredProducts, setFilteredProducts] = useState(products);
 
-	const handleApplyFilters = (filters: {
-		categories: string[];
-		priceRanges: string[];
-	}) => {
-		setSelectedCategories(filters.categories);
-		setPriceRange(filters.priceRanges);
+	useEffect(() => {
+		const newFilteredProducts = products.filter((product) => {
+			const categoryMatch =
+				filters.categories.length === 0 ||
+				filters.categories.includes(product.category);
+			const priceMatch =
+				filters.priceRanges.length === 0 ||
+				filters.priceRanges.some(
+					(range) => product.price >= range.min && product.price <= range.max,
+				);
+			return categoryMatch && priceMatch;
+		});
+		setFilteredProducts(newFilteredProducts);
+	}, [filters]);
+
+	const handleClearFilters = () => {
+		setFilters(initialFilters);
 	};
 
-	const filteredProducts = products.filter((product) => {
-		// Filter by categories
-		const matchesCategory =
-			selectedCategories.length === 0 ||
-			selectedCategories.includes(product.category);
-
-		// Filter by price ranges
-		const matchesPriceRange =
-			priceRange.length === 0 ||
-			priceRange.some((range) => {
-				const [min, max] = range
-					.split(" - ")
-					.map((s) => Number.parseInt(s.replace("$", "")));
-				return product.price >= min && (max ? product.price <= max : true);
-			});
-
-		return matchesCategory && matchesPriceRange;
-	});
-
 	return (
-		<div className="container mx-auto px-4 py-6">
-			<div className="flex flex-col md:flex-row gap-6">
+		<div className="container mx-auto px-4 sm:py-6">
+			<div className="flex flex-col sm:flex-row">
 				{/* ProductFilter */}
-				<aside className="w-full md:w-1/4">
-					<ProductFilter onApplyFilters={handleApplyFilters} />
-				</aside>
+				<Filters onFiltersChange={setFilters} />
 
 				{/* Product List */}
-				<section className="flex-1 overflow-hidden">
+				<section className="flex-1 mt-6 sm:ml-6 sm:mt-0">
 					{filteredProducts.length <= 0 ? (
-						<ProductsNotFound
-							setPriceRange={() => setPriceRange([])}
-							setSelectedCategories={() => setSelectedCategories([])}
-						/>
+						<ProductsNotFound onClear={handleClearFilters} />
 					) : (
-						<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 							{filteredProducts.map((product) => (
-								<Card
-									key={product.id}
-									className="hover:shadow-lg w-full max-w-[24rem] mx-auto sm:mx-0"
-								>
+								<Card key={product.id} className="hover:shadow-lg">
 									<CardHeader>
 										<div className="aspect-square">
 											<Link
