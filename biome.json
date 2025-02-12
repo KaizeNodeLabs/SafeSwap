@@ -19,7 +19,7 @@
 	},
 	"linter": {
 		"enabled": true,
-		"ignore": ["./components/ui/**"],
+		"ignore": ["./components/ui/**", "./hooks/use-toast.ts"],
 		"rules": {
 			"recommended": true,
 			"style": {
