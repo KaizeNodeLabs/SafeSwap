@@ -17,22 +17,21 @@ model Category {
   @@map("categories")
 }
 
-model Product {
-  id          String         @id @default(uuid())
-  name        String
-  slug        String         @unique
-  description String?
-  price       Float
-  categoryId  String
-  category    Category       @relation(fields: [categoryId], references: [id])
-  images      ProductImage[]
-  createdAt   DateTime       @default(now())
-  updatedAt   DateTime       @updatedAt
+model ProductImage {
+  id         String   @id @default(uuid())
+  imageUrl   String   @map("image_url")
+  productId  String   @map("product_id")
+  product    Product  @relation(fields: [productId], references: [id])
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  @@map("productImages")
 }
 
-model ProductImage {
-  id        String   @id @default(uuid())
-  url       String
-  productId String
-  product   Product  @relation(fields: [productId], references: [id])
+model Product {
+  id            String         @id @default(uuid())
+  name          String
+  images        ProductImage[]
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  @@map("products")
 }

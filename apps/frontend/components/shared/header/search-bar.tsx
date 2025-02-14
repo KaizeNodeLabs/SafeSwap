@@ -15,10 +15,10 @@ export const SearchBar = () => {
 	return (
 		<>
 			{showSearchBar ? (
-				<div className="relative w-full pl-2 max-w-[18.75rem] md:w-[18.75rem]">
+				<div className="relative w-full pl-2">
 					<Input
 						type="search"
-						placeholder="What are you looking for?"
+						placeholder="Search"
 						value={searchTerm}
 						onChange={(e) => setSearchTerm(e.target.value)}
 						className="w-full h-10 pr-10"

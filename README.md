@@ -139,16 +139,16 @@ For more details on each of the applications, please refer to the respective REA
 2. **Making a Purchase**: Buyers can select a product and initiate a purchase. Funds are transferred to an escrow account on the Stellar blockchain.
 3. **Escrow Release**: Upon completion of the agreed-upon conditions, the Trustless Work API triggers the release of funds to the seller’s Stellar account.
 
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to this project.
+We appreciate and welcome contributions! To get started, please review our [CONTRIBUTING GUIDELINES](docs/guidelines/CONTRIBUTION_GUIDELINES.md) and [GIT GUIDELINES](docs/guidelines/GIT_GUIDELINES.md) for detailed instructions on how to contribute effectively.
 
 ## 🧑‍💻 Authors
 
 - [danielcdz](https://github.com/danielcdz)
 - [derianrddev](https://github.com/derianrddev)
 - Contributions from the open-source community and OnlyDust
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

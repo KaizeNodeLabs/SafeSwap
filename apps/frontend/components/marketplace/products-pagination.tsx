@@ -18,8 +18,8 @@ import {
 
 export const ProductsPagination = () => {
 	return (
-		<section className="w-full pt-5 mt-2 flex flex-col gap-5 md:flex-row md:gap-0">
-			<div className="w-full gap-2 flex items-center justify-center md:justify-start md:w-[50%]">
+		<section className="w-full pt-5 mt-2 flex flex-col gap-5 lg:flex-row lg:gap-0">
+			<div className="w-full gap-2 flex items-center justify-center lg:justify-start lg:w-[50%]">
 				<label className="opacity-80" htmlFor="show-results">
 					Show result:
 				</label>
@@ -39,8 +39,8 @@ export const ProductsPagination = () => {
 				</Select>
 			</div>
 
-			<div className="w-full md:w-[50%]">
-				<Pagination className="justify-center md:justify-end">
+			<div className="w-full lg:w-[50%]">
+				<Pagination className="justify-center lg:justify-end">
 					<PaginationContent>
 						<PaginationItem>
 							<PaginationPrevious href="#" />

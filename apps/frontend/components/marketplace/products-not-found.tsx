@@ -1,26 +1,17 @@
 "use client";
 
-import { useTranslations } from "@/hooks/useTranslations";
 import { PackageSearch } from "lucide-react";
-import React, { type Dispatch, type SetStateAction } from "react";
+
+import { useTranslations } from "@/hooks/useTranslations";
 import NotFound from "../shared/not-found";
 import { Button } from "../ui/button";
 
-type ProductsNotFoundProps = {
-	setPriceRange: Dispatch<SetStateAction<[number, number]>>;
-	setSelectedCategories: Dispatch<SetStateAction<string[]>>;
-};
+interface ProductsNotFoundProps {
+	onClear: () => void;
+}
 
-export default function ProductsNotFound({
-	setPriceRange,
-	setSelectedCategories,
-}: ProductsNotFoundProps) {
+export default function ProductsNotFound({ onClear }: ProductsNotFoundProps) {
 	const { t } = useTranslations();
-
-	const clearFilters = () => {
-		setPriceRange([0, 1500]);
-		setSelectedCategories([]);
-	};
 
 	return (
 		<section className="flex flex-col items-center justify-center space-y-4 mx-auto">
@@ -30,9 +21,7 @@ export default function ProductsNotFound({
 				description={t("common.noProducts.description")}
 			/>
 
-			<Button onClick={clearFilters}>
-				{t("common.noProducts.clearFilters")}
-			</Button>
+			<Button onClick={onClear}>{t("common.noProducts.clearFilters")}</Button>
 		</section>
 	);
 }

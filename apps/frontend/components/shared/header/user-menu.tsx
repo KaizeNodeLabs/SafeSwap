@@ -22,7 +22,7 @@ import { Switch } from "@/components/ui/switch";
 import { useTranslations } from "@/hooks/useTranslations";
 import Link from "next/link";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../../ui/tooltip";
-import { LanguageSelector } from "./language-selector";
+import { LanguageSelector } from "../sidebar/language-selector";
 
 export const UserMenu = () => {
 	const { t } = useTranslations();
