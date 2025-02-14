@@ -9,7 +9,7 @@ export const es = {
 		userMenu: "Menú de Usuario",
 		connectWallet: "Conectar Billetera",
 		notifications: "Notificaciones",
-		shoppingCart: "Carrito de Compras",
+		buy: "Comprar Ahora",
 		search: "Traducción",
 		shipTo: "Enviar a",
 		wallet: {
@@ -164,7 +164,7 @@ export const es = {
 			description: "Descripción",
 			reviews: "/ 5",
 			buttons: {
-				addToCart: "Añadir al Carrito",
+				buy: "Comprar Ahora",
 				share: "Compartir",
 				increase: "Aumentar cantidad",
 				decrease: "Disminuir cantidad",
@@ -172,7 +172,7 @@ export const es = {
 		},
 
 		createProduct: {
-			title: "Crear Nuevo Producto",
+			title: "Vender Producto",
 			save: "guardar",
 			formTitle: "Título",
 			formDesc: "Descripción",
@@ -183,7 +183,7 @@ export const es = {
 		},
 
 		productList: {
-			addProduct: "Añadir Producto",
+			buy: "Comprar Ahora",
 			addToCart: "Añadir al Carrito",
 			chatWithSeller: "Chatear con Vendedor",
 			currency: "$",

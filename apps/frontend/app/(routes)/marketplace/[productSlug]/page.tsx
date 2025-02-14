@@ -1,6 +1,6 @@
 "use client";
 
-import { Share2, ShoppingCart, Star } from "lucide-react";
+import { Share2, ShoppingBag, Star } from "lucide-react";
 
 import Images from "@/components/products/Images";
 import NotFound from "@/components/products/not-found";
@@ -107,8 +107,8 @@ const ProductDetails = ({ params }: ProductDetailsProps) => {
 
 				<div className="flex justify-center items-center gap-3">
 					<Button className="w-9/12">
-						<ShoppingCart className="mr-2 h-4 w-4" />
-						{t("common.product.buttons.addToCart")}
+						<ShoppingBag className="mr-2 h-4 w-4" />
+						{t("common.product.buttons.buy")}
 					</Button>
 					<Button>
 						<Share2 className="mr-2 h-4 w-4" />
