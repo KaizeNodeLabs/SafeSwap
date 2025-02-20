@@ -147,7 +147,7 @@ We appreciate and welcome contributions! To get started, please review our [CONT
 
 <table align="center">
   <tr>
-    <td align="center" valign="top" width="33.3%">
+    <td align="center" valign="top" width="25%">
       <img src="https://avatars.githubusercontent.com/u/66186331?v=4" alt="Daniel Calderón Díaz" width="120" />
       <br />
       <strong>Daniel Calderón Díaz</strong>
@@ -156,7 +156,7 @@ We appreciate and welcome contributions! To get started, please review our [CONT
         GitHub
       </a>
     </td>
-    <td align="center" valign="top" width="33.3%">
+    <td align="center" valign="top" width="25%">
       <img src="https://avatars.githubusercontent.com/u/59376626?v=4" alt="Derian Rodríguez Durán" width="120" />
       <br />
       <strong>Derian Rodríguez Durán</strong>
@@ -165,7 +165,16 @@ We appreciate and welcome contributions! To get started, please review our [CONT
         GitHub
       </a>
     </td>
-    <td align="center" valign="top" width="33.3%">
+    <td align="center" valign="top" width="25%">
+      <img src="https://avatars.githubusercontent.com/u/85724318?v=4" alt="Diego Duarte Fernández" width="120" />
+      <br />
+      <strong>Diego Duarte Fernández</strong>
+      <br />
+      <a href="https://github.com/diegoTech14" target="_blank">
+        GitHub
+      </a>
+    </td>
+    <td align="center" valign="top" width="25%">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVtyx7mtfp-kgZAnvXHmmTIPR-sRVJP1NHwA&s" alt="OnlyDust" width="120" />
       <br />
       <strong>Open Source Contributors</strong>
