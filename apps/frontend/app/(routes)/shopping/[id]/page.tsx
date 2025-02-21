@@ -11,7 +11,6 @@ import {
 import { useTranslations } from "@/hooks/useTranslations";
 import { products } from "@/lib/mocks/products";
 import Image from "next/image";
-import { getProductKey } from "../../marketplace/page";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -22,6 +21,7 @@ import {
   Send,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { getProductKey } from "@/utils/getProductKey";
 
 interface ShoppingDetailsPageProps {
   params: {
@@ -69,6 +69,7 @@ const messages = [
     isBuyer: false,
   },
 ];
+
 
 export default function ShoppingDetailsPage({
   params,

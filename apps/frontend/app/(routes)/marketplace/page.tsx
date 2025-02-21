@@ -1,6 +1,6 @@
 "use client";
 
-import { MessageSquareMore, ShoppingBag, ShoppingCart } from "lucide-react";
+import { MessageSquareMore, ShoppingBag } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -19,29 +19,11 @@ import { useTranslations } from "@/hooks/useTranslations";
 import { products } from "@/lib/mocks/products";
 import { FilterState } from "@/lib/types/filters";
 import { generateProductSlug } from "@/utils/generateProductSlug";
+import { getProductKey } from "@/utils/getProductKey";
 
 const initialFilters: FilterState = {
   categories: [],
   priceRanges: [],
-};
-
-export const getProductKey = (id: number) => {
-  switch (id) {
-    case 1:
-      return "macbook";
-    case 2:
-      return "galaxy";
-    case 3:
-      return "chair";
-    case 4:
-      return "coffee";
-    case 5:
-      return "shoes";
-    case 6:
-      return "earbuds";
-    default:
-      return "";
-  }
 };
 
 export default function ProductList() {
