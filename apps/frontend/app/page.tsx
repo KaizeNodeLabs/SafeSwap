@@ -1,5 +1,6 @@
 "use client";
 
+import AdvantagesSection from "@/components/home/advantages-section";
 import { FeatureSection } from "@/components/home/feature-section";
 import { HeroSection } from "@/components/home/hero-section";
 import { StatsSection } from "@/components/home/stats-section";
@@ -10,6 +11,7 @@ export default function Home() {
 			<HeroSection />
 			<StatsSection />
 			<FeatureSection />
+			<AdvantagesSection />
 		</main>
 	);
 }

@@ -233,5 +233,33 @@ export const es = {
 		addToCart: "Añadir al Carrito",
 		chatWithSeller: "Chatear con Vendedor",
 	},
+	advantagesOfSafeSwap: {
+		title: "Impulsado por Stellar y Trustless Work",
+		subtitle:
+			"Garantizar transacciones seguras y transparentes con la tecnología blockchain",
+		items: {
+			trustlessWork: {
+				title: "Protección de depósito de garantía automatizada",
+				description:
+					"Trustless Work API la complejidad de los contratos inteligentes, aprovechando Stellar para garantizar transacciones seguras, imparciales y transparentes.",
+				link: "https://www.trustlesswork.com/",
+				buttonName: "Trustless Work",
+			},
+			introToStellar: {
+				title: "Pagos instantáneos con tarifas mínimas",
+				description:
+					"Basado en Stellar, SafeSwap permite transacciones casi instantáneas con tarifas insignificantes, lo que hace que los pagos transfronterizos sean fluidos.",
+				link: "https://www.stellar.org/learn/intro-to-stellar",
+				buttonName: "Introducción a Stellar",
+			},
+			powerOfStellar: {
+				title: "Confianza y equidad globales",
+				description:
+					"Utilizando el libro de contabilidad descentralizado de Stellar, SafeSwap garantiza transacciones justas sin intermediarios, brindando igualdad de acceso para todos los usuarios.",
+				link: "https://www.stellar.org/learn/the-power-of-stellar",
+				buttonName: "Poder de Stellar",
+			},
+		},
+	},
 	// Add more sections as needed
 };
