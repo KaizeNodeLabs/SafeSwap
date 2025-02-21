@@ -230,5 +230,16 @@ export const en = {
 		addToCart: "Add to Cart",
 		chatWithSeller: "Chat with Seller",
 	},
+	shopping: {
+		pay: "Pay",
+		openDispute: "Open Dispute",
+		markAsReceived: "Mark as Received",
+		escrowStatus: {
+			pending: "Pending",
+			onDispute: "On Dispute",
+			forReview: "For Review",
+			approved: "Approved",
+		},
+	},
 	// Add more sections as needed
 };
