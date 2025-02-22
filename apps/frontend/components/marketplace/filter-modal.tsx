@@ -145,7 +145,7 @@ export default function FilterModal({}: FilterModalProps) {
 						))}
 					</div>
 
-					<div className="flex justify-between">
+					<div className="flex gap-5 justify-between">
 						<Button
 							variant="outline"
 							onClick={() =>
@@ -158,10 +158,11 @@ export default function FilterModal({}: FilterModalProps) {
 									condition: [],
 								})
 							}
+							className="w-full"
 						>
 							Reset
 						</Button>
-						<Button>Apply Filters</Button>
+						<Button className="w-full">Apply Filters</Button>
 					</div>
 				</DialogContent>
 			</Dialog>
