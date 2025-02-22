@@ -230,5 +230,22 @@ export const en = {
 		addToCart: "Add to Cart",
 		chatWithSeller: "Chat with Seller",
 	},
+	howSafeSwapWorks: {
+		title: "How SafeSwap Works",
+		step1: {
+			title: "Browse & Select Products",
+			description:
+				"Explore our wide range of products and choose what you like.",
+		},
+		step2: {
+			title: "Secure Payment with Escrow",
+			description: "Pay safely using our Blockchain-powered escrow system.",
+		},
+		step3: {
+			title: "Receive Your Product Safely",
+			description:
+				"Get your product delivered and release the payment when satisfied.",
+		},
+	},
 	// Add more sections as needed
 };
