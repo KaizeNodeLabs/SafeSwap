@@ -99,15 +99,15 @@ const AdvantagesSection = () => {
 							<div
 								className={`absolute inset-0 opacity-0 group-hover:opacity-10 bg-gradient-to-br ${advantage.gradient} rounded-xl transition-opacity duration-300`}
 							/>
-							<div className="relative flex flex-col gap-3 items-center">
-								<div className="flex justify-center p-3">{advantage.icon}</div>
+							<div className="relative flex flex-col gap-3 items-center h-full">
+								<div className="flex justify-center p-2">{advantage.icon}</div>
 								<CardTitle className="text-xl font-semibold mb-2 text-center">
 									{advantage.title}
 								</CardTitle>
 								<CardContent className="text-muted-foreground text-center">
 									{advantage.description}
 								</CardContent>
-								<div>{advantage?.button}</div>
+								<div className="mt-auto">{advantage?.button}</div>
 							</div>
 						</Card>
 					))}
