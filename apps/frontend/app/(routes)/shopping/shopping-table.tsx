@@ -448,6 +448,7 @@ const ShoppingTable = () => {
 							<DialogHeader>
 								<DialogTitle>{t("shopping.orderDetails.title")}</DialogTitle>
 								<DialogClose className="absolute right-4 top-4 opacity-70 ring-offset-background transition-opacity hover:opacity-100" />
+								
 							</DialogHeader>
 							{selectedOrder && <OrderDetails order={selectedOrder} />}
 						</DialogContent>
