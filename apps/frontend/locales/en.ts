@@ -230,5 +230,9 @@ export const en = {
 		addToCart: "Add to Cart",
 		chatWithSeller: "Chat with Seller",
 	},
+	ExploreCategories: {
+		title: "Explore Categories",
+		verTodas: "View All",
+	},
 	// Add more sections as needed
 };
