@@ -22,6 +22,13 @@ export default function OnboardingPage() {
 		setCountry(value);
 	}
 
+	const {
+		register,
+		handleSubmit,
+		setValue,
+		formState: { errors },
+	} = useForm();
+
 	return (
 		<section className="w-full h-full flex flex-col items-center justify-center ">
 			<header className="flex flex-col items-center space-y-2 text-center">
