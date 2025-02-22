@@ -14,9 +14,11 @@ export const sellerOnboardingSchema = z.object({
 		.refine((val) => !val || val.startsWith("@"), {
 			message: "Telegram username should start with '@'.",
 		}),
-	country: z.string().min(1, { message: "You must select a country." }),
+	country: z
+		.string()
+		.min(1, { message: "Country must be selected before submission." }),
 	terms: z.boolean().refine((val) => val === true, {
-		message: "You must accept the terms and conditions.",
+		message: "Checkbox must be checked before submitting.",
 	}),
 });
 

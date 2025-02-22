@@ -49,16 +49,16 @@ export default function OnboardingPage() {
 		console.log(data);
 	};
 	return (
-		<section className="w-full h-full flex flex-col items-center justify-center ">
+		<section className="w-full h-full flex flex-col items-center justify-center py-10 md:py-6">
 			<header className="flex flex-col items-center space-y-2 text-center">
 				<h1 className="text-2xl font-semibold">Start Selling on SafeSwap</h1>
-				<p className="text-gray-500 w-2/3 ">
+				<p className="text-gray-500 md:w-2/3 ">
 					Join our decentralized marketplace and start selling with Stellar
 					escrow. Secure, fast and no storefront needed
 				</p>
 			</header>
 
-			<Card className="mt-6 w-[45%] shadow-sm px-1.5 py-4 rounded-lg bg-white">
+			<Card className="mt-6 md:w-[45%] shadow-sm px-1.5 py-4 rounded-lg bg-white">
 				<CardContent className="">
 					<form
 						action=""
