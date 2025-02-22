@@ -237,6 +237,8 @@ export const es = {
 		pay: "Pagar",
 		openDispute: "Abrir Disputa",
 		markAsReceived: "Marcar como Recibido",
+		send: "Enviar",
+		typeMessageHero: "Escribe tu mensaje aquí",
 		escrowStatus: {
 			pending: "Pendiente",
 			onDispute: "En Disputa",

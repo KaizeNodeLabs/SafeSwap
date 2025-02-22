@@ -156,10 +156,13 @@ export default function ShoppingDetailsPage({
             </div>
           </CardContent>
           <CardFooter className="flex flex-col items-start md:flex-row gap-2 md:items-center mt-4 pt-4 border-t">
-            <Input type="text" placeholder="Type your message here" />
+            <Input
+              type="text"
+              placeholder={`${t("shopping.typeMessageHero")}`}
+            />
             <Button>
               <Send className="mr-2 h-4 w-4" />
-              Send
+              {t("shopping.send")}
             </Button>
           </CardFooter>
         </Card>
