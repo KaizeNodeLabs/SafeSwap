@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { getProductKey } from "@/utils/getProductKey";
+import ChatMessage from "@/components/shopping/ChatMessage";
 
 interface ShoppingDetailsPageProps {
   params: {
@@ -70,7 +71,6 @@ const messages = [
   },
 ];
 
-
 export default function ShoppingDetailsPage({
   params,
 }: ShoppingDetailsPageProps) {
@@ -86,17 +86,19 @@ export default function ShoppingDetailsPage({
     <section className="py-4 space-y-10">
       <h1 className="capitalize text-3xl font-bold">shopping details</h1>
 
-      <div className="flex flex-col lg:flex-row justify-center gap-5 mx-auto">
-        <Card className="h-full">
+      <div className="grid lg:grid-cols-2 max-w-3xl md:max-w-5xl justify-center gap-5 mx-auto">
+        <Card>
           <CardHeader>
-            <Image
-              src={product.images[0].src}
-              alt={product.images[0].alt}
-              width={320}
-              height={320}
-              priority
-              className="mx-auto object-cover"
-            />
+            <div className="aspect-square">
+              <Image
+                src={product.images[0].src}
+                alt={product.images[0].alt}
+                width={320}
+                height={320}
+                priority
+                className="mx-auto object-cover w-full h-full rounded-t-lg"
+              />
+            </div>
             <p className="text-medium text-gray-500 px-4 pt-4">
               {t(
                 `common.products.categories.${product.category.toLowerCase()}`
@@ -136,58 +138,31 @@ export default function ShoppingDetailsPage({
             </div>
           </CardFooter>
         </Card>
-
-        <Card>
-          <CardHeader>
+        <Card className="flex flex-col h-full">
+          <CardHeader className="flex-none">
             <CardTitle className="text-xl font-medium items-center flex">
               <MessageSquare className="mr-2 h-4 w-4" />
               Chat
             </CardTitle>
           </CardHeader>
-          <CardContent className="pt-4">
-            <div className="max-w-lg mx-auto">
-              {messages.map((msg, index) => (
-                <ChatMessage key={index} {...msg} />
-              ))}
-              <div className="flex gap-2 items-center">
-                <Input type="text" placeholder="Type your message here" />
-                <Button>
-                  <Send className="mr-2 h-4 w-4" />
-                  Send
-                </Button>
+          <CardContent className="flex flex-col flex-1 p-4">
+            <div className="flex-1 overflow-y-auto max-h-[600px] min-h-[600px] pr-2">
+              <div className="space-y-4">
+                {messages.map((msg, index) => (
+                  <ChatMessage key={index} {...msg} />
+                ))}
               </div>
             </div>
           </CardContent>
+          <CardFooter className="flex gap-2 items-center mt-4 pt-4 border-t">
+            <Input type="text" placeholder="Type your message here" />
+            <Button>
+              <Send className="mr-2 h-4 w-4" />
+              Send
+            </Button>
+          </CardFooter>
         </Card>
       </div>
     </section>
   );
 }
-
-interface ChatMessageProps {
-  sender: string;
-  message: string;
-  timestamp: string;
-  isBuyer: boolean;
-}
-
-const ChatMessage = ({
-  sender,
-  message,
-  timestamp,
-  isBuyer,
-}: ChatMessageProps) => {
-  return (
-    <div className={`flex ${isBuyer ? "justify-end" : "justify-start"} mb-4`}>
-      <div
-        className={`max-w-md p-4 rounded-lg shadow-md dark:text-black ${
-          isBuyer ? "bg-blue-100" : "bg-gray-100"
-        }`}
-      >
-        <p className="font-bold">{sender}</p>
-        <p className="mt-1">{message}</p>
-        <p className="text-xs text-gray-500 mt-2">{timestamp}</p>
-      </div>
-    </div>
-  );
-};
