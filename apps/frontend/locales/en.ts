@@ -230,5 +230,25 @@ export const en = {
 		addToCart: "Add to Cart",
 		chatWithSeller: "Chat with Seller",
 	},
+
+	sellerOnboarding: {
+		title: "Start Selling on SafeSwap",
+		description:
+			"Join our decentralized marketplace and start selling with Stellar escrow. Secure, fast and no storefront needed.",
+		form: {
+			email: "Email",
+			emailPlaceholder: "email@gmail.com",
+			wallet: "Stellar Wallet Address",
+			walletPlaceholder: "GDDG...P5E7",
+			telegram: "Telegram Username (Optional)",
+			telegramPlaceholder: "@username",
+			country: "Country",
+			countryPlaceholder: "Select your country",
+			terms: "I agree to the terms and conditions",
+			termsDescription:
+				"By checking this box, you agree to our Terms of Service and Privacy Policy.",
+			submitButton: "Start Selling",
+		},
+	},
 	// Add more sections as needed
 };

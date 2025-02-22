@@ -233,5 +233,25 @@ export const es = {
 		addToCart: "Añadir al Carrito",
 		chatWithSeller: "Chatear con Vendedor",
 	},
+
+	sellerOnboarding: {
+		title: "Comienza a Vender en SafeSwap",
+		description:
+			"Únase a nuestro mercado descentralizado y comience a vender con el fideicomiso de Stellar. Seguro, rápido y sin necesidad de tienda.",
+		form: {
+			email: "Correo Electrónico",
+			emailPlaceholder: "email@gmail.com",
+			wallet: "Dirección de la Cartera Stellar",
+			walletPlaceholder: "GDDG...P5E7",
+			telegram: "Nombre de Usuario de Telegram (Opcional)",
+			telegramPlaceholder: "@usuario",
+			country: "País",
+			countryPlaceholder: "Seleccione su país",
+			terms: "Acepto los términos y condiciones",
+			termsDescription:
+				"Al marcar esta casilla, acepta nuestros Términos de Servicio y Política de Privacidad.",
+			submitButton: "Comenzar a Vender",
+		},
+	},
 	// Add more sections as needed
 };
