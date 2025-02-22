@@ -3,23 +3,23 @@
 # ------------------------------------------------------
 
 type Category {
-  createdAt: DateTime!
-  id: ID!
-  imageUrl: String
-  name: String!
-  updatedAt: DateTime!
+	createdAt: DateTime!
+	id: ID!
+	imageUrl: String
+	name: String!
+	updatedAt: DateTime!
 }
 
 input CreateCategoryInput {
-  name: String!
+	name: String!
 }
 
 input CreateProductInput {
-  categoryId: String!
-  description: String
-  name: String!
-  price: Float!
-  slug: String!
+	categoryId: String!
+	description: String
+	name: String!
+	price: Float!
+	slug: String!
 }
 
 """
@@ -28,40 +28,40 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 scalar DateTime
 
 type Mutation {
-  createCategory(data: CreateCategoryInput!): Category!
-  createProduct(data: CreateProductInput!): ProductDTO!
-  createProductImage(createProductImage: ProductImageDTO!): ProductImage!
+	createCategory(data: CreateCategoryInput!): Category!
+	createProduct(data: CreateProductInput!): ProductDTO!
+	createProductImage(createProductImage: ProductImageDTO!): ProductImage!
 }
 
 type ProductDTO {
-  categoryId: String!
-  createdAt: DateTime!
-  description: String
-  id: ID!
-  name: String!
-  price: Float!
-  slug: String!
-  updatedAt: DateTime!
+	categoryId: String!
+	createdAt: DateTime!
+	description: String
+	id: ID!
+	name: String!
+	price: Float!
+	slug: String!
+	updatedAt: DateTime!
 }
 
 type ProductImage {
-  createdAt: DateTime!
-  id: ID!
-  imageUrl: String!
-  productId: String!
-  updatedAt: DateTime!
+	createdAt: DateTime!
+	id: ID!
+	imageUrl: String!
+	productId: String!
+	updatedAt: DateTime!
 }
 
 input ProductImageDTO {
-  imageUrl: String!
-  productId: String!
+	imageUrl: String!
+	productId: String!
 }
 
 type Query {
-  categories: [Category!]!
-  category(id: String!): Category
-  product(id: String!): ProductDTO
-  productImage(id: String!): ProductImage
-  productImages: [ProductImage!]!
-  products: [ProductDTO!]!
+	categories: [Category!]!
+	category(id: String!): Category
+	product(id: String!): ProductDTO
+	productImage(id: String!): ProductImage
+	productImages: [ProductImage!]!
+	products: [ProductDTO!]!
 }

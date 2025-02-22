@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import ExploreCategories from "@/components/marketplace/explore-categories";
 import ProductsNotFound from "@/components/marketplace/products-not-found";
 import { ProductsPagination } from "@/components/marketplace/products-pagination";
 import { Button } from "@/components/ui/button";
@@ -16,6 +17,7 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import { useTranslations } from "@/hooks/useTranslations";
+import { CATEGORIES } from "@/lib/constants/categories";
 import { products } from "@/lib/mocks/products";
 import { FilterState } from "@/lib/types/filters";
 import { generateProductSlug } from "@/utils/generateProductSlug";
@@ -148,6 +150,9 @@ export default function ProductList() {
 				)}
 				<ProductsPagination />
 			</section>
+
+			{/* Explore Categories */}
+			<ExploreCategories categories={CATEGORIES} />
 		</>
 	);
 }
