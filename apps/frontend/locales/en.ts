@@ -230,5 +230,30 @@ export const en = {
 		addToCart: "Add to Cart",
 		chatWithSeller: "Chat with Seller",
 	},
+	shopping: {
+		title: "My Shopping",
+		tabs: {
+			all: "All",
+			pending: "Pending",
+			onDispute: "On Dispute",
+			forReview: "For Review",
+			approved: "Approved",
+		},
+		table: {
+			date: "Shopping Date",
+			product: "Product Name",
+			id: "Shopping ID",
+			price: "Price",
+			seller: "Seller",
+			status: "Escrow Status",
+			actions: "Actions",
+		},
+		search: "Search products...",
+		total: "Total Shopping",
+		buttons: {
+			startDispute: "Start dispute",
+			approve: "Approve",
+		},
+	},
 	// Add more sections as needed
 };
