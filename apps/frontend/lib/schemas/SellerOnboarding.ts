@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const formSchema = z.object({
+export const sellerOnboardingSchema = z.object({
 	email: z.string().email("Email must be in a valid format."),
 	wallet: z
 		.string()
@@ -19,3 +19,5 @@ const formSchema = z.object({
 		message: "You must accept the terms and conditions.",
 	}),
 });
+
+export type TSellerOnboarding = z.infer<typeof sellerOnboardingSchema>;

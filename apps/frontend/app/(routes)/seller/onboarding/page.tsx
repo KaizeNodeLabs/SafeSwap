@@ -1,4 +1,5 @@
 "use client";
+import { error } from "console";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -11,6 +12,12 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
+import {
+	TSellerOnboarding,
+	sellerOnboardingSchema,
+} from "@/lib/schemas/SellerOnboarding";
+import { cn } from "@/lib/utils";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Globe, Globe2, Mail, MessageSquare, Text, Wallet } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -27,8 +34,20 @@ export default function OnboardingPage() {
 		handleSubmit,
 		setValue,
 		formState: { errors },
-	} = useForm();
+	} = useForm<TSellerOnboarding>({
+		resolver: zodResolver(sellerOnboardingSchema),
+		defaultValues: {
+			email: "",
+			wallet: "",
+			telegram: "",
+			country: "",
+			terms: false,
+		},
+	});
 
+	const onSubmit = (data: TSellerOnboarding) => {
+		console.log(data);
+	};
 	return (
 		<section className="w-full h-full flex flex-col items-center justify-center ">
 			<header className="flex flex-col items-center space-y-2 text-center">
@@ -40,73 +59,110 @@ export default function OnboardingPage() {
 			</header>
 
 			<Card className="mt-6 w-[45%] shadow-sm px-1.5 py-4 rounded-lg bg-white">
-				<CardContent className="space-y-4">
-					<div className="relative flex flex-col gap-1.5">
-						<Label htmlFor="email">Email</Label>
-						<Input
-							id="email"
-							type="email"
-							placeholder="email@gmail.com"
-							className="pl-10 focus:outline-none"
-						/>
-						<Mail className="absolute top-7 left-3 text-gray-500" size={20} />
-					</div>
-
-					<div className="relative flex flex-col gap-1.5">
-						<Label htmlFor="wallet">Stellar Wallet Address</Label>
-						<Input
-							id="wallet"
-							type="text"
-							placeholder="GDDG...P5E7"
-							className="pl-10 focus:outline-none"
-						/>
-						<Wallet className="absolute top-7 left-3 text-gray-500" size={20} />
-					</div>
-
-					<div className="relative flex flex-col gap-1.5">
-						<Label htmlFor="username">Telegram Username (Optional)</Label>
-						<Input
-							id="username"
-							type="text"
-							placeholder="@username"
-							className="pl-10 focus:outline-none"
-						/>
-						<MessageSquare
-							className="absolute top-7 left-3 text-gray-500"
-							size={20}
-						/>
-					</div>
-
-					<div className="flex flex-col gap-1.5">
-						<Label htmlFor="country">Country</Label>
-
-						<Select onValueChange={setCountry}>
-							<SelectTrigger className="pl-10">
-								<SelectValue placeholder="Select your country" />
-							</SelectTrigger>
-							<SelectContent>
-								<SelectItem value="us">United States</SelectItem>
-								<SelectItem value="uk">United Kingdom</SelectItem>
-								<SelectItem value="ng">Nigeria</SelectItem>
-							</SelectContent>
-						</Select>
-					</div>
-
-					<div className="flex space-x-3">
-						<Checkbox />
-
-						<div className="inline-flex flex-col space-y-1">
-							<Label> I agree to the terms and conditions</Label>
-							<p className="text-xs text-gray-500">
-								By checking this box, you agreee to the our Terms of Service and
-								Privacy Policy.
-							</p>
+				<CardContent className="">
+					<form
+						action=""
+						className="flex flex-col space-y-4"
+						onSubmit={handleSubmit(onSubmit)}
+					>
+						<div className="relative flex flex-col gap-1.5">
+							<Label htmlFor="email">Email</Label>
+							<Input
+								{...register("email")}
+								id="email"
+								type="email"
+								placeholder="email@gmail.com"
+								className="pl-10 focus:outline-none"
+							/>
+							<Mail className="absolute top-7 left-3 text-gray-500" size={20} />
+							{errors.email?.message && (
+								<p className="text-red-500 text-xs">
+									{String(errors.email.message)}
+								</p>
+							)}
 						</div>
-					</div>
 
-					<Button className="w-full" size="default">
-						Start Selling
-					</Button>
+						<div className="relative flex flex-col gap-1.5">
+							<Label htmlFor="wallet">Stellar Wallet Address</Label>
+							<Input
+								{...register("wallet")}
+								id="wallet"
+								type="text"
+								placeholder="GDDG...P5E7"
+								className="pl-10 focus:outline-none"
+							/>
+							<Wallet
+								className="absolute top-7 left-3 text-gray-500"
+								size={20}
+							/>
+							{errors.wallet?.message && (
+								<p className="text-red-500 text-xs">
+									{String(errors.wallet.message)}
+								</p>
+							)}
+						</div>
+
+						<div className="relative flex flex-col gap-1.5">
+							<Label htmlFor="username">Telegram Username (Optional)</Label>
+							<Input
+								{...register("telegram")}
+								id="username"
+								type="text"
+								placeholder="@username"
+								className="pl-10 focus:outline-none"
+							/>
+							<MessageSquare
+								className="absolute top-7 left-3 text-gray-500"
+								size={20}
+							/>
+
+							{errors.telegram?.message && (
+								<p className="text-red-500 text-xs">
+									{errors.telegram.message}
+								</p>
+							)}
+						</div>
+
+						<div className="flex flex-col gap-1.5">
+							<Label htmlFor="country">Country</Label>
+
+							<Select onValueChange={(value) => setValue("country", value)}>
+								<SelectTrigger className={cn("pl-10")}>
+									<SelectValue placeholder="Select your country" />
+								</SelectTrigger>
+								<SelectContent>
+									<SelectItem value="us">United States</SelectItem>
+									<SelectItem value="uk">United Kingdom</SelectItem>
+									<SelectItem value="ng">Nigeria</SelectItem>
+								</SelectContent>
+							</Select>
+							{errors.country && (
+								<p className="text-red-500 text-xs">{errors.country.message}</p>
+							)}
+						</div>
+
+						<div className="flex space-x-3">
+							<Checkbox
+								onCheckedChange={(checked) => setValue("terms", !!checked)}
+							/>
+
+							<div className="inline-flex flex-col space-y-1">
+								<Label> I agree to the terms and conditions</Label>
+								<p className="text-xs text-gray-500">
+									By checking this box, you agreee to the our Terms of Service
+									and Privacy Policy.
+								</p>
+							</div>
+						</div>
+
+						{errors.terms && (
+							<p className="text-red-500 text-xs">{errors.terms.message}</p>
+						)}
+
+						<Button className="w-full" size="default">
+							Start Selling
+						</Button>
+					</form>
 				</CardContent>
 			</Card>
 		</section>
