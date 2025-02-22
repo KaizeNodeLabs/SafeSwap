@@ -86,7 +86,7 @@ export default function ShoppingDetailsPage({
     <section className="py-4 space-y-10">
       <h1 className="capitalize text-3xl font-bold">shopping details</h1>
 
-      <div className="grid lg:grid-cols-2 max-w-3xl md:max-w-5xl justify-center gap-5 mx-auto">
+      <div className="grid lg:grid-cols-2 max-w-md md:max-w-5xl justify-center gap-5 mx-auto">
         <Card>
           <CardHeader>
             <div className="aspect-square">
@@ -122,22 +122,23 @@ export default function ShoppingDetailsPage({
             <Badge variant={"secondary"}>
               {t("shopping.escrowStatus.pending")}
             </Badge>
-            <div className="flex gap-2">
-              <Button>
+            <div className="flex flex-col md:block gap-2 mx-auto md:m-0">
+              <Button className="md:mr-2">
                 <ShoppingBag className="mr-2 h-4 w-4" />
                 {t("shopping.pay")}
               </Button>
-              <Button variant={"outline"}>
+              <Button className="md:mr-2" variant={"outline"}>
                 <CircleCheckBig className="mr-2 h-4 w-4" />
                 {t("shopping.markAsReceived")}
               </Button>
-              <Button variant={"destructive"}>
+              <Button variant={"destructive"} className="md:mt-2">
                 <AlertTriangle className="mr-2 h-4 w-4" />
                 {t("shopping.openDispute")}
               </Button>
             </div>
           </CardFooter>
         </Card>
+
         <Card className="flex flex-col h-full">
           <CardHeader className="flex-none">
             <CardTitle className="text-xl font-medium items-center flex">
@@ -154,7 +155,7 @@ export default function ShoppingDetailsPage({
               </div>
             </div>
           </CardContent>
-          <CardFooter className="flex gap-2 items-center mt-4 pt-4 border-t">
+          <CardFooter className="flex flex-col items-start md:flex-row gap-2 md:items-center mt-4 pt-4 border-t">
             <Input type="text" placeholder="Type your message here" />
             <Button>
               <Send className="mr-2 h-4 w-4" />
