@@ -233,30 +233,71 @@ export const es = {
 		addToCart: "Añadir al Carrito",
 		chatWithSeller: "Chatear con Vendedor",
 	},
+	saleDetails: {
+		title: "Detalles de la Venta",
+		copied: "¡Copiado!",
+		copyId: "Copiar ID de la Venta",
+		print: "Imprimir",
+		email: "Correo Electrónico",
+		saleId: "ID de la Venta",
+		buyerAddress: "Dirección del Comprador",
+		status: "Estado",
+		dateTime: "Fecha y Hora",
+		financialDetails: "Detalles Financieros",
+		amount: "Monto",
+		fees: "Comisiones",
+		balance: "Saldo",
+		signRelease: "Firmar Liberación",
+		chat: "Chat",
+		milestones: "Hitos",
+	},
+	chat: {
+		placeholder: "Escribe tu mensaje...",
+	},
+	milestones: {
+		approve: "Aprobar",
+		complete: "Completar",
+		approved: "Aprobado",
+		completed: "Completado",
+		pending: "Pendiente",
+		forReview: "Para Revisión",
+	},
 	shopping: {
 		title: "Mis Compras",
 		tabs: {
-			all: "Todos",
-			pending: "Pendiente",
-			onDispute: "En Disputa",
-			forReview: "En Revisión",
-			approved: "Aprobado",
+		  all: "Todos",
+		  pending: "Pendiente",
+		  onDispute: "En Disputa",
+		  forReview: "En Revisión",
+		  approved: "Aprobado"
 		},
 		table: {
-			date: "Fecha de Compra",
-			product: "Nombre del Producto",
-			id: "ID de Compra",
-			price: "Precio",
-			seller: "Vendedor",
-			status: "Estado de Custodia",
-			actions: "Acciones",
+		  date: "Fecha de Compra",
+		  product: "Nombre del Producto",
+		  id: "ID de Compra",
+		  price: "Precio",
+		  seller: "Vendedor",
+		  status: "Estado de Custodia",
+		  actions: "Acciones"
+		},
+		orderDetails: {
+		  title: "Detalles del Pedido",
+		  productLabel: "Producto",
+		  idLabel: "ID de Compra",
+		  dateLabel: "Fecha",
+		  priceLabel: "Precio",
+		  sellerLabel: "Vendedor",
+		  statusLabel: "Estado"
 		},
 		search: "Buscar productos...",
 		total: "Total de Compras",
 		buttons: {
-			startDispute: "Iniciar disputa",
-			approve: "Aprobar",
+		  startDispute: "Iniciar disputa",
+		  approve: "Aprobar",
+		  viewDetails: "Ver Detalles"
 		},
-	},
+		currency: "$"
+	  }
 	// Add more sections as needed
-};
+  };
+  

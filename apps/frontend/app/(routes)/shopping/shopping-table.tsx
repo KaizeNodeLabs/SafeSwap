@@ -24,7 +24,15 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { AlertCircle, CheckCircle2, Clock, Eye, Search, X } from "lucide-react";
+import { useTranslations } from "@/hooks/useTranslations";
+import {
+	AlertCircle,
+	CheckCircle2,
+	Clock,
+	Eye,
+	Search,
+	ShoppingBag,
+} from "lucide-react";
 import React, { useState, useEffect } from "react";
 import { ShoppingData, TabType } from "./types";
 
@@ -110,36 +118,53 @@ const getStatusIcon = (status: string) => {
 };
 
 const OrderDetails = ({ order }: { order: ShoppingData }) => {
+	const { t } = useTranslations();
+
 	return (
 		<div className="space-y-4">
 			<div className="grid grid-cols-2 gap-4">
 				<div>
-					<p className="text-sm text-gray-500">Product</p>
+					<p className="text-sm text-gray-500">
+						{t("shopping.orderDetails.productLabel")}
+					</p>
 					<p className="font-medium">{order.product}</p>
 				</div>
 				<div>
-					<p className="text-sm text-gray-500">Shopping ID</p>
+					<p className="text-sm text-gray-500">
+						{t("shopping.orderDetails.idLabel")}
+					</p>
 					<p className="font-medium">{order.id}</p>
 				</div>
 				<div>
-					<p className="text-sm text-gray-500">Date</p>
+					<p className="text-sm text-gray-500">
+						{t("shopping.orderDetails.dateLabel")}
+					</p>
 					<p className="font-medium">{order.date}</p>
 				</div>
 				<div>
-					<p className="text-sm text-gray-500">Price</p>
-					<p className="font-medium">${order.price}</p>
+					<p className="text-sm text-gray-500">
+						{t("shopping.orderDetails.priceLabel")}
+					</p>
+					<p className="font-medium">
+						{t("shopping.currency")}
+						{order.price}
+					</p>
 				</div>
 				<div>
-					<p className="text-sm text-gray-500">Seller</p>
+					<p className="text-sm text-gray-500">
+						{t("shopping.orderDetails.sellerLabel")}
+					</p>
 					<p className="font-mono text-sm">{order.seller}</p>
 				</div>
 				<div>
-					<p className="text-sm text-gray-500">Status</p>
+					<p className="text-sm text-gray-500">
+						{t("shopping.orderDetails.statusLabel")}
+					</p>
 					<Badge
 						className={`mt-1 flex items-center w-fit ${getStatusColor(order.status)}`}
 					>
 						{getStatusIcon(order.status)}
-						{order.status}
+						{t(`shopping.tabs.${order.status.toLowerCase().replace(" ", "")}`)}
 					</Badge>
 				</div>
 			</div>
@@ -147,13 +172,13 @@ const OrderDetails = ({ order }: { order: ShoppingData }) => {
 			{order.status !== "Approved" && order.status !== "On Dispute" && (
 				<div className="flex gap-2 pt-4 border-t">
 					<Button variant="destructive" className="flex-1">
-						Start dispute
+						{t("shopping.buttons.startDispute")}
 					</Button>
 					<Button
 						variant="default"
 						className="flex-1 bg-green-600 hover:bg-green-700"
 					>
-						Approve
+						{t("shopping.buttons.approve")}
 					</Button>
 				</div>
 			)}
@@ -162,6 +187,7 @@ const OrderDetails = ({ order }: { order: ShoppingData }) => {
 };
 
 const ShoppingTable = () => {
+	const { t } = useTranslations();
 	const [activeTab, setActiveTab] = useState<TabType>("All");
 	const [searchTerm, setSearchTerm] = useState("");
 	const [data] = useState<ShoppingData[]>(initialData);
@@ -175,6 +201,21 @@ const ShoppingTable = () => {
 		"For Review",
 		"Approved",
 	];
+	// created a status to translation key mapper
+	const getStatusTranslationKey = (status: string): string => {
+		switch (status) {
+			case "Pending":
+				return "pending";
+			case "On Dispute":
+				return "onDispute";
+			case "For Review":
+				return "forReview";
+			case "Approved":
+				return "approved";
+			default:
+				return status.toLowerCase();
+		}
+	};
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -188,7 +229,7 @@ const ShoppingTable = () => {
 
 	const formatDate = (date: string | Date): string => {
 		const d = new Date(date);
-		const year = "20" + d.getFullYear().toString().slice(-2);
+		const year = `20${d.getFullYear().toString().slice(-2)}`;
 		const month = (d.getMonth() + 1).toString().padStart(2, "0");
 		const day = d.getDate().toString().padStart(2, "0");
 		return `${year}-${month}-${day}`;
@@ -198,36 +239,6 @@ const ShoppingTable = () => {
 		if (!address) return "";
 		if (address.length <= 11) return address;
 		return `${address.slice(0, 11)}...`;
-	};
-
-	const getStatusColor = (status: string) => {
-		switch (status) {
-			case "Pending":
-				return "bg-white text-gray-400";
-			case "On Dispute":
-				return "bg-red-500 text-white";
-			case "For Review":
-				return "bg-white text-black";
-			case "Approved":
-				return "bg-black text-white";
-			default:
-				return "bg-gray-200 text-gray-700";
-		}
-	};
-
-	const getStatusIcon = (status: string) => {
-		switch (status) {
-			case "Pending":
-				return <Clock className="w-4 h-4 mr-1" />;
-			case "On Dispute":
-				return <AlertCircle className="w-4 h-4 mr-1" />;
-			case "For Review":
-				return <Eye className="w-4 h-4 mr-1" />;
-			case "Approved":
-				return <CheckCircle2 className="w-4 h-4 mr-1" />;
-			default:
-				return null;
-		}
 	};
 
 	const handleOrderClick = (order: ShoppingData) => {
@@ -264,13 +275,15 @@ const ShoppingTable = () => {
 					className={`flex items-center hover:text-white hover:cursor-pointer ${getStatusColor(item.status)}`}
 				>
 					{getStatusIcon(item.status)}
-					{item.status}
+					{t(`shopping.tabs.${getStatusTranslationKey(item.status)}`)}
 				</Badge>
 			</div>
 
 			<div className="space-y-2">
 				<div className="flex justify-between items-center">
-					<span className="text-sm text-gray-500">ID:</span>
+					<span className="text-sm text-gray-500">
+						{t("shopping.table.id")}:
+					</span>
 					<Button
 						variant="link"
 						className="text-blue-600 hover:underline p-0 h-auto font-normal"
@@ -281,12 +294,19 @@ const ShoppingTable = () => {
 				</div>
 
 				<div className="flex justify-between items-center">
-					<span className="text-sm text-gray-500">Price:</span>
-					<span>${item.price}</span>
+					<span className="text-sm text-gray-500">
+						{t("shopping.table.price")}:
+					</span>
+					<span>
+						{t("shopping.currency")}
+						{item.price}
+					</span>
 				</div>
 
 				<div className="flex justify-between items-center">
-					<span className="text-sm text-gray-500">Seller:</span>
+					<span className="text-sm text-gray-500">
+						{t("shopping.table.seller")}:
+					</span>
 					<span>{renderStellarAddress(item.seller)}</span>
 				</div>
 			</div>
@@ -294,14 +314,14 @@ const ShoppingTable = () => {
 			{item.status !== "Approved" && item.status !== "On Dispute" && (
 				<div className="flex gap-2 mt-4">
 					<Button variant="destructive" size="sm" className="flex-1">
-						Start dispute
+						{t("shopping.buttons.startDispute")}
 					</Button>
 					<Button
 						variant="default"
 						size="sm"
 						className="flex-1 bg-green-600 hover:bg-green-700"
 					>
-						Approve
+						{t("shopping.buttons.approve")}
 					</Button>
 				</div>
 			)}
@@ -320,13 +340,13 @@ const ShoppingTable = () => {
 				<Table>
 					<TableHeader>
 						<TableRow>
-							<TableHead>Shopping Date</TableHead>
-							<TableHead>Product Name</TableHead>
-							<TableHead>Shopping ID</TableHead>
-							<TableHead>Price</TableHead>
-							<TableHead>Seller</TableHead>
-							<TableHead>Escrow Status</TableHead>
-							<TableHead>Actions</TableHead>
+							<TableHead>{t("shopping.table.date")}</TableHead>
+							<TableHead>{t("shopping.table.product")}</TableHead>
+							<TableHead>{t("shopping.table.id")}</TableHead>
+							<TableHead>{t("shopping.table.price")}</TableHead>
+							<TableHead>{t("shopping.table.seller")}</TableHead>
+							<TableHead>{t("shopping.table.status")}</TableHead>
+							<TableHead>{t("shopping.table.actions")}</TableHead>
 						</TableRow>
 					</TableHeader>
 					<TableBody>
@@ -343,14 +363,17 @@ const ShoppingTable = () => {
 										{item.id}
 									</Button>
 								</TableCell>
-								<TableCell>${item.price}</TableCell>
+								<TableCell>
+									{t("shopping.currency")}
+									{item.price}
+								</TableCell>
 								<TableCell>{renderStellarAddress(item.seller)}</TableCell>
 								<TableCell>
 									<Badge
 										className={`flex items-center border border-gray-200 hover:text-white hover:cursor-pointer w-fit ${getStatusColor(item.status)}`}
 									>
 										{getStatusIcon(item.status)}
-										{item.status}
+										{t(`shopping.tabs.${getStatusTranslationKey(item.status)}`)}
 									</Badge>
 								</TableCell>
 								<TableCell>
@@ -358,14 +381,14 @@ const ShoppingTable = () => {
 										item.status !== "On Dispute" && (
 											<div className="flex gap-2">
 												<Button variant="destructive" size="sm">
-													Start dispute
+													{t("shopping.buttons.startDispute")}
 												</Button>
 												<Button
 													variant="default"
 													size="sm"
 													className="bg-green-600 hover:bg-green-700"
 												>
-													Approve
+													{t("shopping.buttons.approve")}
 												</Button>
 											</div>
 										)}
@@ -379,53 +402,61 @@ const ShoppingTable = () => {
 	};
 
 	return (
-		<Card className="w-full max-w-7xl mx-auto p-4">
-			<div className="space-y-4">
-				<div className="flex flex-col md:flex-row gap-4">
-					<div className="flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0">
-						{tabs.map((tab) => (
-							<Button
-								key={tab}
-								variant={activeTab === tab ? "default" : "outline"}
-								className="whitespace-nowrap"
-								onClick={() => setActiveTab(tab)}
-							>
-								{tab}
-							</Button>
-						))}
+		<>
+			<h1 className="text-4xl font-bold mb-8 flex items-center gap-2">
+				<ShoppingBag className="w-8 h-8" />
+				{t("shopping.title")}
+			</h1>
+
+			<Card className="w-full max-w-7xl mx-auto p-4">
+				<div className="space-y-4">
+					<div className="flex flex-col md:flex-row gap-4">
+						<div className="flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0">
+							{tabs.map((tab) => (
+								<Button
+									key={tab}
+									variant={activeTab === tab ? "default" : "outline"}
+									className="whitespace-nowrap"
+									onClick={() => setActiveTab(tab)}
+								>
+									{t(`shopping.tabs.${getStatusTranslationKey(tab)}`)}
+								</Button>
+							))}
+						</div>
+						<div className="relative justify-end flex flex-1">
+							<Search className="absolute left-2 md:left-[52%] top-2.5 h-4 w-4 text-gray-500" />
+							<Input
+								placeholder={t("shopping.search")}
+								className="pl-8 w-full md:w-[50%] bg-gray-200"
+								value={searchTerm}
+								onChange={(e) => setSearchTerm(e.target.value)}
+							/>
+						</div>
 					</div>
-					<div className="relative justify-end flex flex-1">
-						<Search className="absolute left-2 md:left-[52%] top-2.5 h-4 w-4 text-gray-500" />
-						<Input
-							placeholder="Search products..."
-							className="pl-8 w-full md:w-[50%] bg-gray-200"
-							value={searchTerm}
-							onChange={(e) => setSearchTerm(e.target.value)}
-						/>
+
+					{renderContent()}
+
+					<div className="text-sm text-gray-600">
+						{t("shopping.total")}: {filteredData.length}
 					</div>
+
+					<Dialog
+						open={!!selectedOrder}
+						onOpenChange={() => setSelectedOrder(null)}
+					>
+						<DialogContent>
+							<DialogHeader>
+								<DialogTitle>{t("shopping.orderDetails.title")}</DialogTitle>
+								<DialogClose className="absolute right-4 top-4 opacity-70 ring-offset-background transition-opacity hover:opacity-100" />
+							</DialogHeader>
+							{selectedOrder && <OrderDetails order={selectedOrder} />}
+						</DialogContent>
+					</Dialog>
 				</div>
-
-				{renderContent()}
-
-				<div className="text-sm text-gray-600">
-					Total Shopping: {filteredData.length}
-				</div>
-
-				<Dialog
-					open={!!selectedOrder}
-					onOpenChange={() => setSelectedOrder(null)}
-				>
-					<DialogContent>
-						<DialogHeader>
-							<DialogTitle>Order Details</DialogTitle>
-							<DialogClose className="absolute right-4 top-4 opacity-70 ring-offset-background transition-opacity hover:opacity-100"></DialogClose>
-						</DialogHeader>
-						{selectedOrder && <OrderDetails order={selectedOrder} />}
-					</DialogContent>
-				</Dialog>
-			</div>
-		</Card>
+			</Card>
+		</>
 	);
 };
 
 export default ShoppingTable;
+

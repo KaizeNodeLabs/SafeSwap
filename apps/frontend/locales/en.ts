@@ -1,3 +1,5 @@
+import { milestones } from "@/components/seller/mock/milestones.mock";
+
 export const en = {
 	common: {
 		profile: "Profile",
@@ -230,30 +232,72 @@ export const en = {
 		addToCart: "Add to Cart",
 		chatWithSeller: "Chat with Seller",
 	},
-	shopping: {
-		title: "My Shopping",
-		tabs: {
-			all: "All",
-			pending: "Pending",
-			onDispute: "On Dispute",
-			forReview: "For Review",
-			approved: "Approved",
-		},
-		table: {
-			date: "Shopping Date",
-			product: "Product Name",
-			id: "Shopping ID",
-			price: "Price",
-			seller: "Seller",
-			status: "Escrow Status",
-			actions: "Actions",
-		},
-		search: "Search products...",
-		total: "Total Shopping",
-		buttons: {
-			startDispute: "Start dispute",
-			approve: "Approve",
-		},
+	saleDetails: {
+		title: "Sale Details",
+		copied: "Copied!",
+		copyId: "Copy Sale ID",
+		print: "Print",
+		email: "Email",
+		saleId: "Sale ID",
+		buyerAddress: "Buyer Address",
+		status: "Status",
+		dateTime: "Date & Time",
+		financialDetails: "Financial Details",
+		amount: "Amount",
+		fees: "Fees",
+		balance: "Balance",
+		signRelease: "Sign Release",
+		chat: "Chat",
+		milestones: "Milestones",
 	},
-	// Add more sections as needed
+	chat: {
+		placeholder: "Write your message...",
+	},
+	milestones: {
+		approve: "Approve",
+		complete: "Complete",
+		approved: "Approved",
+		completed: "Completed",
+		pending: "Pending",
+		forReview: "For Review",
+
+},
+shopping: {
+	title: "My Shopping",
+	tabs: {
+	  all: "All",
+	  pending: "Pending",
+	  onDispute: "On Dispute",
+	  forReview: "For Review",
+	  approved: "Approved"
+	},
+	table: {
+	  date: "Shopping Date",
+	  product: "Product Name",
+	  id: "Shopping ID",
+	  price: "Price",
+	  seller: "Seller",
+	  status: "Escrow Status",
+	  actions: "Actions"
+	},
+	orderDetails: {
+	  title: "Order Details",
+	  productLabel: "Product",
+	  idLabel: "Shopping ID",
+	  dateLabel: "Date",
+	  priceLabel: "Price",
+	  sellerLabel: "Seller",
+	  statusLabel: "Status"
+	},
+	search: "Search products...",
+	total: "Total Shopping",
+	buttons: {
+	  startDispute: "Start dispute",
+	  approve: "Approve",
+	  viewDetails: "View Details"
+	},
+	currency: "$"
+  },
+
+// Add more sections as needed
 };
