@@ -233,5 +233,30 @@ export const es = {
 		addToCart: "Añadir al Carrito",
 		chatWithSeller: "Chatear con Vendedor",
 	},
+	shopping: {
+		title: "Mis Compras",
+		tabs: {
+			all: "Todos",
+			pending: "Pendiente",
+			onDispute: "En Disputa",
+			forReview: "En Revisión",
+			approved: "Aprobado",
+		},
+		table: {
+			date: "Fecha de Compra",
+			product: "Nombre del Producto",
+			id: "ID de Compra",
+			price: "Precio",
+			seller: "Vendedor",
+			status: "Estado de Custodia",
+			actions: "Acciones",
+		},
+		search: "Buscar productos...",
+		total: "Total de Compras",
+		buttons: {
+			startDispute: "Iniciar disputa",
+			approve: "Aprobar",
+		},
+	},
 	// Add more sections as needed
 };
