@@ -2,6 +2,7 @@
 
 import { FeatureSection } from "@/components/home/feature-section";
 import { HeroSection } from "@/components/home/hero-section";
+import { SellerSection } from "@/components/home/seller-section";
 import { StatsSection } from "@/components/home/stats-section";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
 			<HeroSection />
 			<StatsSection />
 			<FeatureSection />
+			<SellerSection />
 		</main>
 	);
 }

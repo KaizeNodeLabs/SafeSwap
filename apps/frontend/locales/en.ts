@@ -169,6 +169,11 @@ export const en = {
 				decrease: "Decrease quantity",
 			},
 		},
+		seller: {
+			title: "Ready to start selling?",
+			description: "Join SafeSwap and reach thousands of buyers today!",
+			btn_label: "Become a seller",
+		},
 
 		createProduct: {
 			title: "Sell Product",
