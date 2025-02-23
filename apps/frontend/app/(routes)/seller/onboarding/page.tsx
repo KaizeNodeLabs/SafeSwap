@@ -1,5 +1,4 @@
 "use client";
-import { error } from "console";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -12,23 +11,18 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
+import { useTranslations } from "@/hooks/useTranslations";
 import {
 	TSellerOnboarding,
 	sellerOnboardingSchema,
-} from "@/lib/schemas/SellerOnboarding";
+} from "@/lib/schemas/sellerOnboarding";
 import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Globe, Globe2, Mail, MessageSquare, Text, Wallet } from "lucide-react";
-import { useState } from "react";
+import { Globe, Mail, MessageSquare, Wallet } from "lucide-react";
 import { useForm } from "react-hook-form";
 
 export default function OnboardingPage() {
-	const [country, setCountry] = useState<string | null>(null);
-
-	function handleSetCountry(value: string): void {
-		setCountry(value);
-	}
-
+	const { t } = useTranslations();
 	const {
 		register,
 		handleSubmit,
@@ -51,14 +45,15 @@ export default function OnboardingPage() {
 	return (
 		<section className="w-full h-full flex flex-col items-center justify-center py-10 md:py-6">
 			<header className="flex flex-col items-center space-y-2 text-center">
-				<h1 className="text-2xl font-semibold">Start Selling on SafeSwap</h1>
+				<h1 className="text-2xl font-semibold">
+					{t("sellerOnboarding.title")}
+				</h1>
 				<p className="text-gray-500 md:w-2/3 ">
-					Join our decentralized marketplace and start selling with Stellar
-					escrow. Secure, fast and no storefront needed
+					{t("sellerOnboarding.description")}
 				</p>
 			</header>
 
-			<Card className="mt-6 md:w-[45%] shadow-sm px-1.5 py-4 rounded-lg bg-white">
+			<Card className="mt-6 md:max-w-md shadow-sm px-1.5 py-4 rounded-lg bg-white">
 				<CardContent className="">
 					<form
 						action=""
@@ -66,12 +61,12 @@ export default function OnboardingPage() {
 						onSubmit={handleSubmit(onSubmit)}
 					>
 						<div className="relative flex flex-col gap-1.5">
-							<Label htmlFor="email">Email</Label>
+							<Label htmlFor="email">{t("sellerOnboarding.form.email")}</Label>
 							<Input
 								{...register("email")}
 								id="email"
 								type="email"
-								placeholder="email@gmail.com"
+								placeholder={t("sellerOnboarding.form.emailPlaceholder")}
 								className="pl-10 focus:outline-none"
 							/>
 							<Mail className="absolute top-7 left-3 text-gray-500" size={20} />
@@ -83,12 +78,14 @@ export default function OnboardingPage() {
 						</div>
 
 						<div className="relative flex flex-col gap-1.5">
-							<Label htmlFor="wallet">Stellar Wallet Address</Label>
+							<Label htmlFor="wallet">
+								{t("sellerOnboarding.form.wallet")}
+							</Label>
 							<Input
 								{...register("wallet")}
 								id="wallet"
 								type="text"
-								placeholder="GDDG...P5E7"
+								placeholder={t("sellerOnboarding.form.walletPlaceholder")}
 								className="pl-10 focus:outline-none"
 							/>
 							<Wallet
@@ -103,12 +100,14 @@ export default function OnboardingPage() {
 						</div>
 
 						<div className="relative flex flex-col gap-1.5">
-							<Label htmlFor="username">Telegram Username (Optional)</Label>
+							<Label htmlFor="username">
+								{t("sellerOnboarding.form.telegram")}
+							</Label>
 							<Input
 								{...register("telegram")}
 								id="username"
 								type="text"
-								placeholder="@username"
+								placeholder={t("sellerOnboarding.form.telegramPlaceholder")}
 								className="pl-10 focus:outline-none"
 							/>
 							<MessageSquare
@@ -123,12 +122,16 @@ export default function OnboardingPage() {
 							)}
 						</div>
 
-						<div className="flex flex-col gap-1.5">
-							<Label htmlFor="country">Country</Label>
+						<div className="relative flex flex-col gap-1.5">
+							<Label htmlFor="country">
+								{t("sellerOnboarding.form.country")}
+							</Label>
 
 							<Select onValueChange={(value) => setValue("country", value)}>
 								<SelectTrigger className={cn("pl-10")}>
-									<SelectValue placeholder="Select your country" />
+									<SelectValue
+										placeholder={t("sellerOnboarding.form.countryPlaceholder")}
+									/>
 								</SelectTrigger>
 								<SelectContent>
 									<SelectItem value="us">United States</SelectItem>
@@ -136,6 +139,10 @@ export default function OnboardingPage() {
 									<SelectItem value="ng">Nigeria</SelectItem>
 								</SelectContent>
 							</Select>
+							<Globe
+								className="absolute top-7 left-3 text-gray-500"
+								size={20}
+							/>
 							{errors.country && (
 								<p className="text-red-500 text-xs">{errors.country.message}</p>
 							)}
@@ -147,10 +154,9 @@ export default function OnboardingPage() {
 							/>
 
 							<div className="inline-flex flex-col space-y-1">
-								<Label> I agree to the terms and conditions</Label>
+								<Label>{t("sellerOnboarding.form.terms")}</Label>
 								<p className="text-xs text-gray-500">
-									By checking this box, you agreee to the our Terms of Service
-									and Privacy Policy.
+									{t("sellerOnboarding.form.termsDescription")}
 								</p>
 							</div>
 						</div>
@@ -160,7 +166,7 @@ export default function OnboardingPage() {
 						)}
 
 						<Button className="w-full" size="default">
-							Start Selling
+							{t("sellerOnboarding.form.submitButton")}
 						</Button>
 					</form>
 				</CardContent>
