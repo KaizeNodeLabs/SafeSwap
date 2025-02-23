@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -15,7 +16,8 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-import { Filter, X } from "lucide-react";
+import { useTranslations } from "@/hooks/useTranslations";
+import { Filter } from "lucide-react";
 import { useState } from "react";
 
 interface FilterState {
@@ -27,145 +29,157 @@ interface FilterState {
 	condition: string[];
 }
 
-type FilterModalProps = {};
+const initialFilters: FilterState = {
+	sortBy: "",
+	minPrice: "",
+	maxPrice: "",
+	dateListed: "",
+	deliveryMethod: "",
+	condition: [],
+};
 
-export default function FilterModal({}: FilterModalProps) {
-	const [filters, setFilters] = useState<FilterState>({
-		sortBy: "",
-		minPrice: "",
-		maxPrice: "",
-		dateListed: "",
-		deliveryMethod: "",
-		condition: [],
-	});
+export default function FilterModal() {
+	const [filters, setFilters] = useState<FilterState>(initialFilters);
+	const { t } = useTranslations();
 
 	const toggleCondition = (condition: string) => {
-		setFilters((prev) => {
+		setFilters((prev: FilterState) => {
 			const conditions = prev.condition.includes(condition)
-				? prev.condition.filter((c) => c !== condition)
+				? prev.condition.filter((c: string) => c !== condition)
 				: [...prev.condition, condition];
 			return { ...prev, condition: conditions };
 		});
 	};
 
 	return (
-		<>
-			<Dialog>
-				<DialogTrigger asChild>
-					<button className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-md">
-						<Filter size={18} />
-						<span className="font-medium">Filters</span>
-					</button>
-				</DialogTrigger>
-				<DialogContent className="max-w-md">
-					<div className="flex justify-between items-center">
-						<DialogHeader>
-							<DialogTitle>Filters</DialogTitle>
-						</DialogHeader>
-					</div>
+		<Dialog>
+			<DialogTrigger asChild>
+				<Button className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-md">
+					<Filter size={18} />
+					<span className="font-medium">{t("common.filters.title")}</span>
+				</Button>
+			</DialogTrigger>
+			<DialogContent className="max-w-md">
+				<div className="flex justify-between items-center">
+					<DialogHeader>
+						<DialogTitle>{t("common.filters.header")}</DialogTitle>
+					</DialogHeader>
+				</div>
 
-					<Select
-						onValueChange={(value: any) =>
-							setFilters({ ...filters, sortBy: value })
+				<Select
+					onValueChange={(value) =>
+						setFilters((prev) => ({ ...prev, sortBy: value }))
+					}
+				>
+					<SelectTrigger>
+						<SelectValue placeholder="Sort by" />
+					</SelectTrigger>
+					<SelectContent>
+						<SelectItem value="suggested">
+							{t("common.filters.sortBy.suggested")}
+						</SelectItem>
+						<SelectItem value="distance">
+							{t("common.filters.sortBy.distance")}
+						</SelectItem>
+						<SelectItem value="dateListed">
+							{t("common.filters.sortBy.dateListed")}
+						</SelectItem>
+						<SelectItem value="highPrice">
+							{t("common.filters.sortBy.highPrice")}
+						</SelectItem>
+						<SelectItem value="lowPrice">
+							{t("common.filters.sortBy.lowPrice")}
+						</SelectItem>
+					</SelectContent>
+				</Select>
+
+				<div className="flex gap-2">
+					<Input
+						placeholder="Min price"
+						value={filters.minPrice}
+						onChange={(e) =>
+							setFilters((prev) => ({ ...prev, minPrice: e.target.value }))
 						}
-					>
-						<SelectTrigger>
-							<SelectValue placeholder="Sort by" />
-						</SelectTrigger>
-						<SelectContent>
-							<SelectItem value="suggested">Suggested</SelectItem>
-							<SelectItem value="distance">Distance: Nearest first</SelectItem>
-							<SelectItem value="date-listed">
-								Date listed: Newest first
-							</SelectItem>
-							<SelectItem value="price">Price: Highest first</SelectItem>
-							<SelectItem value="price-low">Price: Lowest first</SelectItem>
-						</SelectContent>
-					</Select>
-
-					<div className="flex gap-2">
-						<Input
-							placeholder="Min price"
-							value={filters.minPrice}
-							onChange={(e) =>
-								setFilters({ ...filters, minPrice: e.target.value })
-							}
-						/>
-						<Input
-							placeholder="Max price"
-							value={filters.maxPrice}
-							onChange={(e) =>
-								setFilters({ ...filters, maxPrice: e.target.value })
-							}
-						/>
-					</div>
-
-					<Select
-						onValueChange={(value: any) =>
-							setFilters({ ...filters, dateListed: value })
+					/>
+					<Input
+						placeholder="Max price"
+						value={filters.maxPrice}
+						onChange={(e) =>
+							setFilters((prev) => ({ ...prev, maxPrice: e.target.value }))
 						}
+					/>
+				</div>
+
+				<Select
+					onValueChange={(value) =>
+						setFilters((prev) => ({ ...prev, dateListed: value }))
+					}
+				>
+					<SelectTrigger>
+						<SelectValue placeholder="Date Listed" />
+					</SelectTrigger>
+					<SelectContent>
+						<SelectItem value="all">
+							{t("common.filters.dateListed.all")}
+						</SelectItem>
+						<SelectItem value="last24Hours">
+							{t("common.filters.dateListed.last24Hours")}
+						</SelectItem>
+						<SelectItem value="last7days">
+							{t("common.filters.dateListed.last7Days")}
+						</SelectItem>
+						<SelectItem value="last30Days">
+							{t("common.filters.dateListed.last30Days")}
+						</SelectItem>
+					</SelectContent>
+				</Select>
+
+				<Select
+					onValueChange={(value) =>
+						setFilters((prev) => ({ ...prev, deliveryMethod: value }))
+					}
+				>
+					<SelectTrigger>
+						<SelectValue placeholder="Delivery Method" />
+					</SelectTrigger>
+					<SelectContent>
+						<SelectItem value="all">
+							{t("common.filters.deliveryMethod.all")}
+						</SelectItem>
+						<SelectItem value="localPickup">
+							{t("common.filters.deliveryMethod.localPicUp")}
+						</SelectItem>
+						<SelectItem value="delivery">
+							{t("common.filters.deliveryMethod.delivery")}
+						</SelectItem>
+					</SelectContent>
+				</Select>
+
+				<div>
+					<p className="font-medium">Condition</p>
+					{["New", "Like New", "Good", "Fair"].map((condition) => (
+						<div key={condition} className="flex items-center gap-2">
+							<Checkbox
+								id={condition}
+								checked={filters.condition.includes(condition)}
+								onCheckedChange={() => toggleCondition(condition)}
+							/>
+							<label htmlFor={condition}>{condition}</label>
+						</div>
+					))}
+				</div>
+
+				<div className="flex gap-5 justify-between">
+					<Button
+						variant="outline"
+						onClick={() => setFilters(initialFilters)}
+						className="w-full"
 					>
-						<SelectTrigger>
-							<SelectValue placeholder="Date Listed" />
-						</SelectTrigger>
-						<SelectContent>
-							<SelectItem value="all">All</SelectItem>
-							<SelectItem value="last 24 hours">Last 24 hours </SelectItem>
-							<SelectItem value="last 7 days">Last 7 days</SelectItem>
-							<SelectItem value="last 30 days">Last 30 days</SelectItem>
-						</SelectContent>
-					</Select>
-
-					<Select
-						onValueChange={(value: any) =>
-							setFilters({ ...filters, deliveryMethod: value })
-						}
-					>
-						<SelectTrigger>
-							<SelectValue placeholder="Delivery Method" />
-						</SelectTrigger>
-						<SelectContent>
-							<SelectItem value="all">All</SelectItem>
-							<SelectItem value="local pickup">Local Pickup</SelectItem>
-							<SelectItem value="delivery">Shipping</SelectItem>
-						</SelectContent>
-					</Select>
-
-					<div>
-						<p className="font-medium">Condition</p>
-						{["New", "Like New", "Good", "Fair"].map((condition) => (
-							<div key={condition} className="flex items-center gap-2">
-								<Checkbox
-									id={condition}
-									checked={filters.condition.includes(condition)}
-									onCheckedChange={() => toggleCondition(condition)}
-								/>
-								<label htmlFor={condition}>{condition}</label>
-							</div>
-						))}
-					</div>
-
-					<div className="flex gap-5 justify-between">
-						<Button
-							variant="outline"
-							onClick={() =>
-								setFilters({
-									sortBy: "",
-									minPrice: "",
-									maxPrice: "",
-									dateListed: "",
-									deliveryMethod: "",
-									condition: [],
-								})
-							}
-							className="w-full"
-						>
-							Reset
-						</Button>
-						<Button className="w-full">Apply Filters</Button>
-					</div>
-				</DialogContent>
-			</Dialog>
-		</>
+						Reset
+					</Button>
+					<Button className="w-full">Apply Filters</Button>
+				</div>
+			</DialogContent>
+		</Dialog>
 	);
 }

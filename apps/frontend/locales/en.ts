@@ -230,5 +230,28 @@ export const en = {
 		addToCart: "Add to Cart",
 		chatWithSeller: "Chat with Seller",
 	},
+
+	filters: {
+		title: " Filter",
+		header: "Filters",
+		sortBy: {
+			suggested: "Suggested",
+			distance: "Distance: Nearest first",
+			dateListed: "Date listed: Newest first",
+			highPrice: "Price: Highest first",
+			lowPrice: "Price: Lowest first",
+		},
+		dateListed: {
+			all: "All",
+			last24Hours: "Last 24 hours",
+			last7Days: "Last 7 days",
+			last30Days: "Last 30 days",
+		},
+		deliveryMethod: {
+			all: "All",
+			localPickUp: "Local Pickup",
+			delivery: "Shipping",
+		},
+	},
 	// Add more sections as needed
 };
