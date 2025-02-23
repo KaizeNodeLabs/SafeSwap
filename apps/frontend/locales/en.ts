@@ -1,3 +1,5 @@
+import { milestones } from "@/components/seller/mock/milestones.mock";
+
 export const en = {
 	common: {
 		profile: "Profile",
@@ -230,7 +232,6 @@ export const en = {
 		addToCart: "Add to Cart",
 		chatWithSeller: "Chat with Seller",
 	},
-
 	sellerOnboarding: {
 		title: "Start Selling on SafeSwap",
 		description:
@@ -249,6 +250,35 @@ export const en = {
 				"By checking this box, you agree to our Terms of Service and Privacy Policy.",
 			submitButton: "Start Selling",
 		},
+	},
+	saleDetails: {
+		title: "Sale Details",
+		copied: "Copied!",
+		copyId: "Copy Sale ID",
+		print: "Print",
+		email: "Email",
+		saleId: "Sale ID",
+		buyerAddress: "Buyer Address",
+		status: "Status",
+		dateTime: "Date & Time",
+		financialDetails: "Financial Details",
+		amount: "Amount",
+		fees: "Fees",
+		balance: "Balance",
+		signRelease: "Sign Release",
+		chat: "Chat",
+		milestones: "Milestones",
+	},
+	chat: {
+		placeholder: "Write your message...",
+	},
+	milestones: {
+		approve: "Approve",
+		complete: "Complete",
+		approved: "Approved",
+		completed: "Completed",
+		pending: "Pending",
+		forReview: "For Review",
 	},
 	// Add more sections as needed
 };
