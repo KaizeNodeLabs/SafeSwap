@@ -145,7 +145,7 @@ export default function FilterModal() {
 							{t("filters.deliveryMethod.all")}
 						</SelectItem>
 						<SelectItem value="localPickup">
-							{t("filters.deliveryMethod.localPicUp")}
+							{t("filters.deliveryMethod.localPickUp")}
 						</SelectItem>
 						<SelectItem value="delivery">
 							{t("filters.deliveryMethod.delivery")}
