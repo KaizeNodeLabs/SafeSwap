@@ -236,6 +236,7 @@ export const es = {
 	filters: {
 		title: " Filtros",
 		header: "Filtros",
+		condition: "Condición",
 		sortBy: {
 			suggested: "Sugerido",
 			distance: "Distancia: Más cercano primero",
@@ -249,10 +250,24 @@ export const es = {
 			last7Days: "Últimos 7 días",
 			last30Days: "Últimos 30 días",
 		},
+		price: {
+			minPrice: "Precio mínimo",
+			maxPrice: "Precio máximo",
+		},
 		deliveryMethod: {
 			all: "Todos",
 			localPickUp: "Recogida local",
 			delivery: "Envío",
+		},
+		button: {
+			reset: "Restablecer",
+			applyFilters: "Aplicar filtros",
+		},
+		conditions: {
+			new: "Nuevo",
+			likeNew: "Como nuevo",
+			good: "Bueno",
+			fair: "Aceptable",
 		},
 	},
 	// Add more sections as needed

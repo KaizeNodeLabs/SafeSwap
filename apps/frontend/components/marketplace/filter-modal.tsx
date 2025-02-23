@@ -41,7 +41,7 @@ const initialFilters: FilterState = {
 export default function FilterModal() {
 	const [filters, setFilters] = useState<FilterState>(initialFilters);
 	const { t } = useTranslations();
-	console.log("Translation result:", t("filters.dateListed.all"));
+
 	const toggleCondition = (condition: string) => {
 		setFilters((prev: FilterState) => {
 			const conditions = prev.condition.includes(condition)
@@ -95,14 +95,14 @@ export default function FilterModal() {
 
 				<div className="flex gap-2">
 					<Input
-						placeholder="Min price"
+						placeholder={t("filters.price.minPrice")}
 						value={filters.minPrice}
 						onChange={(e) =>
 							setFilters((prev) => ({ ...prev, minPrice: e.target.value }))
 						}
 					/>
 					<Input
-						placeholder="Max price"
+						placeholder={t("filters.price.maxPrice")}
 						value={filters.maxPrice}
 						onChange={(e) =>
 							setFilters((prev) => ({ ...prev, maxPrice: e.target.value }))
@@ -154,8 +154,13 @@ export default function FilterModal() {
 				</Select>
 
 				<div>
-					<p className="font-medium">Condition</p>
-					{["New", "Like New", "Good", "Fair"].map((condition) => (
+					<p className="font-medium">{t("filters.condition")}</p>
+					{[
+						t("filters.conditions.new"),
+						t("filters.conditions.likeNew"),
+						t("filters.conditions.good"),
+						t("filters.conditions.fair"),
+					].map((condition) => (
 						<div key={condition} className="flex items-center gap-2">
 							<Checkbox
 								id={condition}
@@ -173,9 +178,9 @@ export default function FilterModal() {
 						onClick={() => setFilters(initialFilters)}
 						className="w-full"
 					>
-						Reset
+						{t("filters.button.reset")}
 					</Button>
-					<Button className="w-full">Apply Filters</Button>
+					<Button className="w-full">{t("filters.button.applyFilters")}</Button>
 				</div>
 			</DialogContent>
 		</Dialog>
