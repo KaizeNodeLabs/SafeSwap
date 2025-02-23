@@ -41,7 +41,7 @@ const initialFilters: FilterState = {
 export default function FilterModal() {
 	const [filters, setFilters] = useState<FilterState>(initialFilters);
 	const { t } = useTranslations();
-
+	console.log("Translation result:", t("filters.dateListed.all"));
 	const toggleCondition = (condition: string) => {
 		setFilters((prev: FilterState) => {
 			const conditions = prev.condition.includes(condition)
@@ -56,13 +56,13 @@ export default function FilterModal() {
 			<DialogTrigger asChild>
 				<Button className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-md">
 					<Filter size={18} />
-					<span className="font-medium">{t("common.filters.title")}</span>
+					<span className="font-medium">{t("filters.title")}</span>
 				</Button>
 			</DialogTrigger>
 			<DialogContent className="max-w-md">
 				<div className="flex justify-between items-center">
 					<DialogHeader>
-						<DialogTitle>{t("common.filters.header")}</DialogTitle>
+						<DialogTitle>{t("filters.header")}</DialogTitle>
 					</DialogHeader>
 				</div>
 
@@ -76,19 +76,19 @@ export default function FilterModal() {
 					</SelectTrigger>
 					<SelectContent>
 						<SelectItem value="suggested">
-							{t("common.filters.sortBy.suggested")}
+							{t("filters.sortBy.suggested")}
 						</SelectItem>
 						<SelectItem value="distance">
-							{t("common.filters.sortBy.distance")}
+							{t("filters.sortBy.distance")}
 						</SelectItem>
 						<SelectItem value="dateListed">
-							{t("common.filters.sortBy.dateListed")}
+							{t("filters.sortBy.dateListed")}
 						</SelectItem>
 						<SelectItem value="highPrice">
-							{t("common.filters.sortBy.highPrice")}
+							{t("filters.sortBy.highPrice")}
 						</SelectItem>
 						<SelectItem value="lowPrice">
-							{t("common.filters.sortBy.lowPrice")}
+							{t("filters.sortBy.lowPrice")}
 						</SelectItem>
 					</SelectContent>
 				</Select>
@@ -119,17 +119,15 @@ export default function FilterModal() {
 						<SelectValue placeholder="Date Listed" />
 					</SelectTrigger>
 					<SelectContent>
-						<SelectItem value="all">
-							{t("common.filters.dateListed.all")}
-						</SelectItem>
+						<SelectItem value="all">{t("filters.dateListed.all")}</SelectItem>
 						<SelectItem value="last24Hours">
-							{t("common.filters.dateListed.last24Hours")}
+							{t("filters.dateListed.last24Hours")}
 						</SelectItem>
 						<SelectItem value="last7days">
-							{t("common.filters.dateListed.last7Days")}
+							{t("filters.dateListed.last7Days")}
 						</SelectItem>
 						<SelectItem value="last30Days">
-							{t("common.filters.dateListed.last30Days")}
+							{t("filters.dateListed.last30Days")}
 						</SelectItem>
 					</SelectContent>
 				</Select>
@@ -144,13 +142,13 @@ export default function FilterModal() {
 					</SelectTrigger>
 					<SelectContent>
 						<SelectItem value="all">
-							{t("common.filters.deliveryMethod.all")}
+							{t("filters.deliveryMethod.all")}
 						</SelectItem>
 						<SelectItem value="localPickup">
-							{t("common.filters.deliveryMethod.localPicUp")}
+							{t("filters.deliveryMethod.localPicUp")}
 						</SelectItem>
 						<SelectItem value="delivery">
-							{t("common.filters.deliveryMethod.delivery")}
+							{t("filters.deliveryMethod.delivery")}
 						</SelectItem>
 					</SelectContent>
 				</Select>
