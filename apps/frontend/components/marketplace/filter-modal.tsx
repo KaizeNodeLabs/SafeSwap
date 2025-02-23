@@ -54,12 +54,12 @@ export default function FilterModal() {
 	return (
 		<Dialog>
 			<DialogTrigger asChild>
-				<Button className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-md">
+				<Button className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-md ">
 					<Filter size={18} />
 					<span className="font-medium">{t("filters.title")}</span>
 				</Button>
 			</DialogTrigger>
-			<DialogContent className="max-w-md">
+			<DialogContent className="rounded-lg max-w-[700px]:rounded-md">
 				<div className="flex justify-between items-center">
 					<DialogHeader>
 						<DialogTitle>{t("filters.header")}</DialogTitle>
