@@ -252,6 +252,14 @@ export const es = {
 				"Al marcar esta casilla, acepta nuestros Términos de Servicio y Política de Privacidad.",
 			submitButton: "Comenzar a Vender",
 		},
+		errors: {
+			email: "El correo electrónico debe tener un formato válido.",
+			wallet:
+				"La dirección de la cartera Stellar debe comenzar con 'G' y tener 56 caracteres de longitud.",
+			telegram: "El nombre de usuario de Telegram debe comenzar con '@'.",
+			country: "Debe seleccionar un país antes de enviar.",
+			terms: "Debe marcar la casilla antes de enviar.",
+		},
 	},
 	saleDetails: {
 		title: "Detalles de la Venta",

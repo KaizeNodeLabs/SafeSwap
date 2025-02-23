@@ -250,6 +250,14 @@ export const en = {
 				"By checking this box, you agree to our Terms of Service and Privacy Policy.",
 			submitButton: "Start Selling",
 		},
+		errors: {
+			email: "Email must be in a valid format.",
+			wallet:
+				"Stellar wallet address must start with 'G' and be 56 characters long.",
+			telegram: "Telegram username should start with '@'.",
+			country: "Country must be selected before submission.",
+			terms: "Checkbox must be checked before submitting.",
+		},
 	},
 	saleDetails: {
 		title: "Sale Details",
@@ -280,5 +288,6 @@ export const en = {
 		pending: "Pending",
 		forReview: "For Review",
 	},
+
 	// Add more sections as needed
 };

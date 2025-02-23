@@ -39,9 +39,14 @@ export default function OnboardingPage() {
 		},
 	});
 
+	const getTranslatedErrorMessage = (errorKey: string) => {
+		return t(`sellerOnboarding.errors.${errorKey}`);
+	};
+
 	const onSubmit = (data: TSellerOnboarding) => {
 		console.log(data);
 	};
+
 	return (
 		<section className="w-full h-full flex flex-col items-center justify-center py-10 md:py-6">
 			<header className="flex flex-col items-center space-y-2 text-center">
@@ -53,7 +58,7 @@ export default function OnboardingPage() {
 				</p>
 			</header>
 
-			<Card className="mt-6 md:max-w-md shadow-sm px-1.5 py-4 rounded-lg bg-white">
+			<Card className="mt-6 md:max-w-md shadow-sm px-1.5 py-4 rounded-lg">
 				<CardContent className="">
 					<form
 						action=""
@@ -72,7 +77,7 @@ export default function OnboardingPage() {
 							<Mail className="absolute top-7 left-3 text-gray-500" size={20} />
 							{errors.email?.message && (
 								<p className="text-red-500 text-xs">
-									{String(errors.email.message)}
+									{getTranslatedErrorMessage("email")}
 								</p>
 							)}
 						</div>
@@ -94,7 +99,7 @@ export default function OnboardingPage() {
 							/>
 							{errors.wallet?.message && (
 								<p className="text-red-500 text-xs">
-									{String(errors.wallet.message)}
+									{getTranslatedErrorMessage("wallet")}
 								</p>
 							)}
 						</div>
@@ -117,7 +122,7 @@ export default function OnboardingPage() {
 
 							{errors.telegram?.message && (
 								<p className="text-red-500 text-xs">
-									{errors.telegram.message}
+									{getTranslatedErrorMessage("telegram")}
 								</p>
 							)}
 						</div>
@@ -127,7 +132,10 @@ export default function OnboardingPage() {
 								{t("sellerOnboarding.form.country")}
 							</Label>
 
-							<Select onValueChange={(value) => setValue("country", value)}>
+							<Select
+								{...register("country")}
+								onValueChange={(value) => setValue("country", value)}
+							>
 								<SelectTrigger className={cn("pl-10")}>
 									<SelectValue
 										placeholder={t("sellerOnboarding.form.countryPlaceholder")}
@@ -144,7 +152,9 @@ export default function OnboardingPage() {
 								size={20}
 							/>
 							{errors.country && (
-								<p className="text-red-500 text-xs">{errors.country.message}</p>
+								<p className="text-red-500 text-xs">
+									{getTranslatedErrorMessage("country")}
+								</p>
 							)}
 						</div>
 
@@ -162,7 +172,9 @@ export default function OnboardingPage() {
 						</div>
 
 						{errors.terms && (
-							<p className="text-red-500 text-xs">{errors.terms.message}</p>
+							<p className="text-red-500 text-xs">
+								{getTranslatedErrorMessage("terms")}
+							</p>
 						)}
 
 						<Button className="w-full" size="default">
