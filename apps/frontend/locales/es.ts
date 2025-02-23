@@ -289,6 +289,7 @@ export const es = {
 		  sellerLabel: "Vendedor",
 		  statusLabel: "Estado"
 		},
+		
 		search: "Buscar productos...",
 		total: "Total de Compras",
 		buttons: {
