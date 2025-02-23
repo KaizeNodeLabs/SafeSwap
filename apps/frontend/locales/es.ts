@@ -170,6 +170,12 @@ export const es = {
 				decrease: "Disminuir cantidad",
 			},
 		},
+		seller: {
+			title: "¿Listo para empezar a vender?",
+			description:
+				"¡Únete a SafeSwap y llega a miles de compradores hoy mismo!",
+			btn_label: "Conviértete en vendedor",
+		},
 
 		createProduct: {
 			title: "Vender Producto",
