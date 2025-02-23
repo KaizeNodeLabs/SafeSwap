@@ -29,7 +29,7 @@ import { useState } from "react";
 export default function ProductCarousel() {
 	const { t } = useTranslations();
 	const [currentIndex, setCurrentIndex] = useState(0);
-	const itemsPerPage = 4; // Número de tarjetas a mostrar
+	const itemsPerPage = 4;
 
 	const handleNext = () => {
 		setCurrentIndex(
@@ -67,8 +67,6 @@ export default function ProductCarousel() {
 					>
 						{products.map((product) => (
 							<CarouselItem key={product.id} className="flex-[0_0_25%] px-2">
-								{" "}
-								{/* Cambiado a 25% */}
 								<Card className="hover:shadow-lg">
 									<CardHeader>
 										<div className="aspect-square">
