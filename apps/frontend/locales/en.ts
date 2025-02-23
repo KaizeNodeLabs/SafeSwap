@@ -171,7 +171,8 @@ export const en = {
 		},
 		seller: {
 			title: "Ready to start selling?",
-			description: "Join SafeSwap and reach thousands of buyers today!",
+			description:
+				"Join SafeSwap and reach thousands of potential buyers today!",
 			btn_label: "Become a seller",
 		},
 
