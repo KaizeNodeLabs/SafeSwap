@@ -1,5 +1,6 @@
 "use client";
 
+import AdvantagesSection from "@/components/home/advantages-section";
 import { FeatureSection } from "@/components/home/feature-section";
 import { HeroSection } from "@/components/home/hero-section";
 import { HowSafeSwapWorks } from "@/components/home/how-safeswap-works";
@@ -12,6 +13,7 @@ export default function Home() {
 			<HeroSection />
 			<StatsSection />
 			<FeatureSection />
+			<AdvantagesSection />
 			<HowSafeSwapWorks />
 			<SellerSection />
 		</main>

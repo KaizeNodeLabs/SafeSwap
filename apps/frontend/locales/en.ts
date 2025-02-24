@@ -240,6 +240,7 @@ export const en = {
 	},
 
 
+
 	filters: {
 		title: " Filter",
 		header: "Filters",
@@ -275,6 +276,35 @@ export const en = {
 			likeNew: "like New",
 			good: "Good",
 			fair: "Fair",
+		},
+	},
+
+	advantagesOfSafeSwap: {
+		title: "Powered by Stellar and Trustless Work",
+		subtitle:
+			"Ensuring secure and transparent transactions with blockchain technology",
+		items: {
+			trustlessWork: {
+				title: "Automated Escrow Protection",
+				description:
+					"Trustless Work API the complexity of smart contracts, leveraging Stellar to ensure secure, unbiased, and transparent transactions.",
+				link: "https://www.trustlesswork.com/",
+				buttonName: "Trustless Work",
+			},
+			introToStellar: {
+				title: "Instant Payments with Minimal Fees",
+				description:
+					"Built on Stellar, SafeSwap enables near-instant transactions with negligible fees, making cross-border payments seamless.",
+				link: "https://www.stellar.org/learn/intro-to-stellar",
+				buttonName: "Intro to Stellar",
+			},
+			powerOfStellar: {
+				title: "Global Trust & Fairness",
+				description:
+					"Using Stellar's decentralized ledger, SafeSwap ensures fair transactions without intermediaries, providing equal access for all users.",
+				link: "https://www.stellar.org/learn/the-power-of-stellar",
+				buttonName: "Power of Stellar",
+			},
 		},
 	},
 
@@ -351,6 +381,8 @@ export const en = {
 		pending: "Pending",
 		forReview: "For Review",
 	},
+<<<<<
+
 
 
 	// Add more sections as needed
