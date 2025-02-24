@@ -8,11 +8,11 @@ describe("ProductImageService", () => {
   let prisma: PrismaService;
 
   const mockPrismaService = {
-		productImage: {
-			create: jest.fn(),
-			findMany: jest.fn(),
-			findUnique: jest.fn(),
-		}
+    productImage: {
+      create: jest.fn(),
+      findMany: jest.fn(),
+      findUnique: jest.fn(),
+    },
   };
 
   beforeEach(async () => {
@@ -49,8 +49,10 @@ describe("ProductImageService", () => {
 
     const result = await service.createProductImage(data);
 
-		expect(mockPrismaService.productImage.create).toHaveBeenCalled();
-		expect(mockPrismaService.productImage.create).toHaveBeenCalledWith({ data });
+    expect(mockPrismaService.productImage.create).toHaveBeenCalled();
+    expect(mockPrismaService.productImage.create).toHaveBeenCalledWith({
+      data,
+    });
 
     expect(result).toEqual(createdImage);
   });
@@ -69,20 +71,20 @@ describe("ProductImageService", () => {
     const result = await service.getAllProductImages();
 
     expect(result).toEqual(productImages);
-		expect(mockPrismaService.productImage.findMany).toHaveBeenCalled();
+    expect(mockPrismaService.productImage.findMany).toHaveBeenCalled();
   });
 
-	it("should return an empty array if no product images are found", async () => {
-		mockPrismaService.productImage.findMany.mockReturnValue([]);
+  it("should return an empty array if no product images are found", async () => {
+    mockPrismaService.productImage.findMany.mockReturnValue([]);
 
-		const result = await service.getAllProductImages();
+    const result = await service.getAllProductImages();
 
-		expect (result).toEqual([]);
-		expect(mockPrismaService.productImage.findMany).toHaveBeenCalled();
-	})
+    expect(result).toEqual([]);
+    expect(mockPrismaService.productImage.findMany).toHaveBeenCalled();
+  });
 
   it("should get a product image", async () => {
-		const id = "1";
+    const id = "1";
     const data = {
       id: "1",
       imageUrl: "http://image.com",
@@ -94,17 +96,23 @@ describe("ProductImageService", () => {
     const result = await service.getAProductImage(id);
 
     expect(result).toEqual(data);
-		expect(mockPrismaService.productImage.findUnique).toHaveBeenCalled();
-		expect(mockPrismaService.productImage.findUnique).toHaveBeenCalledWith({ where: { id } });
+    expect(mockPrismaService.productImage.findUnique).toHaveBeenCalled();
+    expect(mockPrismaService.productImage.findUnique).toHaveBeenCalledWith({
+      where: { id },
+    });
   });
 
-	it("should throw an error if product image is not found", async () => {
-		const id = "1";
+  it("should throw an error if product image is not found", async () => {
+    const id = "1";
 
-		mockPrismaService.productImage.findUnique.mockReturnValue(null);
+    mockPrismaService.productImage.findUnique.mockReturnValue(null);
 
-		await expect(service.getAProductImage(id)).rejects.toThrow("Product image not found.");
-		expect(mockPrismaService.productImage.findUnique).toHaveBeenCalled();
-		expect(mockPrismaService.productImage.findUnique).toHaveBeenCalledWith({ where: { id } });
-	});
+    await expect(service.getAProductImage(id)).rejects.toThrow(
+      "Product image not found."
+    );
+    expect(mockPrismaService.productImage.findUnique).toHaveBeenCalled();
+    expect(mockPrismaService.productImage.findUnique).toHaveBeenCalledWith({
+      where: { id },
+    });
+  });
 });
