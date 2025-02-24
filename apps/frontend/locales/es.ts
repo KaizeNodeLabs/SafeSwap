@@ -170,6 +170,12 @@ export const es = {
 				decrease: "Disminuir cantidad",
 			},
 		},
+		seller: {
+			title: "¿Listo para empezar a vender?",
+			description:
+				"¡Únete a SafeSwap y llega a miles de compradores hoy mismo!",
+			btn_label: "Conviértete en vendedor",
+		},
 
 		createProduct: {
 			title: "Vender Producto",
@@ -260,6 +266,79 @@ export const es = {
 				buttonName: "Poder de Stellar",
 			},
 		},
+	howSafeSwapWorks: {
+		title: "Cómo funciona SafeSwap",
+		step1: {
+			title: "Explorar y seleccionar productos",
+			description:
+				"Explore nuestra amplia gama de productos y elija lo que le guste.",
+		},
+		step2: {
+			title: "Pago seguro con depósito en garantía",
+			description:
+				"Pague de forma segura utilizando nuestro sistema de depósito en garantía basado en Blockchain.",
+		},
+		step3: {
+			title: "Reciba su producto de manera segura",
+			description:
+				"Reciba su producto y libere el pago cuando esté satisfecho.",
+		},
+	},
+	sellerOnboarding: {
+		title: "Comienza a Vender en SafeSwap",
+		description:
+			"Únase a nuestro mercado descentralizado y comience a vender con el fideicomiso de Stellar. Seguro, rápido y sin necesidad de tienda.",
+		form: {
+			email: "Correo Electrónico",
+			emailPlaceholder: "email@gmail.com",
+			wallet: "Dirección de la Cartera Stellar",
+			walletPlaceholder: "GDDG...P5E7",
+			telegram: "Nombre de Usuario de Telegram (Opcional)",
+			telegramPlaceholder: "@usuario",
+			country: "País",
+			countryPlaceholder: "Seleccione su país",
+			terms: "Acepto los términos y condiciones",
+			termsDescription:
+				"Al marcar esta casilla, acepta nuestros Términos de Servicio y Política de Privacidad.",
+			submitButton: "Comenzar a Vender",
+		},
+		errors: {
+			email: "El correo electrónico debe tener un formato válido.",
+			wallet:
+				"La dirección de la cartera Stellar debe comenzar con 'G' y tener 56 caracteres de longitud.",
+			telegram: "El nombre de usuario de Telegram debe comenzar con '@'.",
+			country: "Debe seleccionar un país antes de enviar.",
+			terms: "Debe marcar la casilla antes de enviar.",
+		},
+	},
+	saleDetails: {
+		title: "Detalles de la Venta",
+		copied: "¡Copiado!",
+		copyId: "Copiar ID de la Venta",
+		print: "Imprimir",
+		email: "Correo Electrónico",
+		saleId: "ID de la Venta",
+		buyerAddress: "Dirección del Comprador",
+		status: "Estado",
+		dateTime: "Fecha y Hora",
+		financialDetails: "Detalles Financieros",
+		amount: "Monto",
+		fees: "Comisiones",
+		balance: "Saldo",
+		signRelease: "Firmar Liberación",
+		chat: "Chat",
+		milestones: "Hitos",
+	},
+	chat: {
+		placeholder: "Escribe tu mensaje...",
+	},
+	milestones: {
+		approve: "Aprobar",
+		complete: "Completar",
+		approved: "Aprobado",
+		completed: "Completado",
+		pending: "Pendiente",
+		forReview: "Para Revisión",
 	},
 	// Add more sections as needed
 };
