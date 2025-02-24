@@ -1,3 +1,5 @@
+import { milestones } from "@/components/seller/mock/milestones.mock";
+
 export const en = {
 	common: {
 		profile: "Profile",
@@ -169,6 +171,12 @@ export const en = {
 				decrease: "Decrease quantity",
 			},
 		},
+		seller: {
+			title: "Ready to start selling?",
+			description:
+				"Join SafeSwap and reach thousands of potential buyers today!",
+			btn_label: "Become a seller",
+		},
 
 		createProduct: {
 			title: "Sell Product",
@@ -231,6 +239,7 @@ export const en = {
 		chatWithSeller: "Chat with Seller",
 	},
 
+
 	filters: {
 		title: " Filter",
 		header: "Filters",
@@ -268,5 +277,81 @@ export const en = {
 			fair: "Fair",
 		},
 	},
+
+	howSafeSwapWorks: {
+		title: "How SafeSwap Works",
+		step1: {
+			title: "Browse & Select Products",
+			description:
+				"Explore our wide range of products and choose what you like.",
+		},
+		step2: {
+			title: "Secure Payment with Escrow",
+			description: "Pay safely using our Blockchain-powered escrow system.",
+		},
+		step3: {
+			title: "Receive Your Product Safely",
+			description:
+				"Get your product delivered and release the payment when satisfied.",
+		},
+	},
+	sellerOnboarding: {
+		title: "Start Selling on SafeSwap",
+		description:
+			"Join our decentralized marketplace and start selling with Stellar escrow. Secure, fast and no storefront needed.",
+		form: {
+			email: "Email",
+			emailPlaceholder: "email@gmail.com",
+			wallet: "Stellar Wallet Address",
+			walletPlaceholder: "GDDG...P5E7",
+			telegram: "Telegram Username (Optional)",
+			telegramPlaceholder: "@username",
+			country: "Country",
+			countryPlaceholder: "Select your country",
+			terms: "I agree to the terms and conditions",
+			termsDescription:
+				"By checking this box, you agree to our Terms of Service and Privacy Policy.",
+			submitButton: "Start Selling",
+		},
+		errors: {
+			email: "Email must be in a valid format.",
+			wallet:
+				"Stellar wallet address must start with 'G' and be 56 characters long.",
+			telegram: "Telegram username should start with '@'.",
+			country: "Country must be selected before submission.",
+			terms: "Checkbox must be checked before submitting.",
+		},
+	},
+	saleDetails: {
+		title: "Sale Details",
+		copied: "Copied!",
+		copyId: "Copy Sale ID",
+		print: "Print",
+		email: "Email",
+		saleId: "Sale ID",
+		buyerAddress: "Buyer Address",
+		status: "Status",
+		dateTime: "Date & Time",
+		financialDetails: "Financial Details",
+		amount: "Amount",
+		fees: "Fees",
+		balance: "Balance",
+		signRelease: "Sign Release",
+		chat: "Chat",
+		milestones: "Milestones",
+	},
+	chat: {
+		placeholder: "Write your message...",
+	},
+	milestones: {
+		approve: "Approve",
+		complete: "Complete",
+		approved: "Approved",
+		completed: "Completed",
+		pending: "Pending",
+		forReview: "For Review",
+	},
+
+
 	// Add more sections as needed
 };
