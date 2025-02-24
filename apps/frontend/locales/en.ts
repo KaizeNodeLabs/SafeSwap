@@ -231,52 +231,13 @@ export const en = {
 			},
 		},
 	},
+
 	marketplace: {
 		filters: "Filters",
 		priceRange: "Price Range",
 		categories: "Categories",
 		addToCart: "Add to Cart",
 		chatWithSeller: "Chat with Seller",
-	},
-
-
-
-	filters: {
-		title: " Filter",
-		header: "Filters",
-		condition: "Condition",
-		sortBy: {
-			suggested: "Suggested",
-			distance: "Distance: Nearest first",
-			dateListed: "Date listed: Newest first",
-			highPrice: "Price: Highest first",
-			lowPrice: "Price: Lowest first",
-		},
-		dateListed: {
-			all: "All",
-			last24Hours: "Last 24 hours",
-			last7Days: "Last 7 days",
-			last30Days: "Last 30 days",
-		},
-		price: {
-			minPrice: "Min price",
-			maxPrice: "Max price",
-		},
-		deliveryMethod: {
-			all: "All",
-			localPickUp: "Local Pickup",
-			delivery: "Shipping",
-		},
-		button: {
-			reset: "Reset",
-			applyFilters: "Apply Filters",
-		},
-		conditions: {
-			new: "New",
-			likeNew: "like New",
-			good: "Good",
-			fair: "Fair",
-		},
 	},
 
 	advantagesOfSafeSwap: {
@@ -325,6 +286,7 @@ export const en = {
 				"Get your product delivered and release the payment when satisfied.",
 		},
 	},
+
 	sellerOnboarding: {
 		title: "Start Selling on SafeSwap",
 		description:
@@ -352,6 +314,7 @@ export const en = {
 			terms: "Checkbox must be checked before submitting.",
 		},
 	},
+
 	saleDetails: {
 		title: "Sale Details",
 		copied: "Copied!",
@@ -370,9 +333,11 @@ export const en = {
 		chat: "Chat",
 		milestones: "Milestones",
 	},
+
 	chat: {
 		placeholder: "Write your message...",
 	},
+
 	milestones: {
 		approve: "Approve",
 		complete: "Complete",
@@ -381,9 +346,43 @@ export const en = {
 		pending: "Pending",
 		forReview: "For Review",
 	},
-<<<<<
 
-
-
+	filters: {
+		title: " Filter",
+		header: "Filters",
+		condition: "Condition",
+		sortBy: {
+			suggested: "Suggested",
+			distance: "Distance: Nearest first",
+			dateListed: "Date listed: Newest first",
+			highPrice: "Price: Highest first",
+			lowPrice: "Price: Lowest first",
+		},
+		dateListed: {
+			all: "All",
+			last24Hours: "Last 24 hours",
+			last7Days: "Last 7 days",
+			last30Days: "Last 30 days",
+		},
+		price: {
+			minPrice: "Min price",
+			maxPrice: "Max price",
+		},
+		deliveryMethod: {
+			all: "All",
+			localPickUp: "Local Pickup",
+			delivery: "Shipping",
+		},
+		button: {
+			reset: "Reset",
+			applyFilters: "Apply Filters",
+		},
+		conditions: {
+			new: "New",
+			likeNew: "like New",
+			good: "Good",
+			fair: "Fair",
+		},
+	},
 	// Add more sections as needed
 };
