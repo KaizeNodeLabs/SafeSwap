@@ -232,12 +232,121 @@ export const es = {
 			},
 		},
 	},
+
 	marketplace: {
 		filters: "Filtros",
 		priceRange: "Rango de Precio",
 		categories: "Categorías",
 		addToCart: "Añadir al Carrito",
 		chatWithSeller: "Chatear con Vendedor",
+	},
+
+	advantagesOfSafeSwap: {
+		title: "Impulsado por Stellar y Trustless Work",
+		subtitle:
+			"Garantizar transacciones seguras y transparentes con la tecnología blockchain",
+		items: {
+			trustlessWork: {
+				title: "Protección de depósito de garantía automatizada",
+				description:
+					"Trustless Work API la complejidad de los contratos inteligentes, aprovechando Stellar para garantizar transacciones seguras, imparciales y transparentes.",
+				link: "https://www.trustlesswork.com/",
+				buttonName: "Trustless Work",
+			},
+			introToStellar: {
+				title: "Pagos instantáneos con tarifas mínimas",
+				description:
+					"Basado en Stellar, SafeSwap permite transacciones casi instantáneas con tarifas insignificantes, lo que hace que los pagos transfronterizos sean fluidos.",
+				link: "https://www.stellar.org/learn/intro-to-stellar",
+				buttonName: "Introducción a Stellar",
+			},
+			powerOfStellar: {
+				title: "Confianza y equidad globales",
+				description:
+					"Utilizando el libro de contabilidad descentralizado de Stellar, SafeSwap garantiza transacciones justas sin intermediarios, brindando igualdad de acceso para todos los usuarios.",
+				link: "https://www.stellar.org/learn/the-power-of-stellar",
+				buttonName: "Poder de Stellar",
+			},
+		},
+	},
+
+	howSafeSwapWorks: {
+		title: "Cómo funciona SafeSwap",
+		step1: {
+			title: "Explorar y seleccionar productos",
+			description:
+				"Explore nuestra amplia gama de productos y elija lo que le guste.",
+		},
+		step2: {
+			title: "Pago seguro con depósito en garantía",
+			description:
+				"Pague de forma segura utilizando nuestro sistema de depósito en garantía basado en Blockchain.",
+		},
+		step3: {
+			title: "Reciba su producto de manera segura",
+			description:
+				"Reciba su producto y libere el pago cuando esté satisfecho.",
+		},
+	},
+
+	sellerOnboarding: {
+		title: "Comienza a Vender en SafeSwap",
+		description:
+			"Únase a nuestro mercado descentralizado y comience a vender con el fideicomiso de Stellar. Seguro, rápido y sin necesidad de tienda.",
+		form: {
+			email: "Correo Electrónico",
+			emailPlaceholder: "email@gmail.com",
+			wallet: "Dirección de la Cartera Stellar",
+			walletPlaceholder: "GDDG...P5E7",
+			telegram: "Nombre de Usuario de Telegram (Opcional)",
+			telegramPlaceholder: "@usuario",
+			country: "País",
+			countryPlaceholder: "Seleccione su país",
+			terms: "Acepto los términos y condiciones",
+			termsDescription:
+				"Al marcar esta casilla, acepta nuestros Términos de Servicio y Política de Privacidad.",
+			submitButton: "Comenzar a Vender",
+		},
+		errors: {
+			email: "El correo electrónico debe tener un formato válido.",
+			wallet:
+				"La dirección de la cartera Stellar debe comenzar con 'G' y tener 56 caracteres de longitud.",
+			telegram: "El nombre de usuario de Telegram debe comenzar con '@'.",
+			country: "Debe seleccionar un país antes de enviar.",
+			terms: "Debe marcar la casilla antes de enviar.",
+		},
+	},
+
+	saleDetails: {
+		title: "Detalles de la Venta",
+		copied: "¡Copiado!",
+		copyId: "Copiar ID de la Venta",
+		print: "Imprimir",
+		email: "Correo Electrónico",
+		saleId: "ID de la Venta",
+		buyerAddress: "Dirección del Comprador",
+		status: "Estado",
+		dateTime: "Fecha y Hora",
+		financialDetails: "Detalles Financieros",
+		amount: "Monto",
+		fees: "Comisiones",
+		balance: "Saldo",
+		signRelease: "Firmar Liberación",
+		chat: "Chat",
+		milestones: "Hitos",
+	},
+
+	chat: {
+		placeholder: "Escribe tu mensaje...",
+	},
+
+	milestones: {
+		approve: "Aprobar",
+		complete: "Completar",
+		approved: "Aprobado",
+		completed: "Completado",
+		pending: "Pendiente",
+		forReview: "Para Revisión",
 	},
 
 	filters: {
@@ -277,115 +386,5 @@ export const es = {
 			fair: "Aceptable",
 		},
 	},
-	howSafeSwapWorks: {
-		title: "Cómo funciona SafeSwap",
-		step1: {
-			title: "Explorar y seleccionar productos",
-			description:
-				"Explore nuestra amplia gama de productos y elija lo que le guste.",
-=======
-	advantagesOfSafeSwap: {
-		title: "Impulsado por Stellar y Trustless Work",
-		subtitle:
-			"Garantizar transacciones seguras y transparentes con la tecnología blockchain",
-		items: {
-			trustlessWork: {
-				title: "Protección de depósito de garantía automatizada",
-				description:
-					"Trustless Work API la complejidad de los contratos inteligentes, aprovechando Stellar para garantizar transacciones seguras, imparciales y transparentes.",
-				link: "https://www.trustlesswork.com/",
-				buttonName: "Trustless Work",
-			},
-			introToStellar: {
-				title: "Pagos instantáneos con tarifas mínimas",
-				description:
-					"Basado en Stellar, SafeSwap permite transacciones casi instantáneas con tarifas insignificantes, lo que hace que los pagos transfronterizos sean fluidos.",
-				link: "https://www.stellar.org/learn/intro-to-stellar",
-				buttonName: "Introducción a Stellar",
-			},
-			powerOfStellar: {
-				title: "Confianza y equidad globales",
-				description:
-					"Utilizando el libro de contabilidad descentralizado de Stellar, SafeSwap garantiza transacciones justas sin intermediarios, brindando igualdad de acceso para todos los usuarios.",
-				link: "https://www.stellar.org/learn/the-power-of-stellar",
-				buttonName: "Poder de Stellar",
-			},
-
-		},
-		howSafeSwapWorks: {
-			title: "Cómo funciona SafeSwap",
-			step1: {
-				title: "Explorar y seleccionar productos",
-				description:
-					"Explore nuestra amplia gama de productos y elija lo que le guste.",
-			},
-			step2: {
-				title: "Pago seguro con depósito en garantía",
-				description:
-					"Pague de forma segura utilizando nuestro sistema de depósito en garantía basado en Blockchain.",
-			},
-			step3: {
-				title: "Reciba su producto de manera segura",
-				description:
-					"Reciba su producto y libere el pago cuando esté satisfecho.",
-			},
-		},
-		sellerOnboarding: {
-			title: "Comienza a Vender en SafeSwap",
-			description:
-				"Únase a nuestro mercado descentralizado y comience a vender con el fideicomiso de Stellar. Seguro, rápido y sin necesidad de tienda.",
-			form: {
-				email: "Correo Electrónico",
-				emailPlaceholder: "email@gmail.com",
-				wallet: "Dirección de la Cartera Stellar",
-				walletPlaceholder: "GDDG...P5E7",
-				telegram: "Nombre de Usuario de Telegram (Opcional)",
-				telegramPlaceholder: "@usuario",
-				country: "País",
-				countryPlaceholder: "Seleccione su país",
-				terms: "Acepto los términos y condiciones",
-				termsDescription:
-					"Al marcar esta casilla, acepta nuestros Términos de Servicio y Política de Privacidad.",
-				submitButton: "Comenzar a Vender",
-			},
-			errors: {
-				email: "El correo electrónico debe tener un formato válido.",
-				wallet:
-					"La dirección de la cartera Stellar debe comenzar con 'G' y tener 56 caracteres de longitud.",
-				telegram: "El nombre de usuario de Telegram debe comenzar con '@'.",
-				country: "Debe seleccionar un país antes de enviar.",
-				terms: "Debe marcar la casilla antes de enviar.",
-			},
-		},
-		saleDetails: {
-			title: "Detalles de la Venta",
-			copied: "¡Copiado!",
-			copyId: "Copiar ID de la Venta",
-			print: "Imprimir",
-			email: "Correo Electrónico",
-			saleId: "ID de la Venta",
-			buyerAddress: "Dirección del Comprador",
-			status: "Estado",
-			dateTime: "Fecha y Hora",
-			financialDetails: "Detalles Financieros",
-			amount: "Monto",
-			fees: "Comisiones",
-			balance: "Saldo",
-			signRelease: "Firmar Liberación",
-			chat: "Chat",
-			milestones: "Hitos",
-		},
-		chat: {
-			placeholder: "Escribe tu mensaje...",
-		},
-		milestones: {
-			approve: "Aprobar",
-			complete: "Completar",
-			approved: "Aprobado",
-			completed: "Completado",
-			pending: "Pendiente",
-			forReview: "Para Revisión",
-		},
-		// Add more sections as needed
-	},
+	// Add more sections as needed
 };
