@@ -31,14 +31,17 @@ export default function ProductCarousel() {
 				{t("common.featuredProductsTitle.title")}
 			</h2>
 
-			<Carousel className="w-full touch-pan-y" opts={{ align: "start" }}>
+			<Carousel
+				className="w-full max-w-[20rem] sm:max-w-max sm:max-w-full touch-pan-y"
+				opts={{ align: "start" }}
+			>
 				<CarouselContent className="-ml-1">
 					{products.map((product) => (
 						<CarouselItem
 							key={product.id}
 							className="pl-1 sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
 						>
-							<Card className="hover:shadow-lg">
+							<Card className="hover:shadow-lg max-w-[20rem] w-full sm:mx-0">
 								<CardHeader>
 									<div className="aspect-square overflow-hidden">
 										<Link
@@ -52,7 +55,7 @@ export default function ProductCarousel() {
 												width={320}
 												height={320}
 												priority
-												className="w-full h-auto max-h-64 sm:max-h-80 object-cover rounded-t-lg cursor-pointer"
+												className="w-full h-full object-cover rounded-t-lg cursor-pointer"
 											/>
 										</Link>
 									</div>
