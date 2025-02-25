@@ -1,10 +1,7 @@
 "use client";
 
-import { MessageSquareMore, ShoppingBag } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-
+import ExploreCategories from "@/components/home/explore-categories";
+import FilterModal from "@/components/marketplace/filter-modal";
 import ProductsNotFound from "@/components/marketplace/products-not-found";
 import { ProductsPagination } from "@/components/marketplace/products-pagination";
 import { Button } from "@/components/ui/button";
@@ -16,10 +13,15 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { useTranslations } from "@/hooks/useTranslations";
+import { CATEGORIES } from "@/lib/constants/categories";
 import { products } from "@/lib/mocks/products";
 import { FilterState } from "@/lib/types/filters";
 import { generateProductSlug } from "@/utils/generateProductSlug";
 import { getProductKey } from "@/utils/getProductKey";
+import { MessageSquareMore, ShoppingBag, ShoppingCart } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const initialFilters: FilterState = {
   categories: [],
@@ -50,88 +52,92 @@ export default function ProductList() {
     setFilters(initialFilters);
   };
 
-  return (
-    <>
-      <h1 className="text-4xl font-bold mb-8 mt-8 sm:mt-0">Marketplace</h1>
-      {/* ProductFilter */}
-      {/* <Filters onFiltersChange={setFilters} /> */}
+	return (
+		<>
+			<div className="flex justify-between mb-8">
+				<h1 className="text-4xl font-bold  mt-8 sm:mt-0">Marketplace</h1>
+				<FilterModal />
+			</div>
+			{/* ProductFilter */}
+			{/* <Filters onFiltersChange={setFilters} /> */}
 
-      {/* Product List */}
-      <section className="flex-1 mt-6">
-        {filteredProducts.length <= 0 ? (
-          <ProductsNotFound onClear={handleClearFilters} />
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {filteredProducts.map((product) => (
-              <Card key={product.id} className="hover:shadow-lg">
-                <CardHeader>
-                  <div className="aspect-square">
-                    <Link
-                      href={`/marketplace/${generateProductSlug(
-                        t(
-                          `common.products.items.${getProductKey(
-                            product.id
-                          )}.name`
-                        )
-                      )}`}
-                    >
-                      <Image
-                        src={product.images[0].src}
-                        alt={product.images[0].alt}
-                        width={320}
-                        height={320}
-                        priority
-                        className="w-full h-full rounded-t-lg cursor-pointer object-cover"
-                      />
-                    </Link>
-                  </div>
-                  <p className="text-medium text-gray-500 px-4 pt-4">
-                    {t(
-                      `common.products.categories.${product.category.toLowerCase()}`
-                    )}
-                  </p>
-                  <Link
-                    href={`/marketplace/${generateProductSlug(
-                      t(
-                        `common.products.items.${getProductKey(
-                          product.id
-                        )}.name`
-                      )
-                    )}`}
-                  >
-                    <CardTitle className="text-xl font-medium cursor-pointer hover:underline pt-0">
-                      {t(
-                        `common.products.items.${getProductKey(
-                          product.id
-                        )}.name`
-                      )}
-                    </CardTitle>
-                  </Link>
-                </CardHeader>
-                <CardContent className="pt-4">
-                  <span className="text-3xl font-bold">
-                    {t("common.productList.currency")}
-                    {product.price}
-                  </span>
-                </CardContent>
-                <CardFooter className="flex flex-col gap-3">
-                  <Button className="w-full">
-                    <ShoppingBag className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    {t("common.productList.buy")}
-                  </Button>
-                  <Button variant="secondary" className="w-full" asChild>
-                    <Link href={`/shopping/${product.id}`}>
-                      <MessageSquareMore className="mr-2 h-4 w-4" />
-                      {t("common.productList.chatWithSeller")}
-                    </Link>
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-        )}
-        <ProductsPagination />
-      </section>
-    </>
-  );
+			{/* Product List */}
+			<section className="flex-1 mt-6">
+				{filteredProducts.length <= 0 ? (
+					<ProductsNotFound onClear={handleClearFilters} />
+				) : (
+					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+						{filteredProducts.map((product) => (
+							<Card key={product.id} className="hover:shadow-lg">
+								<CardHeader>
+									<div className="aspect-square">
+										<Link
+											href={`/marketplace/${generateProductSlug(
+												t(
+													`common.products.items.${getProductKey(
+														product.id,
+													)}.name`,
+												),
+											)}`}
+										>
+											<Image
+												src={product.images[0].src}
+												alt={product.images[0].alt}
+												width={320}
+												height={320}
+												priority
+												className="w-full h-full rounded-t-lg cursor-pointer object-cover"
+											/>
+										</Link>
+									</div>
+									<p className="text-medium text-gray-500 px-4 pt-4">
+										{t(
+											`common.products.categories.${product.category.toLowerCase()}`,
+										)}
+									</p>
+									<Link
+										href={`/marketplace/${generateProductSlug(
+											t(
+												`common.products.items.${getProductKey(
+													product.id,
+												)}.name`,
+											),
+										)}`}
+									>
+										<CardTitle className="text-xl font-medium cursor-pointer hover:underline pt-0">
+											{t(
+												`common.products.items.${getProductKey(
+													product.id,
+												)}.name`,
+											)}
+										</CardTitle>
+									</Link>
+								</CardHeader>
+								<CardContent className="pt-4">
+									<span className="text-3xl font-bold">
+										{t("common.productList.currency")}
+										{product.price}
+									</span>
+								</CardContent>
+								<CardFooter className="flex flex-col gap-3">
+									<Button className="w-full">
+										<ShoppingBag className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+										{t("common.productList.buy")}
+									</Button>
+									<Button variant="secondary" className="w-full">
+										<MessageSquareMore className="mr-2 h-4 w-4" />
+										{t("common.productList.chatWithSeller")}
+									</Button>
+								</CardFooter>
+							</Card>
+						))}
+					</div>
+				)}
+				<ProductsPagination />
+			</section>
+
+			{/* Explore Categories */}
+			<ExploreCategories categories={CATEGORIES} />
+		</>
+	);
 }
