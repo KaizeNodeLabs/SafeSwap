@@ -163,7 +163,7 @@ export function SalesTable() {
 															<div className="flex items-center justify-end gap-4">
 																{milestone.status === "pending" && (
 																	<Button
-																		className="bg-green-600 hover:bg-green-700 text-xs h-8 dark:bg-green-700 dark:hover:bg-green-600"
+																		className="bg-green-600 hover:bg-green-700 text-xs h-8 text-white dark:bg-green-700 dark:hover:bg-green-600"
 																		size="sm"
 																	>
 																		Complete
