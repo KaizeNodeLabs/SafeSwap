@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 
 import "./globals.css";
+import FilterModal from "@/components/marketplace/filter-modal";
 import { ThemeProvider } from "../components/providers/theme-provider";
 import { LanguageProvider } from "../context/language-context";
 

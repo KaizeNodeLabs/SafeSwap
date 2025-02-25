@@ -232,6 +232,7 @@ export const es = {
 			},
 		},
 	},
+
 	marketplace: {
 		filters: "Filtros",
 		priceRange: "Rango de Precio",
@@ -242,6 +243,35 @@ export const es = {
 	ExploreCategories: {
 		title: "Explorar Categorias",
 		verTodas: "Ver todas",
+  },
+	advantagesOfSafeSwap: {
+		title: "Impulsado por Stellar y Trustless Work",
+		subtitle:
+			"Garantizar transacciones seguras y transparentes con la tecnología blockchain",
+		items: {
+			trustlessWork: {
+				title: "Protección de depósito de garantía automatizada",
+				description:
+					"Trustless Work API la complejidad de los contratos inteligentes, aprovechando Stellar para garantizar transacciones seguras, imparciales y transparentes.",
+				link: "https://www.trustlesswork.com/",
+				buttonName: "Trustless Work",
+			},
+			introToStellar: {
+				title: "Pagos instantáneos con tarifas mínimas",
+				description:
+					"Basado en Stellar, SafeSwap permite transacciones casi instantáneas con tarifas insignificantes, lo que hace que los pagos transfronterizos sean fluidos.",
+				link: "https://www.stellar.org/learn/intro-to-stellar",
+				buttonName: "Introducción a Stellar",
+			},
+			powerOfStellar: {
+				title: "Confianza y equidad globales",
+				description:
+					"Utilizando el libro de contabilidad descentralizado de Stellar, SafeSwap garantiza transacciones justas sin intermediarios, brindando igualdad de acceso para todos los usuarios.",
+				link: "https://www.stellar.org/learn/the-power-of-stellar",
+				buttonName: "Poder de Stellar",
+			},
+		},
+	},
 	howSafeSwapWorks: {
 		title: "Cómo funciona SafeSwap",
 		step1: {
@@ -260,6 +290,7 @@ export const es = {
 				"Reciba su producto y libere el pago cuando esté satisfecho.",
 		},
 	},
+
 	sellerOnboarding: {
 		title: "Comienza a Vender en SafeSwap",
 		description:
@@ -287,6 +318,7 @@ export const es = {
 			terms: "Debe marcar la casilla antes de enviar.",
 		},
 	},
+
 	saleDetails: {
 		title: "Detalles de la Venta",
 		copied: "¡Copiado!",
@@ -305,9 +337,11 @@ export const es = {
 		chat: "Chat",
 		milestones: "Hitos",
 	},
+
 	chat: {
 		placeholder: "Escribe tu mensaje...",
 	},
+
 	milestones: {
 		approve: "Aprobar",
 		complete: "Completar",
@@ -315,6 +349,44 @@ export const es = {
 		completed: "Completado",
 		pending: "Pendiente",
 		forReview: "Para Revisión",
+	},
+
+	filters: {
+		title: " Filtros",
+		header: "Filtros",
+		condition: "Condición",
+		sortBy: {
+			suggested: "Sugerido",
+			distance: "Distancia: Más cercano primero",
+			dateListed: "Fecha de publicación",
+			highPrice: "Precio: Más alto primero",
+			lowPrice: "Precio: Más bajo primero",
+		},
+		dateListed: {
+			all: "Todos",
+			last24Hours: "Últimas 24 horas",
+			last7Days: "Últimos 7 días",
+			last30Days: "Últimos 30 días",
+		},
+		price: {
+			minPrice: "Precio mínimo",
+			maxPrice: "Precio máximo",
+		},
+		deliveryMethod: {
+			all: "Todos",
+			localPickUp: "Recogida local",
+			delivery: "Envío",
+		},
+		button: {
+			reset: "Restablecer",
+			applyFilters: "Aplicar filtros",
+		},
+		conditions: {
+			new: "Nuevo",
+			likeNew: "Como nuevo",
+			good: "Bueno",
+			fair: "Aceptable",
+		},
 	},
 	// Add more sections as needed
 };

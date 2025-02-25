@@ -4,8 +4,8 @@ import { MessageSquareMore, ShoppingBag, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
 import ExploreCategories from "@/components/home/explore-categories";
+import FilterModal from "@/components/marketplace/filter-modal";
 import ProductsNotFound from "@/components/marketplace/products-not-found";
 import { ProductsPagination } from "@/components/marketplace/products-pagination";
 import { Button } from "@/components/ui/button";
@@ -72,7 +72,10 @@ export default function ProductList() {
 
 	return (
 		<>
-			<h1 className="text-4xl font-bold mb-8 mt-8 sm:mt-0">Marketplace</h1>
+			<div className="flex justify-between mb-8">
+				<h1 className="text-4xl font-bold  mt-8 sm:mt-0">Marketplace</h1>
+				<FilterModal />
+			</div>
 			{/* ProductFilter */}
 			{/* <Filters onFiltersChange={setFilters} /> */}
 

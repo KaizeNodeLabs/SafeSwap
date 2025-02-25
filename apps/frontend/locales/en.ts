@@ -231,6 +231,7 @@ export const en = {
 			},
 		},
 	},
+
 	marketplace: {
 		filters: "Filters",
 		priceRange: "Price Range",
@@ -241,6 +242,34 @@ export const en = {
 	ExploreCategories: {
 		title: "Explore Categories",
 		verTodas: "View All",
+	},
+	advantagesOfSafeSwap: {
+		title: "Powered by Stellar and Trustless Work",
+		subtitle:
+			"Ensuring secure and transparent transactions with blockchain technology",
+		items: {
+			trustlessWork: {
+				title: "Automated Escrow Protection",
+				description:
+					"Trustless Work API the complexity of smart contracts, leveraging Stellar to ensure secure, unbiased, and transparent transactions.",
+				link: "https://www.trustlesswork.com/",
+				buttonName: "Trustless Work",
+			},
+			introToStellar: {
+				title: "Instant Payments with Minimal Fees",
+				description:
+					"Built on Stellar, SafeSwap enables near-instant transactions with negligible fees, making cross-border payments seamless.",
+				link: "https://www.stellar.org/learn/intro-to-stellar",
+				buttonName: "Intro to Stellar",
+			},
+			powerOfStellar: {
+				title: "Global Trust & Fairness",
+				description:
+					"Using Stellar's decentralized ledger, SafeSwap ensures fair transactions without intermediaries, providing equal access for all users.",
+				link: "https://www.stellar.org/learn/the-power-of-stellar",
+				buttonName: "Power of Stellar",
+			},
+		},
 	},
 	howSafeSwapWorks: {
 		title: "How SafeSwap Works",
@@ -259,6 +288,7 @@ export const en = {
 				"Get your product delivered and release the payment when satisfied.",
 		},
 	},
+
 	sellerOnboarding: {
 		title: "Start Selling on SafeSwap",
 		description:
@@ -286,6 +316,7 @@ export const en = {
 			terms: "Checkbox must be checked before submitting.",
 		},
 	},
+
 	saleDetails: {
 		title: "Sale Details",
 		copied: "Copied!",
@@ -304,9 +335,11 @@ export const en = {
 		chat: "Chat",
 		milestones: "Milestones",
 	},
+
 	chat: {
 		placeholder: "Write your message...",
 	},
+
 	milestones: {
 		approve: "Approve",
 		complete: "Complete",
@@ -314,6 +347,44 @@ export const en = {
 		completed: "Completed",
 		pending: "Pending",
 		forReview: "For Review",
+	},
+
+	filters: {
+		title: " Filter",
+		header: "Filters",
+		condition: "Condition",
+		sortBy: {
+			suggested: "Suggested",
+			distance: "Distance: Nearest first",
+			dateListed: "Date listed: Newest first",
+			highPrice: "Price: Highest first",
+			lowPrice: "Price: Lowest first",
+		},
+		dateListed: {
+			all: "All",
+			last24Hours: "Last 24 hours",
+			last7Days: "Last 7 days",
+			last30Days: "Last 30 days",
+		},
+		price: {
+			minPrice: "Min price",
+			maxPrice: "Max price",
+		},
+		deliveryMethod: {
+			all: "All",
+			localPickUp: "Local Pickup",
+			delivery: "Shipping",
+		},
+		button: {
+			reset: "Reset",
+			applyFilters: "Apply Filters",
+		},
+		conditions: {
+			new: "New",
+			likeNew: "like New",
+			good: "Good",
+			fair: "Fair",
+		},
 	},
 	// Add more sections as needed
 };
