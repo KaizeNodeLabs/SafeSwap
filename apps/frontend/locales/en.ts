@@ -339,5 +339,8 @@ export const en = {
 		pending: "Pending",
 		forReview: "For Review",
 	},
+	testimonials: {
+		title: "What Our Users Say",
+	},
 	// Add more sections as needed
 };

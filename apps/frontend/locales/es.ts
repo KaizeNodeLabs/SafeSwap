@@ -340,6 +340,9 @@ export const es = {
 			pending: "Pendiente",
 			forReview: "Para Revisión",
 		},
-		// Add more sections as needed
 	},
+	testimonials: {
+		title: "Lo Que Dicen Nuestros Usuarios",
+	},
+	// Add more sections as needed
 };
