@@ -224,6 +224,19 @@ export const en = {
 				},
 			},
 		},
+		featuredProducts: {
+			items: {
+				"1": { name: "MacBook Pro 14" },
+				"2": { name: "Samsung Galaxy S24 FE" },
+				"3": { name: "Ergonomic Chair" },
+				"4": { name: "Coffee Maker" },
+				"5": { name: "Running Shoes" },
+				"6": { name: "Wireless Earbuds" },
+			},
+		},
+		featuredProductsTitle: {
+			title: "Featured Products",
+		},
 	},
 	marketplace: {
 		filters: "Filters",
