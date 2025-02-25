@@ -243,7 +243,7 @@ export const es = {
 	ExploreCategories: {
 		title: "Explorar Categorias",
 		verTodas: "Ver todas",
-  },
+	},
 	advantagesOfSafeSwap: {
 		title: "Impulsado por Stellar y Trustless Work",
 		subtitle:

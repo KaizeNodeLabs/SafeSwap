@@ -1,9 +1,5 @@
 "use client";
 
-import { MessageSquareMore, ShoppingBag, ShoppingCart } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
 import ExploreCategories from "@/components/home/explore-categories";
 import FilterModal from "@/components/marketplace/filter-modal";
 import ProductsNotFound from "@/components/marketplace/products-not-found";
@@ -21,6 +17,10 @@ import { CATEGORIES } from "@/lib/constants/categories";
 import { products } from "@/lib/mocks/products";
 import { FilterState } from "@/lib/types/filters";
 import { generateProductSlug } from "@/utils/generateProductSlug";
+import { MessageSquareMore, ShoppingBag, ShoppingCart } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const initialFilters: FilterState = {
 	categories: [],
