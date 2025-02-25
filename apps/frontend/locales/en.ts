@@ -348,8 +348,7 @@ export const en = {
 	},
 	testimonials: {
 		title: "What Our Users Say",
-  },
-
+	},
 	filters: {
 		title: " Filter",
 		header: "Filters",
@@ -386,5 +385,6 @@ export const en = {
 			good: "Good",
 			fair: "Fair",
 		},
+	},
 	// Add more sections as needed
 };

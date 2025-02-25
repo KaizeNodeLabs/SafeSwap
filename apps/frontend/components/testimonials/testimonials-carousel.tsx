@@ -52,8 +52,11 @@ export default function TestimonialsCarousel() {
 						</CarouselItem>
 					))}
 				</CarouselContent>
-				<CarouselPrevious className="absolute left-1 top-1/2 -translate-y-1/2 bg-white border rounded-full p-2 shadow-md z-10 sm:left-2 md:left-4 lg:left-8" />
-				<CarouselNext className="absolute right-1 top-1/2 -translate-y-1/2 bg-white border rounded-full p-2 shadow-md z-10 sm:right-2 md:right-4 lg:right-8" />
+				<CarouselPrevious className="absolute left-1 top-1/2 -translate-y-1/2 bg-white text-gray-800 border rounded-full p-2 shadow-md z-10 sm:left-2 md:left-4 lg:left-8" />
+				<CarouselNext className="absolute right-1 top-1/2 -translate-y-1/2 bg-white text-gray-800 border rounded-full p-2 shadow-md z-10 sm:right-2 md:right-4 lg:right-8" />
+
+				{/* <CarouselPrevious className="absolute left-1 top-1/2 -translate-y-1/2 bg-white border rounded-full p-2 shadow-md z-10 sm:left-2 md:left-4 lg:left-8" />
+				<CarouselNext className="absolute right-1 top-1/2 -translate-y-1/2 bg-white border rounded-full p-2 shadow-md z-10 sm:right-2 md:right-4 lg:right-8" /> */}
 			</Carousel>
 		</div>
 	);
