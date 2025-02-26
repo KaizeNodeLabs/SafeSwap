@@ -252,6 +252,7 @@ export const en = {
 		addToCart: "Add to Cart",
 		chatWithSeller: "Chat with Seller",
 	},
+
 	
 	ExploreCategories: {
 		title: "Explore Categories",
@@ -331,6 +332,7 @@ export const en = {
 		},
 	},
 
+
 	saleDetails: {
 		title: "Sale Details",
 		copied: "Copied!",
@@ -350,6 +352,7 @@ export const en = {
 		milestones: "Milestones",
 	},
 
+
 	chat: {
 		placeholder: "Write your message...",
 	},
@@ -362,6 +365,44 @@ export const en = {
 		pending: "Pending",
 		forReview: "For Review",
 	},
+
+	shopping: {
+		title: "My Shopping",
+		tabs: {
+			all: "All",
+			pending: "Pending",
+			onDispute: "On Dispute",
+			forReview: "For Review",
+			approved: "Approved",
+		},
+		table: {
+			date: "Shopping Date",
+			product: "Product Name",
+			id: "Shopping ID",
+			price: "Price",
+			seller: "Seller",
+			status: "Escrow Status",
+			actions: "Actions",
+		},
+		orderDetails: {
+			title: "Order Details",
+			productLabel: "Product",
+			idLabel: "Shopping ID",
+			dateLabel: "Date",
+			priceLabel: "Price",
+			sellerLabel: "Seller",
+			statusLabel: "Status",
+		},
+		search: "Search products...",
+		total: "Total Shopping",
+		buttons: {
+			startDispute: "Start dispute",
+			approve: "Approve",
+			viewDetails: "View Details",
+		},
+		currency: "$",
+	},
+
 	testimonials: {
 		title: "What Our Users Say",
 	},
@@ -415,5 +456,6 @@ export const en = {
 			approved: "Approved",
     },
   },
+
 	// Add more sections as needed
 };

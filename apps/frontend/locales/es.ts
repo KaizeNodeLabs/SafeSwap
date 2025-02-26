@@ -351,7 +351,7 @@ export const es = {
 		chat: "Chat",
 		milestones: "Hitos",
 	},
-
+  
 	chat: {
 		placeholder: "Escribe tu mensaje...",
 	},
@@ -364,6 +364,44 @@ export const es = {
 		pending: "Pendiente",
 		forReview: "Para Revisión",
 	},
+
+	shopping: {
+		title: "Mis Compras",
+		tabs: {
+			all: "Todos",
+			pending: "Pendiente",
+			onDispute: "En Disputa",
+			forReview: "En Revisión",
+			approved: "Aprobado",
+		},
+		table: {
+			date: "Fecha de Compra",
+			product: "Nombre del Producto",
+			id: "ID de Compra",
+			price: "Precio",
+			seller: "Vendedor",
+			status: "Estado de Custodia",
+			actions: "Acciones",
+		},
+		orderDetails: {
+			title: "Detalles del Pedido",
+			productLabel: "Producto",
+			idLabel: "ID de Compra",
+			dateLabel: "Fecha",
+			priceLabel: "Precio",
+			sellerLabel: "Vendedor",
+			statusLabel: "Estado",
+		},
+
+		search: "Buscar productos...",
+		total: "Total de Compras",
+		buttons: {
+			startDispute: "Iniciar disputa",
+			approve: "Aprobar",
+			viewDetails: "Ver Detalles",
+		},
+		currency: "$",
+
 
 	filters: {
 		title: " Filtros",
