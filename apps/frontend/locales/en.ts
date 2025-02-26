@@ -362,6 +362,44 @@ export const en = {
 		pending: "Pending",
 		forReview: "For Review",
 	},
+
+	shopping: {
+		title: "My Shopping",
+		tabs: {
+			all: "All",
+			pending: "Pending",
+			ondispute: "On Dispute",
+			forreview: "For Review",
+			approved: "Approved",
+		},
+		table: {
+			date: "Shopping Date",
+			product: "Product Name",
+			id: "Shopping ID",
+			price: "Price",
+			seller: "Seller",
+			status: "Escrow Status",
+			actions: "Actions",
+		},
+		orderDetails: {
+			title: "Order Details",
+			productLabel: "Product",
+			idLabel: "Shopping ID",
+			dateLabel: "Date",
+			priceLabel: "Price",
+			sellerLabel: "Seller",
+			statusLabel: "Status",
+		},
+		search: "Search products...",
+		total: "Total Shopping",
+		buttons: {
+			startDispute: "Start dispute",
+			approve: "Approve",
+			viewDetails: "View Details",
+		},
+		currency: "$",
+	},
+
 	testimonials: {
 		title: "What Our Users Say",
 	},
@@ -402,41 +440,6 @@ export const en = {
 			fair: "Fair",
 		},
 	},
-	shopping: {
-		title: "My Shopping",
-		tabs: {
-			all: "All",
-			pending: "Pending",
-			ondispute: "On Dispute",
-			forreview: "For Review",
-			approved: "Approved",
-		},
-		table: {
-			date: "Shopping Date",
-			product: "Product Name",
-			id: "Shopping ID",
-			price: "Price",
-			seller: "Seller",
-			status: "Escrow Status",
-			actions: "Actions",
-		},
-		orderDetails: {
-			title: "Order Details",
-			productLabel: "Product",
-			idLabel: "Shopping ID",
-			dateLabel: "Date",
-			priceLabel: "Price",
-			sellerLabel: "Seller",
-			statusLabel: "Status",
-		},
-		search: "Search products...",
-		total: "Total Shopping",
-		buttons: {
-			startDispute: "Start dispute",
-			approve: "Approve",
-			viewDetails: "View Details",
-		},
-		currency: "$",
-	},
+
 	// Add more sections as needed
 };
