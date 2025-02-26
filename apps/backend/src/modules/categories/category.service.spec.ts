@@ -36,7 +36,7 @@ describe("CategoryService", () => {
 						category: {
 							findMany: jest.fn().mockResolvedValue(mockCategories),
 							findUnique: jest.fn().mockResolvedValue(mockCategory),
-							create: jest.fn(),
+							create: jest.fn().mockResolvedValue(mockCategory),
 						},
 					},
 				},
@@ -94,6 +94,37 @@ describe("CategoryService", () => {
 				.spyOn(prismaService.category, "findUnique")
 				.mockRejectedValueOnce(new Error("Database error"));
 			await expect(service.findOne("1")).rejects.toThrow("Database error");
+		});
+	});
+
+	describe("create", () => {
+		const createCategoryInput: CreateCategoryInput = {
+			name: "New Category",
+		};
+
+		it("should create a new category", async () => {
+			const result = await service.create(createCategoryInput);
+			expect(result).toEqual(mockCategory);
+			expect(prismaService.category.create).toHaveBeenCalledWith({
+				data: createCategoryInput,
+			});
+		});
+
+		it("should create a category without imageUrl", async () => {
+			const inputWithoutImage = { name: "New Category" };
+			await service.create(inputWithoutImage);
+			expect(prismaService.category.create).toHaveBeenCalledWith({
+				data: inputWithoutImage,
+			});
+		});
+
+		it("should handle database errors during creation", async () => {
+			jest
+				.spyOn(prismaService.category, "create")
+				.mockRejectedValueOnce(new Error("Database error"));
+			await expect(service.create(createCategoryInput)).rejects.toThrow(
+				"Database error",
+			);
 		});
 	});
 });
