@@ -1,76 +1,63 @@
 "use client";
 
+import ExploreCategories from "@/components/home/explore-categories";
+import FilterModal from "@/components/marketplace/filter-modal";
+import ProductsNotFound from "@/components/marketplace/products-not-found";
+import { ProductsPagination } from "@/components/marketplace/products-pagination";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { useTranslations } from "@/hooks/useTranslations";
+import { CATEGORIES } from "@/lib/constants/categories";
+import { products } from "@/lib/mocks/products";
+import { FilterState } from "@/lib/types/filters";
+import { generateProductSlug } from "@/utils/generateProductSlug";
+import { getProductKey } from "@/utils/getProductKey";
 import { MessageSquareMore, ShoppingBag, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import ProductsNotFound from "@/components/marketplace/products-not-found";
-import { ProductsPagination } from "@/components/marketplace/products-pagination";
-import { Button } from "@/components/ui/button";
-import {
-	Card,
-	CardContent,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from "@/components/ui/card";
-import { useTranslations } from "@/hooks/useTranslations";
-import { products } from "@/lib/mocks/products";
-import { FilterState } from "@/lib/types/filters";
-import { generateProductSlug } from "@/utils/generateProductSlug";
-
 const initialFilters: FilterState = {
-	categories: [],
-	priceRanges: [],
-};
-
-const getProductKey = (id: number) => {
-	switch (id) {
-		case 1:
-			return "macbook";
-		case 2:
-			return "galaxy";
-		case 3:
-			return "chair";
-		case 4:
-			return "coffee";
-		case 5:
-			return "shoes";
-		case 6:
-			return "earbuds";
-		default:
-			return "";
-	}
+  categories: [],
+  priceRanges: [],
 };
 
 export default function ProductList() {
-	const { t } = useTranslations();
-	const [filters, setFilters] = useState<FilterState>(initialFilters);
-	const [filteredProducts, setFilteredProducts] = useState(products);
+  const { t } = useTranslations();
+  const [filters, setFilters] = useState<FilterState>(initialFilters);
+  const [filteredProducts, setFilteredProducts] = useState(products);
 
-	useEffect(() => {
-		const newFilteredProducts = products.filter((product) => {
-			const categoryMatch =
-				filters.categories.length === 0 ||
-				filters.categories.includes(product.category);
-			const priceMatch =
-				filters.priceRanges.length === 0 ||
-				filters.priceRanges.some(
-					(range) => product.price >= range.min && product.price <= range.max,
-				);
-			return categoryMatch && priceMatch;
-		});
-		setFilteredProducts(newFilteredProducts);
-	}, [filters]);
+  useEffect(() => {
+    const newFilteredProducts = products.filter((product) => {
+      const categoryMatch =
+        filters.categories.length === 0 ||
+        filters.categories.includes(product.category);
+      const priceMatch =
+        filters.priceRanges.length === 0 ||
+        filters.priceRanges.some(
+          (range) => product.price >= range.min && product.price <= range.max
+        );
+      return categoryMatch && priceMatch;
+    });
+    setFilteredProducts(newFilteredProducts);
+  }, [filters]);
 
-	const handleClearFilters = () => {
-		setFilters(initialFilters);
-	};
+  const handleClearFilters = () => {
+    setFilters(initialFilters);
+  };
 
 	return (
 		<>
-			<h1 className="text-4xl font-bold mb-8 mt-8 sm:mt-0">Marketplace</h1>
+			<div className="flex justify-between mb-8">
+				<h1 className="text-4xl font-bold  mt-8 sm:mt-0">Marketplace</h1>
+				<FilterModal />
+			</div>
 			{/* ProductFilter */}
 			{/* <Filters onFiltersChange={setFilters} /> */}
 
@@ -148,6 +135,9 @@ export default function ProductList() {
 				)}
 				<ProductsPagination />
 			</section>
+
+			{/* Explore Categories */}
+			<ExploreCategories categories={CATEGORIES} />
 		</>
 	);
 }
