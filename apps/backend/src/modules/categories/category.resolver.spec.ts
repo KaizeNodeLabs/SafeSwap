@@ -34,7 +34,7 @@ describe("CategoryResolver", () => {
 					provide: CategoryService,
 					useValue: {
 						findAll: jest.fn().mockResolvedValue(mockCategories),
-						findOne: jest.fn(),
+						findOne: jest.fn().mockResolvedValue(mockCategory),
 						create: jest.fn(),
 					},
 				},
@@ -77,6 +77,27 @@ describe("CategoryResolver", () => {
 				.spyOn(categoryService, "findAll")
 				.mockRejectedValueOnce(new Error("Service error"));
 			await expect(resolver.categories()).rejects.toThrow("Service error");
+		});
+	});
+
+	describe("category", () => {
+		it("should return a single category by id", async () => {
+			const result = await resolver.category("1");
+			expect(result).toEqual(mockCategory);
+			expect(categoryService.findOne).toHaveBeenCalledWith("1");
+		});
+
+		it("should return null for non-existent category", async () => {
+			jest.spyOn(categoryService, "findOne").mockResolvedValueOnce(null);
+			const result = await resolver.category("999");
+			expect(result).toBeNull();
+		});
+
+		it("should handle service errors", async () => {
+			jest
+				.spyOn(categoryService, "findOne")
+				.mockRejectedValueOnce(new Error("Service error"));
+			await expect(resolver.category("1")).rejects.toThrow("Service error");
 		});
 	});
 });
