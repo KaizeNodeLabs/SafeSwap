@@ -252,7 +252,7 @@ export const en = {
 		addToCart: "Add to Cart",
 		chatWithSeller: "Chat with Seller",
 	},
-	
+
 	ExploreCategories: {
 		title: "Explore Categories",
 		verTodas: "View All",
@@ -402,18 +402,41 @@ export const en = {
 			fair: "Fair",
 		},
 	},
-  shopping: {
-		pay: "Pay",
-		openDispute: "Open Dispute",
-		markAsReceived: "Mark as Received",
-		send: "Send",
-		typeMessageHero: "Type your message here",
-		escrowStatus: {
+	shopping: {
+		title: "My Shopping",
+		tabs: {
+			all: "All",
 			pending: "Pending",
-			onDispute: "On Dispute",
-			forReview: "For Review",
+			ondispute: "On Dispute",
+			forreview: "For Review",
 			approved: "Approved",
-    },
-  },
+		},
+		table: {
+			date: "Shopping Date",
+			product: "Product Name",
+			id: "Shopping ID",
+			price: "Price",
+			seller: "Seller",
+			status: "Escrow Status",
+			actions: "Actions",
+		},
+		orderDetails: {
+			title: "Order Details",
+			productLabel: "Product",
+			idLabel: "Shopping ID",
+			dateLabel: "Date",
+			priceLabel: "Price",
+			sellerLabel: "Seller",
+			statusLabel: "Status",
+		},
+		search: "Search products...",
+		total: "Total Shopping",
+		buttons: {
+			startDispute: "Start dispute",
+			approve: "Approve",
+			viewDetails: "View Details",
+		},
+		currency: "$",
+	},
 	// Add more sections as needed
 };
