@@ -24,7 +24,7 @@ const sales = products.map((product) => ({
 	date: "2025-02-19", //theres no date in the product object
 	product: product.name,
 	price: product.price,
-	buyer: `0x1234...5678`, //mock buyer address
+	buyer: "0x1234...5678", //mock buyer address
 	status: (product.id === 1 ? "forReview" : "approved") as StatusType,
 	milestones:
 		product.id === 1
@@ -75,7 +75,7 @@ export function SalesTable() {
 				<Table>
 					<TableHeader>
 						<TableRow className="hover:bg-transparent dark:hover:bg-transparent">
-							<TableHead className="w-[50px] dark:text-gray-400"></TableHead>
+							<TableHead className="w-[50px] dark:text-gray-400" />
 							<TableHead className="font-medium text-sm text-gray-500 dark:text-gray-400">
 								{t("Sales.table.shoppingDate")}
 							</TableHead>
