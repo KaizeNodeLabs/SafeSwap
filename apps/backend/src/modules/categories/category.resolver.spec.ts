@@ -2,6 +2,7 @@ import { Test, TestingModule } from "@nestjs/testing";
 import { PrismaService } from "src/core/prisma/prisma.service";
 import { CategoryResolver } from "./category.resolver";
 import { CategoryService } from "./category.service";
+import { CreateCategoryInput } from "./dto/create-category.input";
 
 describe("CategoryResolver", () => {
 	let resolver: CategoryResolver;
@@ -35,7 +36,7 @@ describe("CategoryResolver", () => {
 					useValue: {
 						findAll: jest.fn().mockResolvedValue(mockCategories),
 						findOne: jest.fn().mockResolvedValue(mockCategory),
-						create: jest.fn(),
+						create: jest.fn().mockResolvedValue(mockCategory),
 					},
 				},
 				{
@@ -98,6 +99,27 @@ describe("CategoryResolver", () => {
 				.spyOn(categoryService, "findOne")
 				.mockRejectedValueOnce(new Error("Service error"));
 			await expect(resolver.category("1")).rejects.toThrow("Service error");
+		});
+	});
+
+	describe("createCategory", () => {
+		const createCategoryInput: CreateCategoryInput = {
+			name: "New Category",
+		};
+
+		it("should create a new category", async () => {
+			const result = await resolver.createCategory(createCategoryInput);
+			expect(result).toEqual(mockCategory);
+			expect(categoryService.create).toHaveBeenCalledWith(createCategoryInput);
+		});
+
+		it("should handle service errors during creation", async () => {
+			jest
+				.spyOn(categoryService, "create")
+				.mockRejectedValueOnce(new Error("Service error"));
+			await expect(
+				resolver.createCategory(createCategoryInput),
+			).rejects.toThrow("Service error");
 		});
 	});
 });
