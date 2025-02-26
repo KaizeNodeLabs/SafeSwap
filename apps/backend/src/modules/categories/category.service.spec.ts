@@ -35,7 +35,7 @@ describe("CategoryService", () => {
 					useValue: {
 						category: {
 							findMany: jest.fn().mockResolvedValue(mockCategories),
-							findUnique: jest.fn(),
+							findUnique: jest.fn().mockResolvedValue(mockCategory),
 							create: jest.fn(),
 						},
 					},
@@ -69,6 +69,31 @@ describe("CategoryService", () => {
 				.spyOn(prismaService.category, "findMany")
 				.mockRejectedValueOnce(new Error("Database error"));
 			await expect(service.findAll()).rejects.toThrow("Database error");
+		});
+	});
+
+	describe("findOne", () => {
+		it("should return a single category by id", async () => {
+			const result = await service.findOne("1");
+			expect(result).toEqual(mockCategory);
+			expect(prismaService.category.findUnique).toHaveBeenCalledWith({
+				where: { id: "1" },
+			});
+		});
+
+		it("should return null for non-existent category", async () => {
+			jest
+				.spyOn(prismaService.category, "findUnique")
+				.mockResolvedValueOnce(null);
+			const result = await service.findOne("999");
+			expect(result).toBeNull();
+		});
+
+		it("should handle database errors", async () => {
+			jest
+				.spyOn(prismaService.category, "findUnique")
+				.mockRejectedValueOnce(new Error("Database error"));
+			await expect(service.findOne("1")).rejects.toThrow("Database error");
 		});
 	});
 });
