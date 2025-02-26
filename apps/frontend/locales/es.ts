@@ -128,7 +128,10 @@ export const es = {
 			exploreButton: "Explorar Mercado",
 			stats: {
 				status: "Estado de la Red",
-				statusValue: "Activo",
+				statusValue: {
+					active: "Activo",
+					inactive: "Inactivo",
+				},
 				volume: "Volumen 24h",
 				volumeValue: "$1.2M",
 				gas: "Gas",

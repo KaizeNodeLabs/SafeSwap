@@ -129,7 +129,10 @@ export const en = {
 			exploreButton: "Explore Marketplace",
 			stats: {
 				status: "Network Status",
-				statusValue: "Active",
+				statusValue: {
+					active: "Active",
+					inactive: "Inactive",
+				},
 				volume: "24h Volume",
 				volumeValue: "$1.2M",
 				gas: "Gas",
