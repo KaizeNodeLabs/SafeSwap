@@ -171,6 +171,12 @@ export const en = {
 				decrease: "Decrease quantity",
 			},
 		},
+		seller: {
+			title: "Ready to start selling?",
+			description:
+				"Join SafeSwap and reach thousands of potential buyers today!",
+			btn_label: "Become a seller",
+		},
 
 		createProduct: {
 			title: "Sell Product",
@@ -224,7 +230,21 @@ export const en = {
 				},
 			},
 		},
+		featuredProducts: {
+			items: {
+				"1": { name: "MacBook Pro 14" },
+				"2": { name: "Samsung Galaxy S24 FE" },
+				"3": { name: "Ergonomic Chair" },
+				"4": { name: "Coffee Maker" },
+				"5": { name: "Running Shoes" },
+				"6": { name: "Wireless Earbuds" },
+			},
+		},
+		featuredProductsTitle: {
+			title: "Featured Products",
+		},
 	},
+
 	marketplace: {
 		filters: "Filters",
 		priceRange: "Price Range",
@@ -232,6 +252,87 @@ export const en = {
 		addToCart: "Add to Cart",
 		chatWithSeller: "Chat with Seller",
 	},
+
+	
+	ExploreCategories: {
+		title: "Explore Categories",
+		verTodas: "View All",
+	},
+	advantagesOfSafeSwap: {
+		title: "Powered by Stellar and Trustless Work",
+		subtitle:
+			"Ensuring secure and transparent transactions with blockchain technology",
+		items: {
+			trustlessWork: {
+				title: "Automated Escrow Protection",
+				description:
+					"Trustless Work API the complexity of smart contracts, leveraging Stellar to ensure secure, unbiased, and transparent transactions.",
+				link: "https://www.trustlesswork.com/",
+				buttonName: "Trustless Work",
+			},
+			introToStellar: {
+				title: "Instant Payments with Minimal Fees",
+				description:
+					"Built on Stellar, SafeSwap enables near-instant transactions with negligible fees, making cross-border payments seamless.",
+				link: "https://www.stellar.org/learn/intro-to-stellar",
+				buttonName: "Intro to Stellar",
+			},
+			powerOfStellar: {
+				title: "Global Trust & Fairness",
+				description:
+					"Using Stellar's decentralized ledger, SafeSwap ensures fair transactions without intermediaries, providing equal access for all users.",
+				link: "https://www.stellar.org/learn/the-power-of-stellar",
+				buttonName: "Power of Stellar",
+			},
+		},
+	},
+	howSafeSwapWorks: {
+		title: "How SafeSwap Works",
+		step1: {
+			title: "Browse & Select Products",
+			description:
+				"Explore our wide range of products and choose what you like.",
+		},
+		step2: {
+			title: "Secure Payment with Escrow",
+			description: "Pay safely using our Blockchain-powered escrow system.",
+		},
+		step3: {
+			title: "Receive Your Product Safely",
+			description:
+				"Get your product delivered and release the payment when satisfied.",
+		},
+	},
+
+	sellerOnboarding: {
+		title: "Start Selling on SafeSwap",
+		description:
+			"Join our decentralized marketplace and start selling with Stellar escrow. Secure, fast and no storefront needed.",
+		form: {
+			email: "Email",
+			emailPlaceholder: "email@gmail.com",
+			wallet: "Stellar Wallet Address",
+			walletPlaceholder: "GDDG...P5E7",
+			telegram: "Telegram Username (Optional)",
+			telegramPlaceholder: "@username",
+			country: "Country",
+			countryPlaceholder: "Select your country",
+			terms: "I agree to the terms and conditions",
+			termsDescription:
+				"By checking this box, you agree to our Terms of Service and Privacy Policy.",
+			submitButton: "Start Selling",
+		},
+		errors: {
+			email: "Email must be in a valid format.",
+			wallet:
+				"Stellar wallet address must start with 'G' and be 56 characters long.",
+			telegram: "Telegram username should start with '@'.",
+			country: "Country must be selected before submission.",
+			terms: "Checkbox must be checked before submitting.",
+		},
+	},
+
+
 	saleDetails: {
 		title: "Sale Details",
 		copied: "Copied!",
@@ -250,9 +351,12 @@ export const en = {
 		chat: "Chat",
 		milestones: "Milestones",
 	},
+
+
 	chat: {
 		placeholder: "Write your message...",
 	},
+
 	milestones: {
 		approve: "Approve",
 		complete: "Complete",
@@ -261,6 +365,7 @@ export const en = {
 		pending: "Pending",
 		forReview: "For Review",
 	},
+
 	shopping: {
 		title: "My Shopping",
 		tabs: {
@@ -297,6 +402,60 @@ export const en = {
 		},
 		currency: "$",
 	},
+
+	testimonials: {
+		title: "What Our Users Say",
+	},
+	filters: {
+		title: " Filter",
+		header: "Filters",
+		condition: "Condition",
+		sortBy: {
+			suggested: "Suggested",
+			distance: "Distance: Nearest first",
+			dateListed: "Date listed: Newest first",
+			highPrice: "Price: Highest first",
+			lowPrice: "Price: Lowest first",
+		},
+		dateListed: {
+			all: "All",
+			last24Hours: "Last 24 hours",
+			last7Days: "Last 7 days",
+			last30Days: "Last 30 days",
+		},
+		price: {
+			minPrice: "Min price",
+			maxPrice: "Max price",
+		},
+		deliveryMethod: {
+			all: "All",
+			localPickUp: "Local Pickup",
+			delivery: "Shipping",
+		},
+		button: {
+			reset: "Reset",
+			applyFilters: "Apply Filters",
+		},
+		conditions: {
+			new: "New",
+			likeNew: "like New",
+			good: "Good",
+			fair: "Fair",
+		},
+	},
+  shopping: {
+		pay: "Pay",
+		openDispute: "Open Dispute",
+		markAsReceived: "Mark as Received",
+		send: "Send",
+		typeMessageHero: "Type your message here",
+		escrowStatus: {
+			pending: "Pending",
+			onDispute: "On Dispute",
+			forReview: "For Review",
+			approved: "Approved",
+    },
+  },
 
 	// Add more sections as needed
 };

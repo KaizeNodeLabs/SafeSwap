@@ -5,6 +5,7 @@ import {
 	Home,
 	LayoutGrid,
 	Lock,
+	MessageSquare,
 	PlusCircle,
 	Settings,
 	ShoppingCart,
@@ -20,6 +21,7 @@ export const mainNavItems: SidebarItem[] = [
 	{ title: "Shopping", icon: ShoppingCart, url: "/shopping" },
 	{ title: "Disputes", icon: Gavel, url: "/disputes" },
 	{ title: "Settings", icon: Settings, url: "/settings" },
+	{ title: "Testimonials", icon: MessageSquare, url: "/testimonial" },
 ];
 
 export const exploreNavItems: SidebarItem[] = [
