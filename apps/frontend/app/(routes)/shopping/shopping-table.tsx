@@ -90,15 +90,15 @@ const initialData: ShoppingData[] = [
 const getStatusColor = (status: string) => {
 	switch (status) {
 		case "Pending":
-			return "bg-white text-gray-400";
+			return "bg-white dark:bg-gray-700 text-gray-400 dark:text-gray-300";
 		case "On Dispute":
 			return "bg-red-500 text-white";
 		case "For Review":
-			return "bg-white text-black";
+			return "bg-white dark:bg-gray-700 text-black dark:text-white";
 		case "Approved":
-			return "bg-black text-white";
+			return "bg-black dark:bg-gray-900 text-white";
 		default:
-			return "bg-gray-200 text-gray-700";
+			return "bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-200";
 	}
 };
 
@@ -124,25 +124,25 @@ const OrderDetails = ({ order }: { order: ShoppingData }) => {
 		<div className="space-y-4">
 			<div className="grid grid-cols-2 gap-4">
 				<div>
-					<p className="text-sm text-gray-500">
+					<p className="text-sm text-gray-500 dark:text-gray-400">
 						{t("shopping.orderDetails.productLabel")}
 					</p>
 					<p className="font-medium">{order.product}</p>
 				</div>
 				<div>
-					<p className="text-sm text-gray-500">
+					<p className="text-sm text-gray-500 dark:text-gray-400">
 						{t("shopping.orderDetails.idLabel")}
 					</p>
 					<p className="font-medium">{order.id}</p>
 				</div>
 				<div>
-					<p className="text-sm text-gray-500">
+					<p className="text-sm text-gray-500 dark:text-gray-400">
 						{t("shopping.orderDetails.dateLabel")}
 					</p>
 					<p className="font-medium">{order.date}</p>
 				</div>
 				<div>
-					<p className="text-sm text-gray-500">
+					<p className="text-sm text-gray-500 dark:text-gray-400">
 						{t("shopping.orderDetails.priceLabel")}
 					</p>
 					<p className="font-medium">
@@ -151,13 +151,13 @@ const OrderDetails = ({ order }: { order: ShoppingData }) => {
 					</p>
 				</div>
 				<div>
-					<p className="text-sm text-gray-500">
+					<p className="text-sm text-gray-500 dark:text-gray-400">
 						{t("shopping.orderDetails.sellerLabel")}
 					</p>
 					<p className="font-mono text-sm">{order.seller}</p>
 				</div>
 				<div>
-					<p className="text-sm text-gray-500">
+					<p className="text-sm text-gray-500 dark:text-gray-400">
 						{t("shopping.orderDetails.statusLabel")}
 					</p>
 					<Badge
@@ -170,7 +170,7 @@ const OrderDetails = ({ order }: { order: ShoppingData }) => {
 			</div>
 
 			{order.status !== "Approved" && order.status !== "On Dispute" && (
-				<div className="flex gap-2 pt-4 border-t">
+				<div className="flex gap-2 pt-4 border-t dark:border-gray-700">
 					<Button variant="destructive" className="flex-1">
 						{t("shopping.buttons.startDispute")}
 					</Button>
@@ -191,7 +191,7 @@ const ShoppingTable = () => {
 	const [activeTab, setActiveTab] = useState<TabType>("All");
 	const [searchTerm, setSearchTerm] = useState("");
 	const [data] = useState<ShoppingData[]>(initialData);
-	const [isMobileView, setIsMobileView] = useState(false);
+	const [viewMode, setViewMode] = useState("desktop");
 	const [selectedOrder, setSelectedOrder] = useState<ShoppingData | null>(null);
 
 	const tabs: TabType[] = [
@@ -201,7 +201,8 @@ const ShoppingTable = () => {
 		"For Review",
 		"Approved",
 	];
-	// created a status to translation key mapper
+
+	// Created a status to translation key mapper
 	const getStatusTranslationKey = (status: string): string => {
 		switch (status) {
 			case "Pending":
@@ -219,7 +220,13 @@ const ShoppingTable = () => {
 
 	useEffect(() => {
 		const handleResize = () => {
-			setIsMobileView(window.innerWidth < 768);
+			if (window.innerWidth < 640) {
+				setViewMode("mobile");
+			} else if (window.innerWidth < 1024) {
+				setViewMode("tablet");
+			} else {
+				setViewMode("desktop");
+			}
 		};
 
 		handleResize();
@@ -264,12 +271,17 @@ const ShoppingTable = () => {
 			item.product.toLowerCase().includes(searchTerm.toLowerCase()),
 	);
 
-	const renderMobileCard = (item: ShoppingData) => (
-		<div key={item.id} className="bg-white rounded-lg shadow p-4 mb-4 border">
+	const renderCard = (item: ShoppingData) => (
+		<div
+			key={item.id}
+			className="bg-white dark:bg-gray-800 rounded-lg shadow p-4 mb-4 border dark:border-gray-700"
+		>
 			<div className="flex justify-between items-start mb-3">
 				<div>
 					<h3 className="font-medium">{item.product}</h3>
-					<p className="text-sm text-gray-500">{formatDate(item.date)}</p>
+					<p className="text-sm text-gray-500 dark:text-gray-400">
+						{formatDate(item.date)}
+					</p>
 				</div>
 				<Badge
 					className={`flex items-center hover:text-white hover:cursor-pointer ${getStatusColor(item.status)}`}
@@ -281,12 +293,12 @@ const ShoppingTable = () => {
 
 			<div className="space-y-2">
 				<div className="flex justify-between items-center">
-					<span className="text-sm text-gray-500">
+					<span className="text-sm text-gray-500 dark:text-gray-400">
 						{t("shopping.table.id")}:
 					</span>
 					<Button
 						variant="link"
-						className="text-blue-600 hover:underline p-0 h-auto font-normal"
+						className="text-blue-600 dark:text-blue-400 hover:underline p-0 h-auto font-normal"
 						onClick={() => handleOrderClick(item)}
 					>
 						{item.id}
@@ -294,7 +306,7 @@ const ShoppingTable = () => {
 				</div>
 
 				<div className="flex justify-between items-center">
-					<span className="text-sm text-gray-500">
+					<span className="text-sm text-gray-500 dark:text-gray-400">
 						{t("shopping.table.price")}:
 					</span>
 					<span>
@@ -304,7 +316,7 @@ const ShoppingTable = () => {
 				</div>
 
 				<div className="flex justify-between items-center">
-					<span className="text-sm text-gray-500">
+					<span className="text-sm text-gray-500 dark:text-gray-400">
 						{t("shopping.table.seller")}:
 					</span>
 					<span>{renderStellarAddress(item.seller)}</span>
@@ -329,9 +341,15 @@ const ShoppingTable = () => {
 	);
 
 	const renderContent = () => {
-		if (isMobileView) {
+		if (viewMode === "mobile") {
+			return <div className="space-y-4">{filteredData.map(renderCard)}</div>;
+		}
+
+		if (viewMode === "tablet") {
 			return (
-				<div className="space-y-4">{filteredData.map(renderMobileCard)}</div>
+				<div className="grid grid-cols-2 gap-4">
+					{filteredData.map(renderCard)}
+				</div>
 			);
 		}
 
@@ -357,7 +375,7 @@ const ShoppingTable = () => {
 								<TableCell>
 									<Button
 										variant="link"
-										className="text-blue-600 hover:underline p-0 h-auto font-normal"
+										className="text-blue-600 dark:text-blue-400 hover:underline p-0 h-auto font-normal"
 										onClick={() => handleOrderClick(item)}
 									>
 										{item.id}
@@ -370,7 +388,7 @@ const ShoppingTable = () => {
 								<TableCell>{renderStellarAddress(item.seller)}</TableCell>
 								<TableCell>
 									<Badge
-										className={`flex items-center border border-gray-200 hover:text-white hover:cursor-pointer w-fit ${getStatusColor(item.status)}`}
+										className={`flex items-center border border-gray-200 dark:border-gray-600 hover:text-white hover:cursor-pointer w-fit ${getStatusColor(item.status)}`}
 									>
 										{getStatusIcon(item.status)}
 										{t(`shopping.tabs.${getStatusTranslationKey(item.status)}`)}
@@ -408,9 +426,9 @@ const ShoppingTable = () => {
 				{t("shopping.title")}
 			</h1>
 
-			<Card className="w-full max-w-7xl mx-auto p-4">
+			<Card className="w-full max-w-7xl mx-auto p-4 bg-white dark:bg-gray-800">
 				<div className="space-y-4">
-					<div className="flex flex-col md:flex-row gap-4">
+					<div className="flex flex-col sm:flex-row gap-4">
 						<div className="flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0">
 							{tabs.map((tab) => (
 								<Button
@@ -424,10 +442,10 @@ const ShoppingTable = () => {
 							))}
 						</div>
 						<div className="relative justify-end flex flex-1">
-							<Search className="absolute left-2 md:left-[52%] top-2.5 h-4 w-4 text-gray-500" />
+							<Search className="absolute left-2 sm:left-[52%] top-2.5 h-4 w-4 text-gray-500 dark:text-gray-400 z-10" />
 							<Input
 								placeholder={t("shopping.search")}
-								className="pl-8 w-full md:w-[50%] bg-gray-200"
+								className="pl-8 w-full sm:w-[50%] bg-gray-200 dark:bg-black text-gray-900 dark:text-gray-100"
 								value={searchTerm}
 								onChange={(e) => setSearchTerm(e.target.value)}
 							/>
@@ -436,7 +454,7 @@ const ShoppingTable = () => {
 
 					{renderContent()}
 
-					<div className="text-sm text-gray-600">
+					<div className="text-sm text-gray-600 dark:text-gray-400">
 						{t("shopping.total")}: {filteredData.length}
 					</div>
 
@@ -444,9 +462,11 @@ const ShoppingTable = () => {
 						open={!!selectedOrder}
 						onOpenChange={() => setSelectedOrder(null)}
 					>
-						<DialogContent>
+						<DialogContent className="dark:bg-gray-800">
 							<DialogHeader>
-								<DialogTitle>{t("shopping.orderDetails.title")}</DialogTitle>
+								<DialogTitle className="dark:text-white">
+									{t("shopping.orderDetails.title")}
+								</DialogTitle>
 								<DialogClose className="absolute right-4 top-4 opacity-70 ring-offset-background transition-opacity hover:opacity-100" />
 							</DialogHeader>
 							{selectedOrder && <OrderDetails order={selectedOrder} />}
