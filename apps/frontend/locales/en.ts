@@ -252,7 +252,7 @@ export const en = {
 		addToCart: "Add to Cart",
 		chatWithSeller: "Chat with Seller",
 	},
-	
+
 	ExploreCategories: {
 		title: "Explore Categories",
 		verTodas: "View All",
@@ -363,7 +363,6 @@ export const en = {
 		forReview: "For Review",
 	},
 
-
 	Sales: {
 		title: "My Sales",
 		searchPlaceholder: "Search sales...",
@@ -444,7 +443,6 @@ export const en = {
 		},
 	},
 
-=======
 	testimonials: {
 		title: "What Our Users Say",
 	},
@@ -485,7 +483,7 @@ export const en = {
 			fair: "Fair",
 		},
 	},
-  shopping: {
+	shopping: {
 		pay: "Pay",
 		openDispute: "Open Dispute",
 		markAsReceived: "Mark as Received",
@@ -496,8 +494,8 @@ export const en = {
 			onDispute: "On Dispute",
 			forReview: "For Review",
 			approved: "Approved",
-    },
-  },
+		},
+	},
 
 	// Add more sections as needed
 };

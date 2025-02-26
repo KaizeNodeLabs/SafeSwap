@@ -14,6 +14,7 @@ import { useTranslations } from "@/hooks/useTranslations";
 import { products } from "@/lib/mocks/products";
 import { Check, ChevronDown, ChevronRight, Clock, Eye } from "lucide-react";
 import { useState } from "react";
+import React from "react";
 import { milestones } from "../../mock/milestones.mock";
 
 type StatusType = "approved" | "pending" | "forReview" | "onDispute";
@@ -98,11 +99,8 @@ export function SalesTable() {
 					</TableHeader>
 					<TableBody>
 						{sales.map((sale) => (
-							<>
-								<TableRow
-									key={sale.id}
-									className="group dark:hover:bg-black/50"
-								>
+							<React.Fragment key={sale.id}>
+								<TableRow className="group dark:hover:bg-black/50">
 									<TableCell className="py-4 align-middle">
 										<Button
 											variant="ghost"
@@ -151,7 +149,7 @@ export function SalesTable() {
 												<div className="space-y-4">
 													{sale.milestones.map((milestone, index) => (
 														<div
-															key={index}
+															key={`${sale.id}-milestone-${index}`}
 															className="grid grid-cols-[100px_1fr_200px] gap-4 items-center"
 														>
 															<div className="text-sm text-gray-500 dark:text-gray-400">
@@ -166,7 +164,7 @@ export function SalesTable() {
 																		className="bg-green-600 hover:bg-green-700 text-xs h-8 text-white dark:bg-green-700 dark:hover:bg-green-600"
 																		size="sm"
 																	>
-																		Complete
+																		{t("Sales.milestones.complete")}
 																	</Button>
 																)}
 																{getStatusBadge(milestone.status as StatusType)}
@@ -178,7 +176,7 @@ export function SalesTable() {
 										</TableCell>
 									</TableRow>
 								)}
-							</>
+							</React.Fragment>
 						))}
 					</TableBody>
 				</Table>
