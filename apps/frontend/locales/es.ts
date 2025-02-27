@@ -401,7 +401,60 @@ export const es = {
 			viewDetails: "Ver Detalles",
 		},
 		currency: "$",
+      	pay: "Pagar",
+		openDispute: "Abrir Disputa",
+		markAsReceived: "Marcar como Recibido",
+		send: "Enviar",
+		typeMessageHero: "Escribe tu mensaje aquí",
+		escrowStatus: {
+			pending: "Pendiente",
+			onDispute: "En Disputa",
+			forReview: "Para Revisión",
+			approved: "Aprobado",
+		},
 	},
+
+
+
+	Sales: {
+		title: "Mis Ventas",
+		searchPlaceholder: "Buscar ventas...",
+		filters: {
+			all: "Todas",
+			pending: "Pendientes",
+			onDispute: "En Disputa",
+			forReview: "En Revisión",
+			approved: "Aprobadas",
+		},
+		table: {
+			shoppingDate: "Fecha de Compra",
+			productName: "Nombre del Producto",
+			shoppingId: "ID de Compra",
+			price: "Precio",
+			buyer: "Comprador",
+			escrowStatus: "Estado de Custodia",
+		},
+		status: {
+			approved: "Aprobado",
+			pending: "Pendiente",
+			onDispute: "En Disputa",
+			forReview: "En Revisión",
+		},
+		milestones: {
+			title: "Hitos",
+			date: "Fecha",
+			name: "Nombre",
+			status: "Estado",
+			actions: "Acciones",
+			complete: "Completar",
+			orderPlaced: "Pedido realizado",
+			paymentConfirmed: "Pago confirmado",
+			productShipped: "Producto enviado",
+			deliveryExpected: "Entrega esperada",
+		},
+		total: "Total de Compras",
+	},
+
 
 	filters: {
 		title: " Filtros",
@@ -443,6 +496,7 @@ export const es = {
 	testimonials: {
 		title: "Lo Que Dicen Nuestros Usuarios",
 	},
+
 
 	// Add more sections as needed
 };

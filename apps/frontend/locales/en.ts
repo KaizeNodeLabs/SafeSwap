@@ -363,6 +363,7 @@ export const en = {
 		forReview: "For Review",
 	},
 
+
 	shopping: {
 		title: "My Shopping",
 		tabs: {
@@ -398,6 +399,97 @@ export const en = {
 			viewDetails: "View Details",
 		},
 		currency: "$",
+      pay: "Pay",
+		openDispute: "Open Dispute",
+		markAsReceived: "Mark as Received",
+		send: "Send",
+		typeMessageHero: "Type your message here",
+		escrowStatus: {
+			pending: "Pending",
+			onDispute: "On Dispute",
+			forReview: "For Review",
+			approved: "Approved",
+     },
+   },
+
+	Sales: {
+		title: "My Sales",
+		searchPlaceholder: "Search sales...",
+		filters: {
+			all: "All",
+			pending: "Pending",
+			onDispute: "On Dispute",
+			forReview: "For Review",
+			approved: "Approved",
+		},
+		table: {
+			shoppingDate: "Shopping Date",
+			productName: "Product Name",
+			shoppingId: "Shopping ID",
+			price: "Price",
+			buyer: "Buyer",
+			escrowStatus: "Escrow Status",
+		},
+		status: {
+			approved: "Approved",
+			pending: "Pending",
+			onDispute: "On Dispute",
+			forReview: "For Review",
+		},
+		milestones: {
+			title: "Milestones",
+			date: "Date",
+			name: "Name",
+			status: "Status",
+			actions: "Actions",
+			complete: "Complete",
+			orderPlaced: "Order Placed",
+			paymentConfirmed: "Payment Confirmed",
+			productShipped: "Product Shipped",
+			deliveryExpected: "Delivery Expected",
+		},
+		total: "Total Shopping",
+		Sales: {
+			title: "My Sales",
+			searchPlaceholder: "Search sales...",
+			filters: {
+				all: "All",
+				pending: "Pending",
+				onDispute: "On Dispute",
+				forReview: "For Review",
+				approved: "Approved",
+			},
+			table: {
+				shoppingDate: "Shopping Date",
+				productName: "Product Name",
+				shoppingId: "Shopping ID",
+				price: "Price",
+				buyer: "Buyer",
+				escrowStatus: "Escrow Status",
+			},
+			status: {
+				approved: "Approved",
+				pending: "Pending",
+				onDispute: "On Dispute",
+				forReview: "For Review",
+			},
+			milestones: {
+				title: "Milestones",
+				date: "Date",
+				name: "Name",
+				status: "Status",
+				actions: "Actions",
+				complete: "Complete",
+
+				items: {
+					orderPlaced: "Order Placed",
+					paymentConfirmed: "Payment Confirmed",
+					productShipped: "Product Shipped",
+					deliveryExpected: "Delivery Expected",
+				},
+			},
+			total: "Total Shopping",
+		},
 	},
 
 	testimonials: {
