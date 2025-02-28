@@ -5,7 +5,7 @@ export default function SalesPage() {
 	return (
 		<div className="container space-y-2">
 			<SalesHeader />
-			<SalesTable /> 
+			<SalesTable />
 		</div>
 	);
 }

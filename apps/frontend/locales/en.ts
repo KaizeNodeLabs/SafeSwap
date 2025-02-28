@@ -363,7 +363,6 @@ export const en = {
 		forReview: "For Review",
 	},
 
-
 	shopping: {
 		title: "My Shopping",
 		tabs: {
@@ -399,7 +398,7 @@ export const en = {
 			viewDetails: "View Details",
 		},
 		currency: "$",
-      pay: "Pay",
+		pay: "Pay",
 		openDispute: "Open Dispute",
 		markAsReceived: "Mark as Received",
 		send: "Send",
@@ -409,8 +408,8 @@ export const en = {
 			onDispute: "On Dispute",
 			forReview: "For Review",
 			approved: "Approved",
-     },
-   },
+		},
+	},
 
 	Sales: {
 		title: "My Sales",

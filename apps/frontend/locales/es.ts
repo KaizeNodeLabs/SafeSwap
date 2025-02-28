@@ -401,7 +401,7 @@ export const es = {
 			viewDetails: "Ver Detalles",
 		},
 		currency: "$",
-      	pay: "Pagar",
+		pay: "Pagar",
 		openDispute: "Abrir Disputa",
 		markAsReceived: "Marcar como Recibido",
 		send: "Enviar",
@@ -413,8 +413,6 @@ export const es = {
 			approved: "Aprobado",
 		},
 	},
-
-
 
 	Sales: {
 		title: "Mis Ventas",
@@ -454,7 +452,6 @@ export const es = {
 		},
 		total: "Total de Compras",
 	},
-
 
 	filters: {
 		title: " Filtros",
@@ -496,7 +493,6 @@ export const es = {
 	testimonials: {
 		title: "Lo Que Dicen Nuestros Usuarios",
 	},
-
 
 	// Add more sections as needed
 };

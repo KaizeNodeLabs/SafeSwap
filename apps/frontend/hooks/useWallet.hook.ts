@@ -31,8 +31,9 @@ export const useWallet = () => {
 			walletState.connect(address, walletName);
 
 			return { success: true, address };
-		} catch (error: any) {
-			const errorMessage = error?.message || "Error connecting wallet";
+		} catch (error: unknown) {
+			const errorMessage =
+				(error as Error)?.message || "Error connecting wallet";
 			setError(errorMessage);
 			console.error("Error connecting wallet:", error);
 			return { success: false, error: errorMessage };
@@ -47,8 +48,9 @@ export const useWallet = () => {
 			await kit.disconnect();
 			walletState.disconnect();
 			return { success: true };
-		} catch (error: any) {
-			const errorMessage = error?.message || "Error disconnecting wallet";
+		} catch (error: unknown) {
+			const errorMessage =
+				(error as Error)?.message || "Error disconnecting wallet";
 			setError(errorMessage);
 			console.error("Error disconnecting wallet:", error);
 			return { success: false, error: errorMessage };
@@ -68,8 +70,9 @@ export const useWallet = () => {
 			});
 
 			return { success: true, signedTxXdr };
-		} catch (error: any) {
-			const errorMessage = error?.message || "Error signing transaction";
+		} catch (error: unknown) {
+			const errorMessage =
+				(error as Error)?.message || "Error signing transaction";
 			setError(errorMessage);
 			console.error("Error signing transaction:", error);
 			return { success: false, error: errorMessage };
