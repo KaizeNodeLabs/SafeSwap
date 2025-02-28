@@ -3,7 +3,7 @@
 import { useTranslations } from "@/hooks/useTranslations";
 import { useWallet } from "@/hooks/useWallet.hook";
 import { FREIGHTER_ID, LOBSTR_ID } from "@creit.tech/stellar-wallets-kit";
-import { AlertCircle } from "lucide-react";
+import { AlertCircle, Check, Copy, LogOut } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { Button } from "../../ui/button";
@@ -11,6 +11,7 @@ import {
 	Dialog,
 	DialogContent,
 	DialogDescription,
+	DialogFooter,
 	DialogHeader,
 	DialogTitle,
 } from "../../ui/dialog";
@@ -44,8 +45,17 @@ export function ConnectWalletModal({
 	onOpenChange,
 }: ConnectWalletModalProps) {
 	const { t } = useTranslations();
-	const { connectWallet, isConnecting, error } = useWallet();
+	const {
+		connectWallet,
+		disconnectWallet,
+		isConnecting,
+		error,
+		isConnected,
+		walletAddress,
+		walletName,
+	} = useWallet();
 	const [connectionError, setConnectionError] = useState<string | null>(null);
+	const [copied, setCopied] = useState(false);
 
 	const handleWalletConnect = async (wallet: WalletOption) => {
 		setConnectionError(null);
@@ -59,15 +69,38 @@ export function ConnectWalletModal({
 		}
 	};
 
+	const handleDisconnect = async () => {
+		const result = await disconnectWallet();
+		if (!result.success) {
+			setConnectionError(result.error || "Error al desconectar la wallet");
+		}
+	};
+
+	const truncateAddress = (address: string) => {
+		return `${address.slice(0, 6)}...${address.slice(-4)}`;
+	};
+
+	const copyAddress = () => {
+		if (walletAddress) {
+			navigator.clipboard.writeText(walletAddress);
+			setCopied(true);
+			setTimeout(() => setCopied(false), 2000);
+		}
+	};
+
 	return (
 		<Dialog open={isOpen} onOpenChange={onOpenChange}>
 			<DialogContent className="sm:max-w-md">
 				<DialogHeader>
 					<DialogTitle className="font-bold">
-						{t("common.wallet.title")}
+						{isConnected
+							? `${t("common.wallet.connected")}`
+							: `${t("common.wallet.title")}`}
 					</DialogTitle>
 					<DialogDescription>
-						{t("common.wallet.description")}
+						{isConnected
+							? `${t("common.wallet.connected_description")}`
+							: `${t("common.wallet.description")}`}
 					</DialogDescription>
 				</DialogHeader>
 
@@ -78,14 +111,45 @@ export function ConnectWalletModal({
 					</div>
 				)}
 
+				{isConnected && (
+					<div className="bg-muted p-3 rounded-md mb-4">
+						<div className="flex justify-between items-center">
+							<div>
+								<p className="text-sm font-medium">{walletName}</p>
+								<div className="flex items-center gap-1">
+									<p className="text-xs text-muted-foreground">
+										{truncateAddress(walletAddress || "")}
+									</p>
+									<button
+										onClick={copyAddress}
+										className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-6 w-6 p-0"
+									>
+										{copied ? (
+											<Check className="h-3 w-3" />
+										) : (
+											<Copy className="h-3 w-3" />
+										)}
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				)}
+
 				<div className="flex flex-col gap-3 py-4">
 					{walletOptions.map((wallet) => (
 						<Button
 							key={wallet.id}
 							variant="outline"
 							onClick={() => handleWalletConnect(wallet)}
-							disabled={isConnecting}
-							className="flex items-center justify-start gap-3 w-full p-4 h-auto hover:bg-muted transition-colors"
+							disabled={
+								isConnecting || (isConnected && walletName === wallet.name)
+							}
+							className={`flex items-center justify-start gap-3 w-full p-4 h-auto hover:bg-muted transition-colors ${
+								isConnected && walletName === wallet.name
+									? "border-primary"
+									: ""
+							}`}
 						>
 							<div className="w-10 h-10 relative rounded-lg overflow-hidden">
 								<Image
@@ -96,12 +160,28 @@ export function ConnectWalletModal({
 								/>
 							</div>
 							<span className="font-bold">{wallet.name}</span>
-							{isConnecting && wallet.id === FREIGHTER_ID && (
+							{isConnecting && wallet.id === wallet.id && (
 								<span className="ml-auto">Conectando...</span>
+							)}
+							{isConnected && walletName === wallet.name && (
+								<span className="ml-auto text-primary text-sm">Conectada</span>
 							)}
 						</Button>
 					))}
 				</div>
+
+				{isConnected && (
+					<DialogFooter>
+						<Button
+							variant="outline"
+							onClick={handleDisconnect}
+							className="text-destructive hover:text-destructive hover:bg-destructive/10"
+						>
+							<LogOut className="h-4 w-4 mr-2" />
+							Desconectar
+						</Button>
+					</DialogFooter>
+				)}
 			</DialogContent>
 		</Dialog>
 	);
