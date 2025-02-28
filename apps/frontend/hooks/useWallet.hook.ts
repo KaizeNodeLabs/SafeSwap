@@ -1,7 +1,6 @@
 import { useWalletContext } from "@/context/WalletContext";
 import {
 	FREIGHTER_ID,
-	ISupportedWallet,
 	LOBSTR_ID,
 	WalletNetwork,
 } from "@creit.tech/stellar-wallets-kit";

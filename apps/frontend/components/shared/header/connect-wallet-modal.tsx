@@ -2,10 +2,9 @@
 
 import { useTranslations } from "@/hooks/useTranslations";
 import { useWallet } from "@/hooks/useWallet.hook";
-import { FREIGHTER_ID, LOBSTR_ID } from "@creit.tech/stellar-wallets-kit";
 import { AlertCircle, Check, Copy, LogOut } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../../ui/button";
 import {
 	Dialog,
@@ -48,31 +47,52 @@ export function ConnectWalletModal({
 	const {
 		connectWallet,
 		disconnectWallet,
-		isConnecting,
-		error,
 		isConnected,
 		walletAddress,
 		walletName,
 	} = useWallet();
 	const [connectionError, setConnectionError] = useState<string | null>(null);
+	const [connectingWalletId, setConnectingWalletId] = useState<string | null>(
+		null,
+	);
 	const [copied, setCopied] = useState(false);
 
-	const handleWalletConnect = async (wallet: WalletOption) => {
-		setConnectionError(null);
-		const result = await connectWallet(wallet.id);
+	// Clean up connection error and connecting wallet id when modal is closed
+	useEffect(() => {
+		if (!isOpen) {
+			setConnectionError(null);
+			setConnectingWalletId(null);
+		}
+	}, [isOpen]);
 
-		if (result.success) {
-			console.log(`${t("common.wallet.connect")} ${wallet.name} exitoso!`);
-			onOpenChange(false);
-		} else {
-			setConnectionError(result.error || "Error connecting wallet");
+	const handleWalletConnect = async (wallet: WalletOption) => {
+		if (connectingWalletId) return;
+
+		setConnectionError(null);
+		setConnectingWalletId(wallet.id);
+
+		try {
+			const result = await connectWallet(wallet.id);
+
+			if (result.success) {
+				console.log(
+					`${t("common.wallet.connect")} ${wallet.name} succesfully!`,
+				);
+				setConnectingWalletId(null);
+			} else {
+				setConnectionError(result.error || "Error connecting wallet");
+				setConnectingWalletId(null);
+			}
+		} catch (error) {
+			setConnectionError("Unexpected error connecting the wallet");
+			setConnectingWalletId(null);
 		}
 	};
 
 	const handleDisconnect = async () => {
 		const result = await disconnectWallet();
 		if (!result.success) {
-			setConnectionError(result.error || "Error al desconectar la wallet");
+			setConnectionError(result.error || "Error disconnecting wallet");
 		}
 	};
 
@@ -142,9 +162,7 @@ export function ConnectWalletModal({
 							key={wallet.id}
 							variant="outline"
 							onClick={() => handleWalletConnect(wallet)}
-							disabled={
-								isConnecting || (isConnected && walletName === wallet.name)
-							}
+							disabled={!!connectingWalletId || isConnected}
 							className={`flex items-center justify-start gap-3 w-full p-4 h-auto hover:bg-muted transition-colors ${
 								isConnected && walletName === wallet.name
 									? "border-primary"
@@ -160,11 +178,11 @@ export function ConnectWalletModal({
 								/>
 							</div>
 							<span className="font-bold">{wallet.name}</span>
-							{isConnecting && wallet.id === wallet.id && (
-								<span className="ml-auto">Conectando...</span>
+							{connectingWalletId === wallet.id && (
+								<span className="ml-auto">Connecting...</span>
 							)}
 							{isConnected && walletName === wallet.name && (
-								<span className="ml-auto text-primary text-sm">Conectada</span>
+								<span className="ml-auto text-primary text-sm">Connected</span>
 							)}
 						</Button>
 					))}
@@ -178,7 +196,7 @@ export function ConnectWalletModal({
 							className="text-destructive hover:text-destructive hover:bg-destructive/10"
 						>
 							<LogOut className="h-4 w-4 mr-2" />
-							Desconectar
+							Disconnect
 						</Button>
 					</DialogFooter>
 				)}
