@@ -13,10 +13,19 @@ export const es = {
 		search: "Traducción",
 		shipTo: "Enviar a",
 		wallet: {
-			title: "Conecta tu Billetera",
+			title: "Conecta tu Wallet",
 			description:
-				"Elige una billetera para habilitar transacciones seguras en SafeSwap.",
+				"Elige una wallet para habilitar transacciones seguras en SafeSwap.",
 			connect: "Conectando a",
+			connected: "Wallet Conectada",
+			connected_description: "Tu wallet está conectada correctamente.",
+			connect_success: "exitosamente!",
+			error_connecting: "Error al conectar la wallet",
+			unexpected_error: "Error inesperado al conectar la wallet",
+			error_disconnecting: "Error al desconectar la wallet",
+			connecting: "Conectando...",
+			connected_status: "Conectada",
+			disconnect: "Desconectar",
 		},
 
 		cart: {

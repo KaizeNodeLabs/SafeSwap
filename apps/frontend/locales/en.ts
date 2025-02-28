@@ -18,6 +18,15 @@ export const en = {
 			title: "Connect Your Wallet",
 			description: "Choose a wallet to enable secure transactions on SafeSwap.",
 			connect: "Connecting to",
+			connected: "Wallet Connected",
+			connected_description: "Your wallet is successfully connected.",
+			connect_success: "successfully!",
+			error_connecting: "Error connecting wallet",
+			unexpected_error: "Unexpected error connecting the wallet",
+			error_disconnecting: "Error disconnecting wallet",
+			connecting: "Connecting...",
+			connected_status: "Connected",
+			disconnect: "Disconnect",
 		},
 
 		cart: {

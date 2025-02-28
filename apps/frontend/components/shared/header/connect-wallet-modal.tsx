@@ -76,15 +76,15 @@ export function ConnectWalletModal({
 
 			if (result.success) {
 				console.log(
-					`${t("common.wallet.connect")} ${wallet.name} succesfully!`,
+					`${t("common.wallet.connect")} ${wallet.name} ${t("common.wallet.connect_success")}`,
 				);
 				setConnectingWalletId(null);
 			} else {
-				setConnectionError(result.error || "Error connecting wallet");
+				setConnectionError(result.error || t("common.wallet.error_connecting"));
 				setConnectingWalletId(null);
 			}
 		} catch (_error) {
-			setConnectionError("Unexpected error connecting the wallet");
+			setConnectionError(t("common.wallet.unexpected_error"));
 			setConnectingWalletId(null);
 		}
 	};
@@ -92,7 +92,9 @@ export function ConnectWalletModal({
 	const handleDisconnect = async () => {
 		const result = await disconnectWallet();
 		if (!result.success) {
-			setConnectionError(result.error || "Error disconnecting wallet");
+			setConnectionError(
+				result.error || t("common.wallet.error_disconnecting"),
+			);
 		}
 	};
 
@@ -180,10 +182,12 @@ export function ConnectWalletModal({
 							</div>
 							<span className="font-bold">{wallet.name}</span>
 							{connectingWalletId === wallet.id && (
-								<span className="ml-auto">Connecting...</span>
+								<span className="ml-auto">{t("common.wallet.connecting")}</span>
 							)}
 							{isConnected && walletName === wallet.name && (
-								<span className="ml-auto text-primary text-sm">Connected</span>
+								<span className="ml-auto text-primary text-sm">
+									{t("common.wallet.connected_status")}
+								</span>
 							)}
 						</Button>
 					))}
@@ -197,7 +201,7 @@ export function ConnectWalletModal({
 							className="text-destructive hover:text-destructive hover:bg-destructive/10"
 						>
 							<LogOut className="h-4 w-4 mr-2" />
-							Disconnect
+							{t("common.wallet.disconnect")}
 						</Button>
 					</DialogFooter>
 				)}
