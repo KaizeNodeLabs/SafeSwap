@@ -6,11 +6,11 @@ import ProductsNotFound from "@/components/marketplace/products-not-found";
 import { ProductsPagination } from "@/components/marketplace/products-pagination";
 import { Button } from "@/components/ui/button";
 import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
 } from "@/components/ui/card";
 import { useTranslations } from "@/hooks/useTranslations";
 import { CATEGORIES } from "@/lib/constants/categories";
@@ -24,33 +24,33 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const initialFilters: FilterState = {
-  categories: [],
-  priceRanges: [],
+	categories: [],
+	priceRanges: [],
 };
 
 export default function ProductList() {
-  const { t } = useTranslations();
-  const [filters, setFilters] = useState<FilterState>(initialFilters);
-  const [filteredProducts, setFilteredProducts] = useState(products);
+	const { t } = useTranslations();
+	const [filters, setFilters] = useState<FilterState>(initialFilters);
+	const [filteredProducts, setFilteredProducts] = useState(products);
 
-  useEffect(() => {
-    const newFilteredProducts = products.filter((product) => {
-      const categoryMatch =
-        filters.categories.length === 0 ||
-        filters.categories.includes(product.category);
-      const priceMatch =
-        filters.priceRanges.length === 0 ||
-        filters.priceRanges.some(
-          (range) => product.price >= range.min && product.price <= range.max
-        );
-      return categoryMatch && priceMatch;
-    });
-    setFilteredProducts(newFilteredProducts);
-  }, [filters]);
+	useEffect(() => {
+		const newFilteredProducts = products.filter((product) => {
+			const categoryMatch =
+				filters.categories.length === 0 ||
+				filters.categories.includes(product.category);
+			const priceMatch =
+				filters.priceRanges.length === 0 ||
+				filters.priceRanges.some(
+					(range) => product.price >= range.min && product.price <= range.max,
+				);
+			return categoryMatch && priceMatch;
+		});
+		setFilteredProducts(newFilteredProducts);
+	}, [filters]);
 
-  const handleClearFilters = () => {
-    setFilters(initialFilters);
-  };
+	const handleClearFilters = () => {
+		setFilters(initialFilters);
+	};
 
 	return (
 		<>

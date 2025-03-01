@@ -13,10 +13,19 @@ export const es = {
 		search: "Traducción",
 		shipTo: "Enviar a",
 		wallet: {
-			title: "Conecta tu Billetera",
+			title: "Conecta tu Wallet",
 			description:
-				"Elige una billetera para habilitar transacciones seguras en SafeSwap.",
+				"Elige una wallet para habilitar transacciones seguras en SafeSwap.",
 			connect: "Conectando a",
+			connected: "Wallet Conectada",
+			connected_description: "Tu wallet está conectada correctamente.",
+			connect_success: "exitosamente!",
+			error_connecting: "Error al conectar la wallet",
+			unexpected_error: "Error inesperado al conectar la wallet",
+			error_disconnecting: "Error al desconectar la wallet",
+			connecting: "Conectando...",
+			connected_status: "Conectada",
+			disconnect: "Desconectar",
 		},
 
 		cart: {
@@ -231,6 +240,19 @@ export const es = {
 				},
 			},
 		},
+		featuredProducts: {
+			items: {
+				"1": { name: "MacBook Pro 14" },
+				"2": { name: "Samsung Galaxy S24 FE" },
+				"3": { name: "Silla Ergonómica" },
+				"4": { name: "Cafetera" },
+				"5": { name: "Zapatillas para Correr" },
+				"6": { name: "Auriculares Inalámbricos" },
+			},
+		},
+		featuredProductsTitle: {
+			title: "Productos Destacados",
+		},
 	},
 
 	marketplace: {
@@ -352,6 +374,94 @@ export const es = {
 		forReview: "Para Revisión",
 	},
 
+	shopping: {
+		title: "Mis Compras",
+		tabs: {
+			all: "Todos",
+			pending: "Pendiente",
+			ondispute: "En Disputa",
+			forreview: "En Revisión",
+			approved: "Aprobado",
+		},
+		table: {
+			date: "Fecha de Compra",
+			product: "Nombre del Producto",
+			id: "ID de Compra",
+			price: "Precio",
+			seller: "Vendedor",
+			status: "Estado de Custodia",
+			actions: "Acciones",
+		},
+		orderDetails: {
+			title: "Detalles del Pedido",
+			productLabel: "Producto",
+			idLabel: "ID de Compra",
+			dateLabel: "Fecha",
+			priceLabel: "Precio",
+			sellerLabel: "Vendedor",
+			statusLabel: "Estado",
+		},
+
+		search: "Buscar productos...",
+		total: "Total de Compras",
+		buttons: {
+			startDispute: "Iniciar disputa",
+			approve: "Aprobar",
+			viewDetails: "Ver Detalles",
+		},
+		currency: "$",
+		pay: "Pagar",
+		openDispute: "Abrir Disputa",
+		markAsReceived: "Marcar como Recibido",
+		send: "Enviar",
+		typeMessageHero: "Escribe tu mensaje aquí",
+		escrowStatus: {
+			pending: "Pendiente",
+			onDispute: "En Disputa",
+			forReview: "Para Revisión",
+			approved: "Aprobado",
+		},
+	},
+
+	Sales: {
+		title: "Mis Ventas",
+		searchPlaceholder: "Buscar ventas...",
+		filters: {
+			all: "Todas",
+			pending: "Pendientes",
+			onDispute: "En Disputa",
+			forReview: "En Revisión",
+			approved: "Aprobadas",
+		},
+		table: {
+			shoppingDate: "Fecha de Compra",
+			productName: "Nombre del Producto",
+			shoppingId: "ID de Compra",
+			price: "Precio",
+			buyer: "Comprador",
+			escrowStatus: "Estado de Custodia",
+		},
+		status: {
+			approved: "Aprobado",
+			pending: "Pendiente",
+			onDispute: "En Disputa",
+			forReview: "En Revisión",
+		},
+		milestones: {
+			title: "Hitos",
+			date: "Fecha",
+			name: "Nombre",
+			status: "Estado",
+			actions: "Acciones",
+			complete: "Completar",
+			orderPlaced: "Pedido realizado",
+			paymentConfirmed: "Pago confirmado",
+			productShipped: "Producto enviado",
+			deliveryExpected: "Entrega esperada",
+		},
+		total: "Total de Compras",
+	},
+
 	filters: {
 		title: " Filtros",
 		header: "Filtros",
@@ -393,18 +503,5 @@ export const es = {
 		title: "Lo Que Dicen Nuestros Usuarios",
 	},
 
-  shopping: {
-		pay: "Pagar",
-		openDispute: "Abrir Disputa",
-		markAsReceived: "Marcar como Recibido",
-		send: "Enviar",
-		typeMessageHero: "Escribe tu mensaje aquí",
-		escrowStatus: {
-			pending: "Pendiente",
-			onDispute: "En Disputa",
-			forReview: "Para Revisión",
-			approved: "Aprobado",
-		},
-	},
 	// Add more sections as needed
 };

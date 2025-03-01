@@ -18,6 +18,15 @@ export const en = {
 			title: "Connect Your Wallet",
 			description: "Choose a wallet to enable secure transactions on SafeSwap.",
 			connect: "Connecting to",
+			connected: "Wallet Connected",
+			connected_description: "Your wallet is successfully connected.",
+			connect_success: "successfully!",
+			error_connecting: "Error connecting wallet",
+			unexpected_error: "Unexpected error connecting the wallet",
+			error_disconnecting: "Error disconnecting wallet",
+			connecting: "Connecting...",
+			connected_status: "Connected",
+			disconnect: "Disconnect",
 		},
 
 		cart: {
@@ -230,6 +239,19 @@ export const en = {
 				},
 			},
 		},
+		featuredProducts: {
+			items: {
+				"1": { name: "MacBook Pro 14" },
+				"2": { name: "Samsung Galaxy S24 FE" },
+				"3": { name: "Ergonomic Chair" },
+				"4": { name: "Coffee Maker" },
+				"5": { name: "Running Shoes" },
+				"6": { name: "Wireless Earbuds" },
+			},
+		},
+		featuredProductsTitle: {
+			title: "Featured Products",
+		},
 	},
 
 	marketplace: {
@@ -239,7 +261,7 @@ export const en = {
 		addToCart: "Add to Cart",
 		chatWithSeller: "Chat with Seller",
 	},
-	
+
 	ExploreCategories: {
 		title: "Explore Categories",
 		verTodas: "View All",
@@ -349,6 +371,135 @@ export const en = {
 		pending: "Pending",
 		forReview: "For Review",
 	},
+
+	shopping: {
+		title: "My Shopping",
+		tabs: {
+			all: "All",
+			pending: "Pending",
+			ondispute: "On Dispute",
+			forreview: "For Review",
+			approved: "Approved",
+		},
+		table: {
+			date: "Shopping Date",
+			product: "Product Name",
+			id: "Shopping ID",
+			price: "Price",
+			seller: "Seller",
+			status: "Escrow Status",
+			actions: "Actions",
+		},
+		orderDetails: {
+			title: "Order Details",
+			productLabel: "Product",
+			idLabel: "Shopping ID",
+			dateLabel: "Date",
+			priceLabel: "Price",
+			sellerLabel: "Seller",
+			statusLabel: "Status",
+		},
+		search: "Search products...",
+		total: "Total Shopping",
+		buttons: {
+			startDispute: "Start dispute",
+			approve: "Approve",
+			viewDetails: "View Details",
+		},
+		currency: "$",
+		pay: "Pay",
+		openDispute: "Open Dispute",
+		markAsReceived: "Mark as Received",
+		send: "Send",
+		typeMessageHero: "Type your message here",
+		escrowStatus: {
+			pending: "Pending",
+			onDispute: "On Dispute",
+			forReview: "For Review",
+			approved: "Approved",
+		},
+	},
+
+	Sales: {
+		title: "My Sales",
+		searchPlaceholder: "Search sales...",
+		filters: {
+			all: "All",
+			pending: "Pending",
+			onDispute: "On Dispute",
+			forReview: "For Review",
+			approved: "Approved",
+		},
+		table: {
+			shoppingDate: "Shopping Date",
+			productName: "Product Name",
+			shoppingId: "Shopping ID",
+			price: "Price",
+			buyer: "Buyer",
+			escrowStatus: "Escrow Status",
+		},
+		status: {
+			approved: "Approved",
+			pending: "Pending",
+			onDispute: "On Dispute",
+			forReview: "For Review",
+		},
+		milestones: {
+			title: "Milestones",
+			date: "Date",
+			name: "Name",
+			status: "Status",
+			actions: "Actions",
+			complete: "Complete",
+			orderPlaced: "Order Placed",
+			paymentConfirmed: "Payment Confirmed",
+			productShipped: "Product Shipped",
+			deliveryExpected: "Delivery Expected",
+		},
+		total: "Total Shopping",
+		Sales: {
+			title: "My Sales",
+			searchPlaceholder: "Search sales...",
+			filters: {
+				all: "All",
+				pending: "Pending",
+				onDispute: "On Dispute",
+				forReview: "For Review",
+				approved: "Approved",
+			},
+			table: {
+				shoppingDate: "Shopping Date",
+				productName: "Product Name",
+				shoppingId: "Shopping ID",
+				price: "Price",
+				buyer: "Buyer",
+				escrowStatus: "Escrow Status",
+			},
+			status: {
+				approved: "Approved",
+				pending: "Pending",
+				onDispute: "On Dispute",
+				forReview: "For Review",
+			},
+			milestones: {
+				title: "Milestones",
+				date: "Date",
+				name: "Name",
+				status: "Status",
+				actions: "Actions",
+				complete: "Complete",
+
+				items: {
+					orderPlaced: "Order Placed",
+					paymentConfirmed: "Payment Confirmed",
+					productShipped: "Product Shipped",
+					deliveryExpected: "Delivery Expected",
+				},
+			},
+			total: "Total Shopping",
+		},
+	},
+
 	testimonials: {
 		title: "What Our Users Say",
 	},
@@ -389,18 +540,6 @@ export const en = {
 			fair: "Fair",
 		},
 	},
-  shopping: {
-		pay: "Pay",
-		openDispute: "Open Dispute",
-		markAsReceived: "Mark as Received",
-		send: "Send",
-		typeMessageHero: "Type your message here",
-		escrowStatus: {
-			pending: "Pending",
-			onDispute: "On Dispute",
-			forReview: "For Review",
-			approved: "Approved",
-    },
-  },
+
 	// Add more sections as needed
 };
