@@ -1,10 +1,10 @@
-interface Milestone {
+export interface Milestone {
 	description: string;
 	status: string;
 	approved_flag: boolean;
 }
 
-interface EscrowContract {
+export interface EscrowContract {
 	signer: string;
 	engagementId: string;
 	title: string;

@@ -5,6 +5,6 @@ export const http = axios.create({
 	timeout: 10000,
 	headers: {
 		"Content-Type": "application/json",
-		Authorization: `Bearer your_api_key`,
+		Authorization: "Bearer your_api_key",
 	},
 });
