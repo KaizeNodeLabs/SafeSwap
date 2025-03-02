@@ -96,7 +96,7 @@ export default function ShoppingDetailsPage({
 
 		const contractId = data.contract_id;
 
-		await fundReservationEscrow({ contractId, amount: 1 });
+		await fundReservationEscrow({ contractId, amount: product.price });
 	};
 
 	return (
