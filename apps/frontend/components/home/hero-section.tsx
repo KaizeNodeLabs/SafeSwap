@@ -12,7 +12,6 @@ export function HeroSection() {
 	const { t } = useTranslations();
 	const { networkStatus, gasFees, tradingVolume } = useStellarData();
 
-	// Se espera que networkStatus sea "Active" o "Inactive". Normalizamos a minúsculas para indexar la traducción.
 	const normalizedStatus = networkStatus.toLowerCase();
 	const translatedStatus = t(`common.hero.stats.statusValue.${normalizedStatus}`);
 

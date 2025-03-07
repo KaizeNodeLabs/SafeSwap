@@ -40,7 +40,6 @@ export function useStellarData() {
 	async function fetchTradingVolume() {
 		try {
 		let totalCounterAmount = 0;
-		// Definimos el cutoff de 24 horas (se incluyen solo los trades de las últimas 24h)
 		const cutoffDate = new Date(Date.now() - 24 * 60 * 60 * 1000);
 		let url: string | null = "https://horizon.stellar.org/trades?order=desc&limit=200";
 		let done = false;
@@ -52,7 +51,6 @@ export function useStellarData() {
 			if (!data || !data._embedded || !data._embedded.records) break;
 
 			for (const record of data._embedded.records) {
-			// Se intenta obtener la fecha del trade: preferimos created_at, sino ledger_close_time
 			const tradeDateStr = record.created_at || record.ledger_close_time;
 			const tradeDate = new Date(tradeDateStr);
 			if (!isNaN(tradeDate.getTime()) && tradeDate >= cutoffDate) {
