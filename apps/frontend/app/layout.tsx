@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 
 import "./globals.css";
+import FilterModal from "@/components/marketplace/filter-modal";
 import { ThemeProvider } from "../components/providers/theme-provider";
+import { WalletProvider } from "../context/WalletContext";
 import { LanguageProvider } from "../context/language-context";
 
 const satoshi = localFont({
@@ -30,7 +32,9 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					<LanguageProvider>{children}</LanguageProvider>
+					<LanguageProvider>
+						<WalletProvider>{children}</WalletProvider>
+					</LanguageProvider>
 				</ThemeProvider>
 			</body>
 		</html>
