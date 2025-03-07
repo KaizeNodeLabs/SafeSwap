@@ -7,7 +7,7 @@ export function useStellarData() {
 	const [tradingVolume, setTradingVolume] = useState("Loading...");
 	const conversionFactor = 0.00001835;
 
-	const fetchNetworkStatus = async () => {
+	const fetchNetworkStatus = useCallback(async () => {
 		try {
 			const res = await fetch("https://horizon.stellar.org/ledgers?order=desc&limit=1");
 			if (!res.ok) throw new Error(`HTTP error: ${res.status}`);
@@ -17,9 +17,9 @@ export function useStellarData() {
 			console.error("Error fetching network status:", error);
 			setNetworkStatus("Active");
 		}
-	};
+	}, []);
 
-	const fetchGasFees = async () => {
+	const fetchGasFees = useCallback(async () => {
 		try {
 			const res = await fetch("https://horizon.stellar.org/fee_stats");
 			if (!res.ok) throw new Error(`HTTP error: ${res.status}`);
@@ -35,9 +35,9 @@ export function useStellarData() {
 			console.error("Error fetching gas fees:", error);
 			setGasFees("0.001 XLM");
 		}
-	};
+	}, []);
 
-	const fetchTradingVolume = async () => {
+	const fetchTradingVolume = useCallback(async () => {
 		try {
 			let totalCounterAmount = 0;
 			const cutoffDate = new Date(Date.now() - 24 * 60 * 60 * 1000);
@@ -73,7 +73,7 @@ export function useStellarData() {
 			console.error("Error fetching trading volume:", error);
 			setTradingVolume("$1.2M");
 		}
-	};
+	}, []);
 
 	const fetchData = useCallback(async () => {
 		await Promise.all([
@@ -81,13 +81,13 @@ export function useStellarData() {
 			fetchGasFees(),
 			fetchTradingVolume(),
 		]);
-	}, []); 
+	}, [fetchNetworkStatus, fetchGasFees, fetchTradingVolume]); // ✅ Se agregaron dependencias
 
 	useEffect(() => {
 		fetchData();
 		const interval = setInterval(fetchData, 30000);
 		return () => clearInterval(interval);
-	}, [fetchData]); 
+	}, [fetchData]); // ✅ Ahora fetchData tiene una referencia estable
 
 	return { networkStatus, gasFees, tradingVolume };
 }
