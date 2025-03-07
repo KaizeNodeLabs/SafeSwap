@@ -53,9 +53,9 @@ export function useStellarData() {
 			for (const record of data._embedded.records) {
 			const tradeDateStr = record.created_at || record.ledger_close_time;
 			const tradeDate = new Date(tradeDateStr);
-			if (!isNaN(tradeDate.getTime()) && tradeDate >= cutoffDate) {
+			if (!Number.isNaN(tradeDate.getTime()) && tradeDate >= cutoffDate) {
 				totalCounterAmount += parseFloat(record.counter_amount);
-			} else if (!isNaN(tradeDate.getTime()) && tradeDate < cutoffDate) {
+			} else if (!Number.isNaN(tradeDate.getTime()) && tradeDate < cutoffDate) {
 				done = true;
 				break;
 			}
@@ -86,7 +86,7 @@ export function useStellarData() {
 		fetchData();
 		const interval = setInterval(fetchData, 30000);
 		return () => clearInterval(interval);
-	}, []);
+	}, [fetchData]);
 
 	return { networkStatus, gasFees, tradingVolume };
 }
