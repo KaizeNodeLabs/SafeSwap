@@ -544,6 +544,7 @@ export const es = {
 		showResult: "Mostrar resultado",
 		next: "Siguiente",
 		previous: "Anterior",
+		morePages: "Más páginas",
 	},
 	notFound: {
 		title: "Página no encontrada",

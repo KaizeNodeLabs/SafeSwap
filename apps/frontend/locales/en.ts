@@ -581,6 +581,7 @@ export const en = {
 		showResult: "Show Result",
 		next: "Next",
 		previous: "Previous",
+		morePages: "More pages",
 	},
 	notFound: {
 		title: "Page Not Found",
