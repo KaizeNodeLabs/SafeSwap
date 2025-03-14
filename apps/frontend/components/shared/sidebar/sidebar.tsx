@@ -20,11 +20,13 @@ import {
 	sellerNavItems,
 } from "@/lib/constants/sidebar";
 import { SidebarGroupKeys } from "@/lib/types/sidebar";
+import { useTranslations } from "next-intl";
 import { Logo } from "../logo";
 import { CollapsibleSidebarGroup } from "./collapsible-sidebar-group";
 import { SidebarSettings } from "./sidebar-settings";
 
 export function SafeSwapSidebar() {
+	const t = useTranslations();
 	const [collapsedGroups, setCollapsedGroups] = useState<
 		Record<SidebarGroupKeys, boolean>
 	>({
@@ -60,7 +62,7 @@ export function SafeSwapSidebar() {
 									<SidebarMenuButton asChild>
 										<Link href={item.url}>
 											<item.icon className="size-4" />
-											<span>{item.title}</span>
+											<span>{t(`sidebar.options.${item.translationKey}`)}</span>
 										</Link>
 									</SidebarMenuButton>
 								</SidebarMenuItem>
@@ -71,7 +73,7 @@ export function SafeSwapSidebar() {
 
 				{/* Buyer Section */}
 				<CollapsibleSidebarGroup
-					title="Explore"
+					title={t("sidebar.options.explore")}
 					items={exploreNavItems}
 					isCollapsed={collapsedGroups.explore}
 					toggle={() => toggleGroup("explore")}
@@ -79,7 +81,7 @@ export function SafeSwapSidebar() {
 
 				{/* Seller Section */}
 				<CollapsibleSidebarGroup
-					title="Seller"
+					title={t("sidebar.options.seller")}
 					items={sellerNavItems}
 					isCollapsed={collapsedGroups.seller}
 					toggle={() => toggleGroup("seller")}

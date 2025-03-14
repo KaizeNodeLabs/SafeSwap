@@ -16,22 +16,60 @@ import {
 import { SidebarItem } from "../types/sidebar";
 
 export const mainNavItems: SidebarItem[] = [
-	{ title: "Home", icon: Home, url: "/" },
-	{ title: "Profile", icon: User, url: "/profile" },
-	{ title: "Shopping", icon: ShoppingCart, url: "/shopping" },
-	{ title: "Disputes", icon: Gavel, url: "/disputes" },
-	{ title: "Settings", icon: Settings, url: "/settings" },
+	{ translationKey: "home", title: "Home", icon: Home, url: "/" },
+	{ translationKey: "profile", title: "Profile", icon: User, url: "/profile" },
+	{
+		translationKey: "shopping",
+		title: "Shopping",
+		icon: ShoppingCart,
+		url: "/shopping",
+	},
+	{
+		translationKey: "settings",
+		title: "Settings",
+		icon: Settings,
+		url: "/settings",
+	},
 ];
 
 export const exploreNavItems: SidebarItem[] = [
-	{ title: "Marketplace", icon: ShoppingCart, url: "/marketplace" },
-	{ title: "Categories", icon: LayoutGrid, url: "/categories" },
+	{
+		translationKey: "marketplace",
+		title: "Marketplace",
+		icon: ShoppingCart,
+		url: "/marketplace",
+	},
+	{
+		translationKey: "categories",
+		title: "Categories",
+		icon: LayoutGrid,
+		url: "/categories",
+	},
 ];
 
 export const sellerNavItems: SidebarItem[] = [
-	{ title: "Become a Seller", icon: Store, url: "/seller/onboarding" },
-	{ title: "Sell a Product", icon: PlusCircle, url: "/seller/sell" },
-	{ title: "Products on Sale", icon: Box, url: "/seller/products" },
-	{ title: "Sales Dashboard", icon: BarChart3, url: "/seller/sales" },
-	{ title: "Escrow Processes", icon: Lock, url: "/seller/escrows" },
+	{
+		translationKey: "becomeASeller",
+		title: "Become a Seller",
+		icon: Store,
+		url: "/seller/onboarding",
+	},
+	{
+		translationKey: "sellAProduct",
+		title: "Sell a Product",
+		icon: PlusCircle,
+		url: "/seller/sell",
+	},
+	{
+		translationKey: "productsOnSale",
+		title: "Products on Sale",
+		icon: Box,
+		url: "/seller/products",
+	},
+	{
+		translationKey: "salesDashboard",
+		title: "Sales Dashboard",
+		icon: BarChart3,
+		url: "/seller/sales",
+	},
 ];

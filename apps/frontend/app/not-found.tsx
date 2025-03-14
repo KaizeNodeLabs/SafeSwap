@@ -1,11 +1,10 @@
 import NotFound from "@/components/shared/not-found";
+import { useTranslations } from "next-intl";
 
 const GlobalNotFound = () => {
+	const t = useTranslations();
 	return (
-		<NotFound
-			title="Page Not Found"
-			description="The page you are looking for doesn’t exist or has been moved."
-		/>
+		<NotFound title={t("notFound.title")} description={t("notFound.message")} />
 	);
 };
 

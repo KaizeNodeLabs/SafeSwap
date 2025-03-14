@@ -243,6 +243,17 @@ export const es = {
 						"Auriculares inalámbricos con cancelación activa de ruido.",
 				},
 			},
+			sales: {
+				myProducts: "Mis productos",
+				myProductsMessage: "Estos son los productos que quieres vender.",
+				searchProducts: "Buscar productos...",
+				table: {
+					actions: "Acciones",
+					product: "Producto",
+					category: "Categoría",
+					price: "Precio",
+				},
+			},
 		},
 		featuredProducts: {
 			items: {
@@ -263,6 +274,20 @@ export const es = {
 		language: {
 			successMessage: "El idioma del sitio web se ha cambiado exitosamente.",
 			errorMessage: "Hubo un error al cambiar el idioma del sitio web.",
+		},
+		options: {
+			profile: "Perfil",
+			home: "Inicio",
+			shopping: "Compras",
+			settings: "Ajustes",
+			marketplace: "Tienda",
+			categories: "Categorias",
+			becomeASeller: "Convertirse en vendedor",
+			sellAProduct: "Vender un producto",
+			productsOnSale: "Productos en venta",
+			salesDashboard: "Panel de ventas",
+			explore: "Explorar",
+			seller: "Vendedor",
 		},
 	},
 
@@ -515,7 +540,17 @@ export const es = {
 	testimonials: {
 		title: "Lo Que Dicen Nuestros Usuarios",
 	},
-
+	pagination: {
+		showResult: "Mostrar resultado",
+		next: "Siguiente",
+		previous: "Anterior",
+	},
+	notFound: {
+		title: "Página no encontrada",
+		message: "La página que estás buscando no existe o ha sido movida.",
+		browser: "Explorar el mercado",
+		return: "Inicio",
+	},
 	// Add more sections as needed
 };
 

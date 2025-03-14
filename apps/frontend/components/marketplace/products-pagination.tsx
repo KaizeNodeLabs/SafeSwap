@@ -15,13 +15,15 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
+import { useTranslations } from "next-intl";
 
 export const ProductsPagination = () => {
+	const t = useTranslations();
 	return (
 		<section className="w-full pt-5 mt-2 flex flex-col gap-5 lg:flex-row lg:gap-0">
 			<div className="w-full gap-2 flex items-center justify-center lg:justify-start lg:w-[50%]">
 				<label className="opacity-80" htmlFor="show-results">
-					Show result:
+					{t("pagination.showResult")}:
 				</label>
 				<Select>
 					<SelectTrigger id="show-results" className="w-[70px]">

@@ -240,7 +240,19 @@ export const en = {
 					description: "Wireless earbuds with active noise cancellation.",
 				},
 			},
+			sales: {
+				myProducts: "My products",
+				myProductsMessage: "These are the products you want to sell.",
+				searchProducts: "Search products...",
+				table: {
+					actions: "Actions",
+					product: "Product",
+					category: "Category",
+					price: "Price",
+				},
+			},
 		},
+
 		featuredProducts: {
 			items: {
 				"1": { name: "MacBook Pro 14" },
@@ -260,6 +272,20 @@ export const en = {
 		language: {
 			successMessage: "The website language has been successfully changed.",
 			errorMessage: "There was an error to change the website language.",
+		},
+		options: {
+			profile: "Profile",
+			home: "Home",
+			shopping: "Shopping",
+			settings: "Settings",
+			marketplace: "Marketplace",
+			categories: "Categories",
+			becomeASeller: "Become a seller",
+			sellAProduct: "Sell a product",
+			productsOnSale: "Products on sale",
+			salesDashboard: "Sales dashboard",
+			explore: "Explore",
+			seller: "Seller",
 		},
 	},
 
@@ -551,7 +577,17 @@ export const en = {
 			fair: "Fair",
 		},
 	},
-
+	pagination: {
+		showResult: "Show Result",
+		next: "Next",
+		previous: "Previous",
+	},
+	notFound: {
+		title: "Page Not Found",
+		message: "The page you are looking for doesn’t exist or has been moved.",
+		browser: "Browse Marketplace",
+		return: "Go Home",
+	},
 	// Add more sections as needed
 };
 
