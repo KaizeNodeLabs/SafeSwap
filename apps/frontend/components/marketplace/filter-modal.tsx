@@ -72,7 +72,7 @@ export default function FilterModal() {
 					}
 				>
 					<SelectTrigger>
-						<SelectValue placeholder="Sort by" />
+						<SelectValue placeholder={t("filters.sortBy.sortedBy")} />
 					</SelectTrigger>
 					<SelectContent>
 						<SelectItem value="suggested">
@@ -116,7 +116,7 @@ export default function FilterModal() {
 					}
 				>
 					<SelectTrigger>
-						<SelectValue placeholder="Date Listed" />
+						<SelectValue placeholder={t("filters.sortBy.dateListed")} />
 					</SelectTrigger>
 					<SelectContent>
 						<SelectItem value="all">{t("filters.dateListed.all")}</SelectItem>
@@ -138,7 +138,7 @@ export default function FilterModal() {
 					}
 				>
 					<SelectTrigger>
-						<SelectValue placeholder="Delivery Method" />
+						<SelectValue placeholder={t("filters.sortBy.delivery")} />
 					</SelectTrigger>
 					<SelectContent>
 						<SelectItem value="all">

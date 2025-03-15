@@ -505,11 +505,13 @@ export const es = {
 		header: "Filtros",
 		condition: "Condición",
 		sortBy: {
+			sortedBy: "Ordenado por",
 			suggested: "Sugerido",
 			distance: "Distancia: Más cercano primero",
 			dateListed: "Fecha de publicación",
 			highPrice: "Precio: Más alto primero",
 			lowPrice: "Precio: Más bajo primero",
+			delivery: "Método de entrega",
 		},
 		dateListed: {
 			all: "Todos",

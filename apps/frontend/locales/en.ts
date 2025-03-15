@@ -545,11 +545,13 @@ export const en = {
 		header: "Filters",
 		condition: "Condition",
 		sortBy: {
+			sortedBy: "Sort by",
 			suggested: "Suggested",
 			distance: "Distance: Nearest first",
 			dateListed: "Date listed: Newest first",
 			highPrice: "Price: Highest first",
 			lowPrice: "Price: Lowest first",
+			delivery: "Delivery Method",
 		},
 		dateListed: {
 			all: "All",

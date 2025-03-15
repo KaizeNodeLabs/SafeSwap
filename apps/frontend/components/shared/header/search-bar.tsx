@@ -69,7 +69,7 @@ export const SearchBar = () => {
 				<Input
 					type="search"
 					placeholder={
-						t("common.searchPlaceholder") || "Search products, categories..."
+						t("Sales.searchPlaceholder") || "Search products, categories..."
 					}
 					value={searchTerm}
 					onChange={(e) => setSearchTerm(e.target.value)}
