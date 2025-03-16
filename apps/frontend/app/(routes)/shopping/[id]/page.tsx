@@ -87,6 +87,7 @@ export default function ShoppingDetailsPage({
   
 	const product = products.find((product) => Number(params.id) === product.id);
   
+	
 	if (!product) {
 	  return <NotFound />;
 	}
