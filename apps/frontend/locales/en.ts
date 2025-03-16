@@ -591,6 +591,14 @@ export const en = {
 		browser: "Browse Marketplace",
 		return: "Go Home",
 	},
+
+	shoopping: {
+		paymentSuccessTitle: "Payment Successful",
+		paymentSuccessDescription: "Your purchase was completed successfully!",
+		paymentErrorTitle: "Payment Failed",
+		paymentErrorDescription: "There was an error processing your payment.",
+	},
+
 	// Add more sections as needed
 };
 

@@ -554,6 +554,14 @@ export const es = {
 		browser: "Explorar el mercado",
 		return: "Inicio",
 	},
+
+	shoopping: {
+		paymentSuccessTitle: "Pago Exitoso",
+		paymentSuccessDescription: "¡Tu compra se completó con éxito!",
+		paymentErrorTitle: "Error en el Pago",
+		paymentErrorDescription: "Hubo un error al procesar tu pago.",
+	},
+
 	// Add more sections as needed
 };
 

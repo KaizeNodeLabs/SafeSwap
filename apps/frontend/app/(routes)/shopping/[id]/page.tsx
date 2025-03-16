@@ -12,6 +12,8 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { ToastProvider } from "@/components/ui/toast";
+import { useToast } from "@/hooks/use-toast";
 import { products } from "@/lib/mocks/products";
 import {
 	fundReservationEscrow,
@@ -27,6 +29,7 @@ import {
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { useState } from "react";
 
 interface ShoppingDetailsPageProps {
 	params: {
@@ -77,29 +80,49 @@ const messages = [
 
 export default function ShoppingDetailsPage({
 	params,
-}: ShoppingDetailsPageProps) {
+  }: ShoppingDetailsPageProps) {
 	const t = useTranslations();
-
+	const { toast } = useToast(); 
+	const [loading, setLoading] = useState(false);
+  
 	const product = products.find((product) => Number(params.id) === product.id);
-
+  
 	if (!product) {
-		return <NotFound />;
+	  return <NotFound />;
 	}
-
+  
 	const onPay = async () => {
+		setLoading(true);
+	  try {
 		const { data } = await initializedReservationEscrow({
-			id: product.id,
-			productName: product.name,
-			description: product.description,
-			price: product.price,
+		  id: product.id,
+		  productName: product.name,
+		  description: product.description,
+		  price: product.price,
 		});
-
+  
 		const contractId = data.contract_id;
-
+  
 		await fundReservationEscrow({ contractId, amount: product.price });
+  
+		
+		toast({
+		  title: t("shoopping.paymentSuccessTitle"),
+		  description: t("shoopping.paymentSuccessDescription"),
+		  variant: "default",
+		});
+	  } catch (error) {
+		toast({
+		  title: t("shoopping.paymentErrorTitle"),
+		  description: t("shoopping.paymentErrorDescription"),
+		  variant: "destructive",
+		});
+	  }  finally {
+		setLoading(false);
+	   }
 	};
-
 	return (
+		<ToastProvider>
 		<section className="py-4 space-y-10">
 			<h1 className="capitalize text-3xl font-bold">shopping details</h1>
 
@@ -185,5 +208,6 @@ export default function ShoppingDetailsPage({
 				</Card>
 			</div>
 		</section>
+		</ToastProvider>
 	);
 }
