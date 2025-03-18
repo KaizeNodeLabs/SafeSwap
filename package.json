@@ -26,7 +26,6 @@
 		"turbo": "^2.4.1"
 	},
 	"dependencies": {
-		"@radix-ui/react-toast": "^1.2.6",
 		"@stellar/freighter-api": "^3.1.0"
 	}
 }
