@@ -1,0 +1,52 @@
+name: Backend Tests
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - "apps/backend/**"
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - "apps/backend/**"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Create .env file
+        run: |
+          echo "POSTGRES_URI=${{ secrets.DATABASE_URL }}" > apps/backend/.env
+          echo "NODE_ENV=development" >> apps/backend/.env
+
+      - name: Generate Prisma Client
+        working-directory: ./apps/backend
+        run: npx prisma generate
+        env:
+          POSTGRES_URI: ${{ secrets.DATABASE_URL }}
+
+      - name: Run database migrations
+        working-directory: ./apps/backend
+        run: npx prisma migrate deploy
+        env:
+          POSTGRES_URI: ${{ secrets.DATABASE_URL }}
+
+      - name: Run tests
+        working-directory: ./apps/backend
+        run: npm run test
+        env:
+          POSTGRES_URI: ${{ secrets.DATABASE_URL }}
+          
