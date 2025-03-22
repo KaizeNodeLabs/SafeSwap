@@ -614,6 +614,29 @@ export const en = {
 		paymentErrorDescription: "There was an error processing your payment.",
 	},
 
+	profile: {
+		label: {
+			name: "Name",
+			surname: "Surname",
+			email: "Email",
+			stellarWallet: "Stellar Wallet Address",
+			telegram: "Telegram Username (Optional)",
+			country: "Country",
+		},
+		placeholder: {
+			name: "Enter your name",
+			surname: "Enter your surname",
+			email: "Enter your email",
+			stellarWallet: "Enter your Stellar wallet address",
+			telegram: "Enter your Telegram username",
+		},
+		subtitle: "Manage your personal information and preferences",
+		stellarWalletSpan:
+			"Your Stellar wallet address is automatically retrieved and cannot be modified.",
+		telegramSpan: "Your Telegram username without the @ symbol.",
+		save: "Save changes",
+		successMessage: "Your profile has been successfully updated.",
+	},
 	// Add more sections as needed
 };
 
