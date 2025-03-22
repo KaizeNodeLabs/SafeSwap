@@ -369,9 +369,9 @@ async function main() {
 			await prisma.category.create({
 				data: category,
 			});
-			console.log("Created category: ${category.name}");
+			console.log(`Created category: ${category.name}`);
 		} else {
-			console.log("Category already exists: ${category.name}");
+			console.log(`Category already exists: ${category.name}`);
 		}
 	}
 
@@ -404,7 +404,7 @@ async function main() {
 				},
 			});
 
-			console.log("Created product: ${product.name}");
+			console.log(`Created product: ${product.name}`);
 
 			// Create product images
 			for (const imageUrl of product.images) {
@@ -417,10 +417,10 @@ async function main() {
 			}
 
 			console.log(
-				"Added ${product.images.length} images for product: ${product.name}",
+				`Added ${product.images.length} images for product: ${product.name}`,
 			);
 		} else {
-			console.log("Product already exists: ${product.name}");
+			console.log(`Product already exists: ${product.name}`);
 
 			const existingImages = await prisma.productImage.findMany({
 				where: { productId: existingProduct.id },
@@ -437,7 +437,7 @@ async function main() {
 				}
 
 				console.log(
-					"Added ${product.images.length} images for existing product: ${product.name}",
+					`Added ${product.images.length} images for existing product: ${product.name}`,
 				);
 			}
 		}
