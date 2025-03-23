@@ -44,6 +44,7 @@ export default function OnboardingPage() {
       country: "",
       terms: false,
     },
+    
   });
 
   const { isConnected, walletAddress, connectWallet } = useWallet();
