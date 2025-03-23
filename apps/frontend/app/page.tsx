@@ -1,5 +1,6 @@
 "use client";
 
+import { Categories } from "@/components/categories/page";
 import { Advantages } from "@/components/home/advantages";
 import { ExploreCategories } from "@/components/home/explore-categories";
 import { FeaturedProducts } from "@/components/home/featured-products";
@@ -18,6 +19,7 @@ export default function Home() {
 			<HowSafeSwapWorks />
 			<Seller />
 			<Testimonials />
+			<Categories />
 		</main>
 	);
 }
