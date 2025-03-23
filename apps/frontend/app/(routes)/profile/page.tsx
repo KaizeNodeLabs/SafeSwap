@@ -6,27 +6,22 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useTranslations } from "next-intl";
 import { useToast } from "@/hooks/use-toast";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { profile } from "@/lib/mocks/profile";
 
 export default function ProfilePage() {
   const t = useTranslations();
   const { toast } = useToast();
-  const [data, setdata] = useState(profile);
+  const [profileData, setProfileData] = useState(profile);
 
-  const [selected, setSelected] = useState({ name: profile.country });
-
-  const onSubmit = () => {
-    setdata((prevData) => {
-      const updatedData = { ...prevData, country: selected.name };
-
-      console.log(updatedData);
-      return updatedData;
-    });
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
     toast({
       description: t("profile.successMessage"),
     });
+
+    console.log(profileData);
   };
 
   return (
@@ -39,7 +34,7 @@ export default function ProfilePage() {
       </div>
 
       <section className="mt-8">
-        <form noValidate action={onSubmit} className="space-y-8">
+        <form onSubmit={onSubmit} className="space-y-8">
           <div className="flex gap-5">
             <div className="space-y-2 w-full">
               <Label htmlFor="name">{t("profile.label.name")}</Label>
@@ -48,8 +43,10 @@ export default function ProfilePage() {
                 name="name"
                 type="text"
                 placeholder={t("profile.placeholder.name")}
-                value={data.name}
-                onChange={(e) => setdata({ ...data, name: e.target.value })}
+                value={profileData.name}
+                onChange={(e) =>
+                  setProfileData({ ...profileData, name: e.target.value })
+                }
               />
             </div>
             <div className="space-y-2 w-full">
@@ -59,8 +56,10 @@ export default function ProfilePage() {
                 name="surname"
                 type="text"
                 placeholder={t("profile.placeholder.surname")}
-                value={data.surname}
-                onChange={(e) => setdata({ ...data, surname: e.target.value })}
+                value={profileData.surname}
+                onChange={(e) =>
+                  setProfileData({ ...profileData, surname: e.target.value })
+                }
               />
             </div>
           </div>
@@ -72,8 +71,10 @@ export default function ProfilePage() {
               name="email"
               type="email"
               placeholder={t("profile.placeholder.email")}
-              value={data.email}
-              onChange={(e) => setdata({ ...data, email: e.target.value })}
+              value={profileData.email}
+              onChange={(e) =>
+                setProfileData({ ...profileData, email: e.target.value })
+              }
             />
           </div>
 
@@ -86,7 +87,7 @@ export default function ProfilePage() {
               name="stellarWallet"
               type="text"
               placeholder={t("profile.placeholder.stellarWallet")}
-              value={data.stellarWallet}
+              value={profileData.stellarWallet}
               disabled
             />
             <span className="text-muted-foreground text-xs md:text-sm">
@@ -103,9 +104,12 @@ export default function ProfilePage() {
               name="telegramUsername"
               type="text"
               placeholder={t("profile.placeholder.telegram")}
-              value={data.telegramUsername}
+              value={profileData.telegramUsername}
               onChange={(e) =>
-                setdata({ ...data, telegramUsername: e.target.value })
+                setProfileData({
+                  ...profileData,
+                  telegramUsername: e.target.value,
+                })
               }
             />
             <span className="text-muted-foreground text-xs md:text-sm">
@@ -115,7 +119,12 @@ export default function ProfilePage() {
 
           <div className="space-y-2 w-full">
             <Label htmlFor="country">{t("profile.label.country")}</Label>
-            <CountrySelect selected={selected} setSelected={setSelected} />
+            <CountrySelect
+              selected={{ name: profileData.country }}
+              setSelected={(value) =>
+                setProfileData({ ...profileData, country: value.name })
+              }
+            />
           </div>
 
           <Button type="submit">{t("profile.save")}</Button>
