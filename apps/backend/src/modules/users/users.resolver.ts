@@ -15,8 +15,8 @@ export class UsersResolver {
 	}
 
 	@Query(() => User, { nullable: true })
-	async user(@Args("wallet_address") wallet_address: string) {
-		return this.usersService.findOne(wallet_address);
+	async user(@Args("walletAddress") walletAddress: string) {
+		return this.usersService.findOne(walletAddress);
 	}
 
 	@Mutation(() => User)
@@ -26,9 +26,9 @@ export class UsersResolver {
 
 	@Mutation(() => User)
 	async updateUser(
-		@Args("wallet_address") wallet_address: string,
+		@Args("walletAddress") walletAddress: string,
 		@Args("data") data: UpdateUserInput,
 	) {
-		return this.usersService.update(wallet_address, data);
+		return this.usersService.update(walletAddress, data);
 	}
 }
