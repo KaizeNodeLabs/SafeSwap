@@ -3,7 +3,7 @@ import { Field, ObjectType } from "@nestjs/graphql";
 @ObjectType()
 export class User {
 	@Field()
-	wallet_address: string;
+	walletAddress: string;
 
 	@Field()
 	name: string;
@@ -15,17 +15,17 @@ export class User {
 	email: string;
 
 	@Field({ nullable: true })
-	telegram_username?: string;
+	telegramUsername?: string;
 
 	@Field()
 	country: string;
 
 	@Field()
-	is_seller: boolean;
+	isSeller: boolean;
 
 	@Field()
-	created_at: Date;
+	createdAt: Date;
 
 	@Field()
-	updated_at: Date;
+	updatedAt: Date;
 }
