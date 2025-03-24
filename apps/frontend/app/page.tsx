@@ -19,7 +19,6 @@ export default function Home() {
 			<HowSafeSwapWorks />
 			<Seller />
 			<Testimonials />
-			<Categories />
 		</main>
 	);
 }
