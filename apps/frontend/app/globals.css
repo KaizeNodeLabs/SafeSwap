@@ -97,22 +97,46 @@ body {
 
 /* Custom gradient classes for category cards */
 .gradient-performance {
-	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(5, 150, 105, 0.95), rgba(6, 78, 59, 0.95));
-  }
-  
-  .gradient-new-arrivals {
-	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(244, 114, 107, 0.9), rgba(251, 146, 60, 0.9));
-  }
-  
-  .gradient-casual {
-	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(107, 114, 128, 0.9), rgba(17, 24, 39, 0.9));
-  }
-  
-  .gradient-athletes {
-	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(107, 114, 128, 0.9), rgba(17, 24, 39, 0.9));
-  }
-  
-  .gradient-essentials {
-	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(59, 130, 246, 0.9), rgba(37, 99, 235, 0.9));
-  }
-  
+	background: linear-gradient(
+		to bottom,
+		rgba(0, 0, 0, 0.2),
+		rgba(5, 150, 105, 0.95),
+		rgba(6, 78, 59, 0.95)
+	);
+}
+
+.gradient-new-arrivals {
+	background: linear-gradient(
+		to bottom,
+		rgba(0, 0, 0, 0.2),
+		rgba(244, 114, 107, 0.9),
+		rgba(251, 146, 60, 0.9)
+	);
+}
+
+.gradient-casual {
+	background: linear-gradient(
+		to bottom,
+		rgba(0, 0, 0, 0.2),
+		rgba(107, 114, 128, 0.9),
+		rgba(17, 24, 39, 0.9)
+	);
+}
+
+.gradient-athletes {
+	background: linear-gradient(
+		to bottom,
+		rgba(0, 0, 0, 0.2),
+		rgba(107, 114, 128, 0.9),
+		rgba(17, 24, 39, 0.9)
+	);
+}
+
+.gradient-essentials {
+	background: linear-gradient(
+		to bottom,
+		rgba(0, 0, 0, 0.2),
+		rgba(59, 130, 246, 0.9),
+		rgba(37, 99, 235, 0.9)
+	);
+}
