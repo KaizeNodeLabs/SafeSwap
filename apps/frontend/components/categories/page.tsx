@@ -47,7 +47,7 @@ export function Categories() {
 				</p>
 			</div>
 
-			<div className="relative mb-12 max-w-lg mx-auto">
+			<div className="relative mb-12 max-w-lg mx-auto top-4">
 				<Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
 				<Input
 					type="text"
@@ -79,7 +79,7 @@ export function Categories() {
 									<div className="top-1 left-4 right-4 gap-3 mb-2">
 										<Badge
 											variant="secondary"
-											className="flex items-center gap-1 bg-white text-gray-800 text-xs font-small py-0.5 px-4 rounded-full w-fit"
+											className="flex items-center gap-1 bg-white text-gray-800 text-xs font-small py-0.5 px-4 rounded-full w-fit transition-colors duration-200 hover:bg-gray-200 hover:text-black"
 										>
 											{category.tag}
 										</Badge>
