@@ -25,11 +25,11 @@ input CreateProductInput {
 input CreateUserInput {
   country: String!
   email: String!
-  is_seller: Boolean! = false
+  isSeller: Boolean! = false
   name: String!
   surname: String!
-  telegram_username: String
-  wallet_address: String!
+  telegramUsername: String
+  walletAddress: String!
 }
 
 """
@@ -42,7 +42,7 @@ type Mutation {
   createProduct(data: CreateProductInput!): ProductDTO!
   createProductImage(createProductImage: ProductImageDTO!): ProductImage!
   createUser(data: CreateUserInput!): User!
-  updateUser(data: UpdateUserInput!, wallet_address: String!): User!
+  updateUser(data: UpdateUserInput!, walletAddress: String!): User!
 }
 
 type ProductDTO {
@@ -76,28 +76,28 @@ type Query {
   productImage(id: String!): ProductImage
   productImages: [ProductImage!]!
   products: [ProductDTO!]!
-  user(wallet_address: String!): User
+  user(walletAddress: String!): User
   users: [User!]!
 }
 
 input UpdateUserInput {
   country: String
   email: String
-  is_seller: Boolean = false
+  isSeller: Boolean = false
   name: String
   surname: String
-  telegram_username: String
-  wallet_address: String
+  telegramUsername: String
+  walletAddress: String
 }
 
 type User {
   country: String!
-  created_at: DateTime!
+  createdAt: DateTime!
   email: String!
-  is_seller: Boolean!
+  isSeller: Boolean!
   name: String!
   surname: String!
-  telegram_username: String
-  updated_at: DateTime!
-  wallet_address: String!
+  telegramUsername: String
+  updatedAt: DateTime!
+  walletAddress: String!
 }
