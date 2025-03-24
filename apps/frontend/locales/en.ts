@@ -375,7 +375,7 @@ export const en = {
 			surnamePlaceholder: "Enter your last name",
 			email: "Email",
 			emailPlaceholder: "email@gmail.com",
-			wallet: "Please connect your wallet",
+			wallet: "Wallet Address",
 			walletPlaceholder: "GDDG...P5E7",
 			telegram: "Telegram Username (Optional)",
 			telegramPlaceholder: "@username",

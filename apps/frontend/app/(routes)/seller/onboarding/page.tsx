@@ -145,7 +145,7 @@ export default function OnboardingPage() {
 								readOnly
 								placeholder={t("sellerOnboarding.form.walletPlaceholder")}
 								value={isConnected ? walletAddress || "" : "Not Connected"}
-								className="pl-10 focus:outline-none bg-gray-100 cursor-not-allowed"
+								className="pl-10 focus:outline-none cursor-not-allowed"
 							/>
 							<Wallet
 								className="absolute top-7 left-3 text-gray-500"
