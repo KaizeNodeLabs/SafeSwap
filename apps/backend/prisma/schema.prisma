@@ -40,3 +40,16 @@ model ProductImage {
   updatedAt DateTime @updatedAt @map("updated_at")
   @@map("product_images")
 }
+
+
+model User {
+  wallet_address   String   @id
+  name            String   @db.VarChar(20)
+  surname         String   @db.VarChar(50)
+  email           String   @unique @db.VarChar(150)
+  telegram_username String?  @db.VarChar(50)
+  country         String   @db.VarChar(100)
+  is_seller       Boolean  @default(false)
+  created_at      DateTime @default(now())
+  updated_at      DateTime @updatedAt
+}
