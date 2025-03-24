@@ -1,11 +1,13 @@
 import { Field, InputType } from "@nestjs/graphql";
 import { IsEmail, IsOptional, IsString, MaxLength } from "class-validator";
+import IsStellarPublickKey from "../validators/is-stellar-public-key.validator";
 
 @InputType()
 export class CreateUserInput {
 	@Field()
 	@IsString()
-	wallet_address: string;
+	@IsStellarPublickKey()
+	walletAddress: string;
 
 	@Field()
 	@IsString()
@@ -25,7 +27,7 @@ export class CreateUserInput {
 	@Field({ nullable: true })
 	@IsOptional()
 	@IsString()
-	telegram_username?: string;
+	telegramUsername?: string;
 
 	@Field()
 	@IsString()
@@ -33,5 +35,5 @@ export class CreateUserInput {
 	country: string;
 
 	@Field({ defaultValue: false })
-	is_seller: boolean;
+	isSeller: boolean;
 }
