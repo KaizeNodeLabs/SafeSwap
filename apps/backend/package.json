@@ -21,7 +21,8 @@
 		"db:push": "prisma db push",
 		"db:studio": "prisma studio",
 		"db:generate": "prisma generate",
-		"postinstall": "prisma generate"
+		"postinstall": "prisma generate",
+		"seed": "ts-node prisma/seed.ts"
 	},
 	"dependencies": {
 		"@apollo/server": "^4.11.3",
@@ -37,7 +38,8 @@
 		"class-validator": "^0.14.1",
 		"graphql": "^16.10.0",
 		"reflect-metadata": "^0.2.2",
-		"rxjs": "^7.8.1"
+		"rxjs": "^7.8.1",
+		"slugify": "^1.6.6"
 	},
 	"devDependencies": {
 		"@nestjs/cli": "^11.0.0",
@@ -71,5 +73,8 @@
 		"collectCoverageFrom": ["**/*.(t|j)s"],
 		"coverageDirectory": "../coverage",
 		"testEnvironment": "node"
+	},
+	"prisma": {
+		"seed": "ts-node prisma/seed.ts"
 	}
 }
