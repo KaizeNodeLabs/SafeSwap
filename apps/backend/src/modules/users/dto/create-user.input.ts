@@ -1,10 +1,9 @@
 import { Field, InputType } from "@nestjs/graphql";
 import { IsEmail, IsOptional, IsString, MaxLength } from "class-validator";
-import IsStellarPublickKey from "../validators/is-stellar-public-key.validator";
+import { IsStellarPublickKey } from "../validators/is-stellar-public-key.validator";
 
 @InputType()
 export class CreateUserInput {
-	[key: string]: unknown;
 	@Field()
 	@IsString()
 	@IsStellarPublickKey()
