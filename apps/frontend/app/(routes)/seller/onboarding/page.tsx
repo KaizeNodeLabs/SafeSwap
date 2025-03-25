@@ -30,6 +30,7 @@ export default function OnboardingPage() {
 		register,
 		handleSubmit,
 		setValue,
+		getValues,
 		formState: { errors },
 	} = useForm<TSellerOnboarding>({
 		resolver: zodResolver(sellerOnboardingSchema),
@@ -45,20 +46,26 @@ export default function OnboardingPage() {
 	});
 
 	const { isConnected, walletAddress } = useWallet();
-
+	const [trimmedWalletAddress, setTrimmedWalletAddress] = useState("");
 	
 	const getTranslatedErrorMessage = (errorKey: string) => {
 		return t(`sellerOnboarding.errors.${errorKey}`);
 	};
 
+	const shortenWalletAddress = (address: string) => {
+        return `${address.slice(0, 6)}...${address.slice(-4)}`;
+    };
+
 	useEffect(() => {
 		if (isConnected && walletAddress) {
 			setValue("wallet", walletAddress); // Autofill wallet address
+			setTrimmedWalletAddress(shortenWalletAddress(getValues("wallet")));
 		} else {
 			const errorMessage = t("sellerOnboarding.form.not_connected");
 			setValue("wallet", errorMessage);
+			
 		}
-	}, [isConnected, walletAddress, setValue]);
+	}, [isConnected, walletAddress, setValue,shortenWalletAddress, getValues, setTrimmedWalletAddress]);
 
 
 	const onSubmit = (data: TSellerOnboarding) => {
@@ -139,7 +146,7 @@ export default function OnboardingPage() {
 
 						<div className="relative flex flex-col gap-1.5">
 							<Label htmlFor="wallet">
-								{isConnected ?t("sellerOnboarding.form.your_wallet_address") + walletAddress : t("sellerOnboarding.form.wallet")}
+								{isConnected ?t("sellerOnboarding.form.your_wallet_address") + trimmedWalletAddress : t("sellerOnboarding.form.wallet")}
 							</Label>
 							<Input
 								{...register("wallet")}
