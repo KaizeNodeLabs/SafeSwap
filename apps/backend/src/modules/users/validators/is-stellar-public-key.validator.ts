@@ -10,7 +10,6 @@ export class IsStellarPublicKeyConstraint
 	implements ValidatorConstraintInterface
 {
 	validate(value: string) {
-		// Un Stellar Public Key siempre empieza con 'G' y tiene 56 caracteres
 		const stellarRegex = /^G[A-Z2-7]{55}$/;
 		return typeof value === "string" && stellarRegex.test(value);
 	}
@@ -23,7 +22,7 @@ export class IsStellarPublicKeyConstraint
 export default function IsStellarPublicKey(
 	validationOptions?: ValidationOptions,
 ) {
-	return (object: Object, propertyName: string) => {
+	return (object: Record<string, unknown>, propertyName: string) => {
 		registerDecorator({
 			target: object.constructor,
 			propertyName,
