@@ -4,6 +4,7 @@ import IsStellarPublickKey from "../validators/is-stellar-public-key.validator";
 
 @InputType()
 export class CreateUserInput {
+	[key: string]: unknown;
 	@Field()
 	@IsString()
 	@IsStellarPublickKey()
