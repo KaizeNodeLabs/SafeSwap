@@ -7,7 +7,7 @@ import { Logo } from "@/components/shared/logo";
 import { Button } from "@/components/ui/button";
 import { useStellarData } from "@/hooks/useStellarData";
 import { useTranslations } from "next-intl";
-import { FloatingSettings } from "../shared/sidebar/FloatingSettings";
+import { FloatingSettings } from "./floating-settings";
 
 export function Hero() {
   const t = useTranslations();

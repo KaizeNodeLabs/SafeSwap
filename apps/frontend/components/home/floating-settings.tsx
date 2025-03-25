@@ -6,7 +6,7 @@ import { useTheme } from "next-themes";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
-import { LanguageSelector } from "./language-selector";
+import { LanguageSelector } from "../shared/sidebar/language-selector";
 
 export function FloatingSettings() {
   const { theme, setTheme } = useTheme();
@@ -17,7 +17,7 @@ export function FloatingSettings() {
   useEffect(() => setMounted(true), []);
 
   return (
-    <div className="fixed top-44 right-[320px] z-50">
+    <div className="fixed bottom-6 right-6 z-50">
       {/* Floating Button */}
       <Button
         variant="outline"
@@ -32,7 +32,7 @@ export function FloatingSettings() {
 
       {/* Settings Panel */}
       {open && (
-        <div className="absolute bottom-16 right-0 bg-white dark:bg-gray-900 p-4 rounded-lg shadow-lg w-48">
+        <div className="absolute bottom-16 right-0 bg-white dark:bg-gray-900 p-4 rounded-lg shadow-lg w-[205px]">
           {/* Dark Mode Toggle */}
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">
