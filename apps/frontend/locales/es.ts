@@ -388,6 +388,8 @@ export const es = {
 			termsDescription:
 				"Al marcar esta casilla, acepta nuestros Términos de Servicio y Política de Privacidad.",
 			submitButton: "Comenzar a Vender",
+			not_connected: "No Conectado",
+			your_wallet_address: "Su dirección de billetera es ",
 		},
 		errors: {
 			name: "El nombre debe tener entre 2 y 50 caracteres",

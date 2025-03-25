@@ -385,6 +385,8 @@ export const en = {
 			termsDescription:
 				"By checking this box, you agree to our Terms of Service and Privacy Policy.",
 			submitButton: "Start Selling",
+			not_connected: "Not Connected",
+			your_wallet_address: "Your Wallet Address is ",
 		},
 		errors: {
 			name: "Name must be between 2 and 50 characters",

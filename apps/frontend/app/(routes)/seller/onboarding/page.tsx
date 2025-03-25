@@ -46,17 +46,20 @@ export default function OnboardingPage() {
 
 	const { isConnected, walletAddress } = useWallet();
 
+	
+	const getTranslatedErrorMessage = (errorKey: string) => {
+		return t(`sellerOnboarding.errors.${errorKey}`);
+	};
+
 	useEffect(() => {
 		if (isConnected && walletAddress) {
 			setValue("wallet", walletAddress); // Autofill wallet address
 		} else {
-			setValue("wallet", "Not Connected");
+			const errorMessage = getTranslatedErrorMessage('not_connected');
+			setValue("wallet", errorMessage);
 		}
 	}, [isConnected, walletAddress, setValue]);
 
-	const getTranslatedErrorMessage = (errorKey: string) => {
-		return t(`sellerOnboarding.errors.${errorKey}`);
-	};
 
 	const onSubmit = (data: TSellerOnboarding) => {
 		console.log(data);
@@ -136,7 +139,7 @@ export default function OnboardingPage() {
 
 						<div className="relative flex flex-col gap-1.5">
 							<Label htmlFor="wallet">
-								{t("sellerOnboarding.form.wallet")}
+								{isConnected ?t("sellerOnboarding.form.your_wallet_address") + walletAddress : t("sellerOnboarding.form.wallet")}
 							</Label>
 							<Input
 								{...register("wallet")}
@@ -144,7 +147,7 @@ export default function OnboardingPage() {
 								type="text"
 								readOnly
 								placeholder={t("sellerOnboarding.form.walletPlaceholder")}
-								value={isConnected ? walletAddress || "" : "Not Connected"}
+								value={isConnected ? walletAddress || "" : t("sellerOnboarding.form.not_connected")}
 								className="pl-10 focus:outline-none cursor-not-allowed"
 							/>
 							<Wallet
