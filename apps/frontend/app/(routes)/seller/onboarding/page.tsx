@@ -20,7 +20,7 @@ import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Globe, Mail, MessageSquare, User, Wallet } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 export default function OnboardingPage() {
@@ -47,14 +47,14 @@ export default function OnboardingPage() {
 
 	const { isConnected, walletAddress } = useWallet();
 	const [trimmedWalletAddress, setTrimmedWalletAddress] = useState("");
-	
+
 	const getTranslatedErrorMessage = (errorKey: string) => {
 		return t(`sellerOnboarding.errors.${errorKey}`);
 	};
 
-	const shortenWalletAddress = (address: string) => {
-        return `${address.slice(0, 6)}...${address.slice(-4)}`;
-    };
+	const shortenWalletAddress = useCallback((wallet: string) => {
+		return `${wallet.slice(0, 6)}...${wallet.slice(-4)}`;
+	}, []);
 
 	useEffect(() => {
 		if (isConnected && walletAddress) {
@@ -63,10 +63,15 @@ export default function OnboardingPage() {
 		} else {
 			const errorMessage = t("sellerOnboarding.form.not_connected");
 			setValue("wallet", errorMessage);
-			
 		}
-	}, [isConnected, walletAddress, setValue,shortenWalletAddress, getValues, setTrimmedWalletAddress]);
-
+	}, [
+		isConnected,
+		walletAddress,
+		setValue,
+		t,
+		getValues,
+		shortenWalletAddress,
+	]);
 
 	const onSubmit = (data: TSellerOnboarding) => {
 		console.log(data);
@@ -146,7 +151,10 @@ export default function OnboardingPage() {
 
 						<div className="relative flex flex-col gap-1.5">
 							<Label htmlFor="wallet">
-								{isConnected ?t("sellerOnboarding.form.your_wallet_address") + trimmedWalletAddress : t("sellerOnboarding.form.wallet")}
+								{isConnected
+									? t("sellerOnboarding.form.your_wallet_address") +
+										trimmedWalletAddress
+									: t("sellerOnboarding.form.wallet")}
 							</Label>
 							<Input
 								{...register("wallet")}
