@@ -55,10 +55,10 @@ export default function OnboardingPage() {
 		if (isConnected && walletAddress) {
 			setValue("wallet", walletAddress); // Autofill wallet address
 		} else {
-			const errorMessage = getTranslatedErrorMessage('not_connected');
+			const errorMessage = t("sellerOnboarding.form.not_connected");
 			setValue("wallet", errorMessage);
 		}
-	}, [isConnected, walletAddress, setValue,getTranslatedErrorMessage]);
+	}, [isConnected, walletAddress, setValue]);
 
 
 	const onSubmit = (data: TSellerOnboarding) => {
@@ -147,7 +147,6 @@ export default function OnboardingPage() {
 								type="text"
 								readOnly
 								placeholder={t("sellerOnboarding.form.walletPlaceholder")}
-								value={isConnected ? walletAddress || "" : t("sellerOnboarding.form.not_connected")}
 								className="pl-10 focus:outline-none cursor-not-allowed"
 							/>
 							<Wallet
