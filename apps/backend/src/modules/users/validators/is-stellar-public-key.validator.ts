@@ -9,25 +9,26 @@ import {
 export class IsStellarPublicKeyConstraint
 	implements ValidatorConstraintInterface
 {
-	validate(value: string) {
-		const stellarRegex = /^G[A-Z2-7]{55}$/;
-		return typeof value === "string" && stellarRegex.test(value);
+	validate(value: string): boolean {
+		return /^[a-zA-Z0-9]{56}$/.test(value);
 	}
 
-	defaultMessage() {
-		return "walletAddress must be a valid Stellar public key (starts with 'G' and has 56 characters).";
+	defaultMessage(): string {
+		return "Invalid Stellar public key.";
 	}
 }
 
-export default function IsStellarPublicKey(
-	validationOptions?: ValidationOptions,
-) {
-	return (object: Record<string, unknown>, propertyName: string) => {
+export function IsStellarPublickKey(validationOptions?: ValidationOptions) {
+	return (object: Object, propertyName: string): void => {
 		registerDecorator({
 			target: object.constructor,
-			propertyName,
+
+			propertyName: propertyName,
+
 			options: validationOptions,
+
 			constraints: [],
+
 			validator: IsStellarPublicKeyConstraint,
 		});
 	};
