@@ -58,7 +58,7 @@ export default function OnboardingPage() {
 			const errorMessage = getTranslatedErrorMessage('not_connected');
 			setValue("wallet", errorMessage);
 		}
-	}, [isConnected, walletAddress, setValue]);
+	}, [isConnected, walletAddress, setValue,getTranslatedErrorMessage]);
 
 
 	const onSubmit = (data: TSellerOnboarding) => {
