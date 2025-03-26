@@ -1,7 +1,8 @@
 "use client";
 
-import { useQuery } from "@apollo/client";
 import { Share2, ShoppingBag, Star } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 
 import Images from "@/components/products/Images";
 import NotFound from "@/components/products/not-found";
@@ -19,8 +20,6 @@ import type {
 	ProductsData,
 } from "@/lib/types/product";
 import { generateProductSlug } from "@/utils/generateProductSlug";
-import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
 
 interface ProductDetailsProps {
 	params: {
@@ -30,10 +29,9 @@ interface ProductDetailsProps {
 
 const PLACEHOLDER_IMAGE = "/images/placeholder.png";
 
-// Define a local interface that extends FormattedProduct with the additional properties needed for the UI
 interface UIProduct extends FormattedProduct {
-	rating?: number; // For star ratings
-	description?: string; // For product description
+	rating?: number;
+	description?: string;
 }
 
 const ProductDetails = ({ params }: ProductDetailsProps) => {
@@ -41,12 +39,50 @@ const ProductDetails = ({ params }: ProductDetailsProps) => {
 	const { renderStars } = useUtils();
 	const [product, setProduct] = useState<UIProduct | null>(null);
 	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState<Error | null>(null);
 	const [quantity, setQuantity] = useState(1);
 
-	// Fetch data using Apollo Client
-	const { data: productsData } = useQuery<ProductsData>(GET_PRODUCTS);
-	const { data: categoriesData } = useQuery<CategoriesData>(GET_CATEGORIES);
-	const { data: imagesData } = useQuery<ProductImagesData>(GET_PRODUCT_IMAGES);
+	// State for data
+	const [productsData, setProductsData] = useState<ProductsData | undefined>(
+		undefined,
+	);
+	const [categoriesData, setCategoriesData] = useState<
+		CategoriesData | undefined
+	>(undefined);
+	const [imagesData, setImagesData] = useState<ProductImagesData | undefined>(
+		undefined,
+	);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			setLoading(true);
+			try {
+				const [products, categories, images] = await Promise.all([
+					GET_PRODUCTS(),
+					GET_CATEGORIES(),
+					GET_PRODUCT_IMAGES(),
+				]);
+
+				if (products) setProductsData(products);
+				if (categories) setCategoriesData(categories);
+				if (images) setImagesData(images);
+
+				if (!products || !categories || !images) {
+					setError(new Error("Failed to fetch some data"));
+				} else {
+					setError(null);
+				}
+			} catch (err) {
+				setError(
+					err instanceof Error ? err : new Error("An unknown error occurred"),
+				);
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		fetchData();
+	}, []);
 
 	useEffect(() => {
 		if (
@@ -91,22 +127,19 @@ const ProductDetails = ({ params }: ProductDetailsProps) => {
 							? Number.parseFloat(dbProduct.price)
 							: dbProduct.price,
 					category: categoriesMap[dbProduct.categoryId] || "Unknown",
-					condition: dbProduct.condition ? [dbProduct.condition] : [], // Convert to array for FormattedProduct
+					condition: dbProduct.condition ? [dbProduct.condition] : [],
 					images: productImagesMap[dbProduct.id] || [
 						{
 							src: PLACEHOLDER_IMAGE,
 							alt: `${dbProduct.name} image`,
 						},
 					],
-					// Additional UI properties
 					description: dbProduct.description,
-					rating: 4.5, // Default rating or could be fetched from another API endpoint
+					rating: 4.5,
 				};
 
 				setProduct(uiProduct);
 			}
-
-			setLoading(false);
 		}
 	}, [productsData, categoriesData, imagesData, params.productSlug]);
 
@@ -121,6 +154,14 @@ const ProductDetails = ({ params }: ProductDetailsProps) => {
 	if (loading) {
 		return (
 			<div className="flex justify-center items-center h-64">Loading...</div>
+		);
+	}
+
+	if (error) {
+		return (
+			<div className="flex justify-center items-center h-64">
+				Error loading product data. Please try again later.
+			</div>
 		);
 	}
 

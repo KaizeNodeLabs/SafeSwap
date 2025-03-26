@@ -1,24 +1,25 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
+
 import FilterModal from "@/components/marketplace/filter-modal";
 import ProductsNotFound from "@/components/marketplace/products-not-found";
 import { ProductsPagination } from "@/components/marketplace/products-pagination";
+import ProductCard from "./product-card";
+
 import useFilteredProducts from "@/hooks/useFilteredProducts";
 import {
 	GET_CATEGORIES,
 	GET_PRODUCTS,
 	GET_PRODUCT_IMAGES,
 } from "@/lib/graphql/queries";
-import { FilterState } from "@/lib/types/filters";
-import {
+import type { FilterState } from "@/lib/types/filters";
+import type {
 	CategoriesData,
 	ProductImagesData,
 	ProductsData,
 } from "@/lib/types/product";
-import { useQuery } from "@apollo/client";
-import { useTranslations } from "next-intl";
-import { useState } from "react";
-import ProductCard from "./product-card";
 
 const initialFilters: FilterState = {
 	categories: [],
@@ -29,18 +30,53 @@ export default function ProductList() {
 	const t = useTranslations();
 	const [filters, setFilters] = useState<FilterState>(initialFilters);
 
-	const {
-		loading: productsLoading,
-		error: productsError,
-		data: productsData,
-	} = useQuery<ProductsData>(GET_PRODUCTS);
-	const { loading: categoriesLoading, data: categoriesData } =
-		useQuery<CategoriesData>(GET_CATEGORIES);
-	const { loading: imagesLoading, data: imagesData } =
-		useQuery<ProductImagesData>(GET_PRODUCT_IMAGES);
+	// State for data
+	const [productsData, setProductsData] = useState<ProductsData | undefined>(
+		undefined,
+	);
+	const [categoriesData, setCategoriesData] = useState<
+		CategoriesData | undefined
+	>(undefined);
+	const [imagesData, setImagesData] = useState<ProductImagesData | undefined>(
+		undefined,
+	);
 
-	const loading = productsLoading || categoriesLoading || imagesLoading;
-	const error = productsError;
+	// State for loading and error
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState<Error | null>(null);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			setLoading(true);
+			try {
+				// Fetch all data in parallel
+				const [products, categories, images] = await Promise.all([
+					GET_PRODUCTS(),
+					GET_CATEGORIES(),
+					GET_PRODUCT_IMAGES(),
+				]);
+
+				if (products) setProductsData(products);
+				if (categories) setCategoriesData(categories);
+				if (images) setImagesData(images);
+
+				// If any of the requests failed, set an error
+				if (!products || !categories || !images) {
+					setError(new Error("Failed to fetch some data"));
+				} else {
+					setError(null);
+				}
+			} catch (err) {
+				setError(
+					err instanceof Error ? err : new Error("An unknown error occurred"),
+				);
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		fetchData();
+	}, []);
 
 	const filteredProducts = useFilteredProducts(
 		productsData,
