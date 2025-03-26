@@ -18,17 +18,13 @@ export class IsStellarPublicKeyConstraint
 	}
 }
 
-export function IsStellarPublickKey(validationOptions?: ValidationOptions) {
-	return (object: Object, propertyName: string): void => {
+export function IsStellarPublicKey(validationOptions?: ValidationOptions) {
+	return (object: Record<string, unknown>, propertyName: string): void => {
 		registerDecorator({
 			target: object.constructor,
-
 			propertyName: propertyName,
-
 			options: validationOptions,
-
 			constraints: [],
-
 			validator: IsStellarPublicKeyConstraint,
 		});
 	};
