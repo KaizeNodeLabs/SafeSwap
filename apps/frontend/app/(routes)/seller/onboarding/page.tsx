@@ -11,26 +11,32 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
+import { useWallet } from "@/hooks/useWallet.hook";
 import {
 	TSellerOnboarding,
 	sellerOnboardingSchema,
 } from "@/lib/schemas/sellerOnboarding";
 import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Globe, Mail, MessageSquare, Wallet } from "lucide-react";
+import { Globe, Mail, MessageSquare, User, Wallet } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 export default function OnboardingPage() {
 	const t = useTranslations();
+
 	const {
 		register,
 		handleSubmit,
 		setValue,
+		getValues,
 		formState: { errors },
 	} = useForm<TSellerOnboarding>({
 		resolver: zodResolver(sellerOnboardingSchema),
 		defaultValues: {
+			name: "",
+			surname: "",
 			email: "",
 			wallet: "",
 			telegram: "",
@@ -39,9 +45,33 @@ export default function OnboardingPage() {
 		},
 	});
 
+	const { isConnected, walletAddress } = useWallet();
+	const [trimmedWalletAddress, setTrimmedWalletAddress] = useState("");
+
 	const getTranslatedErrorMessage = (errorKey: string) => {
 		return t(`sellerOnboarding.errors.${errorKey}`);
 	};
+
+	const shortenWalletAddress = useCallback((wallet: string) => {
+		return `${wallet.slice(0, 6)}...${wallet.slice(-4)}`;
+	}, []);
+
+	useEffect(() => {
+		if (isConnected && walletAddress) {
+			setValue("wallet", walletAddress); // Autofill wallet address
+			setTrimmedWalletAddress(shortenWalletAddress(getValues("wallet")));
+		} else {
+			const errorMessage = t("sellerOnboarding.form.not_connected");
+			setValue("wallet", errorMessage);
+		}
+	}, [
+		isConnected,
+		walletAddress,
+		setValue,
+		t,
+		getValues,
+		shortenWalletAddress,
+	]);
 
 	const onSubmit = (data: TSellerOnboarding) => {
 		console.log(data);
@@ -65,6 +95,43 @@ export default function OnboardingPage() {
 						className="flex flex-col space-y-4"
 						onSubmit={handleSubmit(onSubmit)}
 					>
+						{/* Name */}
+						<div className="relative flex flex-col gap-1.5">
+							<Label htmlFor="name">{t("sellerOnboarding.form.name")}</Label>
+							<Input
+								{...register("name")}
+								id="name"
+								type="text"
+								className="pl-10 focus:outline-none"
+								placeholder={t("sellerOnboarding.form.namePlaceholder")}
+							/>
+							<User className="absolute top-7 left-3 text-gray-500" size={20} />
+							{errors.name && (
+								<p className="text-red-500 text-xs">
+									{getTranslatedErrorMessage("name")}
+								</p>
+							)}
+						</div>
+
+						{/* Surname */}
+						<div className="relative flex flex-col gap-1.5">
+							<Label htmlFor="surname">
+								{t("sellerOnboarding.form.surname")}
+							</Label>
+							<Input
+								{...register("surname")}
+								id="surname"
+								type="text"
+								className="pl-10 focus:outline-none"
+								placeholder={t("sellerOnboarding.form.surnamePlaceholder")}
+							/>
+							<User className="absolute top-7 left-3 text-gray-500" size={20} />
+							{errors.surname && (
+								<p className="text-red-500 text-xs">
+									{getTranslatedErrorMessage("surname")}
+								</p>
+							)}
+						</div>
 						<div className="relative flex flex-col gap-1.5">
 							<Label htmlFor="email">{t("sellerOnboarding.form.email")}</Label>
 							<Input
@@ -84,14 +151,18 @@ export default function OnboardingPage() {
 
 						<div className="relative flex flex-col gap-1.5">
 							<Label htmlFor="wallet">
-								{t("sellerOnboarding.form.wallet")}
+								{isConnected
+									? t("sellerOnboarding.form.your_wallet_address") +
+										trimmedWalletAddress
+									: t("sellerOnboarding.form.wallet")}
 							</Label>
 							<Input
 								{...register("wallet")}
 								id="wallet"
 								type="text"
+								readOnly
 								placeholder={t("sellerOnboarding.form.walletPlaceholder")}
-								className="pl-10 focus:outline-none"
+								className="pl-10 focus:outline-none cursor-not-allowed"
 							/>
 							<Wallet
 								className="absolute top-7 left-3 text-gray-500"

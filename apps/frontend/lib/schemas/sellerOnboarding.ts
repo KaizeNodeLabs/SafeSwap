@@ -1,13 +1,24 @@
 import { z } from "zod";
 
 export const sellerOnboardingSchema = z.object({
+	name: z
+		.string()
+		.min(2, "Name must be at least 2 characters")
+		.max(50, "Name cannot exceed 50 characters")
+		.trim(),
+	surname: z
+		.string()
+		.min(2, "Surname must be at least 2 characters")
+		.max(50, "Surname cannot exceed 50 characters")
+		.trim(),
+
 	email: z.string().email("Email must be in a valid format."),
 	wallet: z
 		.string()
-		.regex(
-			/^G[A-Z0-9]{55}$/,
-			"Stellar wallet address must start with 'G' and be 56 characters long.",
-		),
+		.min(1, "Wallet must be connected")
+		.refine((wallet) => wallet !== "Not Connected", {
+			message: "Please connect your wallet",
+		}),
 	telegram: z
 		.string()
 		.optional()

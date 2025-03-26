@@ -372,9 +372,13 @@ export const es = {
 		description:
 			"Únase a nuestro mercado descentralizado y comience a vender con el fideicomiso de Stellar. Seguro, rápido y sin necesidad de tienda.",
 		form: {
+			name: "Nombre",
+			namePlaceholder: "Ingrese su nombre",
+			surname: "Apellido",
+			surnamePlaceholder: "Ingrese su apellido",
 			email: "Correo Electrónico",
 			emailPlaceholder: "email@gmail.com",
-			wallet: "Dirección de la Cartera Stellar",
+			wallet: "Dirección de billetera",
 			walletPlaceholder: "GDDG...P5E7",
 			telegram: "Nombre de Usuario de Telegram (Opcional)",
 			telegramPlaceholder: "@usuario",
@@ -384,8 +388,12 @@ export const es = {
 			termsDescription:
 				"Al marcar esta casilla, acepta nuestros Términos de Servicio y Política de Privacidad.",
 			submitButton: "Comenzar a Vender",
+			not_connected: "No Conectado",
+			your_wallet_address: "Su dirección de billetera es ",
 		},
 		errors: {
+			name: "El nombre debe tener entre 2 y 50 caracteres",
+			surname: "El apellido debe tener entre 2 y 50 caracteres",
 			email: "El correo electrónico debe tener un formato válido.",
 			wallet:
 				"La dirección de la cartera Stellar debe comenzar con 'G' y tener 56 caracteres de longitud.",
@@ -576,7 +584,38 @@ export const es = {
 		paymentErrorTitle: "Error en el Pago",
 		paymentErrorDescription: "Hubo un error al procesar tu pago.",
 	},
+	categories: {
+		title: "Explorar Categorías",
+		description:
+			"Descubre nuestra amplia gama de productos organizados por categoría. Encuentra exactamente lo que buscas con nuestro sistema de navegación intuitivo.",
+		searchPlaceholder: "Buscar categorías...",
+		viewProducts: "Ver productos",
+		noResults: "No se encontraron categorías.",
+	},
 
+	profile: {
+		label: {
+			name: "Nombre",
+			surname: "Apellido",
+			email: "Correo Electrónico",
+			stellarWallet: "Dirección de la Cartera Stellar",
+			telegram: "Nombre de Usuario de Telegram",
+			country: "País",
+		},
+		placeholder: {
+			name: "Ingrese su nombre",
+			surname: "Ingrese su apellido",
+			email: "Ingrese su correo electrónico",
+			stellarWallet: "Ingrese su dirección de la cartera Stellar",
+			telegram: "Ingrese su nombre de usuario de Telegram",
+		},
+		subtitle: "Administre su información personal y preferencias",
+		stellarWalletSpan:
+			"La dirección de su cartera Stellar se recupera automáticamente y no se puede modificar.",
+		telegramSpan: "Ingrese su nombre de usuario de Telegram sin el símbolo @.",
+		save: "Guardar cambios",
+		successMessage: "Su perfil se ha actualizado correctamente.",
+	},
 	// Add more sections as needed
 };
 
