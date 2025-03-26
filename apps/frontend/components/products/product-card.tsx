@@ -6,14 +6,21 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
+import { FormattedProduct } from "@/lib/types/product";
 import { generateProductSlug } from "@/utils/generateProductSlug";
 import { MessageSquareMore, ShoppingBag } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 
 const PLACEHOLDER_IMAGE = "/placeholder.png";
+type TFunction = ReturnType<typeof useTranslations>;
+interface ProductCardProps {
+	product: FormattedProduct;
+	t: TFunction;
+}
 
-export default function ProductCard({ product, t }: { product: any; t: any }) {
+export default function ProductCard({ product, t }: ProductCardProps) {
 	return (
 		<Card key={product.id} className="hover:shadow-lg flex flex-col h-full">
 			<CardHeader className="flex-grow-0">

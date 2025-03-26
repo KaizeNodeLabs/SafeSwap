@@ -23,21 +23,29 @@ export default function useFilteredProducts(
 	useEffect(() => {
 		if (productsData?.products && !loading) {
 			const categoriesMap: Record<string, string> = {};
-			categoriesData?.categories?.forEach((category) => {
-				categoriesMap[category.id] = category.name;
-			});
+
+			// Replace forEach with for...of loop
+			if (categoriesData?.categories) {
+				for (const category of categoriesData.categories) {
+					categoriesMap[category.id] = category.name;
+				}
+			}
 
 			const productImagesMap: Record<string, { src: string; alt: string }[]> =
 				{};
-			imagesData?.productImages?.forEach((image) => {
-				if (!productImagesMap[image.productId]) {
-					productImagesMap[image.productId] = [];
+
+			// Replace forEach with for...of loop
+			if (imagesData?.productImages) {
+				for (const image of imagesData.productImages) {
+					if (!productImagesMap[image.productId]) {
+						productImagesMap[image.productId] = [];
+					}
+					productImagesMap[image.productId].push({
+						src: image.imageUrl,
+						alt: "Product image",
+					});
 				}
-				productImagesMap[image.productId].push({
-					src: image.imageUrl,
-					alt: "Product image",
-				});
-			});
+			}
 
 			const formattedProducts: FormattedProduct[] = productsData.products.map(
 				(product) => ({
