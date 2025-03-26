@@ -66,8 +66,9 @@ const products = [
 		price: 1099.99,
 		categoryName: "Electronics",
 		images: [
-			"https://images.unsplash.com/photo-1678911820864-e5ca694aeef6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-			"https://images.unsplash.com/photo-1678911848510-123ea079f91b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1558203728-00f45181dd84?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1589966468233-6befb2faa37e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1512446816042-444d641267d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
 	},
 	{
@@ -213,9 +214,9 @@ const products = [
 		price: 129.99,
 		categoryName: "Beauty & Health",
 		images: [
-			"https://images.unsplash.com/photo-1575311373937-040b8e1fd6b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-			"https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-			"https://images.unsplash.com/photo-1617043983671-adaadcaa2460?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1558203728-00f45181dd84?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1589966468233-6befb2faa37e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1512446816042-444d641267d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
 	},
 	{
@@ -224,8 +225,9 @@ const products = [
 		price: 45.99,
 		categoryName: "Beauty & Health",
 		images: [
-			"https://images.unsplash.com/photo-1626766632162-5a2b72a6ca8a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-			"https://images.unsplash.com/photo-1522338140505-bfe8a5dc7654?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1558203728-00f45181dd84?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1589966468233-6befb2faa37e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1512446816042-444d641267d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
 	},
 
@@ -246,8 +248,9 @@ const products = [
 		price: 69.99,
 		categoryName: "Toys & Games",
 		images: [
-			"https://images.unsplash.com/photo-1595761540034-b572a3a10761?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-			"https://images.unsplash.com/photo-1531693251400-38df35776dc7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1558203728-00f45181dd84?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1589966468233-6befb2faa37e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1512446816042-444d641267d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
 	},
 	{
@@ -270,8 +273,9 @@ const products = [
 		price: 24.99,
 		categoryName: "Automotive",
 		images: [
-			"https://images.unsplash.com/photo-1609623279018-a183c1b7e17d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-			"https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1558203728-00f45181dd84?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1589966468233-6befb2faa37e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1512446816042-444d641267d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
 	},
 	{
@@ -281,8 +285,9 @@ const products = [
 		price: 59.99,
 		categoryName: "Automotive",
 		images: [
-			"https://images.unsplash.com/photo-1572204097183-e44e152b760f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-			"https://images.unsplash.com/photo-1503352969965-a9d3e89b2fe6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1558203728-00f45181dd84?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1589966468233-6befb2faa37e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1512446816042-444d641267d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
 	},
 	{
@@ -291,9 +296,9 @@ const products = [
 		price: 189.99,
 		categoryName: "Automotive",
 		images: [
-			"https://images.unsplash.com/photo-1588950849846-a7e516139785?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-			"https://images.unsplash.com/photo-1583418007992-a8e33a92e7a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-			"https://images.unsplash.com/photo-1603798125914-7b5d27789248?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1558203728-00f45181dd84?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1589966468233-6befb2faa37e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1512446816042-444d641267d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
 	},
 

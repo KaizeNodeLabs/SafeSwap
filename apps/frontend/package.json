@@ -9,7 +9,7 @@
 		"lint": "biome check --write ."
 	},
 	"dependencies": {
-		"@apollo/client": "^3.13.4",
+		"@apollo/client": "^3.13.5",
 		"@creit.tech/stellar-wallets-kit": "^1.6.1",
 		"@hookform/resolvers": "^3.10.0",
 		"@radix-ui/react-dialog": "^1.1.6",
