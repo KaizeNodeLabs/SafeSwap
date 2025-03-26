@@ -1,5 +1,4 @@
 export interface Product {
-	images: any;
 	condition: string;
 	id: string;
 	name: string;
