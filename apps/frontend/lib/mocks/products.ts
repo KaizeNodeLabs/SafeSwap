@@ -1,6 +1,6 @@
-import type { Product } from "@/lib/types/product";
+import type { Shopping } from "@/lib/types/product";
 
-export const products: Product[] = [
+export const products: Shopping[] = [
 	{
 		id: 1,
 		name: "MacBook Pro 14",

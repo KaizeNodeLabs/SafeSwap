@@ -1,4 +1,5 @@
 export interface Product {
+	images: { src: string; alt: string }[];
 	condition: string;
 	id: string;
 	name: string;
@@ -45,3 +46,17 @@ export interface CategoriesData {
 export interface ProductImagesData {
 	productImages: ProductImage[];
 }
+
+export type Shopping = {
+	id: number;
+	name: string;
+	price: number;
+	category: string;
+	categoryId?: string;
+	description: string;
+	images: {
+		src: string;
+		alt: string;
+	}[];
+	starts: number;
+};
