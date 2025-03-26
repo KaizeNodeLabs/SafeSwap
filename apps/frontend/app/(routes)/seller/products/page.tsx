@@ -26,7 +26,7 @@ import { useState } from "react";
 
 const columnMappings: Record<string, keyof (typeof initialProducts)[0]> = {
 	product: "name",
-	category: "category",
+	category: "categoryId",
 	price: "price",
 };
 
@@ -41,7 +41,7 @@ export default function MyProductsPage() {
 		.filter(
 			(product) =>
 				product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-				product.category.toLowerCase().includes(searchQuery.toLowerCase()),
+				product.categoryId.toLowerCase().includes(searchQuery.toLowerCase()),
 		)
 		.sort((a, b) => {
 			if (!sortColumn) return 0;
@@ -134,7 +134,7 @@ export default function MyProductsPage() {
 										/>
 										<span>{product.name}</span>
 									</TableCell>
-									<TableCell>{product.category}</TableCell>
+									<TableCell>{product.categoryId}</TableCell>
 									<TableCell>${product.price}</TableCell>
 									<TableCell>
 										<div className="flex items-center gap-2">
