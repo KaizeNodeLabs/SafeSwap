@@ -60,6 +60,7 @@ export default function useFilteredProducts(
 					images: productImagesMap[product.id] || [
 						{ src: PLACEHOLDER_IMAGE, alt: `${product.name} image` },
 					],
+					condition: [product.condition || "New"],
 				}),
 			);
 
