@@ -369,9 +369,13 @@ export const en = {
 		description:
 			"Join our decentralized marketplace and start selling with Stellar escrow. Secure, fast and no storefront needed.",
 		form: {
+			name: "Name",
+			namePlaceholder: "Enter your first name",
+			surname: "Surname",
+			surnamePlaceholder: "Enter your last name",
 			email: "Email",
 			emailPlaceholder: "email@gmail.com",
-			wallet: "Stellar Wallet Address",
+			wallet: "Wallet Address",
 			walletPlaceholder: "GDDG...P5E7",
 			telegram: "Telegram Username (Optional)",
 			telegramPlaceholder: "@username",
@@ -381,8 +385,12 @@ export const en = {
 			termsDescription:
 				"By checking this box, you agree to our Terms of Service and Privacy Policy.",
 			submitButton: "Start Selling",
+			not_connected: "Not Connected",
+			your_wallet_address: "Your Wallet Address is ",
 		},
 		errors: {
+			name: "Name must be between 2 and 50 characters",
+			surname: "Surname must be between 2 and 50 characters",
 			email: "Email must be in a valid format.",
 			wallet:
 				"Stellar wallet address must start with 'G' and be 56 characters long.",
