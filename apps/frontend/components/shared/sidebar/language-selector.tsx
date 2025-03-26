@@ -51,7 +51,7 @@ export const LanguageSelector = () => {
 			</SelectTrigger>
 			<SelectContent className="min-w-[70px]">
 				<SelectItem value="en" className="text-sm">
-					<div className="flex items-center gap-2">
+					<div className="flex items-center gap-2 mr-4">
 						<Image
 							src="/images/en-flag.svg"
 							alt="English"

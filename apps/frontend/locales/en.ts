@@ -613,6 +613,14 @@ export const en = {
 		paymentErrorTitle: "Payment Failed",
 		paymentErrorDescription: "There was an error processing your payment.",
 	},
+	categories: {
+		title: "Browse Categories",
+		description:
+			"Discover our wide range of products organized by category. Find exactly what you're looking for with our intuitive navigation system.",
+		searchPlaceholder: "Search categories...",
+		viewProducts: "View products",
+		noResults: "No categories found.",
+	},
 
 	profile: {
 		label: {

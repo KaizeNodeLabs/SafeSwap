@@ -7,6 +7,7 @@ import { Logo } from "@/components/shared/logo";
 import { Button } from "@/components/ui/button";
 import { useStellarData } from "@/hooks/useStellarData";
 import { useTranslations } from "next-intl";
+import { FloatingSettings } from "./floating-settings";
 
 export function Hero() {
 	const t = useTranslations();
@@ -19,6 +20,8 @@ export function Hero() {
 
 	return (
 		<div className="relative flex flex-col items-center justify-center min-h-[90vh] text-center px-4 overflow-hidden dark:bg-gray-900 dark:text-white">
+			<FloatingSettings />
+
 			<div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-background dark:from-primary/5 dark:via-gray-800 dark:to-gray-900" />
 
 			<div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] dark:bg-[linear-gradient(to_right,#444_1px,transparent_1px),linear-gradient(to_bottom,#444_1px,transparent_1px)]" />

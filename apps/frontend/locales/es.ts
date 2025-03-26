@@ -576,6 +576,14 @@ export const es = {
 		paymentErrorTitle: "Error en el Pago",
 		paymentErrorDescription: "Hubo un error al procesar tu pago.",
 	},
+	categories: {
+		title: "Explorar Categorías",
+		description:
+			"Descubre nuestra amplia gama de productos organizados por categoría. Encuentra exactamente lo que buscas con nuestro sistema de navegación intuitivo.",
+		searchPlaceholder: "Buscar categorías...",
+		viewProducts: "Ver productos",
+		noResults: "No se encontraron categorías.",
+	},
 
 	profile: {
 		label: {

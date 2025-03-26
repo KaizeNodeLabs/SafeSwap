@@ -23,7 +23,6 @@ import { SidebarGroupKeys } from "@/lib/types/sidebar";
 import { useTranslations } from "next-intl";
 import { Logo } from "../logo";
 import { CollapsibleSidebarGroup } from "./collapsible-sidebar-group";
-import { SidebarSettings } from "./sidebar-settings";
 
 export function SafeSwapSidebar() {
 	const t = useTranslations();
@@ -86,9 +85,6 @@ export function SafeSwapSidebar() {
 					isCollapsed={collapsedGroups.seller}
 					toggle={() => toggleGroup("seller")}
 				/>
-
-				{/* Dark Mode & Language Selector */}
-				<SidebarSettings />
 			</SidebarContent>
 			<SidebarRail />
 		</Sidebar>
