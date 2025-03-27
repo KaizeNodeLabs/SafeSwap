@@ -55,7 +55,7 @@ const products = [
 		categoryName: "Electronics",
 		images: [
 			"https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-			"https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1700805732158-6f1169780ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1494173853739-c21f58b16055?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
 	},
@@ -67,7 +67,7 @@ const products = [
 		categoryName: "Electronics",
 		images: [
 			"https://images.unsplash.com/photo-1558203728-00f45181dd84?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-			"https://images.unsplash.com/photo-1589966468233-6befb2faa37e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1695480571861-90044e831733?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1512446816042-444d641267d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
 	},
@@ -215,7 +215,7 @@ const products = [
 		categoryName: "Beauty & Health",
 		images: [
 			"https://images.unsplash.com/photo-1558203728-00f45181dd84?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-			"https://images.unsplash.com/photo-1589966468233-6befb2faa37e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1503328427499-d92d1ac3d174?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1512446816042-444d641267d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
 	},
@@ -226,7 +226,7 @@ const products = [
 		categoryName: "Beauty & Health",
 		images: [
 			"https://images.unsplash.com/photo-1558203728-00f45181dd84?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-			"https://images.unsplash.com/photo-1589966468233-6befb2faa37e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1721379851141-e957fdf35c2e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1512446816042-444d641267d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
 	},
@@ -249,7 +249,7 @@ const products = [
 		categoryName: "Toys & Games",
 		images: [
 			"https://images.unsplash.com/photo-1558203728-00f45181dd84?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-			"https://images.unsplash.com/photo-1589966468233-6befb2faa37e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1613404196612-e058bb5aa01a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1512446816042-444d641267d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
 	},
@@ -261,7 +261,7 @@ const products = [
 		categoryName: "Toys & Games",
 		images: [
 			"https://images.unsplash.com/photo-1587654780291-39c9404d746b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-			"https://images.unsplash.com/photo-1558060370-d644485927b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1631106256072-54c89defe828?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1516981879613-9f5da904015f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
 	},
@@ -274,7 +274,7 @@ const products = [
 		categoryName: "Automotive",
 		images: [
 			"https://images.unsplash.com/photo-1558203728-00f45181dd84?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-			"https://images.unsplash.com/photo-1589966468233-6befb2faa37e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1498887960847-2a5e46312788?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1512446816042-444d641267d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
 	},
@@ -286,7 +286,7 @@ const products = [
 		categoryName: "Automotive",
 		images: [
 			"https://images.unsplash.com/photo-1558203728-00f45181dd84?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-			"https://images.unsplash.com/photo-1589966468233-6befb2faa37e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1498887960847-2a5e46312788?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1512446816042-444d641267d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
 	},
@@ -297,7 +297,7 @@ const products = [
 		categoryName: "Automotive",
 		images: [
 			"https://images.unsplash.com/photo-1558203728-00f45181dd84?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-			"https://images.unsplash.com/photo-1589966468233-6befb2faa37e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1611004061856-ccc3cbe944b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1512446816042-444d641267d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
 	},
@@ -344,7 +344,7 @@ const products = [
 		categoryName: "Electronics",
 		images: [
 			"https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-			"https://images.unsplash.com/photo-1608156639585-b3a032e70778?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1590658006821-04f4008d5717?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
 	},
 	{
@@ -355,7 +355,7 @@ const products = [
 		categoryName: "Electronics",
 		images: [
 			"https://images.unsplash.com/photo-1558203728-00f45181dd84?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-			"https://images.unsplash.com/photo-1589966468233-6befb2faa37e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+			"https://images.unsplash.com/photo-1511842745775-b366af36db2a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1512446816042-444d641267d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
 	},
