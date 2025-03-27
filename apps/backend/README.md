@@ -92,6 +92,12 @@ backend/
     ```bash
     npm run db:migrate
     ```
+
+    Optionally, populate the database with seed data:
+
+    ```bash
+    npm run seed
+    ```
     
     Check database records using **Prisma Studio**:
     
@@ -122,6 +128,7 @@ backend/
 - `npm run db:migrate` - Apply database migrations
 - `npm run db:push` - Update the database schema without migrations
 - `npm run db:studio` - Open Prisma Studio for database inspection
+- `npm run seed` - Populate the database with initial seed data
 
 ## Development Guidelines 📋
 
