@@ -5,6 +5,7 @@ import {
 	TimeRange,
 } from "@/components/seller/mock/sales-analytics.mock";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useTranslations } from "next-intl";
 import {
 	Cell,
 	Pie,
@@ -25,19 +26,12 @@ interface LabelProps {
 }
 
 export function CategoryChart({ data, timeRange }: CategoryChartProps) {
+	const t = useTranslations();
 	const getTitle = () => {
-		switch (timeRange) {
-			case "Monthly":
-				return "Categories This Month";
-			case "Quarterly":
-				return "Categories This Quarter";
-			case "Yearly":
-				return "Categories This Year";
-			case "All Time":
-				return "Categories All Time";
-			default:
-				return "Categories";
-		}
+		return (
+			t(`Sales.analytics.categoryChart.title.${timeRange}`) ||
+			t("Sales.analytics.categoryChart.title.default")
+		);
 	};
 
 	return (
@@ -45,7 +39,7 @@ export function CategoryChart({ data, timeRange }: CategoryChartProps) {
 			<CardHeader className="mb-4">
 				<CardTitle className="text-2xl font-semibold">{getTitle()}</CardTitle>
 				<p className="text-sm text-muted-foreground pl-4">
-					Sales breakdown by category
+					{t("Sales.analytics.categoryChart.subtitle")}
 				</p>
 			</CardHeader>
 			<CardContent className="h-[300px]">
@@ -76,7 +70,9 @@ export function CategoryChart({ data, timeRange }: CategoryChartProps) {
 											<div className="grid grid-cols-2 gap-2">
 												<div className="flex flex-col">
 													<span className="text-[0.70rem] uppercase text-muted-foreground">
-														Category
+														{t(
+															"Sales.analytics.categoryChart.tooltip.category",
+														)}
 													</span>
 													<span className="font-bold text-muted-foreground">
 														{data.name}
@@ -84,7 +80,9 @@ export function CategoryChart({ data, timeRange }: CategoryChartProps) {
 												</div>
 												<div className="flex flex-col">
 													<span className="text-[0.70rem] uppercase text-muted-foreground">
-														Percentage
+														{t(
+															"Sales.analytics.categoryChart.tooltip.percentage",
+														)}
 													</span>
 													<span className="font-bold">{data.value}%</span>
 												</div>
