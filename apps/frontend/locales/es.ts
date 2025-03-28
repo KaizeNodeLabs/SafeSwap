@@ -233,5 +233,20 @@ export const es = {
 		addToCart: "Añadir al Carrito",
 		chatWithSeller: "Chatear con Vendedor",
 	},
+	settings: {
+		aparrence: "Apariencia",
+		theme: "Tema",
+		themeDescription: "Elige tu tema preferido.",
+		light: "Claro",
+		dark: "Oscuro",
+		language: "Idioma",
+		languageDescription: "Selecciona tu idioma preferido.",
+		english: "Inglés",
+		spanish: "Español",
+		notifications: "Notificaciones",
+		notificationsLabel: "Preferencias de notificación",
+		notificationsDescription: "Administra tus preferencias de notificación.",
+	},
+
 	// Add more sections as needed
 };

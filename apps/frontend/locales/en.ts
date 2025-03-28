@@ -230,5 +230,19 @@ export const en = {
 		addToCart: "Add to Cart",
 		chatWithSeller: "Chat with Seller",
 	},
+	settings: {
+		aparrence: "Appearance",
+		theme: "Theme",
+		themeDescription: "Choose your preferred theme.",
+		light: "Light",
+		dark: "Dark",
+		language: "Language",
+		languageDescription: "Select your preferred language.",
+		english: "English",
+		spanish: "Spanish",
+		notifications: "Notifications",
+		notificationsLabel: "Notification Preferences",
+		notificationsDescription: "Manage your notification preferences.",
+	},
 	// Add more sections as needed
 };
