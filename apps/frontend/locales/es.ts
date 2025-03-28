@@ -491,7 +491,7 @@ export const es = {
 			all: "Todas",
 			pending: "Pendientes",
 			onDispute: "En Disputa",
-			forReview: "En Revisión",
+			forReview: "Para Revisar",
 			approved: "Aprobadas",
 		},
 		table: {
@@ -503,10 +503,10 @@ export const es = {
 			escrowStatus: "Estado de Custodia",
 		},
 		status: {
-			approved: "Aprobado",
+			approved: "Aprobada",
 			pending: "Pendiente",
+			forReview: "Para Revisar",
 			onDispute: "En Disputa",
-			forReview: "En Revisión",
 		},
 		milestones: {
 			title: "Hitos",
@@ -515,12 +515,54 @@ export const es = {
 			status: "Estado",
 			actions: "Acciones",
 			complete: "Completar",
-			orderPlaced: "Pedido realizado",
-			paymentConfirmed: "Pago confirmado",
-			productShipped: "Producto enviado",
-			deliveryExpected: "Entrega esperada",
+			orderPlaced: "Pedido Realizado",
+			paymentConfirmed: "Pago Confirmado",
+			productShipped: "Producto Enviado",
+			deliveryExpected: "Entrega Esperada",
 		},
-		total: "Total de Compras",
+		total: "Ventas Totales",
+		analytics: {
+			overview: "Resumen de Ventas",
+			timeRanges: {
+				Monthly: "Mensual",
+				Quarterly: "Trimestral",
+				Yearly: "Anual",
+				"All Time": "Todo el Período",
+			},
+			stats: {
+				totalSales: "Ventas Totales",
+				averageOrder: "Pedido Promedio",
+				totalOrders: "Pedidos Totales",
+			},
+			salesChart: {
+				title: {
+					Monthly: "Ventas de este Mes",
+					Quarterly: "Ventas de este Trimestre",
+					Yearly: "Ventas de este Año",
+					"All Time": "Ventas Totales",
+					default: "Ventas",
+				},
+				subtitle: "Número de ventas en el tiempo",
+				tooltip: {
+					date: "Fecha",
+					sales: "Ventas",
+				},
+			},
+			categoryChart: {
+				title: {
+					Monthly: "Categorías de este Mes",
+					Quarterly: "Categorías de este Trimestre",
+					Yearly: "Categorías de este Año",
+					"All Time": "Categorías Totales",
+					default: "Categorías",
+				},
+				subtitle: "Desglose de ventas por categoría",
+				tooltip: {
+					category: "Categoría",
+					percentage: "Porcentaje",
+				},
+			},
+		},
 	},
 
 	filters: {

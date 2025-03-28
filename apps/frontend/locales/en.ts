@@ -517,46 +517,47 @@ export const en = {
 			deliveryExpected: "Delivery Expected",
 		},
 		total: "Total Shopping",
-		Sales: {
-			title: "My Sales",
-			searchPlaceholder: "Search sales...",
-			filters: {
-				all: "All",
-				pending: "Pending",
-				onDispute: "On Dispute",
-				forReview: "For Review",
-				approved: "Approved",
+		analytics: {
+			overview: "Sales Overview",
+			timeRanges: {
+				Monthly: "Monthly",
+				Quarterly: "Quarterly",
+				Yearly: "Yearly",
+				"All Time": "All Time",
 			},
-			table: {
-				shoppingDate: "Shopping Date",
-				productName: "Product Name",
-				shoppingId: "Shopping ID",
-				price: "Price",
-				buyer: "Buyer",
-				escrowStatus: "Escrow Status",
+			stats: {
+				totalSales: "Total Sales",
+				averageOrder: "Average Order",
+				totalOrders: "Total Orders",
 			},
-			status: {
-				approved: "Approved",
-				pending: "Pending",
-				onDispute: "On Dispute",
-				forReview: "For Review",
-			},
-			milestones: {
-				title: "Milestones",
-				date: "Date",
-				name: "Name",
-				status: "Status",
-				actions: "Actions",
-				complete: "Complete",
-
-				items: {
-					orderPlaced: "Order Placed",
-					paymentConfirmed: "Payment Confirmed",
-					productShipped: "Product Shipped",
-					deliveryExpected: "Delivery Expected",
+			salesChart: {
+				title: {
+					Monthly: "Sales This Month",
+					Quarterly: "Sales This Quarter",
+					Yearly: "Sales This Year",
+					"All Time": "Sales All Time",
+					default: "Sales",
+				},
+				subtitle: "Number of sales over time",
+				tooltip: {
+					date: "Date",
+					sales: "Sales",
 				},
 			},
-			total: "Total Shopping",
+			categoryChart: {
+				title: {
+					Monthly: "Categories This Month",
+					Quarterly: "Categories This Quarter",
+					Yearly: "Categories This Year",
+					"All Time": "Categories All Time",
+					default: "Categories",
+				},
+				subtitle: "Sales breakdown by category",
+				tooltip: {
+					category: "Category",
+					percentage: "Percentage",
+				},
+			},
 		},
 	},
 
@@ -610,7 +611,7 @@ export const en = {
 	},
 	notFound: {
 		title: "Page Not Found",
-		message: "The page you are looking for doesn’t exist or has been moved.",
+		message: "The page you are looking for doesn't exist or has been moved.",
 		browser: "Browse Marketplace",
 		return: "Go Home",
 	},
