@@ -5,6 +5,7 @@ import {
 	TimeRange,
 } from "@/components/seller/mock/sales-analytics.mock";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useTranslations } from "next-intl";
 import {
 	Line,
 	LineChart,
@@ -21,19 +22,12 @@ interface SalesChartProps {
 }
 
 export function SalesChart({ data, timeRange }: SalesChartProps) {
+	const t = useTranslations();
 	const getTitle = () => {
-		switch (timeRange) {
-			case "Monthly":
-				return "Sales This Month";
-			case "Quarterly":
-				return "Sales This Quarter";
-			case "Yearly":
-				return "Sales This Year";
-			case "All Time":
-				return "Sales All Time";
-			default:
-				return "Sales";
-		}
+		return (
+			t(`Sales.analytics.salesChart.title.${timeRange}`) ||
+			t("Sales.analytics.salesChart.title.default")
+		);
 	};
 
 	return (
@@ -41,7 +35,7 @@ export function SalesChart({ data, timeRange }: SalesChartProps) {
 			<CardHeader className="mb-4">
 				<CardTitle className="text-2xl font-semibold">{getTitle()}</CardTitle>
 				<p className="text-sm text-muted-foreground pl-4">
-					Number of sales over time
+					{t("Sales.analytics.salesChart.subtitle")}
 				</p>
 			</CardHeader>
 			<CardContent className="h-[300px]">
@@ -72,7 +66,7 @@ export function SalesChart({ data, timeRange }: SalesChartProps) {
 											<div className="grid grid-cols-2 gap-2">
 												<div className="flex flex-col">
 													<span className="text-[0.70rem] uppercase text-muted-foreground">
-														Date
+														{t("Sales.analytics.salesChart.tooltip.date")}
 													</span>
 													<span className="font-bold text-muted-foreground">
 														{new Date(data.date).toLocaleDateString()}
@@ -80,7 +74,7 @@ export function SalesChart({ data, timeRange }: SalesChartProps) {
 												</div>
 												<div className="flex flex-col">
 													<span className="text-[0.70rem] uppercase text-muted-foreground">
-														Sales
+														{t("Sales.analytics.salesChart.tooltip.sales")}
 													</span>
 													<span className="font-bold">${data.sales}</span>
 												</div>
