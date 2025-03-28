@@ -1,5 +1,12 @@
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
-import { Skeleton } from "@/components/ui/skeleton"
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
+import { MessageSquareMore, ShoppingBag } from "lucide-react";
+import { Button } from "../ui/button";
 
 export default function ProductCardSkeleton() {
   return (
@@ -21,10 +28,13 @@ export default function ProductCardSkeleton() {
         <Skeleton className="bg-muted-foreground/10 h-9 w-24" />
       </CardContent>
       <CardFooter className="flex flex-col gap-3 mt-auto">
-        <Skeleton className="bg-muted-foreground/10 h-10 w-full" />
-        <Skeleton className="bg-muted-foreground/10 h-10 w-full" />
+        <Button disabled className="flex w-full items-center gap-5 text-muted animate-pulse rounded-md bg-muted-foreground/10 ">
+          <ShoppingBag className="" /> <span>Buy Now</span>
+        </Button>
+        <Button disabled className="flex w-full items-center gap-5 text-muted animate-pulse rounded-md bg-muted-foreground/10">
+          <MessageSquareMore className="" /> <span>Chat with Stellar</span>
+        </Button>
       </CardFooter>
     </Card>
-  )
+  );
 }
-
