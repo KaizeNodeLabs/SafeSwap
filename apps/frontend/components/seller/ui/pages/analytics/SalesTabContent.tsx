@@ -1,14 +1,16 @@
-import { TimeRange } from "@/components/seller/mock/sales-analytics.mock";
+import {
+	CategorySales,
+	SalesAnalytics,
+	SalesByDay,
+	TimeRange,
+} from "@/components/seller/mock/sales-analytics.mock";
 import { CategoryChart } from "./CategoryChart";
 import { SalesChart } from "./SalesChart";
 import { StatsCards } from "./StatsCards";
 
 interface SalesTabContentProps {
 	range: TimeRange;
-	data: {
-		salesByDay: any[];
-		categorySales: any[];
-	};
+	data: SalesAnalytics;
 }
 
 export function SalesTabContent({ range, data }: SalesTabContentProps) {
@@ -18,8 +20,8 @@ export function SalesTabContent({ range, data }: SalesTabContentProps) {
 				<StatsCards data={data} />
 			</div>
 			<div className="grid gap-4 grid-cols-1 md:grid-cols-2">
-				<SalesChart data={data.salesByDay} />
-				<CategoryChart data={data.categorySales} />
+				<SalesChart data={data.salesByDay} timeRange={range} />
+				<CategoryChart data={data.categorySales} timeRange={range} />
 			</div>
 		</div>
 	);
