@@ -5,11 +5,13 @@ import {
 	mockSalesData,
 } from "@/components/seller/mock/sales-analytics.mock";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useTranslations } from "next-intl";
 import { CategoryChart } from "./CategoryChart";
 import { SalesChart } from "./SalesChart";
 import { StatsCards } from "./StatsCards";
 
 export function SalesAnalytics() {
+	const t = useTranslations();
 	const timeRanges: TimeRange[] = [
 		"Monthly",
 		"Quarterly",
@@ -22,7 +24,7 @@ export function SalesAnalytics() {
 			<TabsList>
 				{timeRanges.map((range) => (
 					<TabsTrigger key={range} value={range}>
-						{range}
+						{t(`Sales.analytics.timeRanges.${range}`)}
 					</TabsTrigger>
 				))}
 			</TabsList>
