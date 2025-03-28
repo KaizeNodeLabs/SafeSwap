@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
-import ProductCardSkeleton from "./productCardSkeleton";
+import ProductCardSkeleton from "./product-card-skeleton";
 
 import FilterModal from "@/components/marketplace/filter-modal";
 import ProductsNotFound from "@/components/marketplace/products-not-found";
