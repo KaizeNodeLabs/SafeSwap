@@ -1,6 +1,7 @@
 import { SalesAnalytics } from "@/components/seller/mock/sales-analytics.mock";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DollarSign, Package, TrendingUp } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface StatsCardsProps {
 	data: Pick<
@@ -10,6 +11,7 @@ interface StatsCardsProps {
 }
 
 export function StatsCards({ data }: StatsCardsProps) {
+	const t = useTranslations();
 	const currencyFormatter = new Intl.NumberFormat("en-US", {
 		style: "currency",
 		currency: "USD",
@@ -24,17 +26,17 @@ export function StatsCards({ data }: StatsCardsProps) {
 
 	const stats = [
 		{
-			title: "Total Sales",
+			title: t("Sales.analytics.stats.totalSales"),
 			value: currencyFormatter.format(data.totalSales),
 			icon: DollarSign,
 		},
 		{
-			title: "Average Order",
+			title: t("Sales.analytics.stats.averageOrder"),
 			value: currencyFormatter.format(data.averageOrderValue),
 			icon: TrendingUp,
 		},
 		{
-			title: "Total Orders",
+			title: t("Sales.analytics.stats.totalOrders"),
 			value: numberFormatter.format(data.totalOrders),
 			icon: Package,
 		},
