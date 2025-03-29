@@ -78,6 +78,15 @@ export default function ProductList() {
 		fetchData();
 	}, []);
 
+	// State for pagination
+	const [currentPage, setCurrentPage] = useState(1);
+	const [pageSize, setPageSize] = useState(10);
+
+	// Reset to page 1 when filters or pageSize changes
+	useEffect(() => {
+		setCurrentPage(1);
+	}, [filters, pageSize]);
+
 	const filteredProducts = useFilteredProducts(
 		productsData,
 		categoriesData,
@@ -85,6 +94,11 @@ export default function ProductList() {
 		filters,
 		loading,
 	);
+
+	const startIndex = (currentPage - 1) * pageSize;
+	const endIndex = startIndex + pageSize;
+	const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
+	const totalPages = Math.ceil(filteredProducts.length / pageSize);
 
 	const handleClearFilters = () => {
 		setFilters(initialFilters);
@@ -110,12 +124,19 @@ export default function ProductList() {
 					<ProductsNotFound onClear={handleClearFilters} />
 				) : (
 					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-						{filteredProducts.map((product) => (
+						{paginatedProducts.map((product) => (
 							<ProductCard key={product.id} product={product} t={t} />
 						))}
 					</div>
 				)}
-				<ProductsPagination />
+				<ProductsPagination
+					currentPage={currentPage}
+					totalPages={totalPages}
+					setCurrentPage={setCurrentPage}
+					pageSize={pageSize}
+					setPageSize={setPageSize}
+				/>
+
 			</section>
 		</>
 	);
