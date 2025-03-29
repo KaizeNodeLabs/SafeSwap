@@ -22,6 +22,7 @@ import { useTranslations } from "@/hooks/useTranslations";
 import { Bell, Moon, SunMedium } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { LanguageSelector } from "../shared/sidebar/language-selector";
 
 export default function Settings() {
 	const [mounted, setMounted] = useState(false);
@@ -98,24 +99,8 @@ export default function Settings() {
 									</p>
 								</div>
 
-								<div className="w-full md:w-2/12">
-									<Select
-										defaultValue="english"
-										value={locale}
-										onValueChange={setLocale}
-									>
-										<SelectTrigger id="language" className="w-full">
-											<SelectValue placeholder="Select language" />
-										</SelectTrigger>
-										<SelectContent>
-											<SelectItem value="en">
-												{t("settings.english")}
-											</SelectItem>
-											<SelectItem value="es">
-												{t("settings.spanish")}
-											</SelectItem>
-										</SelectContent>
-									</Select>
+								<div className="w-full md:w-auto">
+									<LanguageSelector />
 								</div>
 							</div>
 						</div>
