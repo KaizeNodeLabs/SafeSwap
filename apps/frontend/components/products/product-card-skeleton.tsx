@@ -28,12 +28,8 @@ export default function ProductCardSkeleton() {
         <Skeleton className="bg-muted-foreground/10 h-9 w-24" />
       </CardContent>
       <CardFooter className="flex flex-col gap-3 mt-auto">
-        <Button disabled className="flex w-full items-center gap-5 text-muted animate-pulse rounded-md bg-muted-foreground/10 ">
-          <ShoppingBag className="" /> <span>Buy Now</span>
-        </Button>
-        <Button disabled className="flex w-full items-center gap-5 text-muted animate-pulse rounded-md bg-muted-foreground/10">
-          <MessageSquareMore className="" /> <span>Chat with Stellar</span>
-        </Button>
+        <Skeleton className="flex w-full h-10 items-center gap-5 text-muted animate-pulse rounded-md bg-muted-foreground/10 " />
+        <Skeleton className="flex w-full h-10 items-center gap-5 text-muted animate-pulse rounded-md bg-muted-foreground/10" />
       </CardFooter>
     </Card>
   );
