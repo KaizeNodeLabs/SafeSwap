@@ -10,7 +10,7 @@ import {
 	DialogHeader,
 	DialogTitle,
 } from "@/components/ui/dialog";
-import { useTranslations } from "@/hooks/useTranslations";
+import { useTranslations } from "next-intl";
 
 interface CartItem {
 	id: string;
@@ -47,7 +47,7 @@ export function ShoppingCartModal({
 	isOpen,
 	onOpenChange,
 }: ShoppingCartModalProps) {
-	const { t } = useTranslations();
+	const t = useTranslations();
 
 	const updateQuantity = (itemId: string, change: number) => {
 		// Implement quantity update logic

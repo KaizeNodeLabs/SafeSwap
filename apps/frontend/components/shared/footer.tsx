@@ -3,10 +3,10 @@
 import Link from "next/link";
 
 import { Logo } from "@/components/shared/logo";
-import { useTranslations } from "@/hooks/useTranslations";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
-	const { t } = useTranslations();
+	const t = useTranslations();
 
 	return (
 		<footer className="flex items-center justify-between px-6 py-4 border-t">

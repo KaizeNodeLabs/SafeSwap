@@ -10,10 +10,10 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-import { useTranslations } from "@/hooks/useTranslations";
+import { useTranslations } from "next-intl";
 
 export function DeliveryCountry() {
-	const { t } = useTranslations();
+	const t = useTranslations();
 	return (
 		<div className="flex items-center">
 			<MapPin />

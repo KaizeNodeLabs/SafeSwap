@@ -1,11 +1,11 @@
 "use client";
 
-import { useTranslations } from "@/hooks/useTranslations";
 import { PackageX } from "lucide-react";
+import { useTranslations } from "next-intl";
 import NotFound from "../shared/not-found";
 
 const ProductNotFound = () => {
-	const { t } = useTranslations();
+	const t = useTranslations();
 
 	return (
 		<>

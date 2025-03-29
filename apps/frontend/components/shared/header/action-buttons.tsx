@@ -4,7 +4,7 @@ import { Bell, Wallet } from "lucide-react";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import { useTranslations } from "@/hooks/useTranslations";
+import { useTranslations } from "next-intl";
 import {
 	Tooltip,
 	TooltipContent,
@@ -16,7 +16,7 @@ import { SearchBar } from "./search-bar";
 import { ShoppingCartModal } from "./shopping-cart-modal";
 
 export const ActionButtons = () => {
-	const { t } = useTranslations();
+	const t = useTranslations();
 	const [isWalletModalOpen, setIsWalletModalOpen] = useState(false);
 	const [isCartModalOpen, setIsCartModalOpen] = useState(false);
 

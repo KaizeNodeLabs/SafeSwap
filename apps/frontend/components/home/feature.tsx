@@ -2,10 +2,10 @@
 
 import { BarChart3, Coins, Lock, Shield, Users, Zap } from "lucide-react";
 
-import { useTranslations } from "@/hooks/useTranslations";
+import { useTranslations } from "next-intl";
 
-export function FeatureSection() {
-	const { t } = useTranslations();
+export function Feature() {
+	const t = useTranslations();
 
 	const features = [
 		{

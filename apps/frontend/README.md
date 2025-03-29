@@ -59,14 +59,21 @@ The `.cursorrules` file defines coding standards and development guidelines:
 ## Getting Started 🚀
 
 1. Install dependencies:
-```bash
-npm install
-```
+    ```bash
+    npm install
+    ```
 
-2. Run development server:
-```bash
-npm run dev
-```
+2. Configure Environment Variables:
+    Create a `.env` file based on `.env.example`:
+
+    ```bash
+    cp .env.example .env
+    ```
+
+3. Run development server:
+    ```bash
+    npm run dev
+    ```
 
 Open [http://localhost:3000](http://localhost:3000)
 

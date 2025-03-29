@@ -5,13 +5,23 @@ import Link from "next/link";
 
 import { Logo } from "@/components/shared/logo";
 import { Button } from "@/components/ui/button";
-import { useTranslations } from "@/hooks/useTranslations";
+import { useStellarData } from "@/hooks/useStellarData";
+import { useTranslations } from "next-intl";
+import { FloatingSettings } from "./floating-settings";
 
-export function HeroSection() {
-	const { t } = useTranslations();
+export function Hero() {
+	const t = useTranslations();
+	const { networkStatus, gasFees, tradingVolume } = useStellarData();
+
+	const normalizedStatus = networkStatus.toLowerCase().replace("...", "");
+	const translatedStatus = t(
+		`common.hero.stats.statusValue.${normalizedStatus}`,
+	);
 
 	return (
 		<div className="relative flex flex-col items-center justify-center min-h-[90vh] text-center px-4 overflow-hidden dark:bg-gray-900 dark:text-white">
+			<FloatingSettings />
+
 			<div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-background dark:from-primary/5 dark:via-gray-800 dark:to-gray-900" />
 
 			<div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] dark:bg-[linear-gradient(to_right,#444_1px,transparent_1px),linear-gradient(to_bottom,#444_1px,transparent_1px)]" />
@@ -49,18 +59,19 @@ export function HeroSection() {
 					</Link>
 				</div>
 
-				<div className="mt-16 flex gap-8 justify-center items-center text-sm text-muted-foreground dark:text-gray-400">
+				<div className="mt-16 mb-16 flex flex-col sm:mb-0 sm:flex-row gap-8 justify-center items-center text-sm text-muted-foreground dark:text-gray-400">
 					<div className="flex items-center gap-2">
 						<span className="inline-block w-2 h-2 rounded-full bg-green-500 dark:bg-green-400" />
 						{t("common.hero.stats.status")}:{" "}
-						{t("common.hero.stats.statusValue")}
+						<span className="text-2m">{translatedStatus}</span>
 					</div>
 					<div>
 						{t("common.hero.stats.volume")}:{" "}
-						{t("common.hero.stats.volumeValue")}
+						<span className="text-2m">{tradingVolume}</span>
 					</div>
 					<div>
-						{t("common.hero.stats.gas")}: {t("common.hero.stats.gasValue")}
+						{t("common.hero.stats.gas")}:{" "}
+						<span className="text-2m">{gasFees}</span>
 					</div>
 				</div>
 			</div>

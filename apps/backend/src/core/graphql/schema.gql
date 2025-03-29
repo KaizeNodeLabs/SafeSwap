@@ -22,6 +22,16 @@ input CreateProductInput {
   slug: String!
 }
 
+input CreateUserInput {
+  country: String!
+  email: String!
+  isSeller: Boolean! = false
+  name: String!
+  surname: String!
+  telegramUsername: String
+  walletAddress: String!
+}
+
 """
 A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
 """
@@ -31,6 +41,8 @@ type Mutation {
   createCategory(data: CreateCategoryInput!): Category!
   createProduct(data: CreateProductInput!): ProductDTO!
   createProductImage(createProductImage: ProductImageDTO!): ProductImage!
+  createUser(data: CreateUserInput!): User!
+  updateUser(data: UpdateUserInput!, walletAddress: String!): User!
 }
 
 type ProductDTO {
@@ -64,4 +76,28 @@ type Query {
   productImage(id: String!): ProductImage
   productImages: [ProductImage!]!
   products: [ProductDTO!]!
+  user(walletAddress: String!): User
+  users: [User!]!
+}
+
+input UpdateUserInput {
+  country: String
+  email: String
+  isSeller: Boolean = false
+  name: String
+  surname: String
+  telegramUsername: String
+  walletAddress: String
+}
+
+type User {
+  country: String!
+  createdAt: DateTime!
+  email: String!
+  isSeller: Boolean!
+  name: String!
+  surname: String!
+  telegramUsername: String
+  updatedAt: DateTime!
+  walletAddress: String!
 }

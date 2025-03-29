@@ -19,13 +19,13 @@ import {
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Switch } from "@/components/ui/switch";
-import { useTranslations } from "@/hooks/useTranslations";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../../ui/tooltip";
 import { LanguageSelector } from "../sidebar/language-selector";
 
 export const UserMenu = () => {
-	const { t } = useTranslations();
+	const t = useTranslations();
 	const { theme, setTheme } = useTheme();
 	const [mounted, setMounted] = useState(false);
 	const [isOpen, setIsOpen] = useState(false);

@@ -13,10 +13,19 @@ export const es = {
 		search: "Traducción",
 		shipTo: "Enviar a",
 		wallet: {
-			title: "Conecta tu Billetera",
+			title: "Conecta tu Wallet",
 			description:
-				"Elige una billetera para habilitar transacciones seguras en SafeSwap.",
+				"Elige una wallet para habilitar transacciones seguras en SafeSwap.",
 			connect: "Conectando a",
+			connected: "Wallet Conectada",
+			connected_description: "Tu wallet está conectada correctamente.",
+			connect_success: "exitosamente!",
+			error_connecting: "Error al conectar la wallet",
+			unexpected_error: "Error inesperado al conectar la wallet",
+			error_disconnecting: "Error al desconectar la wallet",
+			connecting: "Conectando...",
+			connected_status: "Conectada",
+			disconnect: "Desconectar",
 		},
 
 		cart: {
@@ -128,7 +137,11 @@ export const es = {
 			exploreButton: "Explorar Mercado",
 			stats: {
 				status: "Estado de la Red",
-				statusValue: "Activo",
+				statusValue: {
+					active: "Activo",
+					inactive: "Inactivo",
+					loading: "Cargando...",
+				},
 				volume: "Volumen 24h",
 				volumeValue: "$1.2M",
 				gas: "Gas",
@@ -169,6 +182,12 @@ export const es = {
 				increase: "Aumentar cantidad",
 				decrease: "Disminuir cantidad",
 			},
+		},
+		seller: {
+			title: "¿Listo para empezar a vender?",
+			description:
+				"¡Únete a SafeSwap y llega a miles de compradores hoy mismo!",
+			btn_label: "Conviértete en Vendedor",
 		},
 
 		createProduct: {
@@ -224,8 +243,54 @@ export const es = {
 						"Auriculares inalámbricos con cancelación activa de ruido.",
 				},
 			},
+			sales: {
+				myProducts: "Mis productos",
+				myProductsMessage: "Estos son los productos que quieres vender.",
+				searchProducts: "Buscar productos...",
+				table: {
+					actions: "Acciones",
+					product: "Producto",
+					category: "Categoría",
+					price: "Precio",
+				},
+			},
+		},
+		featuredProducts: {
+			items: {
+				"1": { name: "MacBook Pro 14" },
+				"2": { name: "Samsung Galaxy S24 FE" },
+				"3": { name: "Silla Ergonómica" },
+				"4": { name: "Cafetera" },
+				"5": { name: "Zapatillas para Correr" },
+				"6": { name: "Auriculares Inalámbricos" },
+			},
+		},
+		featuredProductsTitle: {
+			title: "Productos Destacados",
 		},
 	},
+
+	sidebar: {
+		language: {
+			successMessage: "El idioma del sitio web se ha cambiado exitosamente.",
+			errorMessage: "Hubo un error al cambiar el idioma del sitio web.",
+		},
+		options: {
+			profile: "Perfil",
+			home: "Inicio",
+			shopping: "Compras",
+			settings: "Ajustes",
+			marketplace: "Tienda",
+			categories: "Categorias",
+			becomeASeller: "Convertirse en vendedor",
+			sellAProduct: "Vender un producto",
+			productsOnSale: "Productos en venta",
+			salesDashboard: "Panel de ventas",
+			explore: "Explorar",
+			seller: "Vendedor",
+		},
+	},
+
 	marketplace: {
 		filters: "Filtros",
 		priceRange: "Rango de Precio",
@@ -247,6 +312,324 @@ export const es = {
 		notificationsLabel: "Preferencias de notificación",
 		notificationsDescription: "Administra tus preferencias de notificación.",
 	},
+	exploreCategories: {
+		title: "Explora nuestras colecciones",
+		viewAll: "Ver todas las categorías",
+		newCollection: "NUEVA COLECCIÓN",
+		performance: "Rendimiento",
+		performanceDescription:
+			"Descubre nuestra nueva línea de calzado diseñado para superar tus límites y alcanzar tu máximo rendimiento.",
+		exploreCollection: "Explorar colección",
+		newArrivals: "RECIÉN LLEGADOS",
+		newArrivalsTitle: "Nuevos Arribos",
+		discover: "Descubrir",
+		dailyStyle: "ESTILO DIARIO",
+		casual: "Casual",
+		viewProducts: "Ver productos",
+		athletes: "Atletas",
+		basics: "BÁSICOS",
+		essentials: "Esenciales",
+		viewCollection: "Ver colección",
+	},
 
+	advantagesOfSafeSwap: {
+		title: "Impulsado por Stellar y Trustless Work",
+		subtitle:
+			"Garantizar transacciones seguras y transparentes con la tecnología blockchain",
+		items: {
+			trustlessWork: {
+				title: "Protección de depósito de garantía automatizada",
+				description:
+					"Trustless Work API la complejidad de los contratos inteligentes, aprovechando Stellar para garantizar transacciones seguras, imparciales y transparentes.",
+				link: "https://www.trustlesswork.com/",
+				buttonName: "Trustless Work",
+			},
+			introToStellar: {
+				title: "Pagos instantáneos con tarifas mínimas",
+				description:
+					"Basado en Stellar, SafeSwap permite transacciones casi instantáneas con tarifas insignificantes, lo que hace que los pagos transfronterizos sean fluidos.",
+				link: "https://www.stellar.org/learn/intro-to-stellar",
+				buttonName: "Introducción a Stellar",
+			},
+			powerOfStellar: {
+				title: "Confianza y equidad globales",
+				description:
+					"Utilizando el libro de contabilidad descentralizado de Stellar, SafeSwap garantiza transacciones justas sin intermediarios, brindando igualdad de acceso para todos los usuarios.",
+				link: "https://www.stellar.org/learn/the-power-of-stellar",
+				buttonName: "Poder de Stellar",
+			},
+		},
+	},
+
+	howSafeSwapWorks: {
+		title: "Cómo funciona SafeSwap",
+		step1: {
+			title: "Explorar y seleccionar productos",
+			description:
+				"Explore nuestra amplia gama de productos y elija lo que le guste.",
+		},
+		step2: {
+			title: "Pago seguro con depósito en garantía",
+			description:
+				"Pague de forma segura utilizando nuestro sistema de depósito en garantía basado en Blockchain.",
+		},
+		step3: {
+			title: "Reciba su producto de manera segura",
+			description:
+				"Reciba su producto y libere el pago cuando esté satisfecho.",
+		},
+	},
+
+	sellerOnboarding: {
+		title: "Comienza a Vender en SafeSwap",
+		description:
+			"Únase a nuestro mercado descentralizado y comience a vender con el fideicomiso de Stellar. Seguro, rápido y sin necesidad de tienda.",
+		form: {
+			name: "Nombre",
+			namePlaceholder: "Ingrese su nombre",
+			surname: "Apellido",
+			surnamePlaceholder: "Ingrese su apellido",
+			email: "Correo Electrónico",
+			emailPlaceholder: "email@gmail.com",
+			wallet: "Dirección de billetera",
+			walletPlaceholder: "GDDG...P5E7",
+			telegram: "Nombre de Usuario de Telegram (Opcional)",
+			telegramPlaceholder: "@usuario",
+			country: "País",
+			countryPlaceholder: "Seleccione su país",
+			terms: "Acepto los términos y condiciones",
+			termsDescription:
+				"Al marcar esta casilla, acepta nuestros Términos de Servicio y Política de Privacidad.",
+			submitButton: "Comenzar a Vender",
+			not_connected: "No Conectado",
+			your_wallet_address: "Su dirección de billetera es ",
+		},
+		errors: {
+			name: "El nombre debe tener entre 2 y 50 caracteres",
+			surname: "El apellido debe tener entre 2 y 50 caracteres",
+			email: "El correo electrónico debe tener un formato válido.",
+			wallet:
+				"La dirección de la cartera Stellar debe comenzar con 'G' y tener 56 caracteres de longitud.",
+			telegram: "El nombre de usuario de Telegram debe comenzar con '@'.",
+			country: "Debe seleccionar un país antes de enviar.",
+			terms: "Debe marcar la casilla antes de enviar.",
+		},
+	},
+
+	saleDetails: {
+		title: "Detalles de la Venta",
+		copied: "¡Copiado!",
+		copyId: "Copiar ID de la Venta",
+		print: "Imprimir",
+		email: "Correo Electrónico",
+		saleId: "ID de la Venta",
+		buyerAddress: "Dirección del Comprador",
+		status: "Estado",
+		dateTime: "Fecha y Hora",
+		financialDetails: "Detalles Financieros",
+		amount: "Monto",
+		fees: "Comisiones",
+		balance: "Saldo",
+		signRelease: "Firmar Liberación",
+		chat: "Chat",
+		milestones: "Hitos",
+	},
+
+	chat: {
+		placeholder: "Escribe tu mensaje...",
+	},
+
+	milestones: {
+		approve: "Aprobar",
+		complete: "Completar",
+		approved: "Aprobado",
+		completed: "Completado",
+		pending: "Pendiente",
+		forReview: "Para Revisión",
+	},
+
+	shopping: {
+		title: "Mis Compras",
+		tabs: {
+			all: "Todos",
+			pending: "Pendiente",
+			ondispute: "En Disputa",
+			forreview: "En Revisión",
+			approved: "Aprobado",
+		},
+		table: {
+			date: "Fecha de Compra",
+			product: "Nombre del Producto",
+			id: "ID de Compra",
+			price: "Precio",
+			seller: "Vendedor",
+			status: "Estado de Custodia",
+			actions: "Acciones",
+		},
+		orderDetails: {
+			title: "Detalles del Pedido",
+			productLabel: "Producto",
+			idLabel: "ID de Compra",
+			dateLabel: "Fecha",
+			priceLabel: "Precio",
+			sellerLabel: "Vendedor",
+			statusLabel: "Estado",
+		},
+
+		search: "Buscar productos...",
+		total: "Total de Compras",
+		buttons: {
+			startDispute: "Iniciar disputa",
+			approve: "Aprobar",
+			viewDetails: "Ver Detalles",
+		},
+		currency: "$",
+		pay: "Pagar",
+		openDispute: "Abrir Disputa",
+		markAsReceived: "Marcar como Recibido",
+		send: "Enviar",
+		typeMessageHero: "Escribe tu mensaje aquí",
+		escrowStatus: {
+			pending: "Pendiente",
+			onDispute: "En Disputa",
+			forReview: "Para Revisión",
+			approved: "Aprobado",
+		},
+	},
+
+	Sales: {
+		title: "Mis Ventas",
+		searchPlaceholder: "Buscar ventas...",
+		filters: {
+			all: "Todas",
+			pending: "Pendientes",
+			onDispute: "En Disputa",
+			forReview: "En Revisión",
+			approved: "Aprobadas",
+		},
+		table: {
+			shoppingDate: "Fecha de Compra",
+			productName: "Nombre del Producto",
+			shoppingId: "ID de Compra",
+			price: "Precio",
+			buyer: "Comprador",
+			escrowStatus: "Estado de Custodia",
+		},
+		status: {
+			approved: "Aprobado",
+			pending: "Pendiente",
+			onDispute: "En Disputa",
+			forReview: "En Revisión",
+		},
+		milestones: {
+			title: "Hitos",
+			date: "Fecha",
+			name: "Nombre",
+			status: "Estado",
+			actions: "Acciones",
+			complete: "Completar",
+			orderPlaced: "Pedido realizado",
+			paymentConfirmed: "Pago confirmado",
+			productShipped: "Producto enviado",
+			deliveryExpected: "Entrega esperada",
+		},
+		total: "Total de Compras",
+	},
+
+	filters: {
+		title: " Filtros",
+		header: "Filtros",
+		condition: "Condición",
+		sortBy: {
+			sortedBy: "Ordenado por",
+			suggested: "Sugerido",
+			distance: "Distancia: Más cercano primero",
+			dateListed: "Fecha de publicación",
+			highPrice: "Precio: Más alto primero",
+			lowPrice: "Precio: Más bajo primero",
+			delivery: "Método de entrega",
+		},
+		dateListed: {
+			all: "Todos",
+			last24Hours: "Últimas 24 horas",
+			last7Days: "Últimos 7 días",
+			last30Days: "Últimos 30 días",
+		},
+		price: {
+			minPrice: "Precio mínimo",
+			maxPrice: "Precio máximo",
+		},
+		deliveryMethod: {
+			all: "Todos",
+			localPickUp: "Recogida local",
+			delivery: "Envío",
+		},
+		button: {
+			reset: "Restablecer",
+			applyFilters: "Aplicar filtros",
+		},
+		conditions: {
+			new: "Nuevo",
+			likeNew: "Como nuevo",
+			good: "Bueno",
+			fair: "Aceptable",
+		},
+	},
+	testimonials: {
+		title: "Lo Que Dicen Nuestros Usuarios",
+	},
+	pagination: {
+		showResult: "Mostrar resultado",
+		next: "Siguiente",
+		previous: "Anterior",
+		morePages: "Más páginas",
+	},
+	notFound: {
+		title: "Página no encontrada",
+		message: "La página que estás buscando no existe o ha sido movida.",
+		browser: "Explorar el mercado",
+		return: "Inicio",
+	},
+
+	shoopping: {
+		paymentSuccessTitle: "Pago Exitoso",
+		paymentSuccessDescription: "¡Tu compra se completó con éxito!",
+		paymentErrorTitle: "Error en el Pago",
+		paymentErrorDescription: "Hubo un error al procesar tu pago.",
+	},
+	categories: {
+		title: "Explorar Categorías",
+		description:
+			"Descubre nuestra amplia gama de productos organizados por categoría. Encuentra exactamente lo que buscas con nuestro sistema de navegación intuitivo.",
+		searchPlaceholder: "Buscar categorías...",
+		viewProducts: "Ver productos",
+		noResults: "No se encontraron categorías.",
+	},
+
+	profile: {
+		label: {
+			name: "Nombre",
+			surname: "Apellido",
+			email: "Correo Electrónico",
+			stellarWallet: "Dirección de la Cartera Stellar",
+			telegram: "Nombre de Usuario de Telegram",
+			country: "País",
+		},
+		placeholder: {
+			name: "Ingrese su nombre",
+			surname: "Ingrese su apellido",
+			email: "Ingrese su correo electrónico",
+			stellarWallet: "Ingrese su dirección de la cartera Stellar",
+			telegram: "Ingrese su nombre de usuario de Telegram",
+		},
+		subtitle: "Administre su información personal y preferencias",
+		stellarWalletSpan:
+			"La dirección de su cartera Stellar se recupera automáticamente y no se puede modificar.",
+		telegramSpan: "Ingrese su nombre de usuario de Telegram sin el símbolo @.",
+		save: "Guardar cambios",
+		successMessage: "Su perfil se ha actualizado correctamente.",
+	},
 	// Add more sections as needed
 };
+
+export default es;

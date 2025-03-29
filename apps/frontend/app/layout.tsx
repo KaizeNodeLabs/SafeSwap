@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
 import localFont from "next/font/local";
 
 import "./globals.css";
+import { Toaster } from "@/components/ui/toaster";
+import { ApolloClientProvider } from "@/context/ApolloClientProvider";
 import { ThemeProvider } from "../components/providers/theme-provider";
-import { LanguageProvider } from "../context/language-context";
+import { WalletProvider } from "../context/WalletContext";
 
 const satoshi = localFont({
 	src: "../fonts/Satoshi.woff2",
@@ -16,13 +20,16 @@ export const metadata: Metadata = {
 	description: "A safe marketplace for buyers and sellers",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	const locale = await getLocale();
+	const messages = await getMessages();
+
 	return (
-		<html lang="en">
+		<html lang={locale}>
 			<body className={`${satoshi.variable} antialiased`}>
 				<ThemeProvider
 					attribute="class"
@@ -30,7 +37,12 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					<LanguageProvider>{children}</LanguageProvider>
+					<NextIntlClientProvider messages={messages}>
+						<ApolloClientProvider>
+							<WalletProvider>{children}</WalletProvider>
+						</ApolloClientProvider>
+						<Toaster />
+					</NextIntlClientProvider>
 				</ThemeProvider>
 			</body>
 		</html>

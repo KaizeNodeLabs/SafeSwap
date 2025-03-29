@@ -8,26 +8,28 @@ datasource db {
 }
 
 model Category {
-  id        String   @id @default(uuid())
-  name      String   @unique
-  imageUrl  String?  @map("image_url")
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
-  products  Product[] 
+  id        String    @id @default(uuid())
+  name      String    @unique
+  imageUrl  String?   @map("image_url")
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  products  Product[]
+
   @@map("categories")
 }
 
 model Product {
-  id          String        @id @default(uuid())
+  id          String         @id @default(uuid())
   name        String
-  slug        String        @unique
+  createdAt   DateTime       @default(now()) @map("created_at")
+  updatedAt   DateTime       @updatedAt @map("updated_at")
+  categoryId  String         @map("category_id")
   description String?
   price       Float
-  categoryId  String        @map("category_id")
-  category    Category      @relation(fields: [categoryId], references: [id])
+  slug        String         @unique
   images      ProductImage[]
-  createdAt   DateTime      @default(now()) @map("created_at")
-  updatedAt   DateTime      @updatedAt @map("updated_at")
+  category    Category       @relation(fields: [categoryId], references: [id])
+
   @@map("products")
 }
 
@@ -35,8 +37,23 @@ model ProductImage {
   id        String   @id @default(uuid())
   imageUrl  String   @map("image_url")
   productId String   @map("product_id")
-  product   Product  @relation(fields: [productId], references: [id])
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
+  product   Product  @relation(fields: [productId], references: [id])
+
   @@map("product_images")
+}
+
+model User {
+  walletAddress    String   @id @map("wallet_address")
+  name             String   @db.VarChar(20)
+  surname          String   @db.VarChar(50)
+  email            String   @unique @db.VarChar(150)
+  telegramUsername String?  @map("telegram_username") @db.VarChar(50)
+  country          String   @db.VarChar(100)
+  isSeller         Boolean  @default(false) @map("is_seller")
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+
+  @@map("users")
 }

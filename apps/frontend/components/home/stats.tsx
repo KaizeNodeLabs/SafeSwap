@@ -1,9 +1,9 @@
 "use client";
 
-import { useTranslations } from "@/hooks/useTranslations";
+import { useTranslations } from "next-intl";
 
-export function StatsSection() {
-	const { t } = useTranslations();
+export function Stats() {
+	const t = useTranslations();
 
 	const stats = [
 		{

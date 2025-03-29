@@ -27,7 +27,7 @@ import {
 } from "@/components/ui/popover";
 import { Textarea } from "@/components/ui/textarea";
 import { useCreateProductHook } from "@/hooks/useCreateProduct";
-import { useTranslations } from "@/hooks/useTranslations";
+import { useTranslations } from "next-intl";
 
 const CreateProduct = () => {
 	const {
@@ -45,7 +45,7 @@ const CreateProduct = () => {
 		selectedImages,
 	} = useCreateProductHook();
 
-	const { t } = useTranslations();
+	const t = useTranslations();
 
 	return (
 		<Form {...form}>

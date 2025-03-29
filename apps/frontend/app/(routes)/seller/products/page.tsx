@@ -20,13 +20,14 @@ import {
 	SquarePen,
 	Trash2,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useState } from "react";
 
 const columnMappings: Record<string, keyof (typeof initialProducts)[0]> = {
-	Product: "name",
-	Category: "category",
-	Price: "price",
+	product: "name",
+	category: "category",
+	price: "price",
 };
 
 export default function MyProductsPage() {
@@ -69,26 +70,26 @@ export default function MyProductsPage() {
 			setSortOrder("asc");
 		}
 	};
-
+	const t = useTranslations();
 	return (
 		<section className="py-4 space-y-10">
 			<div className="flex justify-between items-center">
 				<div>
 					<h1 className="capitalize text-3xl font-bold">
-						my products ({sortedProducts.length})
+						{t("common.products.sales.myProducts")} ({sortedProducts.length})
 					</h1>
 					<p className="text-muted-foreground">
-						These are the products you want to sell.
+						{t("common.products.sales.myProductsMessage")}
 					</p>
 				</div>
 				<Button>
-					<Plus /> Sell a Product
+					<Plus /> {t("sidebar.options.sellAProduct")}
 				</Button>
 			</div>
 
 			<div className="space-y-4">
 				<Input
-					placeholder="Search products..."
+					placeholder={t("common.products.sales.searchProducts")}
 					className="w-96"
 					value={searchQuery}
 					onChange={(e) => setSearchQuery(e.target.value)}
@@ -103,7 +104,7 @@ export default function MyProductsPage() {
 										onClick={() => handleSort(col)}
 										className="flex items-center gap-3"
 									>
-										{col}
+										{t(`common.products.sales.table.${col}`)}
 										{sortColumn === columnMappings[col] ? (
 											sortOrder === "asc" ? (
 												<ArrowUp size={16} />
@@ -116,7 +117,7 @@ export default function MyProductsPage() {
 									</button>
 								</TableHead>
 							))}
-							<TableHead>Actions</TableHead>
+							<TableHead>{t("common.products.sales.table.actions")}</TableHead>
 						</TableRow>
 					</TableHeader>
 					<TableBody>

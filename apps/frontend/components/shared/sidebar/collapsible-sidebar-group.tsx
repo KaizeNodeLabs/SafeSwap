@@ -9,6 +9,7 @@ import {
 	SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { SidebarItem } from "@/lib/types/sidebar";
+import { useTranslations } from "next-intl";
 
 interface CollapsibleSidebarGroupProps {
 	title: string;
@@ -23,6 +24,7 @@ export function CollapsibleSidebarGroup({
 	isCollapsed,
 	toggle,
 }: CollapsibleSidebarGroupProps) {
+	const t = useTranslations();
 	return (
 		<SidebarGroup>
 			<SidebarGroupLabel
@@ -44,7 +46,7 @@ export function CollapsibleSidebarGroup({
 								<SidebarMenuButton asChild>
 									<a href={item.url}>
 										<item.icon className="size-4" />
-										<span>{item.title}</span>
+										<span>{t(`sidebar.options.${item.translationKey}`)}</span>
 									</a>
 								</SidebarMenuButton>
 							</SidebarMenuItem>
