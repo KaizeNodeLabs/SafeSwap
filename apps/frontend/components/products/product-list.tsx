@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
+import ProductCardSkeleton from "./product-card-skeleton";
 
 import FilterModal from "@/components/marketplace/filter-modal";
 import ProductsNotFound from "@/components/marketplace/products-not-found";
@@ -113,8 +114,10 @@ export default function ProductList() {
 
 			<section className="flex-1 mt-6">
 				{loading ? (
-					<div className="flex justify-center items-center h-64">
-						<p>Loading products...</p>
+					<div className="grid sm:grid-cols-2 grid-cols lg:grid-cols-4 gap-4">
+						{Array.from({ length: 8 }).map((_, index) => (
+							<ProductCardSkeleton key={index} />
+						))}
 					</div>
 				) : error ? (
 					<div className="flex justify-center items-center h-64">
@@ -136,7 +139,6 @@ export default function ProductList() {
 					pageSize={pageSize}
 					setPageSize={setPageSize}
 				/>
-
 			</section>
 		</>
 	);
