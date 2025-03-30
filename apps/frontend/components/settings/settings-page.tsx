@@ -9,17 +9,9 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
-import { useLanguage } from "@/context/language-context";
-import { useTranslations } from "@/hooks/useTranslations";
 import { Bell, Moon, SunMedium } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { LanguageSelector } from "../shared/sidebar/language-selector";
@@ -28,8 +20,7 @@ export default function Settings() {
 	const [mounted, setMounted] = useState(false);
 	const { theme, setTheme } = useTheme();
 	const [notifications, setNotifications] = useState(true);
-	const { locale, setLocale } = useLanguage();
-	const { t } = useTranslations();
+	const t = useTranslations();
 
 	// Prevent hydration mismatch
 	useEffect(() => {
