@@ -310,190 +310,228 @@ export const en = {
 		notifications: "Notifications",
 		notificationsLabel: "Notification Preferences",
 		notificationsDescription: "Manage your notification preferences.",
+	},
 
-		exploreCategories: {
-			title: "Explore our collections",
-			viewAll: "View all categories",
-			newCollection: "NEW COLLECTION",
-			performance: "Performance",
-			performanceDescription:
-				"Discover our new footwear line designed to exceed your limits and reach your maximum performance.",
-			exploreCollection: "Explore collection",
-			newArrivals: "NEW ARRIVALS",
-			newArrivalsTitle: "New Arrivals",
-			discover: "Discover",
-			dailyStyle: "DAILY STYLE",
-			casual: "Casual",
-			viewProducts: "View products",
-			athletes: "Athletes",
-			basics: "BASICS",
-			essentials: "Essentials",
-			viewCollection: "View collection",
-		},
+	exploreCategories: {
+		title: "Explore our collections",
+		viewAll: "View all categories",
+		newCollection: "NEW COLLECTION",
+		performance: "Performance",
+		performanceDescription:
+			"Discover our new footwear line designed to exceed your limits and reach your maximum performance.",
+		exploreCollection: "Explore collection",
+		newArrivals: "NEW ARRIVALS",
+		newArrivalsTitle: "New Arrivals",
+		discover: "Discover",
+		dailyStyle: "DAILY STYLE",
+		casual: "Casual",
+		viewProducts: "View products",
+		athletes: "Athletes",
+		basics: "BASICS",
+		essentials: "Essentials",
+		viewCollection: "View collection",
+	},
 
-		advantagesOfSafeSwap: {
-			title: "Powered by Stellar and Trustless Work",
-			subtitle:
-				"Ensuring secure and transparent transactions with blockchain technology",
-			items: {
-				trustlessWork: {
-					title: "Automated Escrow Protection",
-					description:
-						"Trustless Work API the complexity of smart contracts, leveraging Stellar to ensure secure, unbiased, and transparent transactions.",
-					link: "https://www.trustlesswork.com/",
-					buttonName: "Trustless Work",
-				},
-				introToStellar: {
-					title: "Instant Payments with Minimal Fees",
-					description:
-						"Built on Stellar, SafeSwap enables near-instant transactions with negligible fees, making cross-border payments seamless.",
-					link: "https://www.stellar.org/learn/intro-to-stellar",
-					buttonName: "Intro to Stellar",
-				},
-				powerOfStellar: {
-					title: "Global Trust & Fairness",
-					description:
-						"Using Stellar's decentralized ledger, SafeSwap ensures fair transactions without intermediaries, providing equal access for all users.",
-					link: "https://www.stellar.org/learn/the-power-of-stellar",
-					buttonName: "Power of Stellar",
-				},
-			},
-		},
-
-		howSafeSwapWorks: {
-			title: "How SafeSwap Works",
-			step1: {
-				title: "Browse & Select Products",
+	advantagesOfSafeSwap: {
+		title: "Powered by Stellar and Trustless Work",
+		subtitle:
+			"Ensuring secure and transparent transactions with blockchain technology",
+		items: {
+			trustlessWork: {
+				title: "Automated Escrow Protection",
 				description:
-					"Explore our wide range of products and choose what you like.",
+					"Trustless Work API the complexity of smart contracts, leveraging Stellar to ensure secure, unbiased, and transparent transactions.",
+				link: "https://www.trustlesswork.com/",
+				buttonName: "Trustless Work",
 			},
-			step2: {
-				title: "Secure Payment with Escrow",
-				description: "Pay safely using our Blockchain-powered escrow system.",
-			},
-			step3: {
-				title: "Receive Your Product Safely",
+			introToStellar: {
+				title: "Instant Payments with Minimal Fees",
 				description:
-					"Get your product delivered and release the payment when satisfied.",
+					"Built on Stellar, SafeSwap enables near-instant transactions with negligible fees, making cross-border payments seamless.",
+				link: "https://www.stellar.org/learn/intro-to-stellar",
+				buttonName: "Intro to Stellar",
+			},
+			powerOfStellar: {
+				title: "Global Trust & Fairness",
+				description:
+					"Using Stellar's decentralized ledger, SafeSwap ensures fair transactions without intermediaries, providing equal access for all users.",
+				link: "https://www.stellar.org/learn/the-power-of-stellar",
+				buttonName: "Power of Stellar",
 			},
 		},
+	},
 
-		sellerOnboarding: {
-			title: "Start Selling on SafeSwap",
+	howSafeSwapWorks: {
+		title: "How SafeSwap Works",
+		step1: {
+			title: "Browse & Select Products",
 			description:
-				"Join our decentralized marketplace and start selling with Stellar escrow. Secure, fast and no storefront needed.",
-			form: {
-				name: "Name",
-				namePlaceholder: "Enter your first name",
-				surname: "Surname",
-				surnamePlaceholder: "Enter your last name",
-				email: "Email",
-				emailPlaceholder: "email@gmail.com",
-				wallet: "Wallet Address",
-				walletPlaceholder: "GDDG...P5E7",
-				telegram: "Telegram Username (Optional)",
-				telegramPlaceholder: "@username",
-				country: "Country",
-				countryPlaceholder: "Select your country",
-				terms: "I agree to the terms and conditions",
-				termsDescription:
-					"By checking this box, you agree to our Terms of Service and Privacy Policy.",
-				submitButton: "Start Selling",
-				not_connected: "Not Connected",
-				your_wallet_address: "Your Wallet Address is ",
-			},
-			errors: {
-				name: "Name must be between 2 and 50 characters",
-				surname: "Surname must be between 2 and 50 characters",
-				email: "Email must be in a valid format.",
-				wallet:
-					"Stellar wallet address must start with 'G' and be 56 characters long.",
-				telegram: "Telegram username should start with '@'.",
-				country: "Country must be selected before submission.",
-				terms: "Checkbox must be checked before submitting.",
-			},
+				"Explore our wide range of products and choose what you like.",
 		},
+		step2: {
+			title: "Secure Payment with Escrow",
+			description: "Pay safely using our Blockchain-powered escrow system.",
+		},
+		step3: {
+			title: "Receive Your Product Safely",
+			description:
+				"Get your product delivered and release the payment when satisfied.",
+		},
+	},
 
-		saleDetails: {
-			title: "Sale Details",
-			copied: "Copied!",
-			copyId: "Copy Sale ID",
-			print: "Print",
+	sellerOnboarding: {
+		title: "Start Selling on SafeSwap",
+		description:
+			"Join our decentralized marketplace and start selling with Stellar escrow. Secure, fast and no storefront needed.",
+		form: {
+			name: "Name",
+			namePlaceholder: "Enter your first name",
+			surname: "Surname",
+			surnamePlaceholder: "Enter your last name",
 			email: "Email",
-			saleId: "Sale ID",
-			buyerAddress: "Buyer Address",
-			status: "Status",
-			dateTime: "Date & Time",
-			financialDetails: "Financial Details",
-			amount: "Amount",
-			fees: "Fees",
-			balance: "Balance",
-			signRelease: "Sign Release",
-			chat: "Chat",
-			milestones: "Milestones",
+			emailPlaceholder: "email@gmail.com",
+			wallet: "Wallet Address",
+			walletPlaceholder: "GDDG...P5E7",
+			telegram: "Telegram Username (Optional)",
+			telegramPlaceholder: "@username",
+			country: "Country",
+			countryPlaceholder: "Select your country",
+			terms: "I agree to the terms and conditions",
+			termsDescription:
+				"By checking this box, you agree to our Terms of Service and Privacy Policy.",
+			submitButton: "Start Selling",
+			not_connected: "Not Connected",
+			your_wallet_address: "Your Wallet Address is ",
 		},
-
-		chat: {
-			placeholder: "Write your message...",
+		errors: {
+			name: "Name must be between 2 and 50 characters",
+			surname: "Surname must be between 2 and 50 characters",
+			email: "Email must be in a valid format.",
+			wallet:
+				"Stellar wallet address must start with 'G' and be 56 characters long.",
+			telegram: "Telegram username should start with '@'.",
+			country: "Country must be selected before submission.",
+			terms: "Checkbox must be checked before submitting.",
 		},
+	},
 
-		milestones: {
-			approve: "Approve",
-			complete: "Complete",
-			approved: "Approved",
-			completed: "Completed",
+	saleDetails: {
+		title: "Sale Details",
+		copied: "Copied!",
+		copyId: "Copy Sale ID",
+		print: "Print",
+		email: "Email",
+		saleId: "Sale ID",
+		buyerAddress: "Buyer Address",
+		status: "Status",
+		dateTime: "Date & Time",
+		financialDetails: "Financial Details",
+		amount: "Amount",
+		fees: "Fees",
+		balance: "Balance",
+		signRelease: "Sign Release",
+		chat: "Chat",
+		milestones: "Milestones",
+	},
+
+	chat: {
+		placeholder: "Write your message...",
+	},
+
+	milestones: {
+		approve: "Approve",
+		complete: "Complete",
+		approved: "Approved",
+		completed: "Completed",
+		pending: "Pending",
+		forReview: "For Review",
+	},
+
+	shopping: {
+		title: "My Shopping",
+		tabs: {
+			all: "All",
 			pending: "Pending",
+			ondispute: "On Dispute",
+			forreview: "For Review",
+			approved: "Approved",
+		},
+		table: {
+			date: "Shopping Date",
+			product: "Product Name",
+			id: "Shopping ID",
+			price: "Price",
+			seller: "Seller",
+			status: "Escrow Status",
+			actions: "Actions",
+		},
+		orderDetails: {
+			title: "Order Details",
+			productLabel: "Product",
+			idLabel: "Shopping ID",
+			dateLabel: "Date",
+			priceLabel: "Price",
+			sellerLabel: "Seller",
+			statusLabel: "Status",
+		},
+		search: "Search products...",
+		total: "Total Shopping",
+		buttons: {
+			startDispute: "Start dispute",
+			approve: "Approve",
+			viewDetails: "View Details",
+		},
+		currency: "$",
+		pay: "Pay",
+		openDispute: "Open Dispute",
+		markAsReceived: "Mark as Received",
+		send: "Send",
+		typeMessageHero: "Type your message here",
+		escrowStatus: {
+			pending: "Pending",
+			onDispute: "On Dispute",
+			forReview: "For Review",
+			approved: "Approved",
+		},
+	},
+
+	Sales: {
+		title: "My Sales",
+		searchPlaceholder: "Search sales...",
+		filters: {
+			all: "All",
+			pending: "Pending",
+			onDispute: "On Dispute",
+			forReview: "For Review",
+			approved: "Approved",
+		},
+		table: {
+			shoppingDate: "Shopping Date",
+			productName: "Product Name",
+			shoppingId: "Shopping ID",
+			price: "Price",
+			buyer: "Buyer",
+			escrowStatus: "Escrow Status",
+		},
+		status: {
+			approved: "Approved",
+			pending: "Pending",
+			onDispute: "On Dispute",
 			forReview: "For Review",
 		},
-
-		shopping: {
-			title: "My Shopping",
-			tabs: {
-				all: "All",
-				pending: "Pending",
-				ondispute: "On Dispute",
-				forreview: "For Review",
-				approved: "Approved",
-			},
-			table: {
-				date: "Shopping Date",
-				product: "Product Name",
-				id: "Shopping ID",
-				price: "Price",
-				seller: "Seller",
-				status: "Escrow Status",
-				actions: "Actions",
-			},
-			orderDetails: {
-				title: "Order Details",
-				productLabel: "Product",
-				idLabel: "Shopping ID",
-				dateLabel: "Date",
-				priceLabel: "Price",
-				sellerLabel: "Seller",
-				statusLabel: "Status",
-			},
-			search: "Search products...",
-			total: "Total Shopping",
-			buttons: {
-				startDispute: "Start dispute",
-				approve: "Approve",
-				viewDetails: "View Details",
-			},
-			currency: "$",
-			pay: "Pay",
-			openDispute: "Open Dispute",
-			markAsReceived: "Mark as Received",
-			send: "Send",
-			typeMessageHero: "Type your message here",
-			escrowStatus: {
-				pending: "Pending",
-				onDispute: "On Dispute",
-				forReview: "For Review",
-				approved: "Approved",
-			},
+		milestones: {
+			title: "Milestones",
+			date: "Date",
+			name: "Name",
+			status: "Status",
+			actions: "Actions",
+			complete: "Complete",
+			orderPlaced: "Order Placed",
+			paymentConfirmed: "Payment Confirmed",
+			productShipped: "Product Shipped",
+			deliveryExpected: "Delivery Expected",
 		},
-
+		total: "Total Shopping",
 		Sales: {
 			title: "My Sales",
 			searchPlaceholder: "Search sales...",
@@ -525,148 +563,110 @@ export const en = {
 				status: "Status",
 				actions: "Actions",
 				complete: "Complete",
-				orderPlaced: "Order Placed",
-				paymentConfirmed: "Payment Confirmed",
-				productShipped: "Product Shipped",
-				deliveryExpected: "Delivery Expected",
+
+				items: {
+					orderPlaced: "Order Placed",
+					paymentConfirmed: "Payment Confirmed",
+					productShipped: "Product Shipped",
+					deliveryExpected: "Delivery Expected",
+				},
 			},
 			total: "Total Shopping",
-			Sales: {
-				title: "My Sales",
-				searchPlaceholder: "Search sales...",
-				filters: {
-					all: "All",
-					pending: "Pending",
-					onDispute: "On Dispute",
-					forReview: "For Review",
-					approved: "Approved",
-				},
-				table: {
-					shoppingDate: "Shopping Date",
-					productName: "Product Name",
-					shoppingId: "Shopping ID",
-					price: "Price",
-					buyer: "Buyer",
-					escrowStatus: "Escrow Status",
-				},
-				status: {
-					approved: "Approved",
-					pending: "Pending",
-					onDispute: "On Dispute",
-					forReview: "For Review",
-				},
-				milestones: {
-					title: "Milestones",
-					date: "Date",
-					name: "Name",
-					status: "Status",
-					actions: "Actions",
-					complete: "Complete",
+		},
+	},
 
-					items: {
-						orderPlaced: "Order Placed",
-						paymentConfirmed: "Payment Confirmed",
-						productShipped: "Product Shipped",
-						deliveryExpected: "Delivery Expected",
-					},
-				},
-				total: "Total Shopping",
-			},
+	testimonials: {
+		title: "What Our Users Say",
+	},
+	filters: {
+		title: " Filter",
+		header: "Filters",
+		condition: "Condition",
+		sortBy: {
+			sortedBy: "Sort by",
+			suggested: "Suggested",
+			distance: "Distance: Nearest first",
+			dateListed: "Date listed: Newest first",
+			highPrice: "Price: Highest first",
+			lowPrice: "Price: Lowest first",
+			delivery: "Delivery Method",
 		},
+		dateListed: {
+			all: "All",
+			last24Hours: "Last 24 hours",
+			last7Days: "Last 7 days",
+			last30Days: "Last 30 days",
+		},
+		price: {
+			minPrice: "Min price",
+			maxPrice: "Max price",
+		},
+		deliveryMethod: {
+			all: "All",
+			localPickUp: "Local Pickup",
+			delivery: "Shipping",
+		},
+		button: {
+			reset: "Reset",
+			applyFilters: "Apply Filters",
+		},
+		conditions: {
+			new: "New",
+			likeNew: "like New",
+			good: "Good",
+			fair: "Fair",
+		},
+	},
+	pagination: {
+		showResult: "Show Result",
+		next: "Next",
+		previous: "Previous",
+		morePages: "More pages",
+	},
+	notFound: {
+		title: "Page Not Found",
+		message: "The page you are looking for doesn’t exist or has been moved.",
+		browser: "Browse Marketplace",
+		return: "Go Home",
+	},
 
-		testimonials: {
-			title: "What Our Users Say",
-		},
-		filters: {
-			title: " Filter",
-			header: "Filters",
-			condition: "Condition",
-			sortBy: {
-				sortedBy: "Sort by",
-				suggested: "Suggested",
-				distance: "Distance: Nearest first",
-				dateListed: "Date listed: Newest first",
-				highPrice: "Price: Highest first",
-				lowPrice: "Price: Lowest first",
-				delivery: "Delivery Method",
-			},
-			dateListed: {
-				all: "All",
-				last24Hours: "Last 24 hours",
-				last7Days: "Last 7 days",
-				last30Days: "Last 30 days",
-			},
-			price: {
-				minPrice: "Min price",
-				maxPrice: "Max price",
-			},
-			deliveryMethod: {
-				all: "All",
-				localPickUp: "Local Pickup",
-				delivery: "Shipping",
-			},
-			button: {
-				reset: "Reset",
-				applyFilters: "Apply Filters",
-			},
-			conditions: {
-				new: "New",
-				likeNew: "like New",
-				good: "Good",
-				fair: "Fair",
-			},
-		},
-		pagination: {
-			showResult: "Show Result",
-			next: "Next",
-			previous: "Previous",
-			morePages: "More pages",
-		},
-		notFound: {
-			title: "Page Not Found",
-			message: "The page you are looking for doesn’t exist or has been moved.",
-			browser: "Browse Marketplace",
-			return: "Go Home",
-		},
+	shoopping: {
+		paymentSuccessTitle: "Payment Successful",
+		paymentSuccessDescription: "Your purchase was completed successfully!",
+		paymentErrorTitle: "Payment Failed",
+		paymentErrorDescription: "There was an error processing your payment.",
+	},
+	categories: {
+		title: "Browse Categories",
+		description:
+			"Discover our wide range of products organized by category. Find exactly what you're looking for with our intuitive navigation system.",
+		searchPlaceholder: "Search categories...",
+		viewProducts: "View products",
+		noResults: "No categories found.",
+	},
 
-		shoopping: {
-			paymentSuccessTitle: "Payment Successful",
-			paymentSuccessDescription: "Your purchase was completed successfully!",
-			paymentErrorTitle: "Payment Failed",
-			paymentErrorDescription: "There was an error processing your payment.",
+	profile: {
+		label: {
+			name: "Name",
+			surname: "Surname",
+			email: "Email",
+			stellarWallet: "Stellar Wallet Address",
+			telegram: "Telegram Username (Optional)",
+			country: "Country",
 		},
-		categories: {
-			title: "Browse Categories",
-			description:
-				"Discover our wide range of products organized by category. Find exactly what you're looking for with our intuitive navigation system.",
-			searchPlaceholder: "Search categories...",
-			viewProducts: "View products",
-			noResults: "No categories found.",
+		placeholder: {
+			name: "Enter your name",
+			surname: "Enter your surname",
+			email: "Enter your email",
+			stellarWallet: "Enter your Stellar wallet address",
+			telegram: "Enter your Telegram username",
 		},
-
-		profile: {
-			label: {
-				name: "Name",
-				surname: "Surname",
-				email: "Email",
-				stellarWallet: "Stellar Wallet Address",
-				telegram: "Telegram Username (Optional)",
-				country: "Country",
-			},
-			placeholder: {
-				name: "Enter your name",
-				surname: "Enter your surname",
-				email: "Enter your email",
-				stellarWallet: "Enter your Stellar wallet address",
-				telegram: "Enter your Telegram username",
-			},
-			subtitle: "Manage your personal information and preferences",
-			stellarWalletSpan:
-				"Your Stellar wallet address is automatically retrieved and cannot be modified.",
-			telegramSpan: "Your Telegram username without the @ symbol.",
-			save: "Save changes",
-			successMessage: "Your profile has been successfully updated.",
-		},
+		subtitle: "Manage your personal information and preferences",
+		stellarWalletSpan:
+			"Your Stellar wallet address is automatically retrieved and cannot be modified.",
+		telegramSpan: "Your Telegram username without the @ symbol.",
+		save: "Save changes",
+		successMessage: "Your profile has been successfully updated.",
 	},
 	// Add more sections as needed
 };
