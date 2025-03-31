@@ -44,10 +44,10 @@ export const mockSalesData: Record<TimeRange, SalesAnalytics> = {
 			sales: Math.floor(Math.random() * 500) + 200,
 		})),
 		categorySales: [
-			{ name: "Electronics", value: 45, color: "emerald" },
-			{ name: "Clothing", value: 15, color: "coral" },
-			{ name: "Home", value: 22, color: "slate" },
-			{ name: "Other", value: 18, color: "amber" },
+			{ name: "Electronics", value: 42, color: "green" },
+			{ name: "Clothing", value: 14, color: "orange" },
+			{ name: "Home", value: 25, color: "gray" },
+			{ name: "Other", value: 19, color: "gold" },
 		],
 	},
 	Yearly: {
@@ -59,10 +59,10 @@ export const mockSalesData: Record<TimeRange, SalesAnalytics> = {
 			sales: Math.floor(Math.random() * 15000) + 8000,
 		})),
 		categorySales: [
-			{ name: "Electronics", value: 40, color: "emerald" },
-			{ name: "Clothing", value: 18, color: "coral" },
-			{ name: "Home", value: 24, color: "slate" },
-			{ name: "Other", value: 18, color: "amber" },
+			{ name: "Electronics", value: 42, color: "green" },
+			{ name: "Clothing", value: 14, color: "orange" },
+			{ name: "Home", value: 25, color: "gray" },
+			{ name: "Other", value: 19, color: "gold" },
 		],
 	},
 	"All Time": {
@@ -76,10 +76,10 @@ export const mockSalesData: Record<TimeRange, SalesAnalytics> = {
 			sales: Math.floor(Math.random() * 25000) + 12000,
 		})),
 		categorySales: [
-			{ name: "Electronics", value: 38, color: "emerald" },
-			{ name: "Clothing", value: 20, color: "coral" },
-			{ name: "Home", value: 23, color: "slate" },
-			{ name: "Other", value: 19, color: "amber" },
+			{ name: "Electronics", value: 42, color: "green" },
+			{ name: "Clothing", value: 14, color: "orange" },
+			{ name: "Home", value: 25, color: "gray" },
+			{ name: "Other", value: 19, color: "gold" },
 		],
 	},
 };
