@@ -72,114 +72,120 @@ export function SalesTable() {
 
 	return (
 		<div className="border rounded-lg bg-white dark:bg-black dark:border-gray-800">
-			<div className="overflow-x-auto">
-				<Table>
-					<TableHeader>
-						<TableRow className="hover:bg-transparent dark:hover:bg-transparent">
-							<TableHead className="w-[50px] dark:text-gray-400" />
-							<TableHead className="font-medium text-sm text-gray-500 dark:text-gray-400">
-								{t("Sales.table.shoppingDate")}
-							</TableHead>
-							<TableHead className="font-medium text-sm text-gray-500 dark:text-gray-400">
-								{t("Sales.table.productName")}
-							</TableHead>
-							<TableHead className="font-medium text-sm text-gray-500 dark:text-gray-400">
-								{t("Sales.table.shoppingId")}
-							</TableHead>
-							<TableHead className="font-medium text-sm text-gray-500 dark:text-gray-400">
-								{t("Sales.table.price")}
-							</TableHead>
-							<TableHead className="font-medium text-sm text-gray-500 dark:text-gray-400">
-								{t("Sales.table.buyer")}
-							</TableHead>
-							<TableHead className="font-medium text-sm text-gray-500 dark:text-gray-400">
-								{t("Sales.table.escrowStatus")}
-							</TableHead>
-						</TableRow>
-					</TableHeader>
-					<TableBody>
-						{sales.map((sale) => (
-							<React.Fragment key={sale.id}>
-								<TableRow className="group dark:hover:bg-black/50">
-									<TableCell className="py-4 align-middle">
-										<Button
-											variant="ghost"
-											size="icon"
-											className="h-8 w-8 dark:hover:bg-black"
-											onClick={() =>
-												setExpandedRow(expandedRow === sale.id ? null : sale.id)
-											}
-										>
-											{expandedRow === sale.id ? (
-												<ChevronDown className="h-4 w-4" />
-											) : (
-												<ChevronRight className="h-4 w-4" />
-											)}
-										</Button>
-									</TableCell>
-									<TableCell className="py-4 align-middle text-sm dark:text-gray-300">
-										{sale.date}
-									</TableCell>
-									<TableCell className="py-4 align-middle font-medium text-sm dark:text-gray-200">
-										{sale.product}
-									</TableCell>
-									<TableCell className="py-4 align-middle text-blue-600 dark:text-blue-400 text-sm">
-										{sale.id}
-									</TableCell>
-									<TableCell className="py-4 align-middle text-sm dark:text-gray-300">
-										${sale.price}
-									</TableCell>
-									<TableCell className="py-4 align-middle text-sm dark:text-gray-300">
-										{sale.buyer}
-									</TableCell>
-									<TableCell className="py-4 align-middle">
-										{getStatusBadge(sale.status)}
-									</TableCell>
-								</TableRow>
-								{expandedRow === sale.id && sale.milestones && (
-									<TableRow className="dark:bg-black/50">
-										<TableCell
-											colSpan={7}
-											className="p-0 border-b dark:border-gray-700"
-										>
-											<div className="py-4 px-14">
-												<h4 className="font-medium mb-4 text-sm dark:text-gray-200">
-													Milestones
-												</h4>
-												<div className="space-y-4">
-													{sale.milestones.map((milestone, index) => (
-														<div
-															key={`${sale.id}-milestone-${index}`}
-															className="grid grid-cols-[100px_1fr_200px] gap-4 items-center"
-														>
-															<div className="text-sm text-gray-500 dark:text-gray-400">
-																{milestone.date}
-															</div>
-															<div className="text-sm font-medium dark:text-gray-300">
-																{t(`Sales.milestones.${milestone.name}`)}
-															</div>
-															<div className="flex items-center justify-end gap-4">
-																{milestone.status === "pending" && (
-																	<Button
-																		className="bg-green-600 hover:bg-green-700 text-xs h-8 text-white dark:bg-green-700 dark:hover:bg-green-600"
-																		size="sm"
-																	>
-																		{t("Sales.milestones.complete")}
-																	</Button>
-																)}
-																{getStatusBadge(milestone.status as StatusType)}
-															</div>
-														</div>
-													))}
-												</div>
-											</div>
+			<div className="overflow-x-auto -mx-4 sm:mx-0">
+				<div className="min-w-[800px]">
+					<Table>
+						<TableHeader>
+							<TableRow className="hover:bg-transparent dark:hover:bg-transparent">
+								<TableHead className="w-[50px] dark:text-gray-400" />
+								<TableHead className="font-medium text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">
+									{t("Sales.table.shoppingDate")}
+								</TableHead>
+								<TableHead className="font-medium text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">
+									{t("Sales.table.productName")}
+								</TableHead>
+								<TableHead className="font-medium text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap hidden sm:table-cell">
+									{t("Sales.table.shoppingId")}
+								</TableHead>
+								<TableHead className="font-medium text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">
+									{t("Sales.table.price")}
+								</TableHead>
+								<TableHead className="font-medium text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap hidden sm:table-cell">
+									{t("Sales.table.buyer")}
+								</TableHead>
+								<TableHead className="font-medium text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">
+									{t("Sales.table.escrowStatus")}
+								</TableHead>
+							</TableRow>
+						</TableHeader>
+						<TableBody>
+							{sales.map((sale) => (
+								<React.Fragment key={sale.id}>
+									<TableRow className="group dark:hover:bg-black/50">
+										<TableCell className="py-4 align-middle">
+											<Button
+												variant="ghost"
+												size="icon"
+												className="h-8 w-8 dark:hover:bg-black"
+												onClick={() =>
+													setExpandedRow(
+														expandedRow === sale.id ? null : sale.id,
+													)
+												}
+											>
+												{expandedRow === sale.id ? (
+													<ChevronDown className="h-4 w-4" />
+												) : (
+													<ChevronRight className="h-4 w-4" />
+												)}
+											</Button>
+										</TableCell>
+										<TableCell className="py-4 align-middle text-sm dark:text-gray-300">
+											{sale.date}
+										</TableCell>
+										<TableCell className="py-4 align-middle font-medium text-sm dark:text-gray-200">
+											{sale.product}
+										</TableCell>
+										<TableCell className="py-4 align-middle text-blue-600 dark:text-blue-400 text-sm hidden sm:table-cell">
+											{sale.id}
+										</TableCell>
+										<TableCell className="py-4 align-middle text-sm dark:text-gray-300">
+											${sale.price}
+										</TableCell>
+										<TableCell className="py-4 align-middle text-sm dark:text-gray-300 hidden sm:table-cell">
+											{sale.buyer}
+										</TableCell>
+										<TableCell className="py-4 align-middle">
+											{getStatusBadge(sale.status)}
 										</TableCell>
 									</TableRow>
-								)}
-							</React.Fragment>
-						))}
-					</TableBody>
-				</Table>
+									{expandedRow === sale.id && sale.milestones && (
+										<TableRow className="dark:bg-black/50">
+											<TableCell
+												colSpan={7}
+												className="p-0 border-b dark:border-gray-700"
+											>
+												<div className="py-4 px-4 sm:px-14">
+													<h4 className="font-medium mb-4 text-sm dark:text-gray-200">
+														Milestones
+													</h4>
+													<div className="space-y-4">
+														{sale.milestones.map((milestone, index) => (
+															<div
+																key={`${sale.id}-milestone-${index}`}
+																className="grid grid-cols-1 sm:grid-cols-[100px_1fr_200px] gap-2 sm:gap-4 items-start sm:items-center"
+															>
+																<div className="text-sm text-gray-500 dark:text-gray-400">
+																	{milestone.date}
+																</div>
+																<div className="text-sm font-medium dark:text-gray-300">
+																	{t(`Sales.milestones.${milestone.name}`)}
+																</div>
+																<div className="flex items-center justify-start sm:justify-end gap-4">
+																	{milestone.status === "pending" && (
+																		<Button
+																			className="bg-green-600 hover:bg-green-700 text-xs h-8 text-white dark:bg-green-700 dark:hover:bg-green-600"
+																			size="sm"
+																		>
+																			{t("Sales.milestones.complete")}
+																		</Button>
+																	)}
+																	{getStatusBadge(
+																		milestone.status as StatusType,
+																	)}
+																</div>
+															</div>
+														))}
+													</div>
+												</div>
+											</TableCell>
+										</TableRow>
+									)}
+								</React.Fragment>
+							))}
+						</TableBody>
+					</Table>
+				</div>
 			</div>
 			<div className="p-4 border-t dark:border-gray-700">
 				<p className="text-sm text-muted-foreground dark:text-gray-400">
