@@ -21,9 +21,9 @@ export function SalesAnalytics() {
 
 	return (
 		<Tabs defaultValue="Monthly" className="space-y-4">
-			<TabsList>
+			<TabsList className="w-full overflow-x-auto flex-nowrap">
 				{timeRanges.map((range) => (
-					<TabsTrigger key={range} value={range}>
+					<TabsTrigger key={range} value={range} className="whitespace-nowrap">
 						{t(`Sales.analytics.timeRanges.${range}`)}
 					</TabsTrigger>
 				))}
@@ -33,14 +33,14 @@ export function SalesAnalytics() {
 					<div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-6">
 						<StatsCards data={mockSalesData[range]} />
 					</div>
-					<div className="grid grid-cols-1 md:grid-cols-10 md:gap-4">
-						<div className="md:col-span-5">
+					<div className="grid grid-cols-1 gap-4">
+						<div className="w-full">
 							<SalesChart
 								data={mockSalesData[range].salesByDay}
 								timeRange={range}
 							/>
 						</div>
-						<div className="md:col-span-5">
+						<div className="w-full">
 							<CategoryChart
 								data={mockSalesData[range].categorySales}
 								timeRange={range}
