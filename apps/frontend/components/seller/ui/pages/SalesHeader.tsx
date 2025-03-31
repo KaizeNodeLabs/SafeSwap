@@ -43,13 +43,13 @@ export function SalesHeader() {
 				</h1>
 			</div>
 			<div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
-				<div className="flex flex-wrap gap-2">
+				<div className="flex flex-wrap gap-2 overflow-x-auto pb-2 -mx-4 sm:mx-0">
 					{tabs.map((tab) => (
 						<Button
 							key={tab.value}
 							variant={activeFilter === tab.value ? "default" : "outline"}
 							onClick={() => setActiveFilter(tab.value)}
-							className={`rounded-full text-sm ${
+							className={`rounded-full text-sm whitespace-nowrap ${
 								activeFilter === tab.value
 									? "bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
 									: "dark:border-gray-700 dark:text-gray-300"
