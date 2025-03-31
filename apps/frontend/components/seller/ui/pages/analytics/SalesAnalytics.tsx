@@ -21,7 +21,7 @@ export function SalesAnalytics() {
 
 	return (
 		<Tabs defaultValue="Monthly" className="space-y-4">
-			<TabsList className="w-full overflow-x-auto flex-nowrap">
+			<TabsList className="overflow-x-auto flex-nowrap">
 				{timeRanges.map((range) => (
 					<TabsTrigger key={range} value={range} className="whitespace-nowrap">
 						{t(`Sales.analytics.timeRanges.${range}`)}
