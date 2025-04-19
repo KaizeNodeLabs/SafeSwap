@@ -7,8 +7,8 @@ import { Separator } from "@/components/ui/separator";
 import { useSaleDetail } from "@/hooks/sale-detail.hook";
 import { saleData } from "@/lib/mocks/seller/sale.mock";
 import { useTranslations } from "next-intl";
-import { ChatComponent } from "./Chat";
-import { MilestonesTimeline } from "./Milestones";
+import { ChatBox } from "./chat-box";
+import { MilestonesTimeline } from "./milestones-timeline";
 
 export default function SaleDetailPage() {
 	const { copied, handleCopy } = useSaleDetail();
@@ -118,7 +118,7 @@ export default function SaleDetailPage() {
 						<CardTitle className="my-4">{t("saleDetails.chat")}</CardTitle>
 					</CardHeader>
 					<CardContent>
-						<ChatComponent />
+						<ChatBox />
 					</CardContent>
 				</Card>
 			</div>
