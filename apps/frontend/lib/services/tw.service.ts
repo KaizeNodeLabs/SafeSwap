@@ -1,5 +1,5 @@
-import { http } from "@/core/config/axios/https";
-import { EscrowContract } from "@/interfaces/tw.interface";
+import { http } from "@/lib/axios/https";
+import { EscrowContract } from "@/lib/types/tw";
 import { signTransaction } from "@stellar/freighter-api";
 import { getAddress } from "@stellar/freighter-api";
 

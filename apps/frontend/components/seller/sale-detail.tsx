@@ -4,11 +4,11 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { useSaleDetail } from "@/hooks/sale-detail.hook";
+import { saleData } from "@/lib/mocks/seller/sale.mock";
 import { useTranslations } from "next-intl";
-import { saleData } from "../../mock/sale.mock";
-import { ChatComponent } from "../utils/Chat";
-import { MilestonesTimeline } from "../utils/Milestones";
-import { useSaleDetail } from "./hooks/sale-detail.hook";
+import { ChatComponent } from "./Chat";
+import { MilestonesTimeline } from "./Milestones";
 
 export default function SaleDetailPage() {
 	const { copied, handleCopy } = useSaleDetail();

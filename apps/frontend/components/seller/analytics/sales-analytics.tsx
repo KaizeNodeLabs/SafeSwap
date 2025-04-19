@@ -1,14 +1,14 @@
 "use client";
 
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
 	TimeRange,
 	mockSalesData,
-} from "@/components/seller/mock/sales-analytics.mock";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+} from "@/lib/mocks/seller/sales-analytics.mock";
 import { useTranslations } from "next-intl";
-import { CategoryChart } from "./CategoryChart";
-import { SalesChart } from "./SalesChart";
-import { StatsCards } from "./StatsCards";
+import { CategoryChart } from "./category-chart";
+import { SalesChart } from "./sales-chart";
+import { StatsCards } from "./stats-cards";
 
 export function SalesAnalytics() {
 	const t = useTranslations();

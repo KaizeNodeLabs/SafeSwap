@@ -1,7 +1,7 @@
 "use client";
 
 import NotFound from "@/app/not-found";
-import ChatMessage from "@/components/shopping/ChatMessage";
+import ChatMessage from "@/components/shopping/chat-message";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -18,7 +18,7 @@ import { products } from "@/lib/mocks/products";
 import {
 	fundReservationEscrow,
 	initializedReservationEscrow,
-} from "@/services/tw.service";
+} from "@/lib/services/tw.service";
 import { getProductKey } from "@/utils/getProductKey";
 import {
 	AlertTriangle,
@@ -29,7 +29,6 @@ import {
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { useState } from "react";
 
 interface ShoppingDetailsPageProps {
 	params: {

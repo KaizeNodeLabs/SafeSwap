@@ -11,7 +11,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-import { useWallet } from "@/hooks/useWallet.hook";
+import { useWallet } from "@/hooks/useWallet";
 import {
 	TSellerOnboarding,
 	sellerOnboardingSchema,

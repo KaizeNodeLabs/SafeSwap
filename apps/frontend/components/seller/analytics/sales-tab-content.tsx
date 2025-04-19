@@ -3,10 +3,10 @@ import {
 	SalesAnalytics,
 	SalesByDay,
 	TimeRange,
-} from "@/components/seller/mock/sales-analytics.mock";
-import { CategoryChart } from "./CategoryChart";
-import { SalesChart } from "./SalesChart";
-import { StatsCards } from "./StatsCards";
+} from "@/lib/mocks/seller/sales-analytics.mock";
+import { CategoryChart } from "./category-chart";
+import { SalesChart } from "./sales-chart";
+import { StatsCards } from "./stats-cards";
 
 interface SalesTabContentProps {
 	range: TimeRange;

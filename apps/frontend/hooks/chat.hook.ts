@@ -1,4 +1,4 @@
-import { initialMessages } from "@/components/seller/mock/chat.mock";
+import { initialMessages } from "@/lib/mocks/seller/chat.mock";
 import { useState } from "react";
 
 export const useChat = () => {

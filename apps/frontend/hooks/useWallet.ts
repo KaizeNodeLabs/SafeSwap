@@ -5,7 +5,7 @@ import {
 	WalletNetwork,
 } from "@creit.tech/stellar-wallets-kit";
 import { useState } from "react";
-import { kit } from "../constants/wallet-kit.constant";
+import { kit } from "../lib/constants/wallet-kit";
 
 export const useWallet = () => {
 	const walletState = useWalletContext();

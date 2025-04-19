@@ -1,4 +1,4 @@
-import { saleData } from "@/components/seller/mock/sale.mock";
+import { saleData } from "@/lib/mocks/seller/sale.mock";
 import { useState } from "react";
 
 export const useSaleDetail = () => {

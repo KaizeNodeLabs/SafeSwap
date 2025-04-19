@@ -1,8 +1,8 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { milestones } from "@/lib/mocks/seller/milestones.mock";
 import { Check, Clock } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { milestones } from "../../mock/milestones.mock";
 
 export function MilestonesTimeline() {
 	const t = useTranslations();

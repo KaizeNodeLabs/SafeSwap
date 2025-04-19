@@ -24,6 +24,7 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { ShoppingData, TabType } from "@/lib/types/shopping";
 import {
 	AlertCircle,
 	CheckCircle2,
@@ -34,7 +35,6 @@ import {
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import React, { useState, useEffect } from "react";
-import { ShoppingData, TabType } from "./types";
 
 const initialData: ShoppingData[] = [
 	{

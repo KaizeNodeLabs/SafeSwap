@@ -11,11 +11,11 @@ import {
 	TableRow,
 } from "@/components/ui/table";
 import { products } from "@/lib/mocks/products";
+import { milestones } from "@/lib/mocks/seller/milestones.mock";
 import { Check, ChevronDown, ChevronRight, Clock, Eye } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import React from "react";
-import { milestones } from "../../mock/milestones.mock";
 
 type StatusType = "approved" | "pending" | "forReview" | "onDispute";
 

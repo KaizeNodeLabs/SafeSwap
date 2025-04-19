@@ -1,5 +1,5 @@
-import { SalesAnalytics } from "@/components/seller/mock/sales-analytics.mock";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { SalesAnalytics } from "@/lib/mocks/seller/sales-analytics.mock";
 import { DollarSign, Package, TrendingUp } from "lucide-react";
 import { useTranslations } from "next-intl";
 

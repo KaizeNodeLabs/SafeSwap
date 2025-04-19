@@ -1,7 +1,7 @@
-import { SalesHeader } from "@/components/seller/ui/pages/SalesHeader";
-import { SalesTable } from "@/components/seller/ui/pages/SalesTable";
-import { SalesAnalytics } from "@/components/seller/ui/pages/analytics/SalesAnalytics";
-import { SalesAnalyticsHeader } from "@/components/seller/ui/pages/analytics/SalesAnalyticsHeader";
+import { SalesAnalytics } from "@/components/seller/analytics/sales-analytics";
+import { SalesAnalyticsHeader } from "@/components/seller/analytics/sales-analytics-header";
+import { SalesHeader } from "@/components/seller/sales-header";
+import { SalesTable } from "@/components/seller/sales-table";
 
 export default function SalesPage() {
 	return (

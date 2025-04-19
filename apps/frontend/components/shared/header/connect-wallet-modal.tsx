@@ -1,6 +1,6 @@
 "use client";
 
-import { useWallet } from "@/hooks/useWallet.hook";
+import { useWallet } from "@/hooks/useWallet";
 import { AlertCircle, Check, Copy, LogOut } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
