@@ -48,11 +48,9 @@ interface UIProduct extends FormattedProduct {
 
 const ProductDetails = ({ params }: ProductDetailsProps) => {
 	const t = useTranslations();
-	const { renderStars } = useUtils();
 	const [product, setProduct] = useState<UIProduct | null>(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<Error | null>(null);
-	const [quantity, setQuantity] = useState(1);
 
 	// State for data
 	const [productsData, setProductsData] = useState<ProductsData | undefined>(
@@ -154,14 +152,6 @@ const ProductDetails = ({ params }: ProductDetailsProps) => {
 			}
 		}
 	}, [productsData, categoriesData, imagesData, params.productSlug]);
-
-	const handleIncreaseQuantity = () => {
-		setQuantity((prev) => prev + 1);
-	};
-
-	const handleDecreaseQuantity = () => {
-		setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
-	};
 
 	if (loading) {
 		return (
