@@ -37,11 +37,11 @@ describe('MessageService', () => {
 
       const mockCreatedMessage = {
         id: 'message-id',
-        order_id: createMessageInput.orderId, 
-        sender_address: createMessageInput.senderAddress, 
+        orderId: createMessageInput.orderId, 
+        senderAddress: createMessageInput.senderAddress, 
         content: createMessageInput.content,
-        created_at: new Date(),
-        updated_at: new Date(),
+        createdAt: new Date(),
+        updatedAt: new Date(),
       };
 
       // Mocking prismaService.message.create
@@ -53,8 +53,8 @@ describe('MessageService', () => {
       expect(result).toEqual(mockCreatedMessage);
       expect(prismaService.message.create).toHaveBeenCalledWith({
         data: {
-          order_id: createMessageInput.orderId, 
-          sender_address: createMessageInput.senderAddress, 
+          orderId: createMessageInput.orderId, 
+          senderAddress: createMessageInput.senderAddress, 
           content: createMessageInput.content,
         },
       });
@@ -67,19 +67,19 @@ describe('MessageService', () => {
       const mockMessages = [
         {
           id: 'message-id-1',
-          order_id: orderId,
-          sender_address: 'user-address',
+          orderId: orderId,
+          senderAddress: 'user-address',
           content: 'Test content 1',
-          created_at: new Date(),
-          updated_at: new Date(),
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 'message-id-2',
-          order_id: orderId,
-          sender_address: 'user-address',
+          orderId: orderId,
+          senderAddress: 'user-address',
           content: 'Test content 2',
-          created_at: new Date(),
-          updated_at: new Date(),
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
       ];
 
@@ -89,8 +89,8 @@ describe('MessageService', () => {
       const result = await service.getMessagesByOrder(orderId);
       expect(result).toEqual(mockMessages);
       expect(prismaService.message.findMany).toHaveBeenCalledWith({
-        where: { order_id: orderId }, 
-        orderBy: { created_at: 'asc' },
+        where: { orderId: orderId }, 
+        orderBy: { createdAt: 'asc' },
       });
     });
   });

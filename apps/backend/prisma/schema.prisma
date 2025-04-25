@@ -62,15 +62,14 @@ model User {
 
 model Message {
   id             String   @id @default(uuid())
-  order_id       String
-  sender_address String
+  orderId        String   @map("order_id")
+  senderAddress  String   @map("sender_address")
   content        String
-  created_at     DateTime @default(now())
-  updated_at     DateTime @updatedAt
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
 
-  // Relations
-  order  Order @relation(fields: [order_id], references: [id])
-  sender User  @relation("UserMessages", fields: [sender_address], references: [walletAddress])
+  order  Order @relation(fields: [orderId], references: [id])
+  sender User  @relation("UserMessages", fields: [senderAddress], references: [walletAddress])
 
   @@map("messages")
 }

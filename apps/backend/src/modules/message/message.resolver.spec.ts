@@ -35,19 +35,19 @@ describe('MessageResolver', () => {
       const mockMessages = [
         {
           id: 'message-id-1',
-          order_id: orderId,
-          sender_address: 'user-address',
+          orderId: orderId,
+          senderAddress: 'user-address',
           content: 'Test content 1',
-          created_at: new Date(),
-          updated_at: new Date(),
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           id: 'message-id-2',
-          order_id: orderId,
-          sender_address: 'user-address',
+          orderId: orderId,
+          senderAddress: 'user-address',
           content: 'Test content 2',
-          created_at: new Date(),
-          updated_at: new Date(),
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
       ];
 
@@ -70,11 +70,11 @@ describe('MessageResolver', () => {
 
       const mockCreatedMessage = {
         id: 'message-id',
-        order_id: createMessageInput.orderId,
-        sender_address: createMessageInput.senderAddress,
+        orderId: createMessageInput.orderId,
+        senderAddress: createMessageInput.senderAddress,
         content: createMessageInput.content,
-        created_at: new Date(),
-        updated_at: new Date(),
+        createdAt: new Date(),
+        updatedAt: new Date(),
       };
 
       (messageService.sendMessage as jest.Mock).mockResolvedValue(mockCreatedMessage);

@@ -9,8 +9,8 @@ export class MessageService {
   async sendMessage(data: CreateMessageInput) {
     return this.prisma.message.create({
       data: {
-        order_id: data.orderId,
-        sender_address: data.senderAddress,
+        orderId: data.orderId,
+        senderAddress: data.senderAddress,
         content: data.content,
       },
     });
@@ -18,8 +18,8 @@ export class MessageService {
 
   async getMessagesByOrder(orderId: string) {
     return this.prisma.message.findMany({
-      where: { order_id: orderId },
-      orderBy: { created_at: 'asc' },
+      where: { orderId: orderId },
+      orderBy: { createdAt: 'asc' },
     });
   }
 
