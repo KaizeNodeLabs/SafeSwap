@@ -635,6 +635,45 @@ export const en = {
 		save: "Save changes",
 		successMessage: "Your profile has been successfully updated.",
 	},
+	commonMarketPlaceFilter: {
+		// Filter UI elements
+		filters: "Filters",
+		hideFilters: "Hide Filters",
+		showFilters: "Show Filters",
+		category: "Category",
+		selectCategory: "Select category...",
+		priceRange: "Price Range ($${min} - $${max})",
+		condition: "Condition",
+		sellerRating: "Seller Rating",
+		postedWithin: "Posted Within",
+		anyTime: "Any Time",
+		last24Hours: "Last 24 Hours",
+		last7Days: "Last 7 Days",
+		last30Days: "Last 30 Days",
+		sortBy: "Sort By",
+		mostRecent: "Most Recent",
+		priceLowHigh: "Price: Low to High",
+		priceHighLow: "Price: High to Low",
+		bestRating: "Best Rating",
+		activeFilters: "Active filters",
+		clearAll: "Clear all",
+		applyFilters: "Apply Filters",
+		
+		// Condition options
+		conditions: {
+		  new: "New",
+		  likeNew: "Like New",
+		  good: "Good",
+		  fair: "Fair"
+		},
+		categories: {
+			electronics: "Electronics",
+			clothing: "Clothing",
+			homeAndGarden: "Home & Garden",
+			sports: "Sports & Outdoors"
+		  },
+	  }
+	
 	// Add more sections as needed
 };
 

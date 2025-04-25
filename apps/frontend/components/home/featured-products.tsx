@@ -29,7 +29,7 @@ export function FeaturedProducts() {
 		<section className="py-12 px-4 md:px-8 dark:bg-white/5 bg-black/5">
 			<div className="w-full max-w-6xl mx-auto my-8 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
 				<h2 className="text-3xl font-bold mb-8 text-center">
-					{t("common.featuredProductsTitle.title")}
+					{t("common.featuredProductsTitle.title")} 
 				</h2>
 
 				<Carousel

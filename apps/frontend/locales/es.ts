@@ -640,6 +640,44 @@ export const es = {
 		save: "Guardar cambios",
 		successMessage: "Su perfil se ha actualizado correctamente.",
 	},
+	commonMarketPlaceFilter: {
+		// Filter UI elements
+		filters: "Filtros",
+		hideFilters: "Ocultar Filtros",
+		showFilters: "Mostrar Filtros",
+		category: "Categoría",
+		selectCategory: "Seleccionar categoría...",
+		priceRange: "Rango de Precio ($${min} - $${max})",
+		condition: "Condición",
+		sellerRating: "Calificación del Vendedor",
+		postedWithin: "Publicado Dentro",
+		anyTime: "Cualquier Tiempo",
+		last24Hours: "Últimas 24 Horas",
+		last7Days: "Últimos 7 Días",
+		last30Days: "Últimos 30 Días",
+		sortBy: "Ordenar Por",
+		mostRecent: "Más Reciente",
+		priceLowHigh: "Precio: Bajo a Alto",
+		priceHighLow: "Precio: Alto a Bajo",
+		bestRating: "Mejor Calificación",
+		activeFilters: "Filtros activos",
+		clearAll: "Borrar todo",
+		applyFilters: "Aplicar Filtros",
+		
+		// Condition options
+		conditions: {
+		  new: "Nuevo",
+		  likeNew: "Como Nuevo",
+		  good: "Bueno",
+		  fair: "Regular"
+		},
+		categories: {
+			electronics: "Electrónica",
+			clothing: "Ropa",
+			homeAndGarden: "Hogar y Jardín",
+			sports: "Deportes y Aire Libre"
+		  }
+	  }
 	// Add more sections as needed
 };
 
