@@ -18,7 +18,9 @@
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
-	"workspaces": ["apps/*"],
+	"workspaces": [
+		"apps/*"
+	],
 	"packageManager": "npm@10.9.2",
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
@@ -26,6 +28,7 @@
 		"turbo": "^2.4.1"
 	},
 	"dependencies": {
-		"@stellar/freighter-api": "^3.1.0"
+		"@stellar/freighter-api": "^3.1.0",
+		"safeswap": "file:"
 	}
 }

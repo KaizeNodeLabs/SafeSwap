@@ -34,6 +34,7 @@
 		"@nestjs/mapped-types": "*",
 		"@nestjs/platform-express": "^11.0.7",
 		"@prisma/client": "^6.3.1",
+		"backend": "file:",
 		"class-transformer": "^0.5.1",
 		"class-validator": "^0.14.1",
 		"graphql": "^16.10.0",
@@ -63,14 +64,22 @@
 		"typescript": "^5.7.3"
 	},
 	"jest": {
-		"moduleFileExtensions": ["js", "json", "ts"],
+		"moduleFileExtensions": [
+			"js",
+			"json",
+			"ts"
+		],
 		"rootDir": "./",
-		"modulePaths": ["<rootDir>"],
+		"modulePaths": [
+			"<rootDir>"
+		],
 		"testRegex": ".*\\.spec\\.ts$",
 		"transform": {
 			"^.+\\.(t|j)s$": "ts-jest"
 		},
-		"collectCoverageFrom": ["**/*.(t|j)s"],
+		"collectCoverageFrom": [
+			"**/*.(t|j)s"
+		],
 		"coverageDirectory": "../coverage",
 		"testEnvironment": "node"
 	},
