@@ -175,6 +175,8 @@ export const en = {
 			quantity: "Quantity",
 			description: "Description",
 			reviews: "/ 5",
+			posted: "Posted 2 days ago • 142 views",
+			condition: "Like New",
 			buttons: {
 				buy: "Buy Now",
 				share: "Share",
@@ -188,6 +190,10 @@ export const en = {
 			description:
 				"Join SafeSwap and reach thousands of potential buyers today!",
 			btn_label: "Become a Seller",
+			memberSince: "• Member since January 2022",
+			reviews: "4.9 (253) reviews",
+			responseTime: "Usually responds within 2 hours",
+			viewProfile: "View Seller Profile",
 		},
 
 		createProduct: {

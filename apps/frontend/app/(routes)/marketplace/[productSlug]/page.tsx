@@ -1,12 +1,24 @@
 "use client";
 
-import { Share2, ShoppingBag, Star } from "lucide-react";
+import {
+	Clock,
+	Heart,
+	MapPin,
+	MessageSquareMore,
+	Share2,
+	ShoppingBag,
+	Star,
+} from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
 import Images from "@/components/products/Images";
 import NotFound from "@/components/products/not-found";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import { useUtils } from "@/hooks/useUtils";
 import {
 	GET_CATEGORIES,
@@ -170,93 +182,108 @@ const ProductDetails = ({ params }: ProductDetailsProps) => {
 	}
 
 	return (
-		<div className="flex flex-col md:flex-row justify-center gap-10">
-			<section className="w-full md:w-1/2">
+		<div className="grid grid-cols-3 gap-10 pb-3">
+			<section className="col-span-3 lg:col-span-2">
 				<Images images={product.images} />
 			</section>
 
-			<section className="w-full md:w-1/2 space-y-6">
-				<div>
-					<h1 className="text-3xl font-bold">{product.name}</h1>
-					<p className="text-zinc-600 text-xl font-semibold mt-3">
-						${product.price.toFixed(2)}
-					</p>
-				</div>
-
-				<div>
-					<h3 className="font-medium mb-2">{t("common.product.category")}:</h3>
-					<p className="text-gray-700 text-sm leading-relaxed">
-						{product.category}
-					</p>
-				</div>
-
-				<div>
-					<h3 className="font-medium mb-2">{t("common.product.quantity")}:</h3>
-					<div className="flex items-center gap-2">
-						<Button
-							size="icon"
-							variant="secondary"
-							aria-label={t("common.product.buttons.decrease")}
-							onClick={handleDecreaseQuantity}
-						>
-							-
-						</Button>
-						<span>{quantity}</span>
-						<Button
-							size="icon"
-							variant="secondary"
-							aria-label={t("common.product.buttons.increase")}
-							onClick={handleIncreaseQuantity}
-						>
-							+
-						</Button>
-					</div>
-				</div>
-
-				{product.rating && (
-					<div className="mt-4 flex items-center">
-						{renderStars(product.rating).map((star, index) => {
-							if (star === "filled") {
-								return <Star key={index} className="h-5 w-5 text-yellow-400" />;
-							}
-							if (star === "half") {
-								return (
-									<Star
-										key={index}
-										className="h-5 w-5 text-yellow-400 opacity-50"
-									/>
-								);
-							}
-							return <Star key={index} className="h-5 w-5 text-gray-300" />;
-						})}
-						<span className="ml-2 text-sm text-gray-600">
-							{product.rating.toFixed(1)} {t("common.product.reviews")}
-						</span>
-					</div>
-				)}
-
-				{product.description && (
-					<div>
-						<h3 className="font-medium mb-2">
-							{t("common.product.description")}:
-						</h3>
-						<p className="text-gray-700 text-sm leading-relaxed">
-							{product.description}
+			<div className="space-y-6 col-span-3 lg:col-span-1">
+				<section className="space-y-4">
+					<div className="flex justify-between">
+						<Badge>{product.category}</Badge>
+						<p className="text-muted-foreground">
+							{t("common.product.posted")}
 						</p>
 					</div>
-				)}
 
-				<div className="flex justify-center items-center gap-3">
-					<Button className="w-9/12">
-						<ShoppingBag className="mr-2 h-4 w-4" />
-						{t("common.product.buttons.buy")}
-					</Button>
-					<Button>
-						<Share2 className="mr-2 h-4 w-4" />
-						{t("common.product.buttons.share")}
-					</Button>
-				</div>
-			</section>
+					<div>
+						<h1 className="text-3xl font-bold">{product.name}</h1>
+						<p className="text-3xl font-semibold mt-2">
+							${product.price.toFixed(2)}
+						</p>
+					</div>
+
+					<Badge variant={"outline"}>{t("common.product.condition")}</Badge>
+
+					{product.description && (
+						<Card>
+							<CardContent className="p-4">
+								<h3 className="font-medium mb-2">
+									{t("common.product.description")}
+								</h3>
+								<p className="text-gray-700 text-sm leading-relaxed">
+									{product.description}
+								</p>
+							</CardContent>
+						</Card>
+					)}
+
+					<div className="flex flex-col justify-center items-center gap-3 w-full">
+						<Button className="w-full">
+							<ShoppingBag className="mr-2 h-4 w-4" />
+							{t("common.product.buttons.buy")}
+						</Button>
+						<Button variant={"secondary"} className="w-full">
+							<MessageSquareMore className="mr-2 h-4 w-4" />
+							{t("common.productList.chatWithSeller")}
+						</Button>
+						<div className="flex justify-center items-center gap-2 w-full">
+							<Button variant={"outline"} className="w-full">
+								<Heart />
+							</Button>
+							<Button variant={"outline"} className="w-full">
+								<Share2 />
+							</Button>
+						</div>
+					</div>
+				</section>
+
+				<Separator />
+
+				<section>
+					<Card>
+						<CardContent className="p-4 space-y-3">
+							<div className="flex justify-between items-center">
+								<div className="flex items-center gap-3">
+									<Avatar>
+										<AvatarFallback>T</AvatarFallback>
+									</Avatar>
+
+									<div className="flex flex-col">
+										<h3>TechTreasures</h3>
+										<div className="flex items-center justify-center gap-1">
+											<Star
+												fill="#facc15"
+												className="h-3 w-3 text-yellow-400"
+											/>
+											<p className="text-muted-foreground text-sm">
+												{t("common.seller.reviews")}
+											</p>
+										</div>
+									</div>
+								</div>
+
+								<p className="text-muted-foreground text-sm">
+									{t("common.seller.memberSince")}
+								</p>
+							</div>
+
+							<p className="flex items-center">
+								<MapPin className="mr-2 h-4 w-4 text-muted-foreground" /> San
+								Francisco, CA
+							</p>
+							<p className="flex items-center">
+								<Clock className="mr-2 h-4 w-4 text-muted-foreground" />{" "}
+								{t("common.seller.responseTime")}
+							</p>
+
+							<Button variant={"outline"} className="w-full">
+								{t("common.seller.viewProfile")}
+							</Button>
+						</CardContent>
+					</Card>
+				</section>
+			</div>
 		</div>
 	);
 };
