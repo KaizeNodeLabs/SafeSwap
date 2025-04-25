@@ -52,8 +52,30 @@ model User {
   telegramUsername String?  @map("telegram_username") @db.VarChar(50)
   country          String   @db.VarChar(100)
   isSeller         Boolean  @default(false) @map("is_seller")
+  messages         Message[] @relation("UserMessages")
   createdAt        DateTime @default(now()) @map("created_at")
   updatedAt        DateTime @updatedAt @map("updated_at")
 
   @@map("users")
+}
+
+
+model Message {
+  id             String   @id @default(uuid())
+  order_id       String
+  sender_address String
+  content        String
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
+
+  // Relations
+  order  Order @relation(fields: [order_id], references: [id])
+  sender User  @relation("UserMessages", fields: [sender_address], references: [walletAddress])
+
+  @@map("messages")
+}
+
+model Order {
+  id       String    @id @default(uuid())
+  messages Message[]
 }
