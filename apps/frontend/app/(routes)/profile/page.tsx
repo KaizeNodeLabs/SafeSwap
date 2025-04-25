@@ -19,7 +19,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-// Definir un tipo para el perfil de usuario
+// Define a type for the user profile
 type Profile = {
   name: string;
   surname: string;
@@ -33,10 +33,10 @@ export default function ProfilePage() {
   const t = useTranslations();
   const { toast } = useToast();
   const [isFormChanged, setIsFormChanged] = useState(false);
-  // Mantener una referencia al perfil actual (después de guardar)
+  // Keep a reference to the current profile (after saving)
   const [currentProfile, setCurrentProfile] = useState<Profile>(initialProfile);
   
-  // Definición del esquema de validación con Zod
+  // Defining the validation scheme with Zod
   const formSchema = z.object({
     name: z.string().min(1, t("profile.validation.nameRequired")),
     surname: z.string().min(1, t("profile.validation.surnameRequired")),
@@ -46,22 +46,22 @@ export default function ProfilePage() {
     country: z.string().min(1, t("profile.validation.countryRequired")),
   });
   
-  // Tipo derivado del esquema Zod
+  // Type derived from the Zod schema
   type FormValues = z.infer<typeof formSchema>;
   
-  // Inicialización de React Hook Form con Zod
+  // Initializing React Hook Form with Zod
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: currentProfile,
   });
 
-  // Estado local para el país (ya que countrySelect maneja su propio estado)
+  // Local state for the country (since countrySelect handles its own state)
   const [selectedCountry, setSelectedCountry] = useState({ name: currentProfile.country });
 
-  // Observar cambios en el formulario para habilitar/deshabilitar el botón
+  // Watch for changes in the form to enable/disable the button
   useEffect(() => {
     const subscription = form.watch((value) => {
-      // Verificar si algún valor ha cambiado con respecto a los valores actuales
+      // Check if any values ​​have changed from the current values
       const hasChanged = Object.keys(currentProfile).some(key => {
         const profileKey = key as keyof Profile;
         const valueKey = key as keyof FormValues;
@@ -75,13 +75,13 @@ export default function ProfilePage() {
   }, [form, form.watch, currentProfile]);
 
   const onSubmit = (values: FormValues) => {
-    // Asegurar que telegramUsername es una cadena (nunca undefined)
+    // Ensure that telegramUsername is a string (never undefined)
     const updatedProfile: Profile = {
       ...values,
       telegramUsername: values.telegramUsername || "",
     };
     
-    // Actualizar el perfil actual con los nuevos valores
+    // Update the current profile with the new values
     setCurrentProfile(updatedProfile);
     
     toast({
@@ -90,7 +90,7 @@ export default function ProfilePage() {
 
     console.log("Saved profile:", updatedProfile);
     
-    // Después de guardar con éxito, el formulario ya no está modificado
+    // After successful saving, the form is no longer modified
     setIsFormChanged(false);
   };
 
