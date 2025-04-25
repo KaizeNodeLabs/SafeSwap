@@ -11,8 +11,10 @@ import { IS_DEV_ENV } from "src/shared/utils/is-dev.util";
 import { getGraphQLConfig } from "./config/graphql.config";
 import { PrismaModule } from "./prisma/prisma.module";
 
+import { AuthModule } from "src/auth/auth.module";
 @Module({
 	imports: [
+		AuthModule,
 		ConfigModule.forRoot({
 			ignoreEnvFile: !IS_DEV_ENV,
 			isGlobal: true,

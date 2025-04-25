@@ -9,7 +9,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-safeswap_user}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-safeswap_password}
     ports:
-      - "${POSTGRES_PORT:-5432}:5432"
+      - "${POSTGRES_PORT:-5433}:5432"
     volumes:
       - safeswap_data:/var/lib/postgresql/data
     restart: unless-stopped

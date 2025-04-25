@@ -22,10 +22,15 @@
 	"packageManager": "npm@10.9.2",
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
+		"@types/passport-jwt": "^4.0.1",
 		"lefthook": "^1.8.2",
 		"turbo": "^2.4.1"
 	},
 	"dependencies": {
-		"@stellar/freighter-api": "^3.1.0"
+		"@nestjs/jwt": "^11.0.0",
+		"@nestjs/passport": "^11.0.5",
+		"@stellar/freighter-api": "^3.1.0",
+		"passport": "^0.7.0",
+		"passport-jwt": "^4.0.1"
 	}
 }
