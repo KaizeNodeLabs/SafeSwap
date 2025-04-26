@@ -647,7 +647,7 @@ export const es = {
 		showFilters: "Mostrar Filtros",
 		category: "Categoría",
 		selectCategory: "Seleccionar categoría...",
-		priceRange: "Rango de Precio ($${min} - $${max})",
+		priceRange: "Rango de Precio (${min} - ${max})",
 		condition: "Condición",
 		sellerRating: "Calificación del Vendedor",
 		postedWithin: "Publicado Dentro",
@@ -663,21 +663,21 @@ export const es = {
 		activeFilters: "Filtros activos",
 		clearAll: "Borrar todo",
 		applyFilters: "Aplicar Filtros",
-		
+
 		// Condition options
 		conditions: {
-		  new: "Nuevo",
-		  likeNew: "Como Nuevo",
-		  good: "Bueno",
-		  fair: "Regular"
+			new: "Nuevo",
+			likeNew: "Como Nuevo",
+			good: "Bueno",
+			fair: "Regular",
 		},
 		categories: {
 			electronics: "Electrónica",
 			clothing: "Ropa",
 			homeAndGarden: "Hogar y Jardín",
-			sports: "Deportes y Aire Libre"
-		  }
-	  }
+			sports: "Deportes y Aire Libre",
+		},
+	},
 	// Add more sections as needed
 };
 

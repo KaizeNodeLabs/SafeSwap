@@ -17,7 +17,7 @@ import type {
 	ProductImagesData,
 	ProductsData,
 } from "@/lib/types/product";
-import MarketplaceFilters from "../marketplace/MarketplaceFilters";
+import MarketplaceFilters from "../marketplace/marketplace-filters";
 
 export default function ProductList() {
 	const t = useTranslations();

@@ -642,7 +642,7 @@ export const en = {
 		showFilters: "Show Filters",
 		category: "Category",
 		selectCategory: "Select category...",
-		priceRange: "Price Range ($${min} - $${max})",
+		priceRange: "Price Range (${min} - ${max})",
 		condition: "Condition",
 		sellerRating: "Seller Rating",
 		postedWithin: "Posted Within",
@@ -658,22 +658,22 @@ export const en = {
 		activeFilters: "Active filters",
 		clearAll: "Clear all",
 		applyFilters: "Apply Filters",
-		
+
 		// Condition options
 		conditions: {
-		  new: "New",
-		  likeNew: "Like New",
-		  good: "Good",
-		  fair: "Fair"
+			new: "New",
+			likeNew: "Like New",
+			good: "Good",
+			fair: "Fair",
 		},
 		categories: {
 			electronics: "Electronics",
 			clothing: "Clothing",
 			homeAndGarden: "Home & Garden",
-			sports: "Sports & Outdoors"
-		  },
-	  }
-	
+			sports: "Sports & Outdoors",
+		},
+	},
+
 	// Add more sections as needed
 };
 
