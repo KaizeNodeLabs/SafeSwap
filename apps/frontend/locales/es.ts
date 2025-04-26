@@ -1,6 +1,34 @@
 export const es = {
 	common: {
-		profile: "Perfil",
+		profile: {
+			title: "Perfil",
+			subtitle: "Administra tu información personal",
+			label: {
+				name: "Nombre",
+				surname: "Apellido",
+				email: "Correo electrónico",
+				stellarWallet: "Cartera Stellar",
+				telegram: "Usuario de Telegram",
+				country: "País"
+			},
+			placeholder: {
+				name: "Ingresa tu nombre",
+				surname: "Ingresa tu apellido",
+				email: "Ingresa tu correo electrónico",
+				stellarWallet: "Tu dirección de cartera Stellar",
+				telegram: "Ingresa tu usuario de Telegram"
+			},
+			stellarWalletSpan: "Este campo está conectado a tu cartera Freighter y no puede ser modificado",
+			telegramSpan: "Opcional: Agrega tu usuario de Telegram para una comunicación más rápida",
+			save: "Guardar Cambios",
+			successMessage: "Perfil actualizado correctamente",
+			validation: {
+				nameRequired: "El nombre es requerido",
+				surnameRequired: "El apellido es requerido",
+				emailInvalid: "Formato de correo electrónico inválido",
+				countryRequired: "El país es requerido"
+			}
+		},
 		myProducts: "Mis Productos",
 		transactions: "Transacciones",
 		settings: "Configuración",

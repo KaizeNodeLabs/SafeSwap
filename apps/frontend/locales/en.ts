@@ -1,6 +1,34 @@
 export const en = {
 	common: {
-		profile: "Profile",
+		profile: {
+			title: "Profile",
+			subtitle: "Manage your personal information",
+			label: {
+				name: "First Name",
+				surname: "Last Name",
+				email: "Email",
+				stellarWallet: "Stellar Wallet",
+				telegram: "Telegram Username",
+				country: "Country"
+			},
+			placeholder: {
+				name: "Enter your first name",
+				surname: "Enter your last name",
+				email: "Enter your email",
+				stellarWallet: "Your Stellar wallet address",
+				telegram: "Enter your Telegram username"
+			},
+			stellarWalletSpan: "This field is connected to your Freighter wallet and cannot be changed",
+			telegramSpan: "Optional: Add your Telegram username for faster communication",
+			save: "Save Changes",
+			successMessage: "Profile updated successfully",
+			validation: {
+				nameRequired: "Name is required",
+				surnameRequired: "Surname is required",
+				emailInvalid: "Invalid email format",
+				countryRequired: "Country is required"
+			}
+		},
 		myProducts: "My Products",
 		transactions: "Transactions",
 		settings: "Settings",
