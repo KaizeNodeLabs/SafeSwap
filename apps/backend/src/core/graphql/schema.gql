@@ -14,6 +14,14 @@ input CreateCategoryInput {
   name: String!
 }
 
+input CreateOrderInput {
+  buyerAddress: String!
+  escrowId: String!
+  productId: String!
+  sellerAddress: String!
+  status: OrderStatus! = PENDING
+}
+
 input CreateProductInput {
   categoryId: String!
   description: String
@@ -39,10 +47,30 @@ scalar DateTime
 
 type Mutation {
   createCategory(data: CreateCategoryInput!): Category!
+  createOrder(data: CreateOrderInput!): Order!
   createProduct(data: CreateProductInput!): ProductDTO!
   createProductImage(createProductImage: ProductImageDTO!): ProductImage!
   createUser(data: CreateUserInput!): User!
+  updateOrderStatus(data: UpdateOrderStatusInput!): Order!
   updateUser(data: UpdateUserInput!, walletAddress: String!): User!
+}
+
+type Order {
+  buyer_address: String!
+  created_at: DateTime!
+  escrow_id: String!
+  id: String!
+  product_id: String!
+  seller_address: String!
+  status: OrderStatus!
+  updated_at: DateTime!
+}
+
+enum OrderStatus {
+  APPROVED
+  FOR_REVIEW
+  ON_DISPUTE
+  PENDING
 }
 
 type ProductDTO {
@@ -72,12 +100,20 @@ input ProductImageDTO {
 type Query {
   categories: [Category!]!
   category(id: String!): Category
+  getOrder(orderId: String!): Order!
+  getOrdersByBuyer(buyerAddress: String!): [Order!]!
+  getOrdersBySeller(sellerAddress: String!): [Order!]!
   product(id: String!): ProductDTO
   productImage(id: String!): ProductImage
   productImages: [ProductImage!]!
   products: [ProductDTO!]!
   user(walletAddress: String!): User
   users: [User!]!
+}
+
+input UpdateOrderStatusInput {
+  orderId: String!
+  status: OrderStatus!
 }
 
 input UpdateUserInput {
