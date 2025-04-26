@@ -29,7 +29,7 @@ model Product {
   slug        String         @unique
   images      ProductImage[]
   category    Category       @relation(fields: [categoryId], references: [id])
-
+  orders      Order[]
   @@map("products")
 }
 
@@ -74,7 +74,23 @@ model Message {
   @@map("messages")
 }
 
+enum OrderStatus {
+  PENDING
+  ON_DISPUTE
+  FOR_REVIEW
+  APPROVED
+}
+
 model Order {
-  id       String    @id @default(uuid())
+  id             String      @id @default(uuid())
+  product_id     String
+  buyer_address  String
+  seller_address String
+  escrow_id      String
+  status         OrderStatus @default(PENDING)
+  created_at     DateTime    @default(now())
+  updated_at     DateTime    @updatedAt
   messages Message[]
+
+  product        Product     @relation(fields: [product_id], references: [id])
 }
