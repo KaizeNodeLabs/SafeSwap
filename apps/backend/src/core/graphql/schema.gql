@@ -16,9 +16,11 @@ input CreateCategoryInput {
 
 input CreateProductInput {
   categoryId: String!
+  condition: String!
   description: String
   name: String!
   price: Float!
+  sellerAddress: String!
   slug: String!
 }
 
@@ -47,11 +49,13 @@ type Mutation {
 
 type ProductDTO {
   categoryId: String!
+  condition: String!
   createdAt: DateTime!
   description: String
   id: ID!
   name: String!
   price: Float!
+  sellerAddress: String!
   slug: String!
   updatedAt: DateTime!
 }
