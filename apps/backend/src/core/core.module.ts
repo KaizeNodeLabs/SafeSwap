@@ -12,6 +12,7 @@ import { getGraphQLConfig } from "./config/graphql.config";
 import { PrismaModule } from "./prisma/prisma.module";
 
 import { AuthModule } from "src/auth/auth.module";
+import { OrderModule } from "src/modules/order/order.module";
 @Module({
 	imports: [
 		AuthModule,
@@ -30,6 +31,7 @@ import { AuthModule } from "src/auth/auth.module";
 		ProductModule,
 		ProductImageModule,
 		UsersModule,
+		OrderModule
 	],
 	controllers: [],
 	providers: [],
