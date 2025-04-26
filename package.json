@@ -18,9 +18,7 @@
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
-	"workspaces": [
-		"apps/*"
-	],
+	"workspaces": ["apps/*"],
 	"packageManager": "npm@10.9.2",
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
@@ -33,7 +31,6 @@
 		"@nestjs/passport": "^11.0.5",
 		"@stellar/freighter-api": "^3.1.0",
 		"passport": "^0.7.0",
-		"passport-jwt": "^4.0.1",
-		"safeswap": "file:"
+		"passport-jwt": "^4.0.1"
 	}
 }
