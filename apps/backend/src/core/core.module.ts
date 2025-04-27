@@ -3,15 +3,16 @@ import { Module } from "@nestjs/common";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { GraphQLModule } from "@nestjs/graphql";
 
+import { AuthModule } from "src/auth/auth.module";
 import { CategoryModule } from "src/modules/categories/category.module";
 import { ProductImageModule } from "src/modules/product-image/product-image.module";
 import { ProductModule } from "src/modules/product/product.module";
 import { UsersModule } from "src/modules/users/users.module";
 import { IS_DEV_ENV } from "src/shared/utils/is-dev.util";
+import { MessageModule } from "../modules/message/message.module";
 import { getGraphQLConfig } from "./config/graphql.config";
 import { PrismaModule } from "./prisma/prisma.module";
 
-import { AuthModule } from "src/auth/auth.module";
 import { OrderModule } from "src/modules/order/order.module";
 @Module({
 	imports: [
@@ -32,6 +33,7 @@ import { OrderModule } from "src/modules/order/order.module";
 		ProductImageModule,
 		UsersModule,
 		OrderModule
+		MessageModule,
 	],
 	controllers: [],
 	providers: [],

@@ -1,6 +1,34 @@
 export const es = {
 	common: {
-		profile: "Perfil",
+		profile: {
+			title: "Perfil",
+			subtitle: "Administra tu información personal",
+			label: {
+				name: "Nombre",
+				surname: "Apellido",
+				email: "Correo electrónico",
+				stellarWallet: "Cartera Stellar",
+				telegram: "Usuario de Telegram",
+				country: "País"
+			},
+			placeholder: {
+				name: "Ingresa tu nombre",
+				surname: "Ingresa tu apellido",
+				email: "Ingresa tu correo electrónico",
+				stellarWallet: "Tu dirección de cartera Stellar",
+				telegram: "Ingresa tu usuario de Telegram"
+			},
+			stellarWalletSpan: "Este campo está conectado a tu cartera Freighter y no puede ser modificado",
+			telegramSpan: "Opcional: Agrega tu usuario de Telegram para una comunicación más rápida",
+			save: "Guardar Cambios",
+			successMessage: "Perfil actualizado correctamente",
+			validation: {
+				nameRequired: "El nombre es requerido",
+				surnameRequired: "El apellido es requerido",
+				emailInvalid: "Formato de correo electrónico inválido",
+				countryRequired: "El país es requerido"
+			}
+		},
 		myProducts: "Mis Productos",
 		transactions: "Transacciones",
 		settings: "Configuración",
@@ -645,6 +673,44 @@ export const es = {
 		telegramSpan: "Ingrese su nombre de usuario de Telegram sin el símbolo @.",
 		save: "Guardar cambios",
 		successMessage: "Su perfil se ha actualizado correctamente.",
+	},
+	commonMarketPlaceFilter: {
+		// Filter UI elements
+		filters: "Filtros",
+		hideFilters: "Ocultar Filtros",
+		showFilters: "Mostrar Filtros",
+		category: "Categoría",
+		selectCategory: "Seleccionar categoría...",
+		priceRange: "Rango de Precio (${min} - ${max})",
+		condition: "Condición",
+		sellerRating: "Calificación del Vendedor",
+		postedWithin: "Publicado Dentro",
+		anyTime: "Cualquier Tiempo",
+		last24Hours: "Últimas 24 Horas",
+		last7Days: "Últimos 7 Días",
+		last30Days: "Últimos 30 Días",
+		sortBy: "Ordenar Por",
+		mostRecent: "Más Reciente",
+		priceLowHigh: "Precio: Bajo a Alto",
+		priceHighLow: "Precio: Alto a Bajo",
+		bestRating: "Mejor Calificación",
+		activeFilters: "Filtros activos",
+		clearAll: "Borrar todo",
+		applyFilters: "Aplicar Filtros",
+
+		// Condition options
+		conditions: {
+			new: "Nuevo",
+			likeNew: "Como Nuevo",
+			good: "Bueno",
+			fair: "Regular",
+		},
+		categories: {
+			electronics: "Electrónica",
+			clothing: "Ropa",
+			homeAndGarden: "Hogar y Jardín",
+			sports: "Deportes y Aire Libre",
+		},
 	},
 	// Add more sections as needed
 };

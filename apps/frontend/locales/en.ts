@@ -1,6 +1,34 @@
 export const en = {
 	common: {
-		profile: "Profile",
+		profile: {
+			title: "Profile",
+			subtitle: "Manage your personal information",
+			label: {
+				name: "First Name",
+				surname: "Last Name",
+				email: "Email",
+				stellarWallet: "Stellar Wallet",
+				telegram: "Telegram Username",
+				country: "Country"
+			},
+			placeholder: {
+				name: "Enter your first name",
+				surname: "Enter your last name",
+				email: "Enter your email",
+				stellarWallet: "Your Stellar wallet address",
+				telegram: "Enter your Telegram username"
+			},
+			stellarWalletSpan: "This field is connected to your Freighter wallet and cannot be changed",
+			telegramSpan: "Optional: Add your Telegram username for faster communication",
+			save: "Save Changes",
+			successMessage: "Profile updated successfully",
+			validation: {
+				nameRequired: "Name is required",
+				surnameRequired: "Surname is required",
+				emailInvalid: "Invalid email format",
+				countryRequired: "Country is required"
+			}
+		},
 		myProducts: "My Products",
 		transactions: "Transactions",
 		settings: "Settings",
@@ -641,6 +669,45 @@ export const en = {
 		save: "Save changes",
 		successMessage: "Your profile has been successfully updated.",
 	},
+	commonMarketPlaceFilter: {
+		// Filter UI elements
+		filters: "Filters",
+		hideFilters: "Hide Filters",
+		showFilters: "Show Filters",
+		category: "Category",
+		selectCategory: "Select category...",
+		priceRange: "Price Range (${min} - ${max})",
+		condition: "Condition",
+		sellerRating: "Seller Rating",
+		postedWithin: "Posted Within",
+		anyTime: "Any Time",
+		last24Hours: "Last 24 Hours",
+		last7Days: "Last 7 Days",
+		last30Days: "Last 30 Days",
+		sortBy: "Sort By",
+		mostRecent: "Most Recent",
+		priceLowHigh: "Price: Low to High",
+		priceHighLow: "Price: High to Low",
+		bestRating: "Best Rating",
+		activeFilters: "Active filters",
+		clearAll: "Clear all",
+		applyFilters: "Apply Filters",
+
+		// Condition options
+		conditions: {
+			new: "New",
+			likeNew: "Like New",
+			good: "Good",
+			fair: "Fair",
+		},
+		categories: {
+			electronics: "Electronics",
+			clothing: "Clothing",
+			homeAndGarden: "Home & Garden",
+			sports: "Sports & Outdoors",
+		},
+	},
+
 	// Add more sections as needed
 };
 
