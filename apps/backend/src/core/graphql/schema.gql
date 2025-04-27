@@ -56,14 +56,14 @@ type Mutation {
 }
 
 type Order {
-  buyer_address: String!
-  created_at: DateTime!
-  escrow_id: String!
+  buyerAddress: String!
+  createdAt: DateTime!
+  escrowId: String!
   id: String!
-  product_id: String!
-  seller_address: String!
+  productId: String!
+  sellerAddress: String!
   status: OrderStatus!
-  updated_at: DateTime!
+  updatedAt: DateTime!
 }
 
 enum OrderStatus {
