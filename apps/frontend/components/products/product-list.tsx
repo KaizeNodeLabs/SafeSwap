@@ -17,6 +17,7 @@ import type {
 	ProductImagesData,
 	ProductsData,
 } from "@/lib/types/product";
+import MarketplaceFilters from "../marketplace/marketplace-filters";
 
 export default function ProductList() {
 	const t = useTranslations();
@@ -83,7 +84,9 @@ export default function ProductList() {
 		<>
 			<div className="flex justify-between mb-8">
 				<h1 className="text-4xl font-bold mt-8 sm:mt-0">Marketplace</h1>
+				<span className="text-sm text-gray-500">Showing 8 of 100 products</span>
 			</div>
+			<MarketplaceFilters />
 
 			<section className="flex-1 mt-6">
 				{loading ? (
