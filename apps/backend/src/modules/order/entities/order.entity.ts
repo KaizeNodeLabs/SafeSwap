@@ -17,23 +17,23 @@ export class Order {
   id: string;
 
   @Field()
-  product_id: string;
+  productId: string;
 
   @Field()
-  buyer_address: string;
+  buyerAddress: string;
 
   @Field()
-  seller_address: string;
+  sellerAddress: string;
 
   @Field()
-  escrow_id: string;
+  escrowId: string;
 
   @Field(() => OrderStatus)
   status: OrderStatus;
 
   @Field()
-  created_at: Date;
+  createdAt: Date;
 
   @Field()
-  updated_at: Date;
+  updatedAt: Date;
 }
