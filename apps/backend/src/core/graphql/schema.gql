@@ -21,11 +21,13 @@ input CreateMessageInput {
 }
 
 input CreateProductInput {
-	categoryId: String!
-	description: String
-	name: String!
-	price: Float!
-	slug: String!
+  categoryId: String!
+  condition: String!
+  description: String
+  name: String!
+  price: Float!
+  sellerAddress: String!
+  slug: String!
 }
 
 input CreateUserInput {
@@ -62,14 +64,17 @@ type Mutation {
 }
 
 type ProductDTO {
-	categoryId: String!
-	createdAt: DateTime!
-	description: String
-	id: ID!
-	name: String!
-	price: Float!
-	slug: String!
-	updatedAt: DateTime!
+
+  categoryId: String!
+  condition: String!
+  createdAt: DateTime!
+  description: String
+  id: ID!
+  name: String!
+  price: Float!
+  sellerAddress: String!
+  slug: String!
+  updatedAt: DateTime!
 }
 
 type ProductImage {

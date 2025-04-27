@@ -1,4 +1,5 @@
 import { Field, Float, ID, ObjectType } from "@nestjs/graphql";
+import { $Enums } from "@prisma/client";
 
 @ObjectType()
 export class ProductDTO {
@@ -19,6 +20,12 @@ export class ProductDTO {
 
 	@Field()
 	categoryId: string;
+
+	@Field(() => String)
+	condition: $Enums.ProductCondition;
+
+	@Field()
+	sellerAddress: string;
 
 	@Field(() => Date)
 	createdAt: Date;

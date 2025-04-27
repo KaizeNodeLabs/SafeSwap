@@ -1,4 +1,5 @@
 import { Field, Float, InputType } from "@nestjs/graphql";
+import { $Enums } from "@prisma/client";
 
 @InputType()
 export class CreateProductInput {
@@ -16,4 +17,10 @@ export class CreateProductInput {
 
 	@Field()
 	categoryId: string;
+
+	@Field(() => String)
+	condition: $Enums.ProductCondition;
+
+	@Field()
+	sellerAddress: string;
 }

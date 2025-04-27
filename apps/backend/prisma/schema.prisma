@@ -7,6 +7,13 @@ datasource db {
   url      = env("POSTGRES_URI")
 }
 
+enum ProductCondition {
+  NEW
+  LIKE_NEW
+  GOOD
+  FAIR
+}
+
 model Category {
   id        String    @id @default(uuid())
   name      String    @unique
@@ -19,16 +26,19 @@ model Category {
 }
 
 model Product {
-  id          String         @id @default(uuid())
-  name        String
-  createdAt   DateTime       @default(now()) @map("created_at")
-  updatedAt   DateTime       @updatedAt @map("updated_at")
-  categoryId  String         @map("category_id")
-  description String?
-  price       Float
-  slug        String         @unique
-  images      ProductImage[]
-  category    Category       @relation(fields: [categoryId], references: [id])
+  id            String           @id @default(uuid())
+  name          String
+  createdAt     DateTime         @default(now()) @map("created_at")
+  updatedAt     DateTime         @updatedAt @map("updated_at")
+  categoryId    String           @map("category_id")
+  description   String?
+  price         Float
+  slug          String           @unique
+  images        ProductImage[]
+  condition     ProductCondition
+  sellerAddress String           @map("seller_address")
+  user          User             @relation(fields: [sellerAddress], references: [walletAddress])
+  category      Category         @relation(fields: [categoryId], references: [id])
 
   @@map("products")
 }
@@ -45,28 +55,28 @@ model ProductImage {
 }
 
 model User {
-  walletAddress    String   @id @map("wallet_address")
-  name             String   @db.VarChar(20)
-  surname          String   @db.VarChar(50)
-  email            String   @unique @db.VarChar(150)
-  telegramUsername String?  @map("telegram_username") @db.VarChar(50)
-  country          String   @db.VarChar(100)
-  isSeller         Boolean  @default(false) @map("is_seller")
+  walletAddress    String    @id @map("wallet_address")
+  name             String    @db.VarChar(20)
+  surname          String    @db.VarChar(50)
+  email            String    @unique @db.VarChar(150)
+  telegramUsername String?   @map("telegram_username") @db.VarChar(50)
+  country          String    @db.VarChar(100)
+  isSeller         Boolean   @default(false) @map("is_seller")
   messages         Message[] @relation("UserMessages")
-  createdAt        DateTime @default(now()) @map("created_at")
-  updatedAt        DateTime @updatedAt @map("updated_at")
+  createdAt        DateTime  @default(now()) @map("created_at")
+  updatedAt        DateTime  @updatedAt @map("updated_at")
+  Product          Product[]
 
   @@map("users")
 }
 
-
 model Message {
-  id             String   @id @default(uuid())
-  orderId        String   @map("order_id")
-  senderAddress  String   @map("sender_address")
-  content        String
-  createdAt      DateTime @default(now()) @map("created_at")
-  updatedAt      DateTime @updatedAt @map("updated_at")
+  id            String   @id @default(uuid())
+  orderId       String   @map("order_id")
+  senderAddress String   @map("sender_address")
+  content       String
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
 
   order  Order @relation(fields: [orderId], references: [id])
   sender User  @relation("UserMessages", fields: [senderAddress], references: [walletAddress])

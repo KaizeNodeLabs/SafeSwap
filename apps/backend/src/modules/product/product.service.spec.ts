@@ -1,4 +1,5 @@
 import { Test, TestingModule } from "@nestjs/testing";
+import { $Enums } from "@prisma/client";
 import { PrismaService } from "../../core/prisma/prisma.service";
 import { CreateProductInput } from "./dto/create-product.input";
 import { ProductDTO } from "./dto/product.dto";
@@ -15,6 +16,8 @@ describe("ProductService", () => {
 		description: "This is a test product",
 		price: 99.99,
 		categoryId: "category-1",
+		condition: $Enums.ProductCondition.LIKE_NEW,
+		sellerAddress: "0x123",
 		createdAt: new Date(),
 		updatedAt: new Date(),
 	};
@@ -24,6 +27,8 @@ describe("ProductService", () => {
 		slug: "test-product",
 		description: "This is a test product",
 		price: 99.99,
+		condition: $Enums.ProductCondition.LIKE_NEW,
+		sellerAddress: "0x123",
 		categoryId: "category-1",
 	};
 
