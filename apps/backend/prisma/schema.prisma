@@ -82,15 +82,17 @@ enum OrderStatus {
 }
 
 model Order {
-  id             String      @id @default(uuid())
-  product_id     String
-  buyer_address  String
-  seller_address String
-  escrow_id      String
-  status         OrderStatus @default(PENDING)
-  created_at     DateTime    @default(now())
-  updated_at     DateTime    @updatedAt
-  messages Message[]
+  id            String @id @default(uuid())
+  productId     String @map("product_id")
+  buyerAddress  String @map("buyer_address")
+  sellerAddress String @map("seller_address")
+  escrowId      String @map("escrow_id")
+  status        OrderStatus @default(PENDING)
+  createdAt     DateTime    @default(now()) @map("created_at")
+  updatedAt     DateTime    @updatedAt @map("updated_at")
+  messages      Message[]
 
-  product        Product     @relation(fields: [product_id], references: [id])
+  product        Product     @relation(fields: [productId], references: [id])
+
+  @@map("orders")
 }
