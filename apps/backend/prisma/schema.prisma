@@ -39,7 +39,7 @@ model Product {
   sellerAddress String           @map("seller_address")
   user          User             @relation(fields: [sellerAddress], references: [walletAddress])
   category      Category         @relation(fields: [categoryId], references: [id])
-
+  orders      Order[]
   @@map("products")
 }
 
@@ -84,7 +84,25 @@ model Message {
   @@map("messages")
 }
 
+enum OrderStatus {
+  PENDING
+  ON_DISPUTE
+  FOR_REVIEW
+  APPROVED
+}
+
 model Order {
-  id       String    @id @default(uuid())
-  messages Message[]
+  id            String @id @default(uuid())
+  productId     String @map("product_id")
+  buyerAddress  String @map("buyer_address")
+  sellerAddress String @map("seller_address")
+  escrowId      String @map("escrow_id")
+  status        OrderStatus @default(PENDING)
+  createdAt     DateTime    @default(now()) @map("created_at")
+  updatedAt     DateTime    @updatedAt @map("updated_at")
+  messages      Message[]
+
+  product        Product     @relation(fields: [productId], references: [id])
+
+  @@map("orders")
 }

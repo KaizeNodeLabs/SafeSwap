@@ -20,6 +20,14 @@ input CreateMessageInput {
 	senderAddress: String!
 }
 
+input CreateOrderInput {
+  buyerAddress: String!
+  escrowId: String!
+  productId: String!
+  sellerAddress: String!
+  status: OrderStatus! = PENDING
+}
+
 input CreateProductInput {
   categoryId: String!
   condition: String!
@@ -56,11 +64,31 @@ type Message {
 
 type Mutation {
 	createCategory(data: CreateCategoryInput!): Category!
+  createOrder(data: CreateOrderInput!): Order!
 	createProduct(data: CreateProductInput!): ProductDTO!
 	createProductImage(createProductImage: ProductImageDTO!): ProductImage!
 	createUser(data: CreateUserInput!): User!
 	sendMessage(data: CreateMessageInput!): Message!
+  updateOrderStatus(data: UpdateOrderStatusInput!): Order!
 	updateUser(data: UpdateUserInput!, walletAddress: String!): User!
+}
+
+type Order {
+  buyerAddress: String!
+  createdAt: DateTime!
+  escrowId: String!
+  id: String!
+  productId: String!
+  sellerAddress: String!
+  status: OrderStatus!
+  updatedAt: DateTime!
+}
+
+enum OrderStatus {
+  APPROVED
+  FOR_REVIEW
+  ON_DISPUTE
+  PENDING
 }
 
 type ProductDTO {
@@ -93,6 +121,9 @@ input ProductImageDTO {
 type Query {
 	categories: [Category!]!
 	category(id: String!): Category
+  getOrder(orderId: String!): Order!
+  getOrdersByBuyer(buyerAddress: String!): [Order!]!
+  getOrdersBySeller(sellerAddress: String!): [Order!]!
 	getMessagesByOrder(orderId: String!): [Message!]!
 	product(id: String!): ProductDTO
 	productImage(id: String!): ProductImage
@@ -100,6 +131,11 @@ type Query {
 	products: [ProductDTO!]!
 	user(walletAddress: String!): User
 	users: [User!]!
+}
+
+input UpdateOrderStatusInput {
+  orderId: String!
+  status: OrderStatus!
 }
 
 input UpdateUserInput {

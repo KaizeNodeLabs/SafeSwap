@@ -13,6 +13,7 @@ import { MessageModule } from "../modules/message/message.module";
 import { getGraphQLConfig } from "./config/graphql.config";
 import { PrismaModule } from "./prisma/prisma.module";
 
+import { OrderModule } from "src/modules/order/order.module";
 @Module({
 	imports: [
 		AuthModule,
@@ -31,6 +32,7 @@ import { PrismaModule } from "./prisma/prisma.module";
 		ProductModule,
 		ProductImageModule,
 		UsersModule,
+		OrderModule,
 		MessageModule,
 	],
 	controllers: [],
