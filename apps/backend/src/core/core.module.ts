@@ -32,7 +32,7 @@ import { OrderModule } from "src/modules/order/order.module";
 		ProductModule,
 		ProductImageModule,
 		UsersModule,
-		OrderModule
+		OrderModule,
 		MessageModule,
 	],
 	controllers: [],
