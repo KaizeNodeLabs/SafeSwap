@@ -46,13 +46,13 @@ describe('OrderResolver', () => {
       const mockOrders = [
         {
           id: 'order-123',
-          product_id: 'product-123',
-          buyer_address: buyerAddress,
-          seller_address: 'seller-address-123',
-          escrow_id: 'escrow-123',
+          productId: 'product-123',
+          buyerAddress: buyerAddress,
+          sellerAddress: 'seller-address-123',
+          escrowId: 'escrow-123',
           status: OrderStatus.PENDING,
-          created_at: new Date(),
-          updated_at: new Date(),
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
       ];
 
@@ -71,13 +71,13 @@ describe('OrderResolver', () => {
       const mockOrders = [
         {
           id: 'order-123',
-          product_id: 'product-123',
-          buyer_address: 'buyer-address-123',
-          seller_address: sellerAddress,
-          escrow_id: 'escrow-123',
+          productId: 'product-123',
+          buyerAddress: 'buyer-address-123',
+          sellerAddress: sellerAddress,
+          escrowId: 'escrow-123',
           status: OrderStatus.PENDING,
-          created_at: new Date(),
-          updated_at: new Date(),
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
       ];
 
@@ -95,13 +95,13 @@ describe('OrderResolver', () => {
       const orderId = 'order-123';
       const mockOrder = {
         id: orderId,
-        product_id: 'product-123',
-        buyer_address: 'buyer-address-123',
-        seller_address: 'seller-address-123',
-        escrow_id: 'escrow-123',
+        productId: 'product-123',
+        buyerAddress: 'buyer-address-123',
+        sellerAddress: 'seller-address-123',
+        escrowId: 'escrow-123',
         status: OrderStatus.PENDING,
-        created_at: new Date(),
-        updated_at: new Date(),
+        createdAt: new Date(),
+        updatedAt: new Date(),
       };
 
       mockOrderService.findOne.mockResolvedValue(mockOrder);
@@ -125,13 +125,13 @@ describe('OrderResolver', () => {
 
       const mockOrder = {
         id: 'order-123',
-        product_id: orderData.productId,
-        buyer_address: orderData.buyerAddress,
-        seller_address: orderData.sellerAddress,
-        escrow_id: orderData.escrowId,
+        productId: orderData.productId,
+        buyerAddress: orderData.buyerAddress,
+        sellerAddress: orderData.sellerAddress,
+        escrowId: orderData.escrowId,
         status: orderData.status,
-        created_at: new Date(),
-        updated_at: new Date(),
+        createdAt: new Date(),
+        updatedAt: new Date(),
       };
 
       mockOrderService.create.mockResolvedValue(mockOrder);
@@ -155,13 +155,13 @@ describe('OrderResolver', () => {
 
       const mockOrder = {
         id: orderId,
-        product_id: 'product-123',
-        buyer_address: 'buyer-address-123',
-        seller_address: 'seller-address-123',
-        escrow_id: 'escrow-123',
+        productId: 'product-123',
+        buyerAddress: 'buyer-address-123',
+        sellerAddress: 'seller-address-123',
+        escrowId: 'escrow-123',
         status: newStatus,
-        created_at: new Date(),
-        updated_at: new Date(),
+        createdAt: new Date(),
+        updatedAt: new Date(),
       };
 
       mockOrderService.updateStatus.mockResolvedValue(mockOrder);
