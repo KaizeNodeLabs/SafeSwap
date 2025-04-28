@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { $Enums, PrismaClient } from "@prisma/client";
 import slugify from "slugify";
 
 const prisma = new PrismaClient();
@@ -58,6 +58,8 @@ const products = [
 			"https://images.unsplash.com/photo-1700805732158-6f1169780ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1494173853739-c21f58b16055?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.NEW,
+		sellerAddress: "0x123",
 	},
 	{
 		name: "iPhone 15 Pro",
@@ -70,6 +72,8 @@ const products = [
 			"https://images.unsplash.com/photo-1695480571861-90044e831733?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1512446816042-444d641267d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.LIKE_NEW,
+		sellerAddress: "0x123",
 	},
 	{
 		name: "Samsung QLED 4K Smart TV",
@@ -80,6 +84,8 @@ const products = [
 			"https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1509281373149-e957c6296406?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.GOOD,
+		sellerAddress: "0x123",
 	},
 	{
 		name: "Sony WH-1000XM5 Headphones",
@@ -91,6 +97,8 @@ const products = [
 			"https://images.unsplash.com/photo-1590658268037-6bf12165a8df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1578319439584-104c94d37305?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.FAIR,
+		sellerAddress: "0x123",
 	},
 
 	// Home & Kitchen
@@ -103,6 +111,8 @@ const products = [
 			"https://images.unsplash.com/photo-1617059063772-34532796cdb5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1578738288760-05ce9be719d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.LIKE_NEW,
+		sellerAddress: "0x123",
 	},
 	{
 		name: "Dyson V12 Cordless Vacuum",
@@ -114,6 +124,8 @@ const products = [
 			"https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1558317374-067fb5f30001?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.GOOD,
+		sellerAddress: "0x123",
 	},
 	{
 		name: "Modern Velvet Sofa",
@@ -126,6 +138,8 @@ const products = [
 			"https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1558211583-d26f610c1eb1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.NEW,
+		sellerAddress: "0x123",
 	},
 
 	// Fashion
@@ -138,6 +152,8 @@ const products = [
 			"https://images.unsplash.com/photo-1598033129183-c4f50c736f10?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1607345366928-199ea26cfe3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.FAIR,
+		sellerAddress: "0x123",
 	},
 	{
 		name: "Women's Cashmere Sweater",
@@ -148,6 +164,8 @@ const products = [
 			"https://images.unsplash.com/photo-1434389677669-e08b4cac3105?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.FAIR,
+		sellerAddress: "0x123",
 	},
 	{
 		name: "Leather Ankle Boots",
@@ -159,6 +177,8 @@ const products = [
 			"https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.LIKE_NEW,
+		sellerAddress: "0x123",
 	},
 
 	// Sports & Outdoors
@@ -172,6 +192,8 @@ const products = [
 			"https://images.unsplash.com/photo-1517637382994-f02da38c6728?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.GOOD,
+		sellerAddress: "0x123",
 	},
 	{
 		name: "Mountain Bike",
@@ -184,6 +206,8 @@ const products = [
 			"https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.NEW,
+		sellerAddress: "0x123",
 	},
 	{
 		name: "Camping Tent 4-Person",
@@ -194,6 +218,8 @@ const products = [
 			"https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.GOOD,
+		sellerAddress: "0x123",
 	},
 
 	// Beauty & Health
@@ -206,6 +232,8 @@ const products = [
 			"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1556760544-74068565f05c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.FAIR,
+		sellerAddress: "0x123",
 	},
 	{
 		name: "Smart Fitness Watch",
@@ -218,6 +246,8 @@ const products = [
 			"https://images.unsplash.com/photo-1503328427499-d92d1ac3d174?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1512446816042-444d641267d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.NEW,
+		sellerAddress: "0x123",
 	},
 	{
 		name: "Hair Care Set",
@@ -229,6 +259,8 @@ const products = [
 			"https://images.unsplash.com/photo-1721379851141-e957fdf35c2e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1512446816042-444d641267d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.GOOD,
+		sellerAddress: "0x123",
 	},
 
 	// Toys & Games
@@ -241,6 +273,8 @@ const products = [
 			"https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1611371805429-8b5c1b2c34ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.FAIR,
+		sellerAddress: "0x123",
 	},
 	{
 		name: "Remote Control Car",
@@ -252,6 +286,8 @@ const products = [
 			"https://images.unsplash.com/photo-1613404196612-e058bb5aa01a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1512446816042-444d641267d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.LIKE_NEW,
+		sellerAddress: "0x123",
 	},
 	{
 		name: "Building Blocks Set",
@@ -264,6 +300,8 @@ const products = [
 			"https://images.unsplash.com/photo-1631106256072-54c89defe828?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1516981879613-9f5da904015f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.LIKE_NEW,
+		sellerAddress: "0x123",
 	},
 
 	// Automotive
@@ -277,6 +315,8 @@ const products = [
 			"https://images.unsplash.com/photo-1498887960847-2a5e46312788?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1512446816042-444d641267d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.FAIR,
+		sellerAddress: "0x123",
 	},
 	{
 		name: "Portable Car Vacuum",
@@ -289,6 +329,8 @@ const products = [
 			"https://images.unsplash.com/photo-1498887960847-2a5e46312788?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1512446816042-444d641267d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.GOOD,
+		sellerAddress: "0x123",
 	},
 	{
 		name: "Motorcycle Helmet",
@@ -300,6 +342,8 @@ const products = [
 			"https://images.unsplash.com/photo-1611004061856-ccc3cbe944b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1512446816042-444d641267d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.GOOD,
+		sellerAddress: "0x123",
 	},
 
 	// Books & Media
@@ -312,6 +356,8 @@ const products = [
 			"https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.NEW,
+		sellerAddress: "0x123",
 	},
 	{
 		name: "Vinyl Record Player",
@@ -324,6 +370,8 @@ const products = [
 			"https://images.unsplash.com/photo-1525459819821-1c2d33189e23?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1533575349875-5f372f88e25b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.NEW,
+		sellerAddress: "0x123",
 	},
 	{
 		name: "Classic Film Collection",
@@ -334,6 +382,8 @@ const products = [
 			"https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.LIKE_NEW,
+		sellerAddress: "0x123",
 	},
 
 	{
@@ -346,6 +396,8 @@ const products = [
 			"https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1590658006821-04f4008d5717?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.GOOD,
+		sellerAddress: "0x123",
 	},
 	{
 		name: "Smart Home Speaker",
@@ -358,6 +410,8 @@ const products = [
 			"https://images.unsplash.com/photo-1511842745775-b366af36db2a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 			"https://images.unsplash.com/photo-1512446816042-444d641267d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
 		],
+		condition: $Enums.ProductCondition.FAIR,
+		sellerAddress: "0x123",
 	},
 ];
 
@@ -378,6 +432,26 @@ async function main() {
 		} else {
 			console.log(`Category already exists: ${category.name}`);
 		}
+	}
+
+	//create a default user
+	const existingUser = await prisma.user.findUnique({
+		where: { walletAddress: "0x123" },
+	});
+
+	if (!existingUser) {
+		const user = await prisma.user.create({
+			data: {
+				name: "John",
+				surname: "Doe",
+				email: "john.doe@gmail.com",
+				walletAddress: "0x123",
+				country: "USA",
+			},
+		});
+		console.log(`Created user: ${user.email} `);
+	} else {
+		console.log(`User already exists: ${existingUser.email}`);
 	}
 
 	// Create products and their images if they don't exist
@@ -406,6 +480,8 @@ async function main() {
 					description: product.description,
 					price: product.price,
 					categoryId: category.id,
+					condition: product.condition,
+					sellerAddress: product.sellerAddress,
 				},
 			});
 
