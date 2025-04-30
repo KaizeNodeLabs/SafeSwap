@@ -66,6 +66,8 @@ model User {
   createdAt        DateTime  @default(now()) @map("created_at")
   updatedAt        DateTime  @updatedAt @map("updated_at")
   Product          Product[]
+  receivedReviews Review[] @relation("SellerReviews")
+  givenReviews    Review[] @relation("ReviewerReviews")
 
   @@map("users")
 }
@@ -101,8 +103,28 @@ model Order {
   createdAt     DateTime    @default(now()) @map("created_at")
   updatedAt     DateTime    @updatedAt @map("updated_at")
   messages      Message[]
+  reviews       Review[]
 
   product        Product     @relation(fields: [productId], references: [id])
 
   @@map("orders")
+}
+
+// Updated Review model in schema.prisma
+
+model Review {
+  id              String   @id @default(uuid())
+  sellerAddress   String   @map("seller_address")
+  reviewerAddress String   @map("reviewer_address")
+  orderId         String   @map("order_id")
+  rating          Int
+  comment         String?
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  seller          User     @relation("SellerReviews", fields: [sellerAddress], references: [walletAddress])
+  reviewer        User     @relation("ReviewerReviews", fields: [reviewerAddress], references: [walletAddress])
+  order           Order    @relation(fields: [orderId], references: [id])
+
+  @@map("reviews")
 }
