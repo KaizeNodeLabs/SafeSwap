@@ -7,6 +7,7 @@ import { AuthModule } from "src/auth/auth.module";
 import { CategoryModule } from "src/modules/categories/category.module";
 import { ProductImageModule } from "src/modules/product-image/product-image.module";
 import { ProductModule } from "src/modules/product/product.module";
+import { ReviewModule } from "src/modules/review/review.module";
 import { UsersModule } from "src/modules/users/users.module";
 import { IS_DEV_ENV } from "src/shared/utils/is-dev.util";
 import { MessageModule } from "../modules/message/message.module";
@@ -34,6 +35,7 @@ import { OrderModule } from "src/modules/order/order.module";
 		UsersModule,
 		OrderModule,
 		MessageModule,
+		ReviewModule,
 	],
 	controllers: [],
 	providers: [],
