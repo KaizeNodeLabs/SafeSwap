@@ -38,6 +38,14 @@ input CreateProductInput {
   slug: String!
 }
 
+input CreateReviewInput {
+  comment: String
+  orderId: String!
+  rating: Int!
+  reviewerAddress: String!
+  sellerAddress: String!
+}
+
 input CreateUserInput {
   country: String!
   email: String!
@@ -67,6 +75,7 @@ type Mutation {
   createOrder(data: CreateOrderInput!): Order!
   createProduct(data: CreateProductInput!): ProductDTO!
   createProductImage(createProductImage: ProductImageDTO!): ProductImage!
+  createReview(data: CreateReviewInput!): Review!
   createUser(data: CreateUserInput!): User!
   sendMessage(data: CreateMessageInput!): Message!
   updateOrderStatus(data: UpdateOrderStatusInput!): Order!
@@ -120,16 +129,35 @@ input ProductImageDTO {
 type Query {
   categories: [Category!]!
   category(id: String!): Category
+  getAverageRatingBySeller(sellerAddress: String!): RatingDTO!
   getMessagesByOrder(orderId: String!): [Message!]!
   getOrder(orderId: String!): Order!
   getOrdersByBuyer(buyerAddress: String!): [Order!]!
   getOrdersBySeller(sellerAddress: String!): [Order!]!
+  getReviewsBySeller(sellerAddress: String!): [Review!]!
   product(id: String!): ProductDTO
   productImage(id: String!): ProductImage
   productImages: [ProductImage!]!
   products: [ProductDTO!]!
   user(walletAddress: String!): User
   users: [User!]!
+}
+
+type RatingDTO {
+  averageRating: Float!
+  sellerAddress: String!
+  totalReviews: Int!
+}
+
+type Review {
+  comment: String
+  createdAt: DateTime!
+  id: ID!
+  orderId: String!
+  rating: Int!
+  reviewerAddress: String!
+  sellerAddress: String!
+  updatedAt: DateTime!
 }
 
 input UpdateOrderStatusInput {

@@ -1,9 +1,8 @@
 import { NotFoundException } from "@nestjs/common";
 import { Test, TestingModule } from "@nestjs/testing";
-import { ProductCondition } from "@prisma/client";
 import { PrismaService } from "src/core/prisma/prisma.service";
 import { CreateReviewInput } from "./dto/create-review.input";
-import { ReviewService } from "./reviews.service";
+import { ReviewService } from "./review.service";
 
 describe("ReviewService", () => {
 	let service: ReviewService;

@@ -7,7 +7,6 @@ import {
 	Max,
 	Min,
 } from "class-validator";
-import { IsStellarPublicKey } from "src/modules/users/validators/is-stellar-public-key.validator";
 
 @InputType()
 export class CreateReviewInput {

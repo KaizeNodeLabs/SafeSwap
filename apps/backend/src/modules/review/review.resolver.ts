@@ -2,7 +2,7 @@ import { Args, Mutation, Query, Resolver } from "@nestjs/graphql";
 import { CreateReviewInput } from "./dto/create-review.input";
 import { RatingDTO } from "./dto/rating.dto";
 import { Review } from "./entities/review.entity";
-import { ReviewService } from "./reviews.service";
+import { ReviewService } from "./review.service";
 
 @Resolver(() => Review)
 export class ReviewResolver {

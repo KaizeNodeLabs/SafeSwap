@@ -1,7 +1,7 @@
 import { Test, TestingModule } from "@nestjs/testing";
 import { CreateReviewInput } from "./dto/create-review.input";
-import { ReviewResolver } from "./reviews.resolver";
-import { ReviewService } from "./reviews.service";
+import { ReviewResolver } from "./review.resolver";
+import { ReviewService } from "./review.service";
 
 describe("ReviewResolver", () => {
 	let resolver: ReviewResolver;
